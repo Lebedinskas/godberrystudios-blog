@@ -19,4 +19,5 @@ This blog shares everything we've learned about web scraping, automation, and bu
 
 ## Get in Touch
 
-Find our tools on the [Apify Store](https://apify.com/godberry) or reach out via the store's messaging feature.
+- **Email:** hello@godberrystudios.com (general questions, privacy requests, partnerships)
+- **Apify Store:** [apify.com/godberry](https://apify.com/godberry) (tool-specific questions and support)

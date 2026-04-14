@@ -7,7 +7,7 @@ description: "Web scraping and content automation tools by Godberry Studios, ava
 
 Transform any content into social media posts. Feed it a URL, article, or raw text and get back formatted posts for Twitter/X, LinkedIn, Facebook, and more.
 
-**Pricing:** From $70 per 1,000 transformations  
+**Pricing:** $0.07 per transformation (pay-as-you-go, no subscription)  
 **Platform:** Apify Store  
 
 [Try Content to Social MCP →](https://apify.com/godberry/content-to-social-mcp)
