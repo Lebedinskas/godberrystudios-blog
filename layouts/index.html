@@ -1,0 +1,70 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="container">
+    <h1>Build Smarter with <span class="highlight">Web Scraping</span> & <span class="highlight">Automation</span></h1>
+    <p class="hero-sub">Tutorials, tools, and guides to help you extract data and automate content workflows.</p>
+    <div class="hero-cta">
+      <a href="/posts/" class="btn btn-primary">Read the Blog</a>
+      <a href="/tools/" class="btn btn-secondary">Explore Tools</a>
+    </div>
+  </div>
+</section>
+
+<section class="recent-posts">
+  <div class="container">
+    <h2>Latest Articles</h2>
+    <div class="posts-grid">
+      {{ range first 6 (where .Site.RegularPages "Section" "posts") }}
+      <article class="post-card">
+        <div class="post-meta">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+          <span class="meta-sep">&middot;</span>
+          <span class="reading-time">{{ math.Round (div (countwords .Content) 200.0) }} min read</span>
+          {{ with .Params.categories }}
+            {{ range first 1 . }}<span class="post-category">{{ . }}</span>{{ end }}
+          {{ end }}
+        </div>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Summary | truncate 150 }}</p>
+        <a href="{{ .RelPermalink }}" class="read-more">Read more &rarr;</a>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="newsletter-section">
+  <div class="container container-narrow">
+    <div class="newsletter-box">
+      <h2>Get web scraping tips in your inbox</h2>
+      <p>New tutorials, tool updates, and automation strategies. No spam, unsubscribe anytime.</p>
+      <form class="newsletter-form" action="https://godberrystudios.com/api/subscribe" method="POST">
+        <input type="email" name="email" placeholder="you@example.com" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="tools-cta">
+  <div class="container">
+    <h2>Our Tools on Apify Store</h2>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-badge">MCP Server</div>
+        <h3>Content to Social</h3>
+        <p>Transform any content into ready-to-post social media content. Works with Claude, ChatGPT, and any MCP-compatible client.</p>
+        <div class="tool-price">From $70 / 1,000 transformations</div>
+        <a href="https://apify.com/godberry/content-to-social-mcp" target="_blank" rel="noopener" class="btn btn-primary">Try on Apify &rarr;</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-badge">Scraper</div>
+        <h3>Google Reviews Scraper</h3>
+        <p>Extract Google Maps reviews for any business. Fast, reliable, and results in under 60 seconds.</p>
+        <div class="tool-price">From $0.10 / batch</div>
+        <a href="https://apify.com/godberry/scraper" target="_blank" rel="noopener" class="btn btn-primary">Try on Apify &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

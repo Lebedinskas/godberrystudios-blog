@@ -1,0 +1,76 @@
+{{ define "main" }}
+<article class="post-single">
+  <div class="container container-narrow">
+    <header class="post-header">
+      <div class="post-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        <span class="meta-sep">&middot;</span>
+        <span class="reading-time">{{ math.Round (div (countwords .Content) 200.0) }} min read</span>
+        {{ with .Params.categories }}
+          <span class="meta-sep">&middot;</span>
+          {{ range . }}<span class="post-category">{{ . }}</span>{{ end }}
+        {{ end }}
+      </div>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="post-description">{{ . }}</p>{{ end }}
+    </header>
+
+    <!-- Author -->
+    <div class="post-author">
+      <div class="author-avatar">GB</div>
+      <div class="author-info">
+        <span class="author-name">Godberry Studios</span>
+        <span class="author-role">Web Scraping & Automation Tools</span>
+      </div>
+    </div>
+    
+    <div class="post-content">
+      {{ .Content }}
+    </div>
+
+    <!-- Product CTA -->
+    <div class="post-cta">
+      <h3>Want to try the tools mentioned in this article?</h3>
+      <p>Check out our tools on the Apify Store:</p>
+      <div class="cta-buttons">
+        <a href="https://apify.com/godberry/content-to-social-mcp" target="_blank" rel="noopener" class="btn btn-primary">Content to Social MCP</a>
+        <a href="https://apify.com/godberry/scraper" target="_blank" rel="noopener" class="btn btn-secondary">Google Reviews Scraper</a>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="newsletter-cta">
+      <h3>Stay in the loop</h3>
+      <p>Get new tutorials and tool updates delivered to your inbox. No spam, unsubscribe anytime.</p>
+      <form class="newsletter-form" action="https://godberrystudios.com/api/subscribe" method="POST">
+        <input type="email" name="email" placeholder="you@example.com" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+
+    {{ with .Params.tags }}
+    <div class="post-tags">
+      {{ range . }}
+        <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag">#{{ . }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <!-- Related posts -->
+    {{ $related := .Site.RegularPages.Related . | first 3 }}
+    {{ with $related }}
+    <div class="related-posts">
+      <h3>You might also like</h3>
+      <div class="related-grid">
+        {{ range . }}
+        <a href="{{ .RelPermalink }}" class="related-card">
+          <span class="related-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+          <span class="related-title">{{ .Title }}</span>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</article>
+{{ end }}
