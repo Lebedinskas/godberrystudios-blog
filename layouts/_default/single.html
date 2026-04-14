@@ -1,7 +1,9 @@
 {{ define "main" }}
+{{ $isBlogPost := eq .Section "posts" }}
 <article class="post-single">
   <div class="container container-narrow">
     <header class="post-header">
+      {{ if $isBlogPost }}
       <div class="post-meta">
         <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
         <span class="meta-sep">&middot;</span>
@@ -11,10 +13,12 @@
           {{ range . }}<span class="post-category">{{ . }}</span>{{ end }}
         {{ end }}
       </div>
+      {{ end }}
       <h1>{{ .Title }}</h1>
       {{ with .Description }}<p class="post-description">{{ . }}</p>{{ end }}
     </header>
 
+    {{ if $isBlogPost }}
     <!-- Author -->
     <div class="post-author">
       <div class="author-avatar">GB</div>
@@ -23,11 +27,13 @@
         <span class="author-role">Web Scraping & Automation Tools</span>
       </div>
     </div>
-    
+    {{ end }}
+
     <div class="post-content">
       {{ .Content }}
     </div>
 
+    {{ if $isBlogPost }}
     <!-- Product CTA -->
     <div class="post-cta">
       <h3>Want to try the tools mentioned in this article?</h3>
@@ -70,6 +76,7 @@
         {{ end }}
       </div>
     </div>
+    {{ end }}
     {{ end }}
   </div>
 </article>
