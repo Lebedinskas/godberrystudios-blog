@@ -69,7 +69,7 @@ You just launched a feature. Write the announcement once, then use the tool to a
 
 Here's a powerful workflow that combines two of our tools:
 
-1. Use the [Google Reviews Scraper](https://apify.com/godberry/scraper) to extract your best customer reviews
+1. Use the [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) to extract your best customer reviews
 2. Feed those reviews into the Content to Social MCP Server
 3. Get back polished testimonial posts for every platform
 

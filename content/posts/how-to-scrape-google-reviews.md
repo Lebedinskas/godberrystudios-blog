@@ -24,7 +24,7 @@ Businesses and researchers extract Google reviews for several reasons:
 
 Instead of building a custom scraper (which breaks every time Google changes their HTML), you can use a ready-made tool.
 
-The [Google Reviews Scraper](https://apify.com/godberry/scraper) on Apify extracts reviews from any Google Maps listing. Here's what makes it practical:
+The [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) on Apify extracts reviews from any Google Maps listing. Here's what makes it practical:
 
 - **No code needed** — Just paste a Google Maps URL and hit run
 - **Fast** — Results in about 54 seconds
@@ -33,7 +33,7 @@ The [Google Reviews Scraper](https://apify.com/godberry/scraper) on Apify extrac
 
 ### Step-by-Step Guide
 
-**Step 1:** Go to the [Google Reviews Scraper](https://apify.com/godberry/scraper) on Apify Store.
+**Step 1:** Go to the [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) on Apify Store.
 
 **Step 2:** Enter the Google Maps URL of the business you want to scrape. For example: `https://www.google.com/maps/place/...`
 
@@ -74,4 +74,4 @@ You get structured JSON by default, with fields for author name, rating, review 
 
 ## Start Scraping
 
-Ready to try it? Head to the [Google Reviews Scraper on Apify](https://apify.com/godberry/scraper) and run your first extraction in under a minute. At $0.10 per batch, it's the most affordable way to get structured review data.
+Ready to try it? Head to the [Google Reviews Scraper on Apify](https://apify.com/godberry/google-reviews-scraper) and run your first extraction in under a minute. At $0.10 per batch, it's the most affordable way to get structured review data.

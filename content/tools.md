@@ -22,4 +22,4 @@ Extract Google Maps reviews for any business. Perfect for reputation monitoring,
 **Speed:** ~54 seconds per run  
 **Platform:** Apify Store  
 
-[Try Google Reviews Scraper →](https://apify.com/godberry/scraper)
+[Try Google Reviews Scraper →](https://apify.com/godberry/google-reviews-scraper)

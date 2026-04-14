@@ -11,7 +11,7 @@ Godberry Studios builds practical automation tools that solve real problems. We 
 
 **Content to Social MCP Server** — Transform any URL, article, or text into ready-to-post social media content. Compatible with Claude, ChatGPT, and any MCP client. [Try it on Apify →](https://apify.com/godberry/content-to-social-mcp)
 
-**Google Reviews Scraper** — Extract Google Maps reviews for any business. Fast (under 60 seconds), reliable, and just $0.10 per batch. [Try it on Apify →](https://apify.com/godberry/scraper)
+**Google Reviews Scraper** — Extract Google Maps reviews for any business. Fast (under 60 seconds), reliable, and just $0.10 per batch. [Try it on Apify →](https://apify.com/godberry/google-reviews-scraper)
 
 ## Why We Blog
 

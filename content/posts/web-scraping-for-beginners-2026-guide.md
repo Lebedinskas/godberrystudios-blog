@@ -25,7 +25,7 @@ Modern websites make this more complex with JavaScript rendering, anti-bot measu
 
 Not anymore. While custom scrapers in Python (using libraries like BeautifulSoup, Scrapy, or Playwright) are still powerful, the no-code scraping ecosystem has matured significantly.
 
-Platforms like [Apify](https://apify.com) offer pre-built scrapers (called "Actors") that you can run without writing a single line of code. For example, our [Google Reviews Scraper](https://apify.com/godberry/scraper) lets you extract reviews by simply pasting a URL.
+Platforms like [Apify](https://apify.com) offer pre-built scrapers (called "Actors") that you can run without writing a single line of code. For example, our [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) lets you extract reviews by simply pasting a URL.
 
 That said, understanding the basics helps you make better decisions about which tools to use and how to troubleshoot when things go wrong.
 
@@ -66,7 +66,7 @@ Let's walk through a real use case. Say you run a restaurant and want to monitor
 
 ### Step 1: Extract the Reviews
 
-Use the [Google Reviews Scraper](https://apify.com/godberry/scraper) to pull reviews for your restaurant and 3-4 competitors. At $0.10 per batch, monitoring 5 businesses costs you $0.50 per run.
+Use the [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) to pull reviews for your restaurant and 3-4 competitors. At $0.10 per batch, monitoring 5 businesses costs you $0.50 per run.
 
 ### Step 2: Schedule Regular Runs
 
