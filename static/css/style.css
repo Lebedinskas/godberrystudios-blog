@@ -108,7 +108,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 72px;
 }
 .logo {
   display: flex;
@@ -119,14 +119,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 .logo:hover { color: var(--text); }
 .logo-img {
-  height: 36px;
+  height: 56px;
   width: auto;
   object-fit: contain;
 }
 .logo-text {
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  display: none;
 }
 .main-nav {
   display: flex;
@@ -653,7 +651,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 48px;
 }
 .footer-brand .footer-logo-img {
-  height: 48px;
+  height: 64px;
   width: auto;
   margin-bottom: 16px;
 }
