@@ -1,8 +1,9 @@
 baseURL = "https://godberrystudios.com/"
 languageCode = "en-us"
 title = "Godberry Studios | Web Scraping & Automation Tools"
-theme = ""
-paginate = 10
+
+[pagination]
+  pagerSize = 10
 
 [params]
   description = "Build smarter workflows with powerful web scraping and content automation tools. Tutorials, guides, and tools by Godberry Studios."
