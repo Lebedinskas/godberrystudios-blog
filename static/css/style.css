@@ -118,18 +118,10 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text);
 }
 .logo:hover { color: var(--text); }
-.logo-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  background: var(--accent);
-  color: #fff;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.02em;
+.logo-img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
 }
 .logo-text {
   font-size: 17px;
@@ -427,14 +419,17 @@ h1, h2, h3, h4, h5, h6 {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--accent);
-  color: #fff;
+  background: #f3f0ff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  font-weight: 800;
   flex-shrink: 0;
+  overflow: hidden;
+}
+.author-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .author-info {
   display: flex;
@@ -657,7 +652,9 @@ h1, h2, h3, h4, h5, h6 {
   gap: 48px;
   padding-bottom: 48px;
 }
-.footer-brand .logo-icon {
+.footer-brand .footer-logo-img {
+  height: 48px;
+  width: auto;
   margin-bottom: 16px;
 }
 .footer-brand p {
