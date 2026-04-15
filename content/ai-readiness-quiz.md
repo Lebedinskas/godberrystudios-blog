@@ -273,71 +273,48 @@ layout: single
     </div>
   </div>
 
-  <!-- ===== CALCULATING SCREEN ===== -->
-  <div class="quiz-screen quiz-calculating" id="screen-calculating">
-    <div class="quiz-calc-spinner">
-      <svg viewBox="0 0 50 50" class="quiz-spinner-svg">
-        <circle cx="25" cy="25" r="20" fill="none" stroke-width="4" stroke="#EEF2FF" />
-        <circle cx="25" cy="25" r="20" fill="none" stroke-width="4" stroke="#4F46E5" stroke-dasharray="80 126" stroke-linecap="round" class="quiz-spinner-path" />
-      </svg>
-    </div>
-    <h3 class="quiz-calc-title">Analyzing your responses...</h3>
-    <p class="quiz-calc-sub">Building your personalized AI readiness report</p>
-  </div>
+<!-- ===== CALCULATING SCREEN ===== -->
+<div class="quiz-screen quiz-calculating" id="screen-calculating">
+<div class="quiz-calc-spinner">
+<svg viewBox="0 0 50 50" class="quiz-spinner-svg">
+<circle cx="25" cy="25" r="20" fill="none" stroke-width="4" stroke="#EEF2FF" />
+<circle cx="25" cy="25" r="20" fill="none" stroke-width="4" stroke="#4F46E5" stroke-dasharray="80 126" stroke-linecap="round" class="quiz-spinner-path" />
+</svg>
+</div>
+<h3 class="quiz-calc-title">Analyzing your responses...</h3>
+<p class="quiz-calc-sub">Building your personalized AI readiness report</p>
+</div>
 
-  <!-- ===== RESULTS SCREEN ===== -->
-  <div class="quiz-screen quiz-results" id="screen-results">
-    <div class="quiz-result-score-wrap">
-      <svg viewBox="0 0 160 160" class="quiz-score-ring">
-        <circle cx="80" cy="80" r="70" fill="none" stroke="#EEF2FF" stroke-width="10" />
-        <circle cx="80" cy="80" r="70" fill="none" stroke="#4F46E5" stroke-width="10"
-                stroke-dasharray="440" stroke-dashoffset="440" stroke-linecap="round"
-                transform="rotate(-90 80 80)" class="quiz-score-fill" id="score-ring" />
-      </svg>
-      <div class="quiz-score-inner">
-        <span class="quiz-score-num" id="score-number">0</span>
-        <span class="quiz-score-of">out of 40</span>
-      </div>
-    </div>
-
-    <div class="quiz-result-badge" id="result-badge">AI Explorer</div>
-    <h2 class="quiz-result-title" id="result-title">Your AI Readiness Level</h2>
-    <p class="quiz-result-desc" id="result-desc">Loading your personalized results...</p>
-
-    <div class="quiz-result-breakdown" id="result-breakdown">
-      <!-- Filled by JS -->
-    </div>
-
-    <div class="quiz-result-recs">
-      <h3 class="quiz-recs-title">Your Personalized Action Plan</h3>
-      <div class="quiz-recs-list" id="result-recs">
-        <!-- Filled by JS -->
-      </div>
-    </div>
-
-    <div class="quiz-result-share">
-      <p class="quiz-share-label">Think a friend or colleague could benefit?</p>
-      <div class="quiz-share-buttons">
-        <button class="quiz-share-btn quiz-share-x" onclick="shareX()" aria-label="Share on X">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          Share on X
-        </button>
-        <button class="quiz-share-btn quiz-share-li" onclick="shareLinkedIn()" aria-label="Share on LinkedIn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          Share on LinkedIn
-        </button>
-        <button class="quiz-share-btn quiz-share-copy" onclick="copyLink()" aria-label="Copy link">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-          <span id="copy-label">Copy Link</span>
-        </button>
-      </div>
-    </div>
-
-    <button class="quiz-btn-retake" onclick="retakeQuiz()">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/></svg>
-      Retake Quiz
-    </button>
-  </div>
+<!-- ===== RESULTS SCREEN ===== -->
+<div class="quiz-screen quiz-results" id="screen-results">
+<div class="quiz-result-score-wrap">
+<svg viewBox="0 0 160 160" class="quiz-score-ring">
+<circle cx="80" cy="80" r="70" fill="none" stroke="#EEF2FF" stroke-width="10" />
+<circle cx="80" cy="80" r="70" fill="none" stroke="#4F46E5" stroke-width="10" stroke-dasharray="440" stroke-dashoffset="440" stroke-linecap="round" transform="rotate(-90 80 80)" class="quiz-score-fill" id="score-ring" />
+</svg>
+<div class="quiz-score-inner">
+<span class="quiz-score-num" id="score-number">0</span>
+<span class="quiz-score-of">out of 40</span>
+</div>
+</div>
+<div class="quiz-result-badge" id="result-badge">AI Explorer</div>
+<h2 class="quiz-result-title" id="result-title">Your AI Readiness Level</h2>
+<p class="quiz-result-desc" id="result-desc">Loading your personalized results...</p>
+<div class="quiz-result-breakdown" id="result-breakdown"></div>
+<div class="quiz-result-recs">
+<h3 class="quiz-recs-title">Your Personalized Action Plan</h3>
+<div class="quiz-recs-list" id="result-recs"></div>
+</div>
+<div class="quiz-result-share">
+<p class="quiz-share-label">Think a friend or colleague could benefit?</p>
+<div class="quiz-share-buttons">
+<button class="quiz-share-btn quiz-share-x" onclick="shareX()" aria-label="Share on X"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Share on X</button>
+<button class="quiz-share-btn quiz-share-li" onclick="shareLinkedIn()" aria-label="Share on LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> Share on LinkedIn</button>
+<button class="quiz-share-btn quiz-share-copy" onclick="copyLink()" aria-label="Copy link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> <span id="copy-label">Copy Link</span></button>
+</div>
+</div>
+<button class="quiz-btn-retake" onclick="retakeQuiz()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/></svg> Retake Quiz</button>
+</div>
 </div>
 
 <style>
@@ -911,51 +888,52 @@ layout: single
       name: 'AI Explorer',
       tierClass: 'tier-1',
       min: 10, max: 17,
-      title: 'You\'re at the Starting Line',
-      desc: 'Your business has massive untapped potential for AI. You\'re doing a lot of things manually right now, which means every automation you add will have an outsized impact. The businesses seeing the biggest gains from AI in 2026 are the ones starting from where you are \u2014 because the improvement curve is steepest at the beginning.',
+      title: 'You\'re Sitting on a Gold Mine',
+      desc: 'Here\'s what most people won\'t tell you: businesses at your stage see the BIGGEST gains from AI. Why? Because you have the most to automate. Studies show small businesses save an average of 15\u201320 hours per week once they start automating manual tasks. You\'re not behind \u2014 you\'re at the perfect starting point where every small change creates massive impact. The three steps below will get you from zero to automated in under a week, with zero cost.',
       recs: [
-        { icon: '&#9889;', color: 'amber', title: 'Start with free AI assistants', desc: 'ChatGPT and Claude are free and can handle writing, brainstorming, and research right away.', link: '/posts/free-ai-tools-replace-expensive-software-2026/', linkText: 'See 47 free AI tools \u2192' },
-        { icon: '&#128187;', color: 'blue', title: 'Move your workflows digital', desc: 'Before you automate, get your key processes into digital tools. Start with what takes the most time.', link: '/posts/automate-business-tasks-with-ai-2026/', linkText: 'Read the guide \u2192' },
-        { icon: '&#128202;', color: 'green', title: 'Begin collecting data', desc: 'Start tracking customer reviews, website visits, and social media metrics. This data fuels future AI automation.', link: '/posts/how-to-scrape-google-reviews/', linkText: 'How reviews data works \u2192' }
+        { icon: '&#9889;', color: 'amber', title: 'Instant win: Replace 3 paid tools today', desc: 'ChatGPT, Claude, and Gemini are all free and can replace tools you\'re paying for right now \u2014 writing assistants, research tools, customer email drafters. Most businesses save $200\u2013$500/month just by switching.', link: '/posts/free-ai-tools-replace-expensive-software-2026/', linkText: 'See 47 free AI tools \u2192' },
+        { icon: '&#128187;', color: 'blue', title: 'This week: Automate your top 3 time-wasters', desc: 'Pick the 3 tasks you repeat most \u2014 scheduling, invoicing, social posting, data entry. Our step-by-step guide shows you how to automate each one in under 30 minutes with free tools.', link: '/posts/automate-business-tasks-with-ai-2026/', linkText: 'See the 10-task automation guide \u2192' },
+        { icon: '&#128202;', color: 'green', title: 'Next: Start collecting business intelligence', desc: 'Your competitors\' reviews, pricing, and customer feedback are all publicly available data. Once you start tracking it, you\'ll spot opportunities they\'re missing. It takes 60 seconds to set up.', link: '/posts/how-to-scrape-google-reviews/', linkText: 'How to collect review data \u2192' },
+        { icon: '&#128176;', color: 'purple', title: 'Your 30-day goal: Save 10 hours/week', desc: 'That\'s realistic at your stage. Businesses that follow this exact sequence \u2014 free AI tools, then task automation, then data collection \u2014 typically hit that target within their first month.', link: '/posts/how-to-make-money-with-ai-2026/', linkText: 'See the full roadmap \u2192' }
       ]
     },
     {
       name: 'AI Apprentice',
       tierClass: 'tier-2',
       min: 18, max: 25,
-      title: 'You\'ve Got a Solid Foundation',
-      desc: 'You\'re digitally literate, you have some data to work with, and you see the value in automation. You\'re in the sweet spot \u2014 you have enough infrastructure to benefit from AI immediately, but you haven\'t hit diminishing returns yet. The tools you need already exist; it\'s about plugging them in.',
+      title: 'You\'re in the Sweet Spot',
+      desc: 'This is the most exciting stage to be at. You already have the digital foundation \u2014 you use real tools, you have data, and you understand the value of working smarter. What you\'re missing is the connective tissue: the automations that make your existing tools talk to each other. The average business at your level can save $3,000\u2013$8,000 per year just by connecting what they already have. Here\'s your personalized roadmap:',
       recs: [
-        { icon: '&#128640;', color: 'purple', title: 'Automate your content creation', desc: 'You create enough content to benefit from AI-powered repurposing. Turn one blog post into social posts for every platform automatically.', link: '/posts/automate-social-media-content-with-mcp/', linkText: 'See how it works \u2192' },
-        { icon: '&#11088;', color: 'amber', title: 'Systematize review management', desc: 'You\'re already getting reviews \u2014 automate monitoring and response to save hours and never miss one.', link: '/posts/how-to-scrape-google-reviews/', linkText: 'Automate reviews \u2192' },
-        { icon: '&#128176;', color: 'green', title: 'Replace expensive software with AI', desc: 'You\'re probably paying for tools that now have free AI alternatives. A quick audit could save thousands per year.', link: '/posts/free-ai-tools-replace-expensive-software-2026/', linkText: '47 free replacements \u2192' },
-        { icon: '&#128736;', color: 'blue', title: 'Learn what web scraping can do', desc: 'Scraping publicly available data \u2014 competitor prices, leads, market trends \u2014 is a superpower most small businesses don\'t know about.', link: '/posts/web-scraping-for-beginners-2026-guide/', linkText: 'Beginner\'s guide \u2192' }
+        { icon: '&#128640;', color: 'purple', title: 'Biggest quick win: Automate content repurposing', desc: 'You\'re creating content but doing it manually for each platform. One blog post can automatically become 5\u20137 social posts, a newsletter excerpt, and a thread \u2014 saving 4\u20136 hours per week. This is the single highest-ROI automation for businesses at your stage.', link: '/posts/automate-social-media-content-with-mcp/', linkText: 'See the automation in action \u2192' },
+        { icon: '&#11088;', color: 'amber', title: 'Stop missing reviews (and the insights in them)', desc: 'You check reviews but don\'t have a system. Automated review monitoring catches every new review within minutes, alerts you, and over time reveals patterns \u2014 what customers love, what competitors get wrong, and where your next opportunity is.', link: '/posts/how-to-scrape-google-reviews/', linkText: 'Set up review automation \u2192' },
+        { icon: '&#128176;', color: 'green', title: 'Audit your software spend this week', desc: 'Businesses at your stage typically pay for 5\u201312 software subscriptions. At least 3 of those now have free AI alternatives that are actually better. We mapped 47 specific replacements \u2014 find yours.', link: '/posts/free-ai-tools-replace-expensive-software-2026/', linkText: 'Find your free replacements \u2192' },
+        { icon: '&#128736;', color: 'blue', title: 'Unlock your secret weapon: web data', desc: 'Your competitors\' pricing, customer complaints, and market positioning are all publicly available. Web scraping turns this scattered data into structured intelligence you can act on. Most businesses don\'t know this exists \u2014 which is exactly why it\'s so powerful.', link: '/posts/web-scraping-for-beginners-2026-guide/', linkText: 'Start scraping in 10 minutes \u2192' }
       ]
     },
     {
       name: 'AI Strategist',
       tierClass: 'tier-3',
       min: 26, max: 33,
-      title: 'You\'re Primed for Automation',
-      desc: 'Your business is digitally mature with solid processes and data. You think in terms of ROI and you\'re comfortable with technology. You\'re perfectly positioned to build end-to-end AI workflows that save serious time and money. Focus on connecting your existing tools into automated pipelines.',
+      title: 'You\'re Ready to Build Real Competitive Advantages',
+      desc: 'You\'re ahead of 80% of small businesses. You have the digital maturity, the data discipline, and the mindset. Now it\'s about compounding: building automated pipelines that run 24/7 and create advantages your competitors can\'t easily copy. Businesses at your level typically see 20\u201340% productivity gains within 90 days of implementing the automations below. Here\'s what to focus on:',
       recs: [
-        { icon: '&#9889;', color: 'purple', title: 'Build automated content pipelines', desc: 'With your content volume, automation isn\'t optional \u2014 it\'s the difference between maintaining and scaling. MCP servers can transform content across formats automatically.', link: '/posts/automate-social-media-content-with-mcp/', linkText: 'Build a pipeline \u2192' },
-        { icon: '&#127919;', color: 'blue', title: 'Turn reviews into competitive intelligence', desc: 'You\'re already monitoring reviews. Take it further \u2014 extract and analyze competitor reviews at scale to find market gaps.', link: '/posts/scrape-google-maps-lead-generation/', linkText: 'Lead gen with data \u2192' },
-        { icon: '&#128640;', color: 'green', title: 'Deploy production automations', desc: 'You\'re ready for always-on automation. Deploy MCP servers that run 24/7 without your involvement.', link: '/posts/deploy-mcp-server-production/', linkText: 'Deployment guide \u2192' },
-        { icon: '&#128161;', color: 'amber', title: 'Make money with AI skills', desc: 'Your technical comfort means you could build and sell AI tools, not just use them. That\'s a real revenue opportunity.', link: '/posts/how-to-make-money-with-ai-2026/', linkText: 'Monetize AI \u2192' }
+        { icon: '&#9889;', color: 'purple', title: 'Build an always-on content machine', desc: 'You\'re producing serious content. The next step is a pipeline that automatically transforms, schedules, and distributes it across every channel without you touching it. MCP servers make this possible \u2014 one input, seven outputs, zero daily effort.', link: '/posts/automate-social-media-content-with-mcp/', linkText: 'Build your content pipeline \u2192' },
+        { icon: '&#127919;', color: 'blue', title: 'Turn competitor reviews into your strategy', desc: 'You monitor your own reviews. Now extract and analyze your competitors\' reviews at scale \u2014 thousands of them. You\'ll find the exact complaints their customers have that your business could solve. This is how you find market gaps nobody else sees.', link: '/posts/scrape-google-maps-lead-generation/', linkText: 'Extract competitive intelligence \u2192' },
+        { icon: '&#128640;', color: 'green', title: 'Deploy automations that never sleep', desc: 'Your manual workflows are bottlenecked by your working hours. Deploy MCP servers on cloud infrastructure that run 24/7 \u2014 monitoring, scraping, transforming, and alerting while you sleep. Setup takes an afternoon; the time savings compound forever.', link: '/posts/deploy-mcp-server-production/', linkText: 'Deploy your first server \u2192' },
+        { icon: '&#128161;', color: 'amber', title: 'Monetize what you\'ve built', desc: 'Here\'s what most people miss: the automation skills you\'re building have direct monetary value. Freelancers charge $50\u2013$200/hour for AI automation consulting. You could sell custom workflows, build tools for your industry, or consult for businesses at earlier stages.', link: '/posts/how-to-make-money-with-ai-2026/', linkText: 'See 12 proven AI income methods \u2192' }
       ]
     },
     {
       name: 'AI Pioneer',
       tierClass: 'tier-4',
       min: 34, max: 40,
-      title: 'You\'re Ahead of the Curve',
-      desc: 'Your business is firing on all cylinders \u2014 digital maturity, data discipline, automation mindset, and competitive awareness. You\'re in the top tier of AI-readiness. Your next moves are about building compounding advantages: custom tools, multi-step workflows, and potentially selling your automation expertise.',
+      title: 'You\'re in the Top 5% \u2014 Here\'s How to Stay There',
+      desc: 'You\'re not just AI-ready \u2014 you\'re AI-native. Digital maturity, data discipline, automation mindset, and competitive awareness are all firing. You\'re in rare company: fewer than 5% of small businesses score this high. Your competitive moat is real, but it only lasts if you keep building. The moves below are about creating compounding advantages that widen the gap between you and everyone else:',
       recs: [
-        { icon: '&#128736;', color: 'purple', title: 'Build custom MCP servers', desc: 'Standard tools aren\'t enough for you. Build custom AI pipelines tailored to your exact workflow.', link: '/posts/deploy-mcp-server-production/', linkText: 'Advanced deployment \u2192' },
-        { icon: '&#127760;', color: 'blue', title: 'Scale with data-driven lead generation', desc: 'Scrape and analyze market data at scale \u2014 competitor pricing, Google Maps leads, review sentiment \u2014 to find opportunities others miss.', link: '/posts/scrape-google-maps-lead-generation/', linkText: 'Data-driven leads \u2192' },
-        { icon: '&#128176;', color: 'green', title: 'Productize your automations', desc: 'You\'ve built workflows that work. Consider packaging them as tools and selling them on marketplaces.', link: '/posts/how-to-make-money-with-ai-2026/', linkText: 'Build for profit \u2192' },
-        { icon: '&#9889;', color: 'amber', title: 'Stay ahead with AI agents', desc: 'The next wave is AI agents that can browse, research, and act autonomously. You\'re ready for it.', link: '/posts/webmcp-chrome-ai-agents-explained/', linkText: 'AI agents explained \u2192' }
+        { icon: '&#128736;', color: 'purple', title: 'Build custom AI pipelines for your exact workflow', desc: 'Off-the-shelf tools are designed for average use cases. You\'re past that. Build custom MCP servers tailored to your specific data sources, formats, and business logic. This is the automation layer that competitors literally cannot copy because it\'s built on your unique processes.', link: '/posts/deploy-mcp-server-production/', linkText: 'Advanced deployment guide \u2192' },
+        { icon: '&#127760;', color: 'blue', title: 'Scale data-driven lead generation', desc: 'You already understand data. Now scale it: scrape Google Maps for targeted leads, monitor competitor pricing changes in real-time, track review sentiment across your entire market. Businesses doing this report 3\u20135x more qualified leads at a fraction of traditional marketing costs.', link: '/posts/scrape-google-maps-lead-generation/', linkText: 'Build your lead engine \u2192' },
+        { icon: '&#128176;', color: 'green', title: 'Productize and sell your automations', desc: 'You\'ve built workflows that work. Package them as products: sell tools on marketplaces like Apify, create templates for your industry, or license your automations to other businesses. The best part? Digital products have near-zero marginal cost \u2014 you build once, sell forever.', link: '/posts/how-to-make-money-with-ai-2026/', linkText: 'Turn automation into income \u2192' },
+        { icon: '&#9889;', color: 'amber', title: 'Get ahead of the AI agent wave', desc: 'The next frontier is autonomous AI agents that browse the web, research prospects, analyze data, and take actions without prompting. Standards like WebMCP are making this real right now. You have the technical foundation to adopt this before your industry even knows it exists.', link: '/posts/webmcp-chrome-ai-agents-explained/', linkText: 'Understand AI agents \u2192' }
       ]
     }
   ];
