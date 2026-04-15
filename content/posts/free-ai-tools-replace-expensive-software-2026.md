@@ -24,7 +24,7 @@ OpenAI's free tier gives you GPT-4o access with generous usage limits. For most 
 **Replaces:** Jasper ($49/month) for long-form content  
 **Savings:** $588/year
 
-AnthropiC's Claude excels at long-form writing, analysis, and nuanced content. The free tier provides access to Claude Sonnet, which handles most content tasks competently. Claude's context window means it can work with entire documents, not just short prompts.
+Anthropic's Claude excels at long-form writing, analysis, and nuanced content. The free tier provides access to Claude Sonnet, which handles most content tasks competently. Claude's context window means it can work with entire documents, not just short prompts.
 
 **Best for:** Long-form articles, document analysis, research synthesis, technical writing.
 
@@ -456,7 +456,3 @@ Here's a starter stack for a one-person business that covers all essential funct
 **Capabilities: Equivalent to a $500+/month software stack**
 
 The gap between free and paid software has never been smaller. AI-powered tools have democratized access to capabilities that used to require enterprise budgets. The question is no longer "can I afford the tools?" — it's "am I using the right free tools?"
-
----
-
-*At Godberry Studios, we build AI automation tools on the [Apify Store](https://apify.com/godberry). Our tools are built on the same principle as this article — making powerful automation accessible and affordable. [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) gives you competitive intelligence at $0.10 per location, and [Content-to-Social MCP Server](https://apify.com/godberry/content-to-social-mcp-server) transforms content at $0.07 per use.*

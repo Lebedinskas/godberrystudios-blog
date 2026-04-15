@@ -91,8 +91,6 @@ The real power isn't in writing individual posts. It's in repurposing. One blog 
 4. Schedule everything in Buffer for the week
 5. Total time: 2 hours for a full week of content across all platforms
 
-That's a tool we built for exactly this problem. Our [Content-to-Social MCP Server](https://apify.com/godberry/content-to-social-mcp-server) transforms any URL into platform-optimized social posts in seconds — designed for the AI agents and MCP clients that developers and content teams are already using.
-
 ## 4. Meeting Notes, Transcription, and Action Items
 
 **What you're probably doing:** Taking notes during calls (and missing half the conversation). Sending follow-up emails hours later trying to remember what was discussed. Losing action items in the noise.
@@ -157,12 +155,12 @@ That's a tool we built for exactly this problem. Our [Content-to-Social MCP Serv
 | Data Source | What It Reveals | Tool |
 |------------|-----------------|------|
 | Competitor pricing pages | Price changes, new tiers | Visualping or Hexowatch |
-| Google Reviews | Customer satisfaction trends | Google Reviews Scraper |
+| Google Reviews | Customer satisfaction trends | Review scraping tools |
 | Job postings | Upcoming product areas | LinkedIn scraping tools |
 | Social media | Marketing strategy shifts | Brand24 or Mention |
 | Blog/changelog | Product roadmap signals | RSS + AI summary |
 
-**How scraping powers this:** Our [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) extracts competitor reviews across 9 countries at $0.10 per location. Feed those reviews into Claude for sentiment analysis, and you get a competitive intelligence report that would cost $5,000+ from a consulting firm.
+**How scraping powers this:** Review scrapers can extract competitor reviews across multiple countries for as little as $0.10 per location. Feed those reviews into Claude for sentiment analysis, and you get a competitive intelligence report that would cost $5,000+ from a consulting firm.
 
 **Setup time:** 2–3 hours for initial monitoring setup. Then 15 minutes per week to review AI-generated summaries.
 
@@ -266,7 +264,3 @@ Pick the one task from this list that annoys you the most. The one you dread doi
 Most businesses that start with one automation end up automating five or more within the first month. Once you experience the time savings from automating customer support or email marketing, you start seeing automation opportunities everywhere.
 
 The AI tools are ready. The question is: are you still doing manually what a machine could do better?
-
----
-
-*Godberry Studios builds automation tools that help businesses extract, transform, and act on data. Our [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) automates competitive intelligence (Task 7), and our [Content-to-Social MCP Server](https://apify.com/godberry/content-to-social-mcp-server) automates content repurposing (Task 3). Both run on the Apify platform with usage-based pricing — you only pay when you use them.*

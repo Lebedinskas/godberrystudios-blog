@@ -57,11 +57,11 @@ This is the most accessible entry point because content demand is infinite and A
 **Time to first dollar:** 2–8 weeks  
 **Difficulty:** Medium (some coding helps, but no-code options exist)
 
-This is the method we use at Godberry Studios. We build automation tools and sell them on platforms like the Apify Store, where they earn recurring revenue from usage-based pricing.
+Automation tools sold on marketplaces are one of the best paths to recurring revenue in 2026. You build once, list on a platform, and earn every time someone runs your tool.
 
 **How it works:** Find a repetitive task that businesses do manually. Build an AI-powered tool that automates it. List it on a marketplace. Earn money every time someone runs it.
 
-**The economics:** Top actors on the Apify Store earn developers $10,000–$50,000 per month. The platform handles hosting, billing, and customer acquisition. You build it once, then collect revenue as long as people use it.
+**The economics:** Top actors on automation marketplaces earn $10,000–$50,000 per month. The platform handles hosting, billing, and customer acquisition. You build it once, then collect revenue as long as people use it.
 
 **Real tools that earn real money:**
 
@@ -74,11 +74,11 @@ This is the method we use at Godberry Studios. We build automation tools and sel
 
 **What platforms to sell on:**
 
-- **Apify Store** — 55,000+ monthly active users, usage-based pricing, handles all infrastructure
-- **RapidAPI** — API marketplace with millions of developers
+- **Automation Marketplaces** — 55,000+ monthly active users, usage-based pricing, handles all infrastructure
+- **API Marketplaces** — API marketplace with millions of developers
 - **Your own website** — higher margins, but you handle everything
 
-Our Google Reviews Scraper, for instance, costs $0.10 per business location to run. That's far cheaper than the Google Places API ($7–$14 per request), which means there's a clear value proposition for every customer.
+A web scraper, for instance, might cost around $0.10 per request to run. That's far cheaper than building custom solutions, which means there's a clear value proposition for every customer.
 
 ## Method 3: AI-Powered Freelancing (Supercharged)
 
@@ -204,7 +204,7 @@ Businesses are desperate for data. Clean, structured, actionable data. The web s
 | Market research data | Consultants, investors | $500–$5,000 per project |
 | Job listing aggregation | HR tech, recruiters | $200–$2,000/month |
 
-**The tools:** Platforms like Apify let you run pre-built scrapers without writing code. Our Google Reviews Scraper, for example, extracts reviews across 9 countries at $0.10 per location — then you add AI sentiment analysis and sell the insights package for $500+ per report.
+**The tools:** Platforms like automation marketplaces let you run pre-built scrapers without writing code. You can find ready-made review scrapers that extract reviews across multiple countries for pennies per location — then you add AI sentiment analysis and sell the insights package for $500+ per report.
 
 **The AI advantage:** Raw data is cheap. Insights are expensive. Use AI to transform scraped data into analysis: sentiment trends, competitive positioning, market opportunity scores. That's where the margin lives.
 
@@ -257,7 +257,7 @@ SEO has changed fundamentally. 55% of Google searches now show AI Overviews. AI 
 **Time to first dollar:** 1–2 weeks  
 **Difficulty:** Low
 
-AI voice cloning has reached the point where it's nearly indistinguishable from real human speech. ElevenLabs alone has paid out over $14 million to voice creators.
+AI voice cloning has reached the point where it's nearly indistinguishable from real human speech. Voice platforms alone have paid out millions to voice creators.
 
 **Revenue streams:**
 
@@ -304,7 +304,7 @@ AI voice cloning has reached the point where it's nearly indistinguishable from 
 - **Lead generation for agents:** Scrape and analyze property listings, identify motivated sellers, score leads
 - **Virtual staging and marketing:** AI-generated property photos, virtual tours, and listing descriptions
 
-**How data scraping fits in:** Real estate agents need data — comparable sales, rental rates, neighborhood demographics, new construction permits. Tools like our Google Reviews Scraper can extract business reviews around a property location, giving agents a neighborhood quality score that impresses clients.
+**How data scraping fits in:** Real estate agents need data — comparable sales, rental rates, neighborhood demographics, new construction permits. Review scrapers can extract business reviews around a property location, giving agents a neighborhood quality score that impresses clients.
 
 ## The Meta-Strategy: Stack Multiple Methods
 
@@ -312,7 +312,7 @@ The people earning the most from AI in 2026 aren't relying on a single method. T
 
 **Example stack ($8,000–$15,000/month):**
 1. AI content agency (5 regular clients) → $5,000/month
-2. Automation tools on Apify Store → $1,000–$3,000/month (passive)
+2. Automation tools on marketplace → $1,000–$3,000/month (passive)
 3. AI consulting (2 small business clients) → $2,000–$4,000/month
 4. YouTube channel with AI tool reviews → $500–$2,000/month
 
@@ -343,7 +343,3 @@ If you've read this far and want to take action, here's your first-week plan:
 **Day 7:** Deliver something valuable for free or at a steep discount to your first client. Get a testimonial. Use it to attract the next one.
 
 The AI wave is real, the tools are accessible, and the demand is enormous. The only question is whether you start now or wait until the market gets more competitive.
-
----
-
-*At Godberry Studios, we build AI automation tools on the [Apify Store](https://apify.com/godberry). Our [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) and [Content-to-Social MCP Server](https://apify.com/godberry/content-to-social-mcp-server) are examples of Method 2 in action — tools we built once that earn recurring revenue from usage-based pricing. We share our journey, including real revenue numbers, in our [Building in Public](/tags/building-in-public/) series.*
