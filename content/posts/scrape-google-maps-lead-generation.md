@@ -320,4 +320,6 @@ Pick one niche. Run one scrape. Review the data. Send 20 emails. That's your hom
 
 If you want to add review intelligence to your lead lists, the [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) is the fastest way to get structured review data for any listing. Pair it with a Google Maps scraper, and you've got the two things every cold email needs: a reason to reach out, and something specific to say.
 
-For more scraping fundamentals, check out our [Web Scraping for Beginners guide](/posts/web-scraping-for-beginners-2026-guide/) — it covers proxies, rate limiting, and other concepts that'll help you scale.
+For more scraping fundamentals, check out our [Web Scraping for Beginners guide](/posts/web-scraping-for-beginners-2026-guide/) — it covers proxies, rate limiting, and other concepts that'll help you scale. If you want a detailed walkthrough of extracting reviews specifically, our [Google Reviews scraping tutorial](/posts/how-to-scrape-google-reviews/) covers API cost comparisons, no-code and Python methods, and real output examples.
+
+Got great reviews from your leads? Turn them into social proof with the [Content to Social MCP Server](/posts/automate-social-media-content-with-mcp/) — it transforms review text into ready-to-post content for LinkedIn, Twitter, and Facebook.
