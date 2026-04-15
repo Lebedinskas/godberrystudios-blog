@@ -1,6 +1,16 @@
 ---
 title: "Tools"
-description: "Web scraping and content automation tools by Godberry Studios, available on the Apify Store."
+description: "Free AI tools and web scraping automation by Godberry Studios. Take our AI readiness quiz and explore tools on the Apify Store."
+---
+
+## Is Your Business AI-Ready? (Free Quiz)
+
+Find out how prepared your business is for AI automation. Answer 10 quick questions and get a personalized readiness score with an action plan tailored to your situation.
+
+**Time:** 2 minutes | **Cost:** Free, no signup required
+
+[Take the AI Readiness Quiz →](/ai-readiness-quiz/)
+
 ---
 
 ## Content to Social MCP Server
