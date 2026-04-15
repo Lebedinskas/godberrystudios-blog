@@ -402,7 +402,7 @@ If you're building your first production MCP server, here's the sequence that wo
 
 That's it. No Kubernetes, no service mesh, no over-engineering. Get the basics right and your server will be in the 9% that actually stays healthy.
 
-If you're new to web scraping and data extraction — the domain where many MCP servers live — our [beginner's guide to web scraping](/posts/web-scraping-for-beginners-2026-guide/) covers the fundamentals. And if you want to see how we've built MCP servers that handle [social media content transformation](/posts/automate-social-media-content-with-mcp/), that guide walks through the architecture.
+If you're new to web scraping and data extraction — the domain where many MCP servers live — our [beginner's guide to web scraping](/posts/web-scraping-for-beginners-2026-guide/) covers the fundamentals. And if you want to see how we've built MCP servers that handle [social media content transformation](/posts/automate-social-media-content-with-mcp/), that guide walks through the architecture. For a practical example of an Apify-deployed scraper in action, see our [Google Reviews extraction tutorial](/posts/how-to-scrape-google-reviews/) or the [Google Maps lead generation guide](/posts/scrape-google-maps-lead-generation/).
 
 The MCP SDK crossed 164 million monthly downloads in April 2026. The ecosystem is growing fast, but production quality isn't keeping pace. The developers who figure out deployment and reliability now will own this space for the next few years.
 
