@@ -300,8 +300,6 @@ Nothing — your scrapers keep working. WebMCP adds a structured layer on top of
 
 ---
 
-WebMCP isn't going to replace scraping overnight. Most of the web won't implement it for years, if ever. But for the sites that do adopt it, the improvement is dramatic — faster, cheaper, more reliable, and no more fighting with CSS selectors that break every Tuesday.
+WebMCP isn't going to replace scraping overnight. Most of the web won't implement it for years, if ever. But for the sites that do adopt it, you stop fighting CSS selectors that break every Tuesday — and your agent's success rate jumps from "works most of the time" to 97.9%.
 
-If you build AI agents or browser automation, start experimenting with the Chrome flag today. If you run a website, add `toolname` to your forms — it's five minutes of work that future-proofs you for the agentic web.
-
-The window where early adopters get a real advantage is open right now. In two years, this will be table stakes.
+If you build AI agents or browser automation, start experimenting with the Chrome flag today. If you run a website, add `toolname` to your forms — it takes five minutes and costs nothing. The sites that do it now will be the ones AI agents actually know how to use when browser-native AI rolls out later this year.
