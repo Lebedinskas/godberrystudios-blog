@@ -15,7 +15,7 @@
       results.innerHTML = '<div class="search-empty">Search is loading, please try again in a moment.</div>';
       // Try loading Fuse.js dynamically as fallback
       var s = document.createElement('script');
-      s.src = 'https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.6.2/fuse.min.js';
+      s.src = '/js/fuse.min.js';
       s.onload = function () { loadIndex(cb); };
       s.onerror = function () {
         results.innerHTML = '<div class="search-empty">Search could not be loaded.</div>';
