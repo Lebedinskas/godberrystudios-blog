@@ -5,9 +5,11 @@ description: "30 CVEs in 60 days exposed serious flaws in MCP servers. This guid
 categories: ["AI Automation"]
 tags: ["MCP", "security", "prompt injection", "tool poisoning", "OAuth 2.1", "OWASP"]
 keywords: ["MCP security", "MCP tool poisoning", "MCP prompt injection", "secure MCP server", "OWASP MCP Top 10"]
+image: /images/posts/mcp-security-tool-poisoning.png
+image_alt: "Shield protecting a server rack from attack vectors like poisoned data streams and prompt injection"
 ---
 
-Between January and March 2026, security researchers filed over 30 CVEs against Model Context Protocol implementations. One of them — CVE-2026-5058 in aws-mcp-server — scored a CVSS 9.8, meaning remote code execution through crafted input. If you're running an MCP server in production right now, your attack surface is wider than you probably think.
+Between January and March 2026, security researchers filed over 30 CVEs against Model Context Protocol implementations. One of them — CVE-2026-5058 in aws-mcp-server — scored a CVSS 9.8, meaning remote code execution through crafted input. If you're [running an MCP server in production](/posts/deploy-mcp-server-production/) right now, your attack surface is wider than you probably think.
 
 This guide walks through the specific vulnerabilities that have been found, explains how tool poisoning and prompt injection actually work in MCP systems, and gives you concrete hardening steps you can apply today. Everything below comes from published CVEs, researcher disclosures, and the OWASP MCP Top 10 — with specific tools and configurations you can apply.
 
@@ -15,7 +17,7 @@ This guide walks through the specific vulnerabilities that have been found, expl
 
 A survey of 2,614 MCP server implementations published in early 2026 paints a rough picture. 82% of those servers use file operations vulnerable to path traversal attacks. Two-thirds have some form of code injection risk. And when researchers categorized the 30+ CVEs by attack vector, 43% involved shell injection — MCP servers passing user input to shell commands without sanitization.
 
-That last one deserves emphasis. Nearly half the discovered vulnerabilities come from the oldest mistake in the book: unsanitized input reaching a shell. MCP didn't invent this bug class, but the protocol's design — where an AI model decides which tools to call and what arguments to pass — creates a new delivery mechanism for an old attack.
+That last one deserves emphasis. Nearly half the discovered vulnerabilities come from the oldest mistake in the book: unsanitized input reaching a shell. MCP didn't invent this bug class, but the protocol's design — where an AI model decides which tools to call and what arguments to pass — creates a new delivery mechanism for an old attack. Emerging standards like [WebMCP](/posts/webmcp-chrome-ai-agents-explained/) aim to provide more structured agent-website interactions, but they introduce their own trust assumptions.
 
 Three chained vulnerabilities in Anthropic's own `mcp-server-git` illustrate how subtle these issues can be. CVE-2025-68145 bypassed path validation. CVE-2025-68143 allowed `git_init` to turn your `.ssh` directory into a git repo. CVE-2025-68144 enabled argument injection through `git_diff`. Chained together, an attacker could read SSH keys from a developer's machine through what looked like routine git operations.
 
@@ -33,7 +35,7 @@ A practical example: a poisoned tool description might include hidden instructio
 
 ### How Tool Poisoning Plays Out
 
-Adversa AI researchers demonstrated a particularly nasty variant in April 2026. A malicious MCP server can steer LLM agents into prolonged tool-calling chains, silently inflating per-query costs by up to 658x — while evading standard defenses with less than a 3% detection rate. Your monitoring dashboards stay green while your API bill explodes.
+Adversa AI researchers demonstrated a particularly nasty variant in April 2026. A malicious MCP server can steer LLM agents into prolonged tool-calling chains, silently inflating per-query costs by up to 658x — while evading standard defenses with less than a 3% detection rate. Your monitoring dashboards stay green while your API bill explodes. This becomes even more dangerous as [x402 and other payment protocols](/posts/x402-protocol-ai-agent-payments-2026/) enable agents to spend real money autonomously.
 
 Separately, the TIP (Tree-based Injection Payload) framework uses adaptive search to craft stealthy MCP injection payloads. In real-world tests against LM Studio and VS Code using GPT-4o, TIP achieved a 95% attack success rate. The payloads are designed to evade the pattern-matching defenses most developers rely on.
 
@@ -95,7 +97,7 @@ The 2026 updates also introduced role-based authorization annotations. You can u
 
 Containerize your MCP server with default-deny network egress. This tends to be the highest-leverage control you can deploy because it limits the blast radius of every attack class. If a tool poisoning attack convinces your model to exfiltrate data, the container's network policy prevents the outbound connection.
 
-Build minimal Docker images using non-root users. Mount only the directories your server actually needs. Define explicit network policies that allow outbound connections only to the specific services your tools require.
+Build minimal Docker images using non-root users. Mount only the directories your server actually needs. Define explicit network policies that allow outbound connections only to the specific services your tools require. Our [MCP server deployment guide](/posts/deploy-mcp-server-production/) covers the full Docker and infrastructure setup in detail.
 
 ### Tool Registry Governance
 
@@ -209,17 +211,4 @@ MCP sampling lets a server ask the client's LLM to generate text on its behalf, 
       "name": "Does the MCP spec require OAuth 2.1?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. As of November 2025, the MCP specification mandates OAuth 2.1 with SHA-256 PKCE for all clients. Servers still using API keys or basic authentication are below the spec's required security baseline."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is MCP sampling and why is it a security risk?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "MCP sampling lets a server ask the client's LLM to generate text on its behalf, reversing normal request-response flow. Palo Alto Unit 42 showed this turns MCP servers from passive tools into active prompt authors, creating new prompt injection angles where compromised servers can inject prompts to exfiltrate data."
-      }
-    }
-  ]
-}
-</script>
+        "text": "Yes. As of November 2025, the MCP specification mandates OAuth 2.1 
