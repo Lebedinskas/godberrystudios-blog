@@ -1,13 +1,11 @@
 ---
 title: "x402 Protocol Explained: How AI Agents Pay for APIs and Data in 2026"
-date: 2026-04-16T14:00:00+03:00
+date: 2026-04-16T08:00:00+03:00
 description: "x402 turns the HTTP 402 status code into a real payment layer for AI agents. This guide explains how it works, how Cloudflare Pay Per Crawl and Google AP2 fit in, and how to add payments to your own MCP server."
 categories: ["AI Automation"]
 tags: ["x402", "AI agents", "payments", "HTTP 402", "MCP", "Cloudflare", "cryptocurrency"]
 keywords: ["x402 protocol", "AI agent payments", "HTTP 402 payment", "x402 MCP server", "Cloudflare pay per crawl"]
 ---
-
-<!-- Quality scores: Value: 9 | Originality: 8 | Readability: 9 | Voice: 9 | SEO: 9 | Weighted: 8.85 -->
 
 The x402 protocol turns the long-dormant HTTP 402 "Payment Required" status code into an actual payment layer for the web. An AI agent hits your API, gets a 402 response with a price tag, pays in USDC, and retries — all without human intervention. Since Coinbase open-sourced x402 in May 2025, the protocol has processed over 119 million transactions on Base and 35 million on Solana, handling roughly $600 million in annualized volume. On April 2, 2026, x402 joined the Linux Foundation with Google, AWS, Microsoft, Stripe, Visa, Mastercard, and 20+ other founding members.
 
