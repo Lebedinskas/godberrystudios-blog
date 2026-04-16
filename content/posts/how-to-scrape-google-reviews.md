@@ -19,13 +19,13 @@ Google reviews are the largest public dataset of customer opinions on the intern
 
 **Reputation monitoring** — Track what customers say about your business over time. Catch negative trends before they spiral. A restaurant that notices "slow service" appearing in 15% of recent reviews can fix the problem before the average rating drops.
 
-**Competitor analysis** — Extract reviews for 10 competitors in your niche. What do their customers consistently complain about? That's your marketing angle. What do they love? That's your benchmark.
+**Competitor analysis** — Extract reviews for 10 competitors in your niche. What do their customers consistently complain about? That's your marketing angle. What do they love? That's your benchmark. This fits into a broader [competitive intelligence automation workflow](/posts/automate-business-tasks-with-ai-2026/) that can run largely on autopilot.
 
 **Market research** — Analyzing reviews across an industry reveals unmet needs. If every dental clinic in a city has complaints about appointment availability, there's a market gap.
 
 **Sentiment analysis** — Feed structured review data into AI tools for automated sentiment scoring. Track sentiment trends week over week at scale.
 
-**Lead generation** — Businesses with poor reviews often need help. If you sell reputation management, marketing services, or consulting, a list of businesses with declining ratings is a qualified lead list.
+**Lead generation** — Businesses with poor reviews often need help. If you sell reputation management, marketing services, or consulting, a list of businesses with declining ratings is a qualified lead list. Pair this with [Google Maps scraping for lead data](/posts/scrape-google-maps-lead-generation/) and you have contact details to go with the review intelligence.
 
 **Local SEO intelligence** — Review volume, recency, and sentiment are ranking factors in Google's local pack. Monitoring competitors' review velocity tells you exactly how much social proof you need to compete.
 
@@ -212,10 +212,4 @@ Google implemented a "limited view" for non-logged users on direct place URLs in
 Depends on your use case. For reputation monitoring, weekly is usually sufficient. For competitive intelligence, monthly works well. For real-time alerts, daily runs are possible but most businesses don't generate reviews fast enough to justify the cost.
 
 **Can I scrape reviews for my own business?**
-Absolutely — and this is the most defensible use case legally. You're extracting your own customer feedback for analysis.
-
-## Get Started
-
-Ready to extract Google review data? Head to the [Google Reviews Scraper on Apify](https://apify.com/godberry/google-reviews-scraper) and run your first extraction in under a minute.
-
-For a broader introduction to data extraction, check out our [Web Scraping for Beginners guide](/posts/web-scraping-for-beginners-2026-guide/). If you want to turn extracted reviews into social media content, see the [Content to Social MCP tutorial](/posts/automate-social-media-content-with-mcp/).
+Absolutely — and this is the most defensible use case legally. You're extracting your own cust

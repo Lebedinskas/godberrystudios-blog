@@ -172,7 +172,7 @@ Token costs drop by **89%**. A tool schema is a few hundred bytes of JSON. A scr
 
 And here's the one that matters most if you've ever maintained a browser automation pipeline: **site redesigns don't break anything**. As long as the site keeps the same `toolname` and schema, the visual layout can change completely without your agent noticing.
 
-The obvious catch — your agent can only use WebMCP on sites that implement it. For now, that means a dual strategy: structured tool calls where WebMCP exists, fallback to traditional automation everywhere else. We're already thinking about this split for our own tools at Godberry.
+The obvious catch — your agent can only use WebMCP on sites that implement it. For now, that means a dual strategy: structured tool calls where WebMCP exists, fallback to traditional automation everywhere else. We're already thinking about this split for our own tools at Godberry. If you want to see what building agents can [look like as a business](/posts/how-to-make-money-with-ai-2026/), AI agent development is one of the highest-growth revenue opportunities right now.
 
 ## How to Implement WebMCP Today
 
@@ -302,6 +302,4 @@ Nothing — your scrapers keep working. WebMCP adds a structured layer on top of
 
 ---
 
-WebMCP isn't going to replace scraping overnight. Most of the web won't implement it for years, if ever. But for the sites that do adopt it, you stop fighting CSS selectors that break every Tuesday — and your agent's success rate jumps from "works most of the time" to 97.9%.
-
-If you build AI agents or browser automation, start experimenting with the Chrome flag today. If you run a website, add `toolname` to your forms — it takes five minutes and costs nothing. The sites that do it now will be the ones AI agents actually know how to use when browser-native AI rolls out later this year.
+WebMCP isn't going to replace scraping overnight. Most of the web won't implement it for years, if
