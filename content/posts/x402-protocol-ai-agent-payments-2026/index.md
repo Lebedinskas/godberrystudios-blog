@@ -221,4 +221,17 @@ The protocol itself charges zero fees. Coinbase's hosted facilitator service off
       "name": "How does x402 compare to L402 Lightning payments?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "x402 uses stablecoins (USDC) on EVM chains and Solana, avoiding crypto price volatility. L402 uses Bitcoin Lightning Network with near-instant settlement and
+        "text": "x402 uses stablecoins (USDC) on EVM chains and Solana, avoiding crypto price volatility. L402 uses Bitcoin Lightning Network with near-instant settlement and no facilitator needed. x402 has broader enterprise adoption (119M+ transactions, Linux Foundation governance) while L402 is more decentralized."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does x402 cost to integrate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The protocol charges zero fees. Coinbase's hosted facilitator offers 1,000 free verifications per month. Beyond that, costs are standard blockchain transaction fees — on Base typically under $0.01 per transaction. All middleware libraries are open-source under Apache 2.0."
+      }
+    }
+  ]
+}
+</script>

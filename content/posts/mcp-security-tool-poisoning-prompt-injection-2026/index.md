@@ -211,4 +211,17 @@ MCP sampling lets a server ask the client's LLM to generate text on its behalf, 
       "name": "Does the MCP spec require OAuth 2.1?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. As of November 2025, the MCP specification mandates OAuth 2.1 
+        "text": "Yes. As of November 2025, the MCP specification mandates OAuth 2.1 with SHA-256 PKCE for all clients. Servers still using API keys or basic authentication are below the spec's required security baseline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is MCP sampling and why is it a security risk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MCP sampling lets a server ask the client's LLM to generate text on its behalf, reversing normal request-response flow. Palo Alto Unit 42 showed this turns MCP servers from passive tools into active prompt authors, creating new prompt injection angles where compromised servers can inject prompts to exfiltrate data."
+      }
+    }
+  ]
+}
+</script>
