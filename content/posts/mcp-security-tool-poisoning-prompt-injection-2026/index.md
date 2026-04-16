@@ -5,8 +5,9 @@ description: "30 CVEs in 60 days exposed serious flaws in MCP servers. This guid
 categories: ["AI Automation"]
 tags: ["MCP", "security", "prompt injection", "tool poisoning", "OAuth 2.1", "OWASP"]
 keywords: ["MCP security", "MCP tool poisoning", "MCP prompt injection", "secure MCP server", "OWASP MCP Top 10"]
-<!-- Quality scores: Value: 9 | Originality: 8 | Readability: 8 | Voice: 8 | SEO: 9 | Weighted: 8.45 -->
 ---
+
+<!-- Quality scores: Value: 9 | Originality: 8 | Readability: 8 | Voice: 8 | SEO: 9 | Weighted: 8.45 -->
 
 Between January and March 2026, security researchers filed over 30 CVEs against Model Context Protocol implementations. One of them — CVE-2026-5058 in aws-mcp-server — scored a CVSS 9.8, meaning remote code execution through crafted input. If you're running an MCP server in production right now, your attack surface is wider than you probably think.
 
