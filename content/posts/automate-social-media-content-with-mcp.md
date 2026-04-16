@@ -5,6 +5,8 @@ date: 2026-04-12
 lastmod: 2026-04-15
 categories: ["Tutorials"]
 tags: ["social media", "automation", "MCP", "content creation", "AI", "apify", "content repurposing"]
+image: /images/posts/automate-social-media-mcp.png
+image_alt: "Blog post transforming into multiple social media posts through an automated content pipeline"
 ---
 
 The Model Context Protocol (MCP) lets you feed a URL or any text into an AI-connected tool and get back platform-specific social media posts for LinkedIn, Twitter/X, Facebook, and Instagram in seconds — not minutes. A single blog post becomes 4-7 tailored posts without manual rewriting. The cost is about $0.07 per transformation, compared to $0.10–$0.40+ per post from dedicated social media AI tools like Jasper or Copy.ai.

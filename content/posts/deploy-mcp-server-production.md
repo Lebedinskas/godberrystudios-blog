@@ -4,6 +4,8 @@ description: "Most MCP servers die in production. Here's the deployment architec
 date: 2026-04-14
 categories: ["Tutorials"]
 tags: ["mcp", "deployment", "docker", "production", "devops", "ai agents", "monitoring"]
+image: /images/posts/deploy-mcp-server.png
+image_alt: "Rocket launching from a laptop into cloud infrastructure representing MCP server deployment to production"
 # Quality scores (Phase 4): Value: 8/10, Originality: 8/10, Readability: 8/10, Voice: 8/10, SEO: 8/10 → Weighted: 8.0/10 — PUBLISH
 ---
 

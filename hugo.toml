@@ -9,6 +9,7 @@ title = "Godberry Studios | Web Scraping & Automation Tools"
   description = "Build smarter workflows with powerful web scraping and content automation tools. Tutorials, guides, and tools by Godberry Studios."
   author = "Godberry Studios"
   tagline = "Web Scraping & Content Automation"
+  ogImage = "https://godberrystudios.com/images/og-default.png"
 
 [markup]
   [markup.highlight]

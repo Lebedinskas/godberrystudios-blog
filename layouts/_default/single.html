@@ -18,6 +18,12 @@
       {{ with .Description }}<p class="post-description">{{ . }}</p>{{ end }}
     </header>
 
+    {{ with .Params.image }}
+    <div class="post-hero-image">
+      <img src="{{ . }}" alt="{{ $.Params.image_alt | default $.Title }}" loading="lazy" width="1200" height="675">
+    </div>
+    {{ end }}
+
     {{ if $isBlogPost }}
     <!-- Author -->
     <div class="post-author">

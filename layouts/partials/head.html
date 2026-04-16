@@ -11,12 +11,21 @@
   <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
   <meta property="og:url" content="{{ .Permalink }}">
+  {{ with .Params.image }}
+  <meta property="og:image" content="{{ . | absURL }}">
+  {{ else }}
   {{ with .Site.Params.ogImage }}<meta property="og:image" content="{{ . }}">{{ end }}
-  
+  {{ end }}
+
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ .Title }}">
   <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  {{ with .Params.image }}
+  <meta name="twitter:image" content="{{ . | absURL }}">
+  {{ else }}
+  {{ with .Site.Params.ogImage }}<meta name="twitter:image" content="{{ . }}">{{ end }}
+  {{ end }}
   
   <!-- Canonical -->
   <link rel="canonical" href="{{ .Permalink }}">
@@ -44,15 +53,18 @@
     "@type": "Article",
     "headline": "{{ .Title }}",
     "description": "{{ .Description }}",
+    {{ with .Params.image }}"image": "{{ . | absURL }}",{{ end }}
     "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
     "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
     "author": {
-      "@type": "Organization",
-      "name": "Godberry Studios"
+      "@type": "Person",
+      "name": "Tomas",
+      "url": "https://godberrystudios.com/about/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Godberry Studios"
+      "name": "Godberry Studios",
+      "url": "https://godberrystudios.com/"
     },
     "mainEntityOfPage": {
       "@type": "WebPage",

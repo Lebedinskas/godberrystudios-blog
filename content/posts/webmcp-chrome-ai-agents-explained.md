@@ -4,6 +4,8 @@ description: "Chrome 146 shipped WebMCP, turning websites into structured tools 
 date: 2026-04-15
 categories: ["Tutorials"]
 tags: ["webmcp", "chrome", "ai agents", "mcp", "web scraping", "browser automation", "web standards"]
+image: /images/posts/webmcp-chrome-ai-agents.png
+image_alt: "Chrome browser with an AI brain inside extending robotic arms to interact with multiple websites simultaneously"
 # Quality scores (Phase 4): Value: 9/10, Originality: 8/10, Readability: 8/10, Voice: 8/10, SEO: 8/10 → Weighted: 8.3/10 — PUBLISH
 ---
 

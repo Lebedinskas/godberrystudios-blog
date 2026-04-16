@@ -4,6 +4,8 @@ description: "Stop doing these manually. Here are 10 business tasks that AI can 
 date: 2026-04-15
 categories: ["AI Automation"]
 tags: ["ai", "automation", "business", "productivity", "tools", "no-code", "2026"]
+image: /images/posts/automate-business-tasks-ai.png
+image_alt: "AI automation illustration showing a robotic hand managing business tasks on a holographic interface"
 ---
 
 There are 168 hours in a week. If you run a small business, at least 20 of those go to tasks that AI can already handle for you. Not next year — today, with tools that have free tiers and take an afternoon to set up.

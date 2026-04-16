@@ -443,6 +443,18 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-muted);
 }
 
+/* Post Hero Image */
+.post-hero-image {
+  margin: 24px 0 32px;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.post-hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Post Content */
 .post-content {
   font-size: 17px;

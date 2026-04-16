@@ -4,6 +4,8 @@ description: "Build targeted B2B lead lists from Google Maps in minutes. Step-by
 date: 2026-04-14
 categories: ["Tutorials"]
 tags: ["google maps", "lead generation", "web scraping", "B2B leads", "data extraction", "apify"]
+image: /images/posts/google-maps-lead-generation.png
+image_alt: "Digital city map with business pins lighting up and data streams flowing into a lead generation dashboard"
 # Quality scores (Phase 4): Value: 8/10, Originality: 7/10, Readability: 8/10, Voice: 8/10, SEO: 8/10 → Weighted: 7.8/10 — PUBLISH
 ---
 
