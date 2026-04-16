@@ -23,7 +23,7 @@ title = "Godberry Studios | Web Scraping & Automation Tools"
   category = "categories"
 
 [outputs]
-  home = ["HTML", "RSS"]
+  home = ["HTML", "RSS", "JSON"]
 
 [sitemap]
   changefreq = "weekly"
