@@ -11,8 +11,23 @@
   // Load search index on first open
   function loadIndex(cb) {
     if (index) return cb();
+    if (typeof Fuse === 'undefined') {
+      results.innerHTML = '<div class="search-empty">Search is loading, please try again in a moment.</div>';
+      // Try loading Fuse.js dynamically as fallback
+      var s = document.createElement('script');
+      s.src = 'https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.6.2/fuse.min.js';
+      s.onload = function () { loadIndex(cb); };
+      s.onerror = function () {
+        results.innerHTML = '<div class="search-empty">Search could not be loaded.</div>';
+      };
+      document.head.appendChild(s);
+      return;
+    }
     fetch('/index.json')
-      .then(function (r) { return r.json(); })
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
       .then(function (data) {
         index = data;
         fuse = new Fuse(data, {
@@ -28,7 +43,7 @@
         });
         cb();
       })
-      .catch(function () {
+      .catch(function (err) {
         results.innerHTML = '<div class="search-empty">Could not load search index.</div>';
       });
   }
