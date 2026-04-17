@@ -1091,7 +1091,7 @@ layout: single
     var el = document.getElementById(elId);
     var startTime = null;
     function step(ts) {
-      if (!startTime) startTime = ts;
+      if (\!startTime) startTime = ts;
       var progress = Math.min((ts - startTime) / duration, 1);
       // Ease out cubic
       var ease = 1 - Math.pow(1 - progress, 3);
@@ -1105,7 +1105,7 @@ layout: single
   window.shareX = function() {
     var total = scores.reduce(function(a, b) { return a + b; }, 0);
     var tier = getTierName(total);
-    var text = 'I scored ' + total + '/40 on the AI Readiness Assessment \u2014 I\'m an "' + tier + '"! How AI-ready is your business?';
+    var text = 'I scored ' + total + '/40 on the AI Readiness Assessment \u2014 I\'m an "' + tier + '"\! How AI-ready is your business?';
     var url = 'https://godberrystudios.com/ai-readiness-quiz/';
     window.open('https://x.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url), '_blank', 'width=550,height=420');
   };
@@ -1120,7 +1120,7 @@ layout: single
     if (navigator.clipboard) {
       navigator.clipboard.writeText(url).then(function() {
         var label = document.getElementById('copy-label');
-        label.textContent = 'Copied!';
+        label.textContent = 'Copied\!';
         setTimeout(function() { label.textContent = 'Copy Link'; }, 2000);
       });
     }

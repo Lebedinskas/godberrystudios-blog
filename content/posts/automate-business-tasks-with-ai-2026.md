@@ -93,7 +93,7 @@ Writing individual posts is the obvious use case, but repurposing is where it ge
 4. Schedule everything in Buffer for the week
 5. Total time: 2 hours for a full week of content across all platforms
 
-There are also MCP-based tools that transform any URL into platform-optimized social posts in seconds — worth exploring if you're building AI agent workflows or using MCP clients.
+There are also [MCP-based tools that transform any URL into platform-optimized social posts](/posts/automate-social-media-content-with-mcp/) in seconds — worth exploring if you're building AI agent workflows or using MCP clients.
 
 ## 4. Meeting Notes, Transcription, and Action Items
 
@@ -146,7 +146,7 @@ There are also MCP-based tools that transform any URL into platform-optimized so
 - **HubSpot Chatflows** (free with HubSpot CRM) — basic lead capture bot
 - **Calendly** (free) — AI-assisted scheduling once leads are qualified
 
-**The economics:** Businesses implementing AI lead generation report cost-per-lead reductions of 40–60% compared to traditional outbound, primarily because AI qualification eliminates wasted sales hours on low-intent prospects.
+**The economics:** Businesses implementing AI lead generation report cost-per-lead reductions of 40–60% compared to traditional outbound, primarily because AI qualification eliminates wasted sales hours on low-intent prospects. If you need raw lead data to feed these systems, [scraping Google Maps for lead generation](/posts/scrape-google-maps-lead-generation/) is one of the fastest ways to build targeted lists.
 
 ## 7. Competitive Intelligence and Market Research
 
@@ -164,7 +164,7 @@ There are also MCP-based tools that transform any URL into platform-optimized so
 | Social media | Marketing strategy shifts | Brand24 or Mention |
 | Blog/changelog | Product roadmap signals | RSS + AI summary |
 
-**How scraping powers this:** Google Reviews scrapers on Apify can extract competitor reviews across multiple countries for as little as $0.10 per location. Feed those reviews into Claude for sentiment analysis, and you get a competitive intelligence report that would cost $5,000+ from a consulting firm.
+**How scraping powers this:** [Google Reviews scrapers on Apify](/posts/how-to-scrape-google-reviews/) can extract competitor reviews across multiple countries for as little as $0.10 per location. Feed those reviews into Claude for sentiment analysis, and you get a competitive intelligence report that would cost $5,000+ from a consulting firm.
 
 **Setup time:** 2–3 hours for initial monitoring setup. Then 15 minutes per week to review AI-generated summaries.
 
@@ -174,7 +174,7 @@ There are also MCP-based tools that transform any URL into platform-optimized so
 
 **What AI does instead:** AI analyzes your content against competitors, identifies keyword gaps, suggests topics based on search trends, and even predicts which articles will perform best before you write them.
 
-**Why this is changing fast:** 55% of Google searches now show AI Overviews. Content needs to be optimized not just for traditional SEO rankings, but for AI citation — being selected as a source by ChatGPT, Claude, Perplexity, and Google's AI. This is called Answer Engine Optimization (AEO), and it's becoming as important as traditional SEO.
+**Why this is changing fast:** 55% of Google searches now show AI Overviews. Content needs to be optimized not just for traditional SEO rankings, but for AI citation — being selected as a source by ChatGPT, Claude, Perplexity, and Google's AI. This is called Answer Engine Optimization (AEO), and it's becoming as important as traditional SEO. If you want to [turn these SEO and content skills into revenue](/posts/how-to-make-money-with-ai-2026/), AEO consulting is one of the fastest-growing AI service niches right now.
 
 **The tools:**
 
@@ -251,7 +251,7 @@ Don't try to automate everything at once. Use this framework to decide what to a
 
 Let's do the math. If you spend 20 hours per week on tasks AI can handle, and your time is worth $50/hour, that's $1,000/week or $52,000/year in opportunity cost.
 
-Most of the tools listed above have free tiers. Even the paid ones rarely exceed $200/month total for a comprehensive automation stack. That's $2,400/year to save $52,000 in time.
+Most of the tools listed above have free tiers — we compiled a [full list of 47 free AI tools that replace expensive software](/posts/free-ai-tools-replace-expensive-software-2026/) if you want the complete rundown. Even the paid ones rarely exceed $200/month total for a comprehensive automation stack. That's $2,400/year to save $52,000 in time.
 
 At those numbers, automation isn't an expense. It's the thing that frees you up to do the work that actually grows the business.
 

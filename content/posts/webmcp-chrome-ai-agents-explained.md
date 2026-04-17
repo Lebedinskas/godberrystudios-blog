@@ -172,7 +172,7 @@ Token costs drop by **89%**. A tool schema is a few hundred bytes of JSON. A scr
 
 And here's the one that matters most if you've ever maintained a browser automation pipeline: **site redesigns don't break anything**. As long as the site keeps the same `toolname` and schema, the visual layout can change completely without your agent noticing.
 
-The obvious catch — your agent can only use WebMCP on sites that implement it. For now, that means a dual strategy: structured tool calls where WebMCP exists, fallback to traditional automation everywhere else. We're already thinking about this split for our own tools at Godberry.
+The obvious catch — your agent can only use WebMCP on sites that implement it. For now, that means a dual strategy: structured tool calls where WebMCP exists, fallback to traditional automation everywhere else. We're already thinking about this split for our own tools at Godberry. If you want to see what building agents can [look like as a business](/posts/how-to-make-money-with-ai-2026/), AI agent development is one of the highest-growth revenue opportunities right now.
 
 ## How to Implement WebMCP Today
 

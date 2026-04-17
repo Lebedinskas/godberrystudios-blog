@@ -31,7 +31,7 @@ The people making money with AI aren't building AI. They're using it as a tool t
 
 This is the most accessible entry point because content demand is infinite and AI dramatically compresses production time.
 
-**How it works:** Businesses need blog posts, social media content, email newsletters, product descriptions, and ad copy. They used to pay writers $100–$500 per piece and wait days. You use AI to produce drafts in minutes, then edit for quality and brand voice.
+**How it works:** Businesses need blog posts, social media content, email newsletters, product descriptions, and ad copy. They used to pay writers $100–$500 per piece and wait days. You use AI to produce drafts in minutes, then edit for quality and brand voice. For social content specifically, tools like [MCP-powered content transformers](/posts/automate-social-media-content-with-mcp/) can turn a single blog post into platform-optimized posts for LinkedIn, Twitter, and Instagram in seconds.
 
 **The economics:** A single blog post that took a freelance writer 4–6 hours now takes 1.5–2.5 hours with AI — a 40–70% time savings according to 2026 benchmarks. If you charge $200 per post and produce 3 per day, that's $600/day or roughly $12,000/month working 20 days.
 
@@ -80,7 +80,7 @@ Automation tools sold on marketplaces are one of the best paths to recurring rev
 - **RapidAPI** — API marketplace with millions of developers
 - **Your own website** — higher margins, but you handle everything
 
-A Google Reviews scraper on Apify, for instance, costs around $0.10 per business location to run. That's far cheaper than the Google Places API ($7–$14 per request), which means there's a clear value proposition for every customer.
+A [Google Reviews scraper on Apify](/posts/how-to-scrape-google-reviews/), for instance, costs around $0.10 per business location to run. That's far cheaper than the Google Places API ($7–$14 per request), which means there's a clear value proposition for every customer. If you want to understand what goes into shipping one of these tools, our [MCP server deployment guide](/posts/deploy-mcp-server-production/) covers the production architecture.
 
 ## Method 3: AI-Powered Freelancing (Supercharged)
 
@@ -194,13 +194,13 @@ AI has compressed the content creation pipeline dramatically. A channel posting 
 **Time to first dollar:** 1–3 weeks  
 **Difficulty:** Low to Medium
 
-Businesses are desperate for data. Clean, structured, actionable data. The web scraping market is valued at $1.01 billion and projected to reach $2.49 billion by 2032. The shift toward no-code scraping tools (62% adoption) means you don't need to be a programmer.
+Businesses are desperate for data. Clean, structured, actionable data. The [web scraping market](/posts/web-scraping-for-beginners-2026-guide/) is valued at $1.01 billion and projected to reach $2.49 billion by 2032. The shift toward no-code scraping tools (62% adoption) means you don't need to be a programmer.
 
 **Services you can sell:**
 
 | Service | Target Client | Price Range |
 |---------|--------------|-------------|
-| Lead list building | Sales teams, agencies | $0.05–$0.50 per lead |
+| [Lead list building](/posts/scrape-google-maps-lead-generation/) | Sales teams, agencies | $0.05–$0.50 per lead |
 | Competitor price monitoring | E-commerce, retail | $200–$1,000/month |
 | Review monitoring & analysis | Restaurants, hotels, local businesses | $100–$500/month |
 | Market research data | Consultants, investors | $500–$5,000 per project |
@@ -344,7 +344,7 @@ If you've read this far and want to take action, here's your first-week plan:
 
 **Day 7:** Deliver something valuable for free or at a steep discount to your first client. Get a testimonial. Use it to attract the next one.
 
-Most of these methods can be started this week with free tools. The longer you wait, the more crowded every niche gets.
+Most of these methods can be started this week with [free tools](/posts/free-ai-tools-replace-expensive-software-2026/). The longer you wait, the more crowded every niche gets.
 
 ---
 
