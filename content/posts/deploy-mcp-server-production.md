@@ -361,7 +361,7 @@ This makes sense when you're a solo developer or small team and don't want to ma
 Godberry Studios runs two production MCP servers on the Apify Store — Content-to-Social and Google Reviews Scraper. Both handle real customer traffic with zero infrastructure management on our end.
 {{< /cta >}}
 
-The trade-off: you give up control over the infrastructure and pay a platform fee. For servers generating revenue, the math usually works out. For internal tools or hobby projects, self-hosting on a $5 VPS is more cost-effective.
+The trade-off: you give up control over the infrastructure and pay a platform fee. For servers generating revenue, the math usually works out. For internal tools or hobby projects, self-hosting on a $5 VPS is more cost-effective. If you're weighing the deployment choice specifically against how you plan to charge, the [MCP server monetization playbook](/posts/how-to-monetize-mcp-servers-2026/) breaks down the revenue-share economics of Apify vs MCPize vs self-hosted with real 2026 numbers.
 
 ## What We Learned Shipping Two MCP Servers
 

@@ -239,7 +239,7 @@ For developers with large portfolios, this is the difference between a week of m
 
 A non-obvious tailwind: AI agents *prefer* PPE actors. Claude, GPT, and agent frameworks can meter PPE calls the same way they meter OpenAI tokens — each call has a predictable unit cost, much like [the x402 protocol is doing for HTTP-level agent payments](/posts/x402-protocol-ai-agent-payments-2026/). A subscription actor doesn't fit into that accounting model.
 
-If you're building MCP servers or [paid MCP tools for AI agents](/posts/automate-social-media-content-with-mcp/), PPE on the underlying Apify actor is close to table stakes. An agent that hits your actor 30 times in a session wants to bill its user $0.90, not get surprised by a $49/month floor.
+If you're building MCP servers or [paid MCP tools for AI agents](/posts/automate-social-media-content-with-mcp/), PPE on the underlying Apify actor is close to table stakes. An agent that hits your actor 30 times in a session wants to bill its user $0.90, not get surprised by a $49/month floor. The full [MCP server monetization playbook](/posts/how-to-monetize-mcp-servers-2026/) compares Apify PPE to MCPize and self-hosted alternatives with real revenue numbers from shipping servers.
 
 If you're already running [production MCP infrastructure](/posts/deploy-mcp-server-production/), wrapping PPE actors as tools is natural. The `ACTOR_MAX_TOTAL_CHARGE_USD` budget cap maps cleanly to the agent's per-task budget. The `chargeable_within_limit` response field is what an agent reads to decide whether to keep working or bail.
 
