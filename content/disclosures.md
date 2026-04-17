@@ -73,11 +73,15 @@ Our privacy posture remains what it says in our [Privacy Policy](/privacy/): Clo
 
 ## 7. Programs We Currently Use
 
-We will list active affiliate partnerships here as we join them. If a program is not on this list, we have no commercial relationship with that vendor.
+We list every active affiliate relationship here as we join one. If a program is not on this list, we have no commercial relationship with that vendor.
 
-> The initial list will be published once our first partner applications are approved. Expected partners include major automation platforms and AI tooling vendors. Each entry will name the vendor, the product, and the link pattern.
+| Vendor | Product | How our links look |
+|---|---|---|
+| **Make.com** | Automation / workflow platform | `make.com/en/register?pc=godberry` |
 
-If you want to know before then whether a specific link in a specific post is affiliate, the `(affiliate)` tag and the post-level disclosure banner will already tell you. You can also email us.
+If you spot an `(affiliate)` marker on a link whose vendor is **not** in this table, that is a bug — please email **hello@godberrystudios.com** and we will fix it.
+
+Additional programs we have applied to but have not yet had approved will not appear here until approved and live in a published article.
 
 ## 8. Your Rights as a Reader
 
