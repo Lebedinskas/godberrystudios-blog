@@ -203,7 +203,7 @@
             <div class="quiz-value-card-icon">&#128200;</div>
             <div class="quiz-value-card-label">Your biggest opportunity</div>
             <div class="quiz-value-card-number quiz-value-card-small" id="biggest-opportunity">&mdash;</div>
-            <div class="quiz-value-card-sub">The area where automation will pay back fastest.</div>
+            <div class="quiz-value-card-sub" id="biggest-opportunity-sub">The area where automation will pay back fastest.</div>
           </div>
         </div>
         <div class="quiz-radar-section">
@@ -899,12 +899,25 @@
   }
 
   function calcHoursSaved() {
-    var total = 0;
+    // Raw volume of automatable work across all questions.
+    var raw = 0;
     for (var i = 0; i < scores.length; i++) {
       var s = scores[i];
-      if (s >= 1 && s <= 4) total += hoursSaveableTable[i][s - 1];
+      if (s >= 1 && s <= 4) raw += hoursSaveableTable[i][s - 1];
     }
-    return Math.max(3, Math.min(22, Math.round(total * 0.7)));
+    // Automation maturity: how much has the user ALREADY captured?
+    // Foundation (Q0), Data (Q2), Reviews (Q4), Tool comfort (Q5) are the
+    // "already built it" signals. Average their 1-4 scores, normalize to 0-1.
+    var maturitySignals = [scores[0], scores[2], scores[4], scores[5]];
+    var sum = 0;
+    for (var m = 0; m < maturitySignals.length; m++) sum += maturitySignals[m] || 0;
+    var maturity = sum / (maturitySignals.length * 4); // 0..1
+    // Cut up to 55% of the raw number for a fully-mature user.
+    // An Explorer (maturity ~0.25) keeps ~86% of their raw upside.
+    // A Pioneer (maturity ~1.0) keeps ~45% — still real, but not absurd.
+    var factor = 1 - (maturity * 0.55);
+    var hours = raw * factor;
+    return Math.max(3, Math.min(20, Math.round(hours)));
   }
 
   function calcPercentile(score) {
@@ -921,7 +934,7 @@
   function percentileDesc(p) {
     if (p >= 90) return "Higher than " + p + "% of small business owners. You're in rare company.";
     if (p >= 70) return "Higher than " + p + "% of small business owners. You're well ahead of the curve.";
-    if (p >= 50) return "Higher than " + p + "% of small business owners. You're above average.";
+    if (p >= 50) return "Higher than " + p + "% of small business owners. A solid foundation to build on.";
     if (p >= 30) return p + "th percentile. Plenty of headroom \u2014 and that means plenty to gain from automation.";
     return p + "th percentile. That's not bad news \u2014 it means the biggest wins are still ahead of you.";
   }
@@ -936,6 +949,8 @@
       var gap = maxDim - score;
       if (gap > best.gap) { best.gap = gap; best.dim = dim; }
     }
+    // Everything maxed → there is no weak area. Caller substitutes copy.
+    if (best.gap <= 0) return null;
     return best.dim;
   }
 
@@ -968,12 +983,28 @@
     animateNumber('hours-saved', 0, hrs, 1400);
     animateNumber('dollars-saved', 0, hrs * 48 * 35, 1800, true);
     var hrsSub = document.getElementById('hours-saved-sub');
-    if (hrs <= 5) hrsSub.textContent = "You're efficient already \u2014 these are the gains from targeted automations.";
-    else if (hrs <= 10) hrsSub.textContent = 'Most of this is in repetitive tasks and content workflows.';
-    else hrsSub.textContent = 'Significant repetitive work \u2014 automation will pay back very fast.';
+    // Subtext matches the tier's automation maturity, not just the hour count.
+    if (tier.tierClass === 'tier-4') {
+      hrsSub.textContent = "Your upside isn't in basics \u2014 it's in custom AI agents and specialized pipelines.";
+    } else if (tier.tierClass === 'tier-3') {
+      hrsSub.textContent = 'Most gains come from chaining your existing tools into always-on automations.';
+    } else if (tier.tierClass === 'tier-2') {
+      hrsSub.textContent = 'Biggest savings are in content repurposing and automated review monitoring.';
+    } else {
+      hrsSub.textContent = 'Replacing manual admin with free AI tools is your fastest early win.';
+    }
 
     var opp = findBiggestOpportunity();
-    document.getElementById('biggest-opportunity').textContent = opp ? opp.name : 'Automation';
+    var oppEl = document.getElementById('biggest-opportunity');
+    var oppSubEl = document.getElementById('biggest-opportunity-sub');
+    if (opp) {
+      oppEl.textContent = opp.name;
+      oppSubEl.textContent = 'The dimension where automation will pay back fastest.';
+    } else {
+      // All dimensions maxed — no weak area to target.
+      oppEl.textContent = 'Frontier plays';
+      oppSubEl.textContent = "You've mastered the fundamentals. Your edge now is custom pipelines and autonomous agents.";
+    }
 
     renderRadar(dimensions);
     renderPlan(tier.plan);
