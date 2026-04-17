@@ -1,0 +1,51 @@
+{{ define "main" }}
+<section class="legal-content">
+  <div class="container container-narrow">
+    <h1 data-subscribed-title>{{ .Title }}</h1>
+    <div class="post-content" data-subscribed-content>
+      {{ .Content }}
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var status = new URLSearchParams(location.search).get('status');
+  if (!status) return; // default page content = plain thank-you
+
+  var titleEl = document.querySelector('[data-subscribed-title]');
+  var contentEl = document.querySelector('[data-subscribed-content]');
+  if (!titleEl || !contentEl) return;
+
+  var msgs = {
+    // Success variants
+    'ok':               null,  // keep default page content — plain thank-you
+    'already':          { title: "You're already subscribed",
+                          content: "<p>This email is already on our list — thanks again.</p>" +
+                                   "<p><a href='/'>Back to the blog</a></p>" },
+    'pending-confirm':  { title: "Check your inbox",
+                          content: "<p>We sent a confirmation email. Click the link inside to finish subscribing.</p>" +
+                                   "<p><small>Didn't get it in a minute? Check your spam folder, or try subscribing again from the " +
+                                   "<a href='/'>homepage</a>. If it still doesn't arrive, email <a href='mailto:hello@godberrystudios.com'>hello@godberrystudios.com</a>.</small></p>" },
+    'confirmed':        { title: "You're confirmed",
+                          content: "<p>Your subscription is active. New posts and tool updates will land in your inbox.</p>" +
+                                   "<p><a href='/'>Back to the blog</a></p>" },
+    // Error variants (from /api/confirm)
+    'invalid-link':     { title: "Link invalid",
+                          content: "<p>This confirmation link is missing some information. Please subscribe again from the <a href='/'>homepage</a>.</p>" },
+    'bad-token':        { title: "Link invalid or expired",
+                          content: "<p>This confirmation link is invalid or expired. Please subscribe again from the <a href='/'>homepage</a>.</p>" },
+    'not-found':        { title: "Subscription not found",
+                          content: "<p>We couldn't find a subscription for that email. Please try subscribing again from the <a href='/'>homepage</a>.</p>" },
+    'error':            { title: "Something went wrong",
+                          content: "<p>We hit a hiccup. Please try again in a moment, or email <a href='mailto:hello@godberrystudios.com'>hello@godberrystudios.com</a> if it keeps happening.</p>" }
+  };
+
+  var msg = msgs[status];
+  if (msg === undefined) return;   // unknown status — keep default
+  if (msg === null) return;        // 'ok' → default page content
+  titleEl.textContent = msg.title;
+  contentEl.innerHTML = msg.content;
+})();
+</script>
+{{ end }}

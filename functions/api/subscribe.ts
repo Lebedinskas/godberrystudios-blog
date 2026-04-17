@@ -35,7 +35,7 @@ interface Env {
     RESEND_API_KEY?: string;
 }
 
-type Status = 'ok' | 'already' | 'invalid' | 'blocked' | 'error';
+type Status = 'ok' | 'already' | 'pending-confirm' | 'invalid' | 'blocked' | 'error';
 
 export const onRequestPost: PagesFunction<Env> = async (context) => {
     const { request, env } = context;
@@ -105,9 +105,11 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         await env.SUBSCRIBERS.put(email, JSON.stringify(record));
 
         // Optional: send confirmation email (skipped if RESEND_API_KEY isn't set).
+        // When Resend is configured, return 'pending-confirm' so the UI shows
+        // "check your inbox" instead of a blunt "thanks".
         if (env.RESEND_API_KEY) {
-            // Fire-and-forget — don't block the redirect on email delivery.
             context.waitUntil(sendConfirmationEmail(env.RESEND_API_KEY, record));
+            return respond(request, wantsJson, 'pending-confirm');
         }
 
         return respond(request, wantsJson, 'ok');
@@ -145,7 +147,8 @@ function isValidEmail(email: string): boolean {
 
 function respond(request: Request, wantsJson: boolean, status: Status): Response {
     if (wantsJson) {
-        const httpStatus = status === 'ok' || status === 'already' ? 200 : status === 'invalid' ? 400 : status === 'blocked' ? 429 : 500;
+        const isSuccess = status === 'ok' || status === 'already' || status === 'pending-confirm';
+        const httpStatus = isSuccess ? 200 : status === 'invalid' ? 400 : status === 'blocked' ? 429 : 500;
         return new Response(JSON.stringify({ status }), {
             status: httpStatus,
             headers: { 'content-type': 'application/json', 'cache-control': 'no-store' },
@@ -159,7 +162,7 @@ function respond(request: Request, wantsJson: boolean, status: Status): Response
     } catch {
         target = new URL('https://godberrystudios.com/');
     }
-    if (status === 'ok' || status === 'already') {
+    if (status === 'ok' || status === 'already' || status === 'pending-confirm') {
         target = new URL('/subscribed/', target.origin);
         target.searchParams.set('status', status);
     } else {
@@ -190,20 +193,67 @@ async function verifyTurnstile(secret: string, token: string, request: Request):
 async function sendConfirmationEmail(apiKey: string, record: { email: string; confirmToken: string }): Promise<void> {
     try {
         const confirmUrl = `https://godberrystudios.com/api/confirm?token=${record.confirmToken}&email=${encodeURIComponent(record.email)}`;
-        await fetch('https://api.resend.com/emails', {
+
+        const textBody = [
+            'Thanks for subscribing to Godberry Studios.',
+            '',
+            "To confirm your subscription, open this link in your browser:",
+            confirmUrl,
+            '',
+            "Once confirmed, you'll get new posts, tool updates, and the occasional scraping or MCP deep-dive — nothing else.",
+            '',
+            "If you didn't sign up, ignore this email — without confirmation we don't send anything.",
+            '',
+            '— The Godberry Studios team',
+            'https://godberrystudios.com',
+        ].join('\n');
+
+        const htmlBody = `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Confirm your subscription</title></head>
+<body style="margin:0;padding:0;background:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#111827;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#f5f5f7;padding:32px 16px;">
+    <tr><td align="center">
+      <table role="presentation" width="560" cellspacing="0" cellpadding="0" border="0" style="max-width:560px;background:#ffffff;border-radius:12px;padding:40px 32px;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+        <tr><td style="font-size:15px;line-height:1.6;">
+          <div style="font-size:20px;font-weight:600;color:#2563eb;margin-bottom:24px;">Godberry Studios</div>
+          <h1 style="font-size:22px;font-weight:600;color:#111827;margin:0 0 16px;">Confirm your subscription</h1>
+          <p style="margin:0 0 16px;">Thanks for subscribing. Click the button below to confirm your email and start receiving new posts, tool updates, and the occasional scraping or MCP deep-dive.</p>
+          <p style="margin:24px 0;">
+            <a href="${confirmUrl}" style="display:inline-block;background:#4F46E5;color:#ffffff;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;font-size:15px;">Confirm subscription</a>
+          </p>
+          <p style="margin:0 0 16px;font-size:13px;color:#6b7280;">Button not working? Copy this link into your browser:</p>
+          <p style="margin:0 0 24px;font-size:13px;word-break:break-all;"><a href="${confirmUrl}" style="color:#4F46E5;">${confirmUrl}</a></p>
+          <hr style="border:none;border-top:1px solid #e5e7eb;margin:24px 0;" />
+          <p style="margin:0 0 8px;font-size:13px;color:#6b7280;">If you didn't sign up, ignore this email — no confirmation, no emails.</p>
+          <p style="margin:0;font-size:13px;color:#6b7280;">— <a href="https://godberrystudios.com" style="color:#6b7280;">godberrystudios.com</a></p>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body></html>`;
+
+        const res = await fetch('https://api.resend.com/emails', {
             method: 'POST',
             headers: { 'content-type': 'application/json', authorization: `Bearer ${apiKey}` },
             body: JSON.stringify({
                 from: 'Godberry Studios <hello@godberrystudios.com>',
                 to: record.email,
                 subject: 'Confirm your subscription to Godberry Studios',
-                html: `
-                    <p>Thanks for subscribing to Godberry Studios updates. Click the link below to confirm:</p>
-                    <p><a href="${confirmUrl}">${confirmUrl}</a></p>
-                    <p>If you didn't sign up, ignore this email — no confirmation, no emails.</p>
-                `,
+                html: htmlBody,
+                text: textBody,
+                // List-Unsubscribe headers improve inbox placement AND respect
+                // Gmail/Yahoo 2024 bulk-sender requirements.
+                headers: {
+                    'List-Unsubscribe': `<mailto:hello@godberrystudios.com?subject=unsubscribe>`,
+                    'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+                },
             }),
         });
+
+        if (!res.ok) {
+            const body = await res.text().catch(() => '(no body)');
+            console.error('Resend API error:', res.status, body);
+        }
     } catch (e) {
         console.error('confirmation email failed:', e);
     }

@@ -1,7 +1,7 @@
 ---
 title: "You're subscribed"
 description: "Thanks for subscribing to Godberry Studios updates."
-layout: "legal"
+layout: "subscribed"
 sitemap:
   disable: true
 robots: "noindex, nofollow"

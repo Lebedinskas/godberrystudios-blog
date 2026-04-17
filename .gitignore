@@ -3,3 +3,15 @@ resources/
 .hugo_build.lock
 .DS_Store
 git-finalize.sh
+
+# Secrets — NEVER commit any of these
+.env
+.env.*
+.dev.vars
+.dev.vars.*
+*.pem
+*.key
+
+# Wrangler state
+.wrangler/
+node_modules/
