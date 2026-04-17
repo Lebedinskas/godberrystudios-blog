@@ -28,7 +28,7 @@ Transform any content into social media posts. Feed it a URL, article, or raw te
 
 Extract Google Maps reviews for any business. Perfect for reputation monitoring, competitor analysis, market research, and sentiment analysis.
 
-**Pricing:** From $0.10 per batch (up to 50 reviews)  
+**Pricing:** From $0.25 per batch (up to 50 reviews)  
 **Speed:** ~54 seconds per run  
 **Platform:** Apify Store  
 

@@ -9,7 +9,7 @@ image: /images/posts/scrape-google-reviews.png
 image_alt: "Google Maps pin with star ratings flowing out as structured data cards for review extraction"
 ---
 
-Scraping Google reviews lets you extract structured review data — author names, star ratings, review text, dates, and response status — from any Google Maps listing, without manually copying anything. Businesses use this data for reputation monitoring, competitor analysis, sentiment tracking, and lead generation. The most affordable no-code method costs about $0.10 per place (up to 50 reviews), compared to $0.02–0.025 per API call through Google's official Places API.
+Scraping Google reviews lets you extract structured review data — author names, star ratings, review text, dates, and response status — from any Google Maps listing, without manually copying anything. Businesses use this data for reputation monitoring, competitor analysis, sentiment tracking, and lead generation. The most affordable no-code method costs about $0.25 per place (up to 50 reviews), compared to $0.02–0.025 per API call through Google's official Places API — and the API only returns 5 reviews per place, so you pay more for a tiny fraction of the data.
 
 This guide covers three methods to get Google review data, a full cost comparison, real use cases, and the legal boundaries you should know about.
 
@@ -60,10 +60,10 @@ The scraper has been validated across 9 countries (US, UK, Japan, Lithuania, Ger
 
 ### Pricing
 
-- **Up to 50 reviews per place:** $0.10 per run
-- **51+ reviews per place:** $0.25 per run
+- **Up to 50 reviews per place:** $0.25 per run
+- **51+ reviews per place:** $0.50 per run
 
-For context, monitoring 5 competitors weekly costs about $2.00/month.
+For context, monitoring 5 competitors weekly costs about $5/month.
 
 ## Method 2: Google Places API (Official)
 
@@ -151,10 +151,10 @@ Here's a realistic cost comparison for common scenarios:
 
 | Scenario | Google API | Apify Scraper | Custom Script |
 |---|---|---|---|
-| **50 reviews, 1 business** | $0.02 (but only 5 reviews returned) | $0.10 (all 50 reviews) | Free (+ dev time) |
-| **50 reviews, 10 businesses** | $0.20 (50 reviews total, 5 each) | $1.00 (500 reviews total) | Free (+ dev time) |
-| **200 reviews, 10 businesses weekly** | Not possible (5-review limit) | $10/month | Free (+ ~4h/month maintenance) |
-| **Monitor 50 competitors monthly** | $1.00 (250 reviews only) | $20/month (all reviews) | Free (+ significant infra) |
+| **50 reviews, 1 business** | $0.02 (but only 5 reviews returned) | $0.25 (all 50 reviews) | Free (+ dev time) |
+| **50 reviews, 10 businesses** | $0.20 (50 reviews total, 5 each) | $2.50 (500 reviews total) | Free (+ dev time) |
+| **200 reviews, 10 businesses weekly** | Not possible (5-review limit) | ~$22/month | Free (+ ~4h/month maintenance) |
+| **Monitor 50 competitors monthly** | $1.00 (250 reviews only) | $25/month (all reviews) | Free (+ significant infra) |
 
 **The key tradeoff:** Google's API is cheaper per call but caps you at 5 reviews. If you need comprehensive review data (which you probably do for any serious analysis), scraping is the only path that returns all reviews.
 
