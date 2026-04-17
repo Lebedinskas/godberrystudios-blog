@@ -164,7 +164,7 @@ There are also [MCP-based tools that transform any URL into platform-optimized s
 | Social media | Marketing strategy shifts | Brand24 or Mention |
 | Blog/changelog | Product roadmap signals | RSS + AI summary |
 
-**How scraping powers this:** [Google Reviews scrapers on Apify](/posts/how-to-scrape-google-reviews/) can extract competitor reviews across multiple countries for as little as $0.25 per location. Feed those reviews into Claude for sentiment analysis, and you get a competitive intelligence report that would cost $5,000+ from a consulting firm.
+**How scraping powers this:** [Google Reviews scrapers on Apify](/posts/how-to-scrape-google-reviews/) can extract competitor reviews across multiple countries for as little as $0.10 per location. Feed those reviews into Claude for sentiment analysis, and you get a competitive intelligence report that would cost $5,000+ from a consulting firm.
 
 **Setup time:** 2–3 hours for initial monitoring setup. Then 15 minutes per week to review AI-generated summaries.
 

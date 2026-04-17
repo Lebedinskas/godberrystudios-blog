@@ -80,7 +80,7 @@ Automation tools sold on marketplaces are one of the best paths to recurring rev
 - **RapidAPI** — API marketplace with millions of developers
 - **Your own website** — higher margins, but you handle everything
 
-A [Google Reviews scraper on Apify](/posts/how-to-scrape-google-reviews/), for instance, costs around $0.25 per business location to run. That's far cheaper than the Google Places API ($7–$14 per request), which means there's a clear value proposition for every customer. If you want to understand what goes into shipping one of these tools, our [MCP server deployment guide](/posts/deploy-mcp-server-production/) covers the production architecture.
+A [Google Reviews scraper on Apify](/posts/how-to-scrape-google-reviews/), for instance, costs around $0.10 per business location to run. That's far cheaper than the Google Places API ($7–$14 per request), which means there's a clear value proposition for every customer. If you want to understand what goes into shipping one of these tools, our [MCP server deployment guide](/posts/deploy-mcp-server-production/) covers the production architecture.
 
 ## Method 3: AI-Powered Freelancing (Supercharged)
 
