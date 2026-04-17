@@ -48,7 +48,7 @@ If you don't write code — or you just want results in the next 5 minutes — s
 
 **Step 5:** Export as CSV or JSON. Import directly into Google Sheets, your CRM, or an enrichment tool.
 
-**Cost:** Apify scrapers typically run on a pay-per-result model. Expect roughly $0.004-0.01 per listing depending on the scraper and how much data you pull per listing.
+**Cost:** Apify scrapers typically run on a pay-per-event or pay-per-result model — the platform [retired new rental pricing in April 2026 and is sunsetting legacy rentals on October 1](/posts/apify-pay-per-event-migration-playbook-2026/), so expect event-based billing going forward. Expect roughly $0.004-0.01 per listing depending on the scraper and how much data you pull per listing.
 
 ### Chrome Extensions for Quick Jobs
 

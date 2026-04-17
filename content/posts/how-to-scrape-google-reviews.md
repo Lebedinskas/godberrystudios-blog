@@ -192,7 +192,7 @@ Publicly available Google reviews are generally considered fair game for data ex
 - **Don't republish verbatim** — Extracting data for analysis is fine. Copying and republishing entire review sets on a competing platform is not
 - **Google's ToS** — Google's terms technically prohibit scraping, but enforcement is primarily through technical measures (CAPTCHAs, rate limiting) rather than legal action against individual users
 
-When in doubt, use established platforms like Apify that handle rate limiting and ethical scraping practices for you.
+When in doubt, use established platforms like Apify that handle rate limiting and ethical scraping practices for you. Developers who are thinking about publishing their own scrapers on the store should also read the [Apify pay-per-event migration playbook](/posts/apify-pay-per-event-migration-playbook-2026/) — the pricing model changed in 2026 and every actor needs to migrate before October 1.
 
 ## Frequently Asked Questions
 
