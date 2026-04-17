@@ -148,7 +148,7 @@ Google offers an official [Places API](https://developers.google.com/maps/docume
 - Stable field names that don't break
 - Reviews (up to 5 most recent per listing)
 
-The catch: the API caps text search results at 60 per query and only returns 5 reviews per place. For lead generation at scale, you'll burn through your budget fast and still miss most of the review data. It's best for enrichment (looking up specific businesses), not discovery (finding all businesses in a category).
+The catch: the API caps text search results at 60 per query and only returns 5 reviews per place. For lead generation at scale, you'll burn through your budget fast and still miss most of the review data. It's best for enrichment (looking up specific businesses), not discovery (finding all businesses in a category). Another consideration since February 2026: direct place-page scraping without a session can trigger Google's [limited view response](/posts/google-maps-limited-view-scraping-2026/), which silently strips reviews and photos — if you're rolling your own scraper, add detection for it before your data looks thinner than it should.
 
 ```python
 import requests

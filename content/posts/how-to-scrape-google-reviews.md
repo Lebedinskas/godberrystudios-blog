@@ -19,13 +19,13 @@ Google reviews are the largest public dataset of customer opinions on the intern
 
 **Reputation monitoring** — Track what customers say about your business over time. Catch negative trends before they spiral. A restaurant that notices "slow service" appearing in 15% of recent reviews can fix the problem before the average rating drops.
 
-**Competitor analysis** — Extract reviews for 10 competitors in your niche. What do their customers consistently complain about? That's your marketing angle. What do they love? That's your benchmark.
+**Competitor analysis** — Extract reviews for 10 competitors in your niche. What do their customers consistently complain about? That's your marketing angle. What do they love? That's your benchmark. This fits into a broader [competitive intelligence automation workflow](/posts/automate-business-tasks-with-ai-2026/) that can run largely on autopilot.
 
 **Market research** — Analyzing reviews across an industry reveals unmet needs. If every dental clinic in a city has complaints about appointment availability, there's a market gap.
 
 **Sentiment analysis** — Feed structured review data into AI tools for automated sentiment scoring. Track sentiment trends week over week at scale.
 
-**Lead generation** — Businesses with poor reviews often need help. If you sell reputation management, marketing services, or consulting, a list of businesses with declining ratings is a qualified lead list.
+**Lead generation** — Businesses with poor reviews often need help. If you sell reputation management, marketing services, or consulting, a list of businesses with declining ratings is a qualified lead list. Pair this with [Google Maps scraping for lead data](/posts/scrape-google-maps-lead-generation/) and you have contact details to go with the review intelligence.
 
 **Local SEO intelligence** — Review volume, recency, and sentiment are ranking factors in Google's local pack. Monitoring competitors' review velocity tells you exactly how much social proof you need to compete.
 
@@ -206,7 +206,7 @@ Structured JSON by default, with fields for author name, rating, review text, da
 Yes. The scraper has been validated across 9 countries including the US, UK, Japan, Germany, Brazil, Australia, UAE, South Korea, and Lithuania. Multi-language reviews are extracted with the original text preserved.
 
 **What about Google's February 2026 "limited view" change?**
-Google implemented a "limited view" for non-logged users on direct place URLs in February 2026. Managed scrapers handle this automatically via search-based navigation. If you're building a custom scraper, you'll need to adapt your approach — navigating through Google Maps search results rather than direct URLs.
+Google implemented a "limited view" for non-logged users on direct place URLs in February 2026. Managed scrapers handle this automatically via search-based navigation. If you're building a custom scraper, you'll need to adapt your approach — navigating through Google Maps search results rather than direct URLs. The [deep dive on Google Maps limited view](/posts/google-maps-limited-view-scraping-2026/) covers detection code, three bypass methods, and a pricing comparison for reviews extraction tools.
 
 **How often should I scrape reviews?**
 Depends on your use case. For reputation monitoring, weekly is usually sufficient. For competitive intelligence, monthly works well. For real-time alerts, daily runs are possible but most businesses don't generate reviews fast enough to justify the cost.
