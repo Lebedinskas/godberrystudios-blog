@@ -1,0 +1,10 @@
+{{/*
+  Affiliate disclosure banner — renders only when a post has affiliate_links: true
+  in its frontmatter. Required for FTC 16 CFR Part 255 (US) and EU transparency
+  rules. Kept short, placed above the hero image, and links to full /disclosures/.
+*/}}
+{{- if .Params.affiliate_links -}}
+<aside class="affiliate-disclosure" role="note" aria-label="Affiliate disclosure">
+  <strong>Disclosure:</strong> This post contains affiliate links. If you buy through them, Godberry Studios may earn a commission at no extra cost to you. We only recommend tools we actually use or would use. <a href="/disclosures/">Read our full disclosure policy &rarr;</a>
+</aside>
+{{- end -}}

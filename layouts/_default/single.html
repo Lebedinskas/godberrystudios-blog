@@ -16,6 +16,7 @@
       {{ end }}
       <h1>{{ .Title }}</h1>
       {{ with .Description }}<p class="post-description">{{ . }}</p>{{ end }}
+      {{ if $isBlogPost }}{{ partial "affiliate-disclosure.html" . }}{{ end }}
     </header>
 
     {{ with .Params.image }}

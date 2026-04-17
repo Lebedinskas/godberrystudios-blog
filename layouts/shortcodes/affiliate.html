@@ -1,0 +1,17 @@
+{{/*
+  Affiliate link shortcode — Godberry Studios
+  Usage:
+    {{< affiliate url="https://partner.example.com/?ref=godberry" label="Make.com" >}}
+  Notes:
+    - rel="sponsored nofollow" is required by Google for paid links.
+    - The small "(affiliate)" marker is visible by design — readers must see it.
+    - Non-affiliate fallback: if you want an in-post "or visit directly" option,
+      use a normal markdown link alongside.
+*/}}
+{{- $url := .Get "url" -}}
+{{- $label := .Get "label" -}}
+{{- if and $url $label -}}
+<a href="{{ $url }}" class="affiliate-link" rel="sponsored nofollow noopener" target="_blank" aria-label="{{ $label }} (affiliate link)">{{ $label }}<span class="affiliate-marker" aria-hidden="true"> (affiliate)</span></a>
+{{- else -}}
+<span class="affiliate-link-error">[affiliate shortcode missing url or label]</span>
+{{- end -}}
