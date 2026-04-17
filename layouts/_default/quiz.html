@@ -978,7 +978,10 @@
     renderRadar(dimensions);
     renderPlan(tier.plan);
 
-    if (total >= 26) setTimeout(fireConfetti, 600);
+    if (total >= 26) {
+      var intensity = total >= 34 ? 1.6 : 1.0;
+      setTimeout(function() { fireConfetti(intensity); }, 600);
+    }
   }
 
   function renderRadar(dims) {
@@ -1095,56 +1098,106 @@
     requestAnimationFrame(step);
   }
 
-  function fireConfetti() {
+  function fireConfetti(intensity) {
     var canvas = document.getElementById('confetti-canvas');
     if (!canvas) return;
     var ctx = canvas.getContext('2d');
-    var dpr = window.devicePixelRatio || 1;
-    canvas.width = window.innerWidth * dpr;
-    canvas.height = window.innerHeight * dpr;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var W = window.innerWidth;
+    var H = window.innerHeight;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.scale(dpr, dpr);
 
-    var colors = ['#4F46E5', '#7C3AED', '#F59E0B', '#10B981', '#EC4899', '#2563EB'];
+    var colors = ['#4F46E5', '#7C3AED', '#F59E0B', '#FBBF24', '#10B981', '#EC4899', '#2563EB', '#F472B6'];
     var pieces = [];
-    var count = window.innerWidth < 600 ? 70 : 140;
-    var origin = { x: window.innerWidth / 2, y: window.innerHeight / 3 };
-    for (var i = 0; i < count; i++) {
-      var angle = Math.random() * Math.PI * 2;
-      var speed = 4 + Math.random() * 6;
-      pieces.push({
-        x: origin.x, y: origin.y,
-        vx: Math.cos(angle) * speed,
-        vy: Math.sin(angle) * speed - 3,
-        size: 6 + Math.random() * 6,
-        color: colors[Math.floor(Math.random() * colors.length)],
-        rotation: Math.random() * Math.PI,
-        rotationSpeed: (Math.random() - 0.5) * 0.3,
-        opacity: 1,
-        shape: Math.random() > 0.5 ? 'rect' : 'circle'
-      });
+    var isMobile = W < 600;
+    var base = isMobile ? 90 : 200;
+    var count = Math.round(base * (intensity || 1));
+
+    // 3 launch origins simulating confetti cannons: bottom-left, top-center, bottom-right
+    var origins = [
+      { x: W * 0.12, y: H * 0.85, baseAngle: -Math.PI / 3, delay: 0 },
+      { x: W * 0.5,  y: H * 0.3,  baseAngle: -Math.PI / 2, delay: 120 },
+      { x: W * 0.88, y: H * 0.85, baseAngle: -Math.PI * 2 / 3, delay: 240 }
+    ];
+
+    function spawnFrom(origin) {
+      for (var i = 0; i < count; i++) {
+        var spread = (Math.random() - 0.5) * (Math.PI / 1.8);
+        var angle = origin.baseAngle + spread;
+        var speed = 8 + Math.random() * 14;
+        var shape = Math.random();
+        pieces.push({
+          x: origin.x, y: origin.y,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          size: 10 + Math.random() * 14,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rotation: Math.random() * Math.PI * 2,
+          rotationSpeed: (Math.random() - 0.5) * 0.35,
+          opacity: 1,
+          shape: shape < 0.4 ? 'rect' : shape < 0.75 ? 'circle' : shape < 0.9 ? 'triangle' : 'star'
+        });
+      }
     }
 
+    origins.forEach(function(o) { setTimeout(function() { spawnFrom(o); }, o.delay); });
+
     var start = performance.now();
+    var DURATION = 6000;
+    function drawShape(ctx, p) {
+      if (p.shape === 'rect') {
+        ctx.fillRect(-p.size / 2, -p.size / 3, p.size, p.size * 0.6);
+      } else if (p.shape === 'circle') {
+        ctx.beginPath();
+        ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+        ctx.fill();
+      } else if (p.shape === 'triangle') {
+        var s = p.size * 0.6;
+        ctx.beginPath();
+        ctx.moveTo(0, -s);
+        ctx.lineTo(s, s);
+        ctx.lineTo(-s, s);
+        ctx.closePath();
+        ctx.fill();
+      } else {
+        var spikes = 5, outer = p.size * 0.6, inner = outer * 0.5;
+        ctx.beginPath();
+        for (var k = 0; k < spikes * 2; k++) {
+          var r = k % 2 === 0 ? outer : inner;
+          var a = (k * Math.PI) / spikes - Math.PI / 2;
+          var px = Math.cos(a) * r, py = Math.sin(a) * r;
+          if (k === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+        }
+        ctx.closePath();
+        ctx.fill();
+      }
+    }
+
     function tick(now) {
       var elapsed = now - start;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, W, H);
       for (var i = 0; i < pieces.length; i++) {
         var p = pieces[i];
-        p.vy += 0.18; p.vx *= 0.995;
-        p.x += p.vx; p.y += p.vy;
+        p.vy += 0.22;
+        p.vx *= 0.992;
+        p.x += p.vx;
+        p.y += p.vy;
         p.rotation += p.rotationSpeed;
-        if (elapsed > 2000) p.opacity = Math.max(0, p.opacity - 0.015);
+        if (elapsed > DURATION - 1500) p.opacity = Math.max(0, p.opacity - 0.012);
+        if (p.opacity <= 0 || p.y > H + 50) continue;
         ctx.save();
         ctx.globalAlpha = p.opacity;
         ctx.translate(p.x, p.y);
         ctx.rotate(p.rotation);
         ctx.fillStyle = p.color;
-        if (p.shape === 'rect') ctx.fillRect(-p.size / 2, -p.size / 3, p.size, p.size * 0.6);
-        else { ctx.beginPath(); ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2); ctx.fill(); }
+        drawShape(ctx, p);
         ctx.restore();
       }
-      if (elapsed < 4500) requestAnimationFrame(tick);
-      else ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (elapsed < DURATION) requestAnimationFrame(tick);
+      else ctx.clearRect(0, 0, W, H);
     }
     requestAnimationFrame(tick);
   }
@@ -1207,29 +1260,38 @@
   };
 
   function currentTotal() { return scores.reduce(function(a, b) { return a + b; }, 0); }
-  function currentTierName() {
+  function currentTier() {
     var total = currentTotal();
-    for (var i = 0; i < tiers.length; i++) if (total >= tiers[i].min && total <= tiers[i].max) return tiers[i].name;
-    return tiers[tiers.length - 1].name;
+    for (var i = 0; i < tiers.length; i++) if (total >= tiers[i].min && total <= tiers[i].max) return tiers[i];
+    return tiers[tiers.length - 1];
+  }
+  function currentTierSlug() {
+    // tierClass is "tier-1".."tier-4"; map index to slug
+    var slugs = ['explorer', 'apprentice', 'strategist', 'pioneer'];
+    var t = currentTier();
+    var idx = parseInt(t.tierClass.split('-')[1], 10) - 1;
+    return slugs[idx] || 'explorer';
+  }
+  function shareUrl() {
+    // Only use the tier-specific share page when the user actually has a result
+    if (currentTotal() === 0) return 'https://godberrystudios.com/ai-readiness-quiz/';
+    return 'https://godberrystudios.com/share/' + currentTierSlug() + '/';
   }
   function shareText() {
     var total = currentTotal();
-    return 'I scored ' + total + "/40 on the AI Readiness Assessment \u2014 I'm an \"" + currentTierName() + '". How AI-ready is your business?';
+    return 'I scored ' + total + "/40 on the AI Readiness Assessment \u2014 I'm an \"" + currentTier().name + '\". How AI-ready is your business?';
   }
   window.shareX = function() {
-    var url = 'https://godberrystudios.com/ai-readiness-quiz/';
-    window.open('https://x.com/intent/tweet?text=' + encodeURIComponent(shareText()) + '&url=' + encodeURIComponent(url), '_blank', 'width=550,height=420');
+    window.open('https://x.com/intent/tweet?text=' + encodeURIComponent(shareText()) + '&url=' + encodeURIComponent(shareUrl()), '_blank', 'width=550,height=420');
   };
   window.shareLinkedIn = function() {
-    var url = 'https://godberrystudios.com/ai-readiness-quiz/';
-    window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url), '_blank', 'width=550,height=420');
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(shareUrl()), '_blank', 'width=550,height=420');
   };
   window.shareWhatsApp = function() {
-    var url = 'https://godberrystudios.com/ai-readiness-quiz/';
-    window.open('https://wa.me/?text=' + encodeURIComponent(shareText() + ' ' + url), '_blank');
+    window.open('https://wa.me/?text=' + encodeURIComponent(shareText() + ' ' + shareUrl()), '_blank');
   };
   window.copyLink = function() {
-    var url = 'https://godberrystudios.com/ai-readiness-quiz/';
+    var url = shareUrl();
     if (navigator.clipboard) {
       navigator.clipboard.writeText(url).then(function() {
         var label = document.getElementById('copy-label');
