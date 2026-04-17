@@ -280,6 +280,12 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 14px;
   color: var(--text-muted);
 }
+.sr-title mark {
+  background: var(--accent-light);
+  color: var(--accent);
+  border-radius: 2px;
+  padding: 0 2px;
+}
 
 .mobile-menu-toggle { display: none; }
 
