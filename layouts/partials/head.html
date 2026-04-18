@@ -114,20 +114,13 @@
 
   <link rel="stylesheet" href="/css/style.css?v={{ now.Unix }}">
 
-  <!-- Google Analytics 4 (gtag.js) — renders whenever googleAnalytics is
-       configured. Uses `.Site.GoogleAnalytics` (not `site.GoogleAnalytics`)
-       because Hugo 0.147 inside partials sees `site` as interface{} and
-       can't resolve field access — .Site preserves the typed Site struct.
-       Note: no hugo.IsProduction gate — Cloudflare Pages doesn't set
-       HUGO_ENVIRONMENT=production by default, which made the gate always
-       false. Localhost traffic can be filtered in GA itself. -->
-  {{ with .Site.GoogleAnalytics }}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '{{ . }}');
-  </script>
-  {{ end }}
+  <!-- Google Analytics 4 (gtag.js).
+       Uses Hugo's built-in internal template, which reads the
+       `googleAnalytics` config key from hugo.toml and handles all version
+       quirks around `.Site` field access. This is the documented, stable
+       way that works across Hugo 0.88 through 0.147+.
+       Note: Hugo's internal template skips rendering when
+       `hugo.IsDevelopment` or `hugo.IsServer` is true — both are false
+       on Cloudflare Pages, so gtag WILL render there. -->
+  {{ template "_internal/google_analytics.html" . }}
 </head>
