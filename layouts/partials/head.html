@@ -114,11 +114,14 @@
 
   <link rel="stylesheet" href="/css/style.css?v={{ now.Unix }}">
 
-  <!-- Google Analytics 4 (gtag.js) — renders whenever googleAnalytics is configured.
-       We skipped the hugo.IsProduction gate because Cloudflare Pages doesn't
-       set HUGO_ENVIRONMENT=production by default, so the gate evaluated false
-       and blocked the snippet. Localhost dev traffic gets filtered in GA. -->
-  {{ with site.GoogleAnalytics }}
+  <!-- Google Analytics 4 (gtag.js) — renders whenever googleAnalytics is
+       configured. Uses `.Site.GoogleAnalytics` (not `site.GoogleAnalytics`)
+       because Hugo 0.147 inside partials sees `site` as interface{} and
+       can't resolve field access — .Site preserves the typed Site struct.
+       Note: no hugo.IsProduction gate — Cloudflare Pages doesn't set
+       HUGO_ENVIRONMENT=production by default, which made the gate always
+       false. Localhost traffic can be filtered in GA itself. -->
+  {{ with .Site.GoogleAnalytics }}
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
