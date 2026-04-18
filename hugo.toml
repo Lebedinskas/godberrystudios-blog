@@ -1,6 +1,7 @@
 baseURL = "https://godberrystudios.com/"
 languageCode = "en-us"
 title = "Godberry Studios | Web Scraping & Automation Tools"
+googleAnalytics = "G-C98MN3XRGK"
 
 [pagination]
   pagerSize = 10
