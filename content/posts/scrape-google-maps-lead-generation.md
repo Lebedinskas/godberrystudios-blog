@@ -6,6 +6,7 @@ categories: ["Tutorials"]
 tags: ["google maps", "lead generation", "web scraping", "B2B leads", "data extraction", "apify"]
 image: /images/posts/google-maps-lead-generation.png
 image_alt: "Digital city map with business pins lighting up and data streams flowing into a lead generation dashboard"
+affiliate_links: true
 # Quality scores (Phase 4): Value: 8/10, Originality: 7/10, Readability: 8/10, Voice: 8/10, SEO: 8/10 → Weighted: 7.8/10 — PUBLISH
 ---
 
@@ -217,7 +218,7 @@ Google Maps gives you the business phone and website, but cold outreach works be
 - **Hunter.io or Apollo:** Feed in the domain, get back verified email addresses
 - **LinkedIn Sales Navigator:** Search by company name to find decision-makers
 
-For a fully automated version: some teams chain Apify scrapers with [Make.com](https://make.com) or [n8n](https://n8n.io) workflows that scrape → enrich → push to CRM in a single pipeline. The n8n community has [ready-made templates](https://n8n.io/workflows/5385-lead-generation-system-google-maps-to-email-scraper-with-google-sheets-export/) for exactly this flow.
+For a fully automated version: some teams chain Apify scrapers with {{< affiliate slug="make" label="Make.com" >}} or [n8n](https://n8n.io) workflows that scrape → enrich → push to CRM in a single pipeline. The n8n community has [ready-made templates](https://n8n.io/workflows/5385-lead-generation-system-google-maps-to-email-scraper-with-google-sheets-export/) for exactly this flow.
 
 ### Step 4: Push to Your CRM
 
