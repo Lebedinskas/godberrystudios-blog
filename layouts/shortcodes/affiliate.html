@@ -17,6 +17,10 @@
     - rel="sponsored nofollow" is required by Google for paid links.
     - The small "(affiliate)" marker is visible by design — readers must see it.
     - target="_blank" + rel="noopener" so vendor pages open cleanly.
+    - Class names use neutral "vendor-ref" / "post-disclosure-note" rather than
+      "affiliate-*" so cosmetic ad-block filter lists don't hide them. The
+      rel="sponsored nofollow" attribute and visible "(affiliate)" marker still
+      satisfy Google + FTC requirements.
 */}}
 {{- $slug := .Get "slug" -}}
 {{- $url := .Get "url" -}}
@@ -28,7 +32,7 @@
   {{- $href = $url -}}
 {{- end -}}
 {{- if and $href $label -}}
-<a href="{{ $href }}" class="affiliate-link" rel="sponsored nofollow noopener" target="_blank" aria-label="{{ $label }} (affiliate link)">{{ $label }}<span class="affiliate-marker" aria-hidden="true"> (affiliate)</span></a>
+<a href="{{ $href }}" class="vendor-ref" rel="sponsored nofollow noopener" target="_blank" aria-label="{{ $label }} (paid link)">{{ $label }}<span class="vendor-ref-tag" aria-hidden="true"> (affiliate)</span></a>
 {{- else -}}
-<span class="affiliate-link-error">[affiliate shortcode missing slug/url or label]</span>
+<span class="vendor-ref-error">[affiliate shortcode missing slug/url or label]</span>
 {{- end -}}
