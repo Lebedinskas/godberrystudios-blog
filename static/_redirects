@@ -1,0 +1,21 @@
+# Cloudflare Pages redirects — Godberry Studios
+#
+# /go/{slug} — affiliate redirect cloak.
+#   Readers click an internal same-origin link, Cloudflare 302s to the vendor.
+#   Why: many browser extensions (uBlock, AdGuard filter lists, Brave Shields)
+#   hide or strip anchors that point directly to known affiliate URL patterns.
+#   Routing through /go/{slug} keeps the hrefs same-origin so extensions don't
+#   interfere, while Google still sees rel="sponsored nofollow" on the anchor.
+#
+# Format: <path>  <destination>  <status>
+#   - Use 302 (temporary) so affiliate attribution parameters can be rotated
+#     without Google caching a 301.
+#   - Keep tracking query params intact in the destination.
+#
+# Add a new vendor:
+#   1. Sign up / get the vendor's referral URL + param.
+#   2. Add a line below: /go/<slug>  <full vendor referral URL>  302
+#   3. Log in AFFILIATE-PLAYBOOK.md Active Programs table.
+#   4. Use {{< affiliate slug="<slug>" label="..." >}} in posts.
+
+/go/make  https://www.make.com/en/register?pc=godberry  302

@@ -1,17 +1,34 @@
 {{/*
   Affiliate link shortcode — Godberry Studios
-  Usage:
-    {{< affiliate url="https://partner.example.com/?ref=godberry" label="Make.com" >}}
+
+  Two usage modes:
+
+  1. Cloaked (preferred for vendor links — bypasses ad-blocker filters):
+       {{< affiliate slug="make" label="Make" >}}
+     Requires a matching line in static/_redirects:
+       /go/make  https://www.make.com/en/register?pc=godberry  302
+
+  2. Direct (legacy — vendor without a slug entry):
+       {{< affiliate url="https://partner.example.com/?ref=godberry" label="Vendor" >}}
+     Some browser extensions hide direct affiliate URLs. Prefer the cloaked
+     variant for any link that needs to convert.
+
   Notes:
     - rel="sponsored nofollow" is required by Google for paid links.
     - The small "(affiliate)" marker is visible by design — readers must see it.
-    - Non-affiliate fallback: if you want an in-post "or visit directly" option,
-      use a normal markdown link alongside.
+    - target="_blank" + rel="noopener" so vendor pages open cleanly.
 */}}
+{{- $slug := .Get "slug" -}}
 {{- $url := .Get "url" -}}
 {{- $label := .Get "label" -}}
-{{- if and $url $label -}}
-<a href="{{ $url }}" class="affiliate-link" rel="sponsored nofollow noopener" target="_blank" aria-label="{{ $label }} (affiliate link)">{{ $label }}<span class="affiliate-marker" aria-hidden="true"> (affiliate)</span></a>
+{{- $href := "" -}}
+{{- if $slug -}}
+  {{- $href = printf "/go/%s" $slug -}}
+{{- else if $url -}}
+  {{- $href = $url -}}
+{{- end -}}
+{{- if and $href $label -}}
+<a href="{{ $href }}" class="affiliate-link" rel="sponsored nofollow noopener" target="_blank" aria-label="{{ $label }} (affiliate link)">{{ $label }}<span class="affiliate-marker" aria-hidden="true"> (affiliate)</span></a>
 {{- else -}}
-<span class="affiliate-link-error">[affiliate shortcode missing url or label]</span>
+<span class="affiliate-link-error">[affiliate shortcode missing slug/url or label]</span>
 {{- end -}}
