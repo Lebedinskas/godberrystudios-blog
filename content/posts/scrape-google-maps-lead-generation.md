@@ -228,7 +228,7 @@ Export your scored, enriched leads as CSV and import into whatever you use — H
 
 Lead lists are more powerful when you also have the reviews. If you're pitching a restaurant on marketing services, and you can open with "I noticed your last 10 reviews mention slow service on weekends" — that's a personalized email that gets opened.
 
-The [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) on Apify pulls full review text, ratings, dates, and owner responses for any Google Maps listing. At $0.10 per place for up to 50 reviews, it's cheap enough to enrich your entire lead list. Feed those reviews into a sentiment analysis tool or just scan them manually for patterns — either way, you now know more about the business than their own marketing team does.
+The [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) on Apify pulls full review text, ratings, dates, and owner responses for any Google Maps listing. At $0.10 per place for up to 50 reviews, it's cheap enough to enrich your entire lead list. Feed those reviews into a sentiment analysis tool or just scan them manually for patterns — either way, you now know more about the business than their own marketing team does. If your prospect is a local business owner themselves, our [2026 Google Reviews playbook for local businesses](/posts/google-reviews-playbook-2026/) gives you the language and data points to build a consultative opener.
 
 {{< cta title="Extract Google Reviews in Seconds" url="https://apify.com/godberry/google-reviews-scraper" >}}
 Get structured review data for any Google Maps business — ratings, full text, dates, owner responses. No code needed. Starting at $0.10 per place.

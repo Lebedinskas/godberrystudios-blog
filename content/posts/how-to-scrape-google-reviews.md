@@ -27,7 +27,7 @@ Google reviews are the largest public dataset of customer opinions on the intern
 
 **Lead generation** — Businesses with poor reviews often need help. If you sell reputation management, marketing services, or consulting, a list of businesses with declining ratings is a qualified lead list. Pair this with [Google Maps scraping for lead data](/posts/scrape-google-maps-lead-generation/) and you have contact details to go with the review intelligence.
 
-**Local SEO intelligence** — Review volume, recency, and sentiment are ranking factors in Google's local pack. Monitoring competitors' review velocity tells you exactly how much social proof you need to compete.
+**Local SEO intelligence** — Review volume, recency, and sentiment are ranking factors in Google's local pack. Monitoring competitors' review velocity tells you exactly how much social proof you need to compete. Our [2026 Google Reviews playbook for local businesses](/posts/google-reviews-playbook-2026/) breaks down the 20 statistics, the 30-day action plan, and the Ask Maps optimization tactics that pair with scraped competitor review data.
 
 ## Method 1: No-Code Scraping With Apify (Fastest)
 
