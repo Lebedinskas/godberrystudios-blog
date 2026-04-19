@@ -42,25 +42,25 @@
 
     {{ if $isBlogPost }}
     <!-- Product CTA -->
-    <div class="post-cta">
+    <div class="studio-product-card">
       <h3>Want to try the tools mentioned in this article?</h3>
       <p>Check out our tools on the Apify Store:</p>
-      <div class="cta-buttons">
+      <div class="product-actions">
         <a href="https://apify.com/godberry/content-to-social-mcp" target="_blank" rel="noopener" class="btn btn-primary">Content to Social MCP</a>
         <a href="https://apify.com/godberry/google-reviews-scraper" target="_blank" rel="noopener" class="btn btn-secondary">Google Reviews Scraper</a>
       </div>
     </div>
 
     <!-- Newsletter -->
-    <div class="newsletter-cta">
+    <div class="studio-list-inline">
       <h3>Stay in the loop</h3>
       <p>Get new tutorials and tool updates delivered to your inbox. No spam, unsubscribe anytime.</p>
-      <form class="newsletter-form" action="/api/subscribe" method="POST">
+      <form class="studio-list-form" action="/api/subscribe" method="POST">
         <input type="email" name="email" placeholder="you@example.com" required autocomplete="email">
         <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
         <button type="submit" class="btn btn-primary">Subscribe</button>
       </form>
-      <p class="newsletter-disclaimer"><small>By subscribing you agree to our <a href="/privacy/">privacy policy</a>. Unsubscribe anytime.</small></p>
+      <p class="studio-list-fineprint"><small>By subscribing you agree to our <a href="/privacy/">privacy policy</a>. Unsubscribe anytime.</small></p>
     </div>
 
     {{ with .Params.tags }}

@@ -6,7 +6,7 @@
     {{ end }}
     <h1 class="share-card-bounce-title">{{ .Title }}</h1>
     {{ with .Description }}<p class="share-card-bounce-desc">{{ . }}</p>{{ end }}
-    <a href="/ai-readiness-quiz/" class="share-card-bounce-cta">Take the AI Readiness Quiz &rarr;</a>
+    <a href="/ai-readiness-quiz/" class="share-card-quiz-link">Take the AI Readiness Quiz &rarr;</a>
     <p class="share-card-bounce-note">Redirecting you to the quiz in 2 seconds&hellip;</p>
   </div>
 </div>
@@ -16,7 +16,7 @@
   .share-card-bounce-img { width: 100%; height: auto; border-radius: 16px; box-shadow: 0 20px 60px rgba(17,24,39,0.15); margin-bottom: 24px; }
   .share-card-bounce-title { font-size: 28px; font-weight: 800; color: #111827; margin: 0 0 12px; letter-spacing: -0.02em; }
   .share-card-bounce-desc { font-size: 16px; color: #6B7280; line-height: 1.6; margin: 0 0 24px; }
-  .share-card-bounce-cta { display: inline-block; background: linear-gradient(135deg, #4F46E5, #7C3AED); color: #fff; font-weight: 700; padding: 14px 28px; border-radius: 10px; text-decoration: none; }
+  .share-card-quiz-link { display: inline-block; background: linear-gradient(135deg, #4F46E5, #7C3AED); color: #fff; font-weight: 700; padding: 14px 28px; border-radius: 10px; text-decoration: none; }
   .share-card-bounce-note { font-size: 13px; color: #9CA3AF; margin-top: 18px; }
 </style>
 {{ end }}

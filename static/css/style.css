@@ -313,7 +313,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto 36px;
   line-height: 1.6;
 }
-.hero-cta {
+.hero-actions {
   display: flex;
   gap: 14px;
   justify-content: center;
@@ -414,10 +414,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* === TOOLS SECTION === */
-.tools-cta {
+.studio-tools-block {
   padding: 64px 0;
 }
-.tools-cta h2 {
+.studio-tools-block h2 {
   font-size: 28px;
   margin-bottom: 32px;
   text-align: center;
@@ -469,10 +469,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* === NEWSLETTER === */
-.newsletter-section {
+.studio-list-section {
   padding: 64px 0;
 }
-.newsletter-box {
+.studio-list-box {
   background: var(--bg-white);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -480,22 +480,22 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   box-shadow: var(--shadow-sm);
 }
-.newsletter-box h2 {
+.studio-list-box h2 {
   font-size: 24px;
   margin-bottom: 10px;
 }
-.newsletter-box p {
+.studio-list-box p {
   color: var(--text-muted);
   margin-bottom: 24px;
   font-size: 15px;
 }
-.newsletter-form {
+.studio-list-form {
   display: flex;
   gap: 10px;
   max-width: 440px;
   margin: 0 auto;
 }
-.newsletter-form input[type="email"] {
+.studio-list-form input[type="email"] {
   flex: 1;
   padding: 12px 16px;
   border: 1.5px solid var(--border);
@@ -507,11 +507,11 @@ h1, h2, h3, h4, h5, h6 {
   transition: border-color var(--transition);
   outline: none;
 }
-.newsletter-form input[type="email"]:focus {
+.studio-list-form input[type="email"]:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
 }
-.newsletter-form input[type="email"]::placeholder {
+.studio-list-form input[type="email"]::placeholder {
   color: var(--text-muted);
 }
 
@@ -731,7 +731,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Post CTA */
-.post-cta {
+.studio-product-card {
   background: var(--accent-light);
   border: 1px solid rgba(79,70,229,0.15);
   border-radius: var(--radius);
@@ -739,16 +739,16 @@ h1, h2, h3, h4, h5, h6 {
   margin: 48px 0;
   text-align: center;
 }
-.post-cta h3 {
+.studio-product-card h3 {
   font-size: 20px;
   margin-bottom: 8px;
 }
-.post-cta p {
+.studio-product-card p {
   color: var(--text-body);
   margin-bottom: 20px;
   font-size: 15px;
 }
-.cta-buttons {
+.product-actions {
   display: flex;
   gap: 12px;
   justify-content: center;
@@ -756,7 +756,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Newsletter CTA (in post) */
-.newsletter-cta {
+.studio-list-inline {
   background: var(--bg-white);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -764,11 +764,11 @@ h1, h2, h3, h4, h5, h6 {
   margin: 40px 0;
   text-align: center;
 }
-.newsletter-cta h3 {
+.studio-list-inline h3 {
   font-size: 20px;
   margin-bottom: 8px;
 }
-.newsletter-cta p {
+.studio-list-inline p {
   color: var(--text-muted);
   margin-bottom: 20px;
   font-size: 15px;
@@ -986,14 +986,14 @@ h1, h2, h3, h4, h5, h6 {
     transition: all var(--transition);
   }
 
-  .newsletter-form { flex-direction: column; }
-  .newsletter-box { padding: 32px 24px; }
+  .studio-list-form { flex-direction: column; }
+  .studio-list-box { padding: 32px 24px; }
 
   .post-header h1 { font-size: 28px; }
   .page-header h1 { font-size: 28px; }
   .page-header { padding: 40px 0 24px; }
 
-  .cta-buttons { flex-direction: column; align-items: center; }
+  .product-actions { flex-direction: column; align-items: center; }
 }
 
 @media (max-width: 480px) {
@@ -1005,8 +1005,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* === PRINT === */
 @media print {
-  .site-header, .site-footer, .newsletter-section, .newsletter-cta,
-  .tools-cta, .post-cta, .hero-cta, .mobile-menu-toggle { display: none; }
+  .site-header, .site-footer, .studio-list-section, .studio-list-inline,
+  .studio-tools-block, .studio-product-card, .hero-actions, .mobile-menu-toggle { display: none; }
   body { background: #fff; color: #000; font-size: 12pt; }
   .post-content a { color: #000; text-decoration: underline; }
   .post-content a::after { content: " (" attr(href) ")"; font-size: 0.8em; }
