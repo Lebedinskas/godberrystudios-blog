@@ -223,7 +223,7 @@ Nobody picks a tool by reading only the marketing page. Here's what I'd have tol
 
 **Solo founder / indie hacker.** Start on **n8n** — self-host on a $10/mo VPS if you can, or Cloud Starter at $20/mo. You'll outgrow Zapier's free tier in a week and Make's free tier in a month. The agent tooling is better and the price ceiling is sane.
 
-**Marketing team, 5–20 people.** **Make**. Maia gets your less technical marketers to "agents in a scenario" faster, the visual layout is handoff-friendly, and the price at 20,000–100,000 ops/month is comfortable. Pair it with [a free AI tool stack](/posts/free-ai-tools-replace-expensive-software-2026/) for the rest of your workflow and you'll save five figures a year.
+**Marketing team, 5–20 people.** **Make**. Maia gets your less technical marketers to "agents in a scenario" faster, the visual layout is handoff-friendly, and the price at 20,000–100,000 ops/month is comfortable. {{< affiliate url="https://www.make.com/en/register?pc=godberry" label="Make" >}} has a free tier that's enough to build and test the first scenarios before you commit — start there, then upgrade to Core or Pro once you know your credit burn. Pair it with [a free AI tool stack](/posts/free-ai-tools-replace-expensive-software-2026/) for the rest of your workflow and you'll save five figures a year.
 
 **Sales or RevOps team inside a large org.** **Zapier**, unless you already have a developer on the team. The ecosystem coverage matters — every SaaS your team adopts will have a Zapier integration within weeks. If you have a developer, reconsider n8n, especially for anything involving HTTP or scraping.
 
@@ -291,4 +291,4 @@ If I had to ship this article as a single sentence: **build on n8n if you can st
 
 All three are good software. None of them is going away. The right answer depends less on the platform and more on what you're actually trying to automate — which is exactly the question most tool-comparison articles forget to ask. Pick the one that matches your volume and your team's skill, commit for at least three months, and re-evaluate when your workflow count doubles.
 
-If you're just starting out and don't have an automation stack yet, the order I'd try them in: **Zapier free tier for a weekend to learn the mental model → Make free tier for two weeks to learn scenarios → n8n self-host or Cloud Starter for the thing you actually want to scale.** By the third step you'll know exactly which platform fits your work.
+If you're just starting out and don't have an automation stack yet, the order I'd try them in: **Zapier free tier for a weekend to learn the mental model → {{< affiliate url="https://www.make.com/en/register?pc=godberry" label="Make free tier" >}} for two weeks to learn scenarios → n8n self-host or Cloud Starter for the thing you actually want to scale.** By the third step you'll know exactly which platform fits your work.
