@@ -215,7 +215,7 @@ async function sendConfirmationEmail(apiKey: string, record: { email: string; co
     <tr><td align="center">
       <table role="presentation" width="560" cellspacing="0" cellpadding="0" border="0" style="max-width:560px;background:#ffffff;border-radius:12px;padding:40px 32px;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
         <tr><td style="font-size:15px;line-height:1.6;">
-          <div style="font-size:20px;font-weight:600;color:#2563eb;margin-bottom:24px;">Godberry Studios</div>
+          <div style="font-size:20px;font-weight:600;color:#111827;margin-bottom:24px;">g<span style="color:#4F46E5;">o</span>dberry</div>
           <h1 style="font-size:22px;font-weight:600;color:#111827;margin:0 0 16px;">Confirm your subscription</h1>
           <p style="margin:0 0 16px;">Thanks for subscribing. Click the button below to confirm your email and start receiving new posts, tool updates, and the occasional scraping or MCP deep-dive.</p>
           <p style="margin:24px 0;">
