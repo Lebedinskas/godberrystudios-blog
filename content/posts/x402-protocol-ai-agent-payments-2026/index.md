@@ -53,7 +53,7 @@ Cloudflare's approach is different. Instead of a general-purpose payment protoco
 
 When an AI bot requests a page, Cloudflare returns a 402 with a `crawler-price` header. The bot retries with a `crawler-exact-price` header to agree, and Cloudflare handles billing. The minimum price is $0.01 per crawl. Cloudflare acts as merchant of record, so site owners don't need to handle payments themselves.
 
-Stack Overflow was the first major adopter, signing on in February 2026. Before Pay Per Crawl, they were blocking AI crawlers with 403 responses. Now they monetize the traffic instead. On an average day, Cloudflare customers are already sending over one billion 402 response codes across their network.
+Stack Overflow was the first major adopter, signing on in February 2026. Before Pay Per Crawl, they were blocking AI crawlers with 403 responses. Now they monetize the traffic instead. On an average day, Cloudflare customers are already sending over one billion 402 response codes across their network. For a deeper look at what this shift means for scraper operators and the crawl-cost math indie developers face, see our [Cloudflare Pay Per Crawl deep dive](/posts/cloudflare-pay-per-crawl-http-402-scrapers-2026/).
 
 The key difference from x402: Pay Per Crawl is Cloudflare-specific and uses fiat billing (Cloudflare handles the money). x402 is protocol-level and uses on-chain stablecoins. They're complementary — a site could use Pay Per Crawl for crawler monetization and x402 for API monetization simultaneously.
 
