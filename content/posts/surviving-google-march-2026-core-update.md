@@ -68,7 +68,7 @@ Run every article through it. Failing any one of these is not a kill signal — 
 ### Structural formatting
 
 - **At least two non-prose formats.** Tables, numbered steps, comparison matrices, callout boxes. Pages that combine formats outperform single-format prose posts in both Google rankings and AI Overview citations.
-- **FAQ section with 40–60 word answers.** AEO-friendly, directly consumable by ChatGPT and Perplexity, and Google's Gemini seems to favor it in Overviews.
+- **FAQ section with 40–60 word answers.** AEO-friendly, directly consumable by ChatGPT and Perplexity, and Google's Gemini seems to favor it in Overviews. Our separate [AEO playbook for 2026](/posts/aeo-playbook-get-cited-by-ai-2026/) goes deeper on the answer-block structure and FAQ schema that AI engines extract.
 - **H2 headings that match real search queries.** Not "Why This Matters" but "How to tell if Google demoted your site."
 
 ### Editorial judgment
