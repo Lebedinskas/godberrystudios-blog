@@ -12,6 +12,10 @@ googleAnalytics = "G-C98MN3XRGK"
   tagline = "Web Scraping & Content Automation"
   ogImage = "https://godberrystudios.com/images/og-default.png"
 
+  [params.social]
+    facebook = "https://www.facebook.com/profile.php?id=61570965581596"
+    facebookPageId = "61570965581596"
+
 [markup]
   [markup.highlight]
     style = "monokai"

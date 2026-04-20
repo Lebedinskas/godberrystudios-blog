@@ -43,3 +43,5 @@ Questions, partnerships, press, or wholesale API access — **[hello@godberrystu
 Tool-specific support lives on the Apify Store: [apify.com/godberry](https://apify.com/godberry).
 
 Open-source work: [github.com/godberrystudios](https://github.com/godberrystudios).
+
+Follow along on Facebook: [Godberry Studio](https://www.facebook.com/profile.php?id=61570965581596).

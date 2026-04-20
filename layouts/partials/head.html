@@ -17,6 +17,8 @@
   {{ else }}
   {{ with .Site.Params.ogImage }}<meta property="og:image" content="{{ . }}">{{ end }}
   {{ end }}
+  {{ with .Site.Params.social.facebook }}<meta property="article:publisher" content="{{ . }}">{{ end }}
+  {{ with .Site.Params.social.facebookPageId }}<meta property="fb:pages" content="{{ . }}">{{ end }}
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
@@ -44,7 +46,8 @@
     "@type": "Organization",
     "name": "{{ .Site.Title }}",
     "url": "{{ .Site.BaseURL }}",
-    "description": "{{ .Site.Params.description }}"
+    "description": "{{ .Site.Params.description }}"{{ with .Site.Params.social.facebook }},
+    "sameAs": ["{{ . }}"]{{ end }}
   }
   </script>
   {{ else if .IsPage }}
