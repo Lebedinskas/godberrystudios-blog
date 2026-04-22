@@ -34,7 +34,7 @@ Anthropic's Claude excels at long-form writing, analysis, and nuanced content. T
 **Replaces:** Perplexity Pro ($20/month) for research  
 **Savings:** $240/year
 
-Gemini 3.1 comes with a 2-million token context window and native multimodal capabilities. It's particularly strong for research tasks — it can analyze images, process PDFs, and synthesize information from multiple sources simultaneously.
+Gemini 3.1 comes with a 2-million token context window and native multimodal capabilities. It's particularly strong for research tasks — it can analyze images, process PDFs, and synthesize information from multiple sources simultaneously. Chrome desktop users also get [Google Chrome Skills](/posts/google-chrome-skills-starter-library-2026/) — a free way to save any Gemini prompt as a reusable one-click command that runs on the current page plus up to 10 open tabs.
 
 **Best for:** Research, multimodal analysis, document processing, fact-checking.
 
