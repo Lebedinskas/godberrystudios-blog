@@ -81,7 +81,7 @@ These are the non-negotiables on any page you want AI to cite. Run them on every
 
 **External citations to authorities.** Link out to the original research, the vendor doc, the academic paper. Perplexity explicitly weights articles that cite upstream sources. ChatGPT's browsing mode follows those links to verify claims.
 
-**No `llms.txt` panic.** OtterlyAI's 90-day experiment across 62,100 AI bot visits found llms.txt was accessed in only 0.1% of cases. Rankability's data across 300,000 domains confirms the same pattern — 10% adoption with near-zero usage. Google publicly said in October 2025 that it doesn't support llms.txt. Don't waste a sprint on it. Spend the time on schema, bylines, and the answer-first rewrite.
+**No `llms.txt` panic.** OtterlyAI's 90-day experiment across 62,100 AI bot visits found llms.txt was accessed in only 0.1% of cases. Rankability's data across 300,000 domains confirms the same pattern — 10% adoption with near-zero usage. Google publicly said in October 2025 that it doesn't support llms.txt. Don't waste a sprint on it. Spend the time on schema, bylines, and the answer-first rewrite. The full breakdown of what each of these files actually does in 2026 is in the [llms.txt vs robots.txt explainer](/posts/llms-txt-vs-robots-txt-ai-web-standards-2026/).
 
 ## Off-Page Signals: The Citation Sources Beyond Your Domain
 
@@ -105,7 +105,7 @@ Your own site is half the work. The other half is the citation graph AI engines 
 
 A lot of AEO advice is recycled SEO advice wearing a new hat. The 2026 citation data actually contradicts several of the most common recommendations.
 
-**llms.txt files.** Already covered — 0.1% usage rate. Skip it.
+**llms.txt files.** Already covered — 0.1% usage rate. Skip it. If you want the full "why it's decorative" case with the adoption data and Google's public position, the [llms.txt vs robots.txt explainer](/posts/llms-txt-vs-robots-txt-ai-web-standards-2026/) goes deeper.
 
 **Traditional link-building campaigns.** The DigitalBloom report and Semrush's 2026 rankings data both found backlinks show "weak or neutral" correlation with AI citation rates. A blog that has 50 high-quality links and no structured answer blocks will lose to a blog with 5 links and clean FAQ schema. Don't stop earning links — they still help with traditional Google rankings — but don't expect them to move AEO.
 
