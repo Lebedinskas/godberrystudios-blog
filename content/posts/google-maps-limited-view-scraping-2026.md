@@ -86,7 +86,7 @@ In practice, this means your scraper:
 3. Clicks through to each place (within the same session)
 4. Extracts reviews from the place page that renders
 
-The place page rendered via this path usually has full review data, even without a login. Several [open-source scrapers](https://github.com/georgekhananaev/google-reviews-scraper-pro) switched to this flow within a day of the February update and reported it worked immediately.
+The place page rendered via this path usually has full review data, even without a login. Several [open-source scrapers](https://github.com/georgekhananaev/google-reviews-scraper-pro) switched to this flow within a day of the February update and reported it worked immediately. If you're running your own headless browser, pair it with a modern anti-bot stack — [the Byparr + Scrapling walkthrough](/posts/byparr-scrapling-flaresolverr-cloudflare-bypass-2026/) covers the open-source tooling most teams have moved to in 2026.
 
 The tradeoff is speed. You're adding a search step for every scrape, and search result pages limit you to 120 results per query. For larger extractions you split queries by ZIP code, neighborhood, or category — the [Scrap.io 2026 guide](https://scrap.io/google-maps-scraping-complete-guide-api-reviews-extraction) walks through the splitting logic in detail. You also burn more requests per place than a direct URL hit, so your proxy or actor cost goes up roughly 2x-3x.
 

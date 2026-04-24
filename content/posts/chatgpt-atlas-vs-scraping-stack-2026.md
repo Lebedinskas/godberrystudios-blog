@@ -99,7 +99,7 @@ The other side of the grid is larger, and more important if revenue depends on i
 
 **Cost optimization at scale.** Above ~5,000 rows a month, metered scraping APIs beat subscription-based agents. Below that, subscription can win — but most commercial scraping only stays "below that" for the first month of a project.
 
-**Anti-bot-heavy targets.** Atlas inherits OpenAI's browser fingerprint, which is increasingly detected and blocked by Cloudflare, PerimeterX, and DataDome. You can't swap a residential proxy pool in. Specialized stealth stacks still retain the edge on the hardest targets covered in [practical Google Maps lead generation](/posts/scrape-google-maps-lead-generation/).
+**Anti-bot-heavy targets.** Atlas inherits OpenAI's browser fingerprint, which is increasingly detected and blocked by Cloudflare, PerimeterX, and DataDome. You can't swap a residential proxy pool in. Specialized stealth stacks still retain the edge on the hardest targets covered in [practical Google Maps lead generation](/posts/scrape-google-maps-lead-generation/), and the open-source bypass tooling has moved on from FlareSolverr — see the [Byparr + Scrapling replacement walkthrough](/posts/byparr-scrapling-flaresolverr-cloudflare-bypass-2026/) for where the 2026 stack actually sits.
 
 ## The Prompt Injection Problem OpenAI Says It Can't Fully Fix
 
