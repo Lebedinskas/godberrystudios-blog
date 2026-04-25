@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hero — Gemini vs Claude</title>
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  body { width: 1920px; height: 1080px; font-family: -apple-system, "Segoe UI", "Inter", system-ui, sans-serif; }
+  .stage {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    background:
+      radial-gradient(circle at 25% 35%, rgba(37, 99, 235, 0.22) 0%, transparent 45%),
+      radial-gradient(circle at 75% 65%, rgba(217, 119, 87, 0.20) 0%, transparent 45%),
+      linear-gradient(135deg, #07091a 0%, #0e1330 50%, #0a0e27 100%);
+    overflow: hidden;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at center, black 35%, transparent 80%);
+  }
+  .halo {
+    position: absolute;
+    width: 720px; height: 720px;
+    top: 50%; border-radius: 50%;
+    transform: translateY(-50%);
+    filter: blur(110px);
+    opacity: 0.55;
+  }
+  .halo.left  { left: 80px;  background: radial-gradient(circle, #2e7eff 0%, #1652c8 40%, transparent 70%); }
+  .halo.right { right: 80px; background: radial-gradient(circle, #f4a25c 0%, #cc6633 40%, transparent 70%); }
+  .logo {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 520px; height: 520px;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 3;
+  }
+  .logo.left  { left: 200px; }
+  .logo.right { right: 200px; }
+  .logo svg { width: 100%; height: 100%; display: block; }
+  .vs {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%); z-index: 4; text-align: center;
+  }
+  .vs .word {
+    font-size: 78px; font-weight: 800; letter-spacing: -2px;
+    color: #f3f4f6; text-transform: uppercase;
+    text-shadow: 0 2px 30px rgba(0,0,0,0.6);
+    background: linear-gradient(180deg, #ffffff 0%, #d6dbe6 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .vs .rule {
+    width: 180px; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(245, 158, 11, 0.7), transparent);
+    margin: 14px auto;
+  }
+  .vs .sub {
+    font-size: 22px; font-weight: 500; color: #9aa3b8;
+    letter-spacing: 4px; text-transform: uppercase;
+  }
+  .brand {
+    position: absolute; bottom: 38px; left: 60px;
+    color: #6b7280; font-size: 18px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase; z-index: 5;
+  }
+  .brand .dot { color: #f59e0b; }
+  .label {
+    position: absolute; top: calc(50% + 300px);
+    transform: translate(-50%, 0);
+    font-size: 30px; font-weight: 700; letter-spacing: -0.5px;
+    color: #e5e7eb; z-index: 6; white-space: nowrap;
+  }
+  .label.left  { left: 460px; }
+  .label.right { left: 1460px; }
+  .label .v { color: #9aa3b8; font-weight: 500; font-size: 22px; display: block; margin-top: 4px; letter-spacing: 0; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="grid"></div>
+    <div class="halo left"></div>
+    <div class="halo right"></div>
+
+    <!-- LEFT: Google Gemini four-point sparkle -->
+    <div class="logo left">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Gemini logo">
+        <defs>
+          <linearGradient id="gem" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"  stop-color="#4796E3"/>
+            <stop offset="50%" stop-color="#1A73E8"/>
+            <stop offset="100%" stop-color="#0B5FCC"/>
+          </linearGradient>
+          <radialGradient id="gemGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"  stop-color="#7FB6FF" stop-opacity="0.6"/>
+            <stop offset="60%" stop-color="#1A73E8" stop-opacity="0.0"/>
+          </radialGradient>
+        </defs>
+        <circle cx="100" cy="100" r="95" fill="url(#gemGlow)"/>
+        <path d="M100 0
+                 C100 60, 140 100, 200 100
+                 C140 100, 100 140, 100 200
+                 C100 140, 60 100, 0 100
+                 C60 100, 100 60, 100 0 Z"
+              fill="url(#gem)"/>
+      </svg>
+    </div>
+
+    <!-- RIGHT: Anthropic / Claude burst (radial) -->
+    <div class="logo right">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Anthropic Claude logo">
+        <defs>
+          <linearGradient id="claude" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"  stop-color="#F0A171"/>
+            <stop offset="50%" stop-color="#D97757"/>
+            <stop offset="100%" stop-color="#B85A3F"/>
+          </linearGradient>
+          <radialGradient id="claudeGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"  stop-color="#F4A25C" stop-opacity="0.6"/>
+            <stop offset="60%" stop-color="#D97757" stop-opacity="0.0"/>
+          </radialGradient>
+        </defs>
+        <circle cx="100" cy="100" r="95" fill="url(#claudeGlow)"/>
+        <g transform="translate(100 100)" fill="url(#claude)">
+          <g>
+            <ellipse cx="0" cy="-65" rx="9" ry="32"/>
+            <ellipse cx="0" cy="-65" rx="9" ry="32" transform="rotate(45)"/>
+            <ellipse cx="0" cy="-65" rx="9" ry="32" transform="rotate(90)"/>
+            <ellipse cx="0" cy="-65" rx="9" ry="32" transform="rotate(135)"/>
+            <ellipse cx="0" cy="-65" rx="9" ry="32" transform="rotate(180)"/>
+            <ellipse cx="0" cy="-65" rx="9" ry="32" transform="rotate(225)"/>
+            <ellipse cx="0" cy="-65" rx="9" ry="32" transform="rotate(270)"/>
+            <ellipse cx="0" cy="-65" rx="9" ry="32" transform="rotate(315)"/>
+          </g>
+          <g transform="rotate(22.5)" opacity="0.85">
+            <ellipse cx="0" cy="-44" rx="6" ry="18"/>
+            <ellipse cx="0" cy="-44" rx="6" ry="18" transform="rotate(45)"/>
+            <ellipse cx="0" cy="-44" rx="6" ry="18" transform="rotate(90)"/>
+            <ellipse cx="0" cy="-44" rx="6" ry="18" transform="rotate(135)"/>
+            <ellipse cx="0" cy="-44" rx="6" ry="18" transform="rotate(180)"/>
+            <ellipse cx="0" cy="-44" rx="6" ry="18" transform="rotate(225)"/>
+            <ellipse cx="0" cy="-44" rx="6" ry="18" transform="rotate(270)"/>
+            <ellipse cx="0" cy="-44" rx="6" ry="18" transform="rotate(315)"/>
+          </g>
+          <circle r="11" fill="#E0825D"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="vs">
+      <div class="sub">Cost · Latency · Accuracy</div>
+      <div class="rule"></div>
+      <div class="word">vs</div>
+      <div class="rule"></div>
+      <div class="sub">10 Tasks · 2026 Benchmark</div>
+    </div>
+
+    <div class="label left">
+      Gemini 3.1 Pro
+      <span class="v">$2 · $12 / M tokens · 2M ctx</span>
+    </div>
+    <div class="label right">
+      Claude Opus 4.7
+      <span class="v">$5 · $25 / M tokens · 200K ctx</span>
+    </div>
+
+    <div class="brand">Godberry<span class="dot">·</span>Studios</div>
+  </div>
+</body>
+</html>
