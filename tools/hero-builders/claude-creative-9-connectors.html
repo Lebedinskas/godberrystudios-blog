@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hero — Claude Creative Connectors</title>
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  body { width: 1920px; height: 1080px; font-family: -apple-system, "Segoe UI", "Inter", system-ui, sans-serif; }
+  .stage {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.18) 0%, transparent 45%),
+      radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.15) 0%, transparent 45%),
+      linear-gradient(135deg, #07091a 0%, #0e1330 50%, #0a0e27 100%);
+    overflow: hidden;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at center, black 35%, transparent 80%);
+  }
+  .eyebrow {
+    position: absolute; top: 60px; left: 50%; transform: translateX(-50%);
+    text-align: center; z-index: 5;
+  }
+  .eyebrow .top {
+    font-size: 22px; font-weight: 600; color: #9aa3b8;
+    letter-spacing: 6px; text-transform: uppercase;
+  }
+  .eyebrow .rule {
+    width: 240px; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(245, 158, 11, 0.7), transparent);
+    margin: 14px auto 14px;
+  }
+  .eyebrow .sub {
+    font-size: 26px; font-weight: 700; color: #e5e7eb;
+    letter-spacing: 1px;
+  }
+  .grid-9 {
+    position: absolute;
+    top: 230px; left: 50%; transform: translateX(-50%);
+    width: 1560px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px 60px;
+    z-index: 4;
+  }
+  .tile {
+    background: rgba(15, 21, 47, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+    padding: 28px 24px 22px;
+    display: flex; align-items: center; gap: 26px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+    backdrop-filter: blur(2px);
+  }
+  .tile .mark {
+    width: 110px; height: 110px;
+    border-radius: 22px; flex: 0 0 110px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .tile .meta { min-width: 0; }
+  .tile .name {
+    font-size: 28px; font-weight: 800; color: #f3f4f6;
+    letter-spacing: -0.5px; line-height: 1.1;
+  }
+  .tile .role {
+    font-size: 16px; font-weight: 500; color: #8a93a8;
+    margin-top: 6px; letter-spacing: 0.3px;
+  }
+  .brand {
+    position: absolute; bottom: 38px; left: 60px;
+    color: #6b7280; font-size: 18px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase; z-index: 5;
+  }
+  .brand .dot { color: #f59e0b; }
+  .stamp {
+    position: absolute; bottom: 38px; right: 60px;
+    text-align: right; z-index: 5;
+  }
+  .stamp .num { font-size: 64px; font-weight: 900; color: #f59e0b; line-height: 0.9; letter-spacing: -2px; }
+  .stamp .of { font-size: 14px; font-weight: 600; color: #6b7280; letter-spacing: 3px; text-transform: uppercase; margin-top: 4px; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="grid"></div>
+
+    <div class="eyebrow">
+      <div class="top">Anthropic · April 28 · 2026</div>
+      <div class="rule"></div>
+      <div class="sub">The Creative Software Stack, Tested End&#8209;to&#8209;End</div>
+    </div>
+
+    <div class="grid-9">
+
+      <!-- 1. Adobe (Creative Cloud / Photoshop, Premiere, Express, Firefly) -->
+      <div class="tile">
+        <div class="mark">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Adobe">
+            <rect x="14" y="14" width="172" height="172" rx="34" fill="#FA0F00"/>
+            <path d="M65 145 L92 60 L108 60 L135 145 L120 145 L113 122 L87 122 L80 145 Z M91 108 L109 108 L100 78 Z" fill="#fff"/>
+          </svg>
+        </div>
+        <div class="meta">
+          <div class="name">Adobe</div>
+          <div class="role">Photoshop · Premiere · Express</div>
+        </div>
+      </div>
+
+      <!-- 2. Blender -->
+      <div class="tile">
+        <div class="mark">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Blender">
+            <defs>
+              <radialGradient id="bg" cx="60%" cy="40%" r="60%">
+                <stop offset="0%" stop-color="#FFB347"/>
+                <stop offset="100%" stop-color="#EA7600"/>
+              </radialGradient>
+            </defs>
+            <circle cx="100" cy="100" r="92" fill="url(#bg)"/>
+            <ellipse cx="100" cy="115" rx="60" ry="45" fill="#1B262E"/>
+            <circle cx="120" cy="92" r="22" fill="#fff"/>
+            <circle cx="124" cy="92" r="11" fill="#1B262E"/>
+            <circle cx="127" cy="88" r="3" fill="#fff"/>
+          </svg>
+        </div>
+        <div class="meta">
+          <div class="name">Blender</div>
+          <div class="role">Python API · scene control</div>
+        </div>
+      </div>
+
+      <!-- 3. Autodesk Fusion -->
+      <div class="tile">
+        <div class="mark">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Autodesk Fusion">
+            <rect x="14" y="14" width="172" height="172" rx="34" fill="#0A0A0A"/>
+            <path d="M100 36 L165 70 L165 130 L100 164 L35 130 L35 70 Z" fill="none" stroke="#0696D7" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M100 36 L100 100 L35 70 M100 100 L165 70 M100 100 L100 164" stroke="#0696D7" stroke-width="5" fill="none"/>
+          </svg>
+        </div>
+        <div class="meta">
+          <div class="name">Autodesk Fusion</div>
+          <div class="role">Parametric 3D · CAD</div>
+        </div>
+      </div>
+
+      <!-- 4. Ableton -->
+      <div class="tile">
+        <div class="mark">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Ableton Live">
+            <rect x="14" y="14" width="172" height="172" rx="34" fill="#0A0A0A"/>
+            <rect x="40" y="48" width="14" height="104" fill="#fff"/>
+            <rect x="64" y="48" width="14" height="104" fill="#fff"/>
+            <rect x="88" y="48" width="14" height="104" fill="#fff"/>
+            <rect x="112" y="48" width="48" height="14" fill="#FF6900"/>
+            <rect x="112" y="74" width="48" height="14" fill="#FF6900"/>
+            <rect x="112" y="100" width="48" height="14" fill="#FF6900"/>
+            <rect x="112" y="126" width="48" height="14" fill="#FF6900"/>
+          </svg>
+        </div>
+        <div class="meta">
+          <div class="name">Ableton</div>
+          <div class="role">Live · Push docs</div>
+        </div>
+      </div>
+
+      <!-- 5. Splice -->
+      <div class="tile">
+        <div class="mark">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Splice">
+            <rect x="14" y="14" width="172" height="172" rx="34" fill="#0A0A0A"/>
+            <path d="M100 36 a64 64 0 1 0 0.001 0 Z" fill="none" stroke="#1FAEFF" stroke-width="14"/>
+            <rect x="86" y="48" width="28" height="40" fill="#0A0A0A"/>
+            <circle cx="100" cy="100" r="14" fill="#1FAEFF"/>
+          </svg>
+        </div>
+        <div class="meta">
+          <div class="name">Splice</div>
+          <div class="role">Sample catalog search</div>
+        </div>
+      </div>
+
+      <!-- 6. Affinity by Canva -->
+      <div class="tile">
+        <div class="mark">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Affinity by Canva">
+            <polygon points="100,18 182,100 100,182 18,100" fill="#1B72BE"/>
+            <polygon points="100,42 158,100 100,158 42,100" fill="#22A6E1" opacity="0.6"/>
+            <text x="100" y="125" font-family="Helvetica, Arial, sans-serif" font-weight="900" font-size="76" fill="#fff" text-anchor="middle">a</text>
+          </svg>
+        </div>
+        <div class="meta">
+          <div class="name">Affinity by Canva</div>
+          <div class="role">Production automation</div>
+        </div>
+      </div>
+
+      <!-- 7. SketchUp (Trimble) -->
+      <div class="tile">
+        <div class="mark">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="SketchUp">
+            <rect x="14" y="14" width="172" height="172" rx="34" fill="#fff"/>
+            <polygon points="100,40 162,76 162,148 100,184 38,148 38,76" fill="none" stroke="#005F9E" stroke-width="7" stroke-linejoin="round"/>
+            <polygon points="100,40 100,112 38,76" fill="#E10000" opacity="0.85"/>
+            <polygon points="100,40 100,112 162,76" fill="#005F9E" opacity="0.55"/>
+            <polygon points="100,112 162,76 162,148 100,184" fill="#005F9E" opacity="0.20"/>
+          </svg>
+        </div>
+        <div class="meta">
+          <div class="name">SketchUp</div>
+          <div class="role">3D models from chat</div>
+        </div>
+      </div>
+
+      <!-- 8. Resolume Arena -->
+      <div class="tile">
+        <div class="mark">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Resolume Arena">
+            <rect x="14" y="14" width="172" height="172" rx="34" fill="#0A0A0A" stroke="#FF1F4D" stroke-width="3"/>
+            <polygon points="76,52 76,148 152,100" fill="#FF1F4D"/>
+            <text x="46" y="166" font-family="Helvetica, Arial, sans-serif" font-weight="800" font-size="22" fill="#FF1F4D">ARENA</text>
+          </svg>
+        </div>
+        <div class="meta">
+          <div class="name">Resolume Arena</div>
+          <div class="role">Live VJ compositions</div>
+        </div>
+      </div>
+
+      <!-- 9. Resolume Wire -->
+      <div class="tile">
+        <div class="mark">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Resolume Wire">
+            <rect x="14" y="14" width="172" height="172" rx="34" fill="#0A0A0A" stroke="#FF1F4D" stroke-width="3"/>
+            <line x1="60" y1="70" x2="140" y2="70" stroke="#FF1F4D" stroke-width="4"/>
+            <line x1="60" y1="70" x2="100" y2="140" stroke="#FF1F4D" stroke-width="4"/>
+            <line x1="140" y1="70" x2="100" y2="140" stroke="#FF1F4D" stroke-width="4"/>
+            <circle cx="60" cy="70" r="14" fill="#FF1F4D"/>
+            <circle cx="140" cy="70" r="14" fill="#FF1F4D"/>
+            <circle cx="100" cy="140" r="14" fill="#FF1F4D"/>
+            <text x="46" y="172" font-family="Helvetica, Arial, sans-serif" font-weight="800" font-size="22" fill="#FF1F4D">WIRE</text>
+          </svg>
+        </div>
+        <div class="meta">
+          <div class="name">Resolume Wire</div>
+          <div class="role">Generative node patches</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="brand">Godberry<span class="dot">·</span>Studios</div>
+    <div class="stamp">
+      <div class="num">9</div>
+      <div class="of">Connectors · Tested</div>
+    </div>
+  </div>
+</body>
+</html>
