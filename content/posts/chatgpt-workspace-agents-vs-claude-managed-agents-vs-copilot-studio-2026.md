@@ -233,6 +233,8 @@ The workflow is **regulated single-purpose** — a medical record summarizer, a 
 
 For everything else — the messy, multi-step, "I don't know exactly what data the agent will need until it starts looking" work — one of these three platforms is going to be your answer for the next 18 months. Pick by where your data already lives, who is going to build the agents, and which security model your industry can defend.
 
+A fourth signal that's becoming common in 2026: the platform you want to control already shipped its own MCP server. Meta did it for ad accounts on April 29, 2026 — see the [Meta Ads AI Connectors walkthrough](/posts/meta-ads-ai-connectors-chatgpt-claude-2026/) for what that direct path looks like. When the vendor has its own connector, plugging Claude or ChatGPT straight into it usually beats wrapping it in an agent platform.
+
 ## FAQ
 
 **What is the difference between ChatGPT Workspace Agents and a Custom GPT?**

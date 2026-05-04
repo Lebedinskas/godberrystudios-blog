@@ -271,7 +271,7 @@ Zapier: a non-technical person can build a useful Zap in 15 minutes. Make: plan 
 
 ### Do all three support MCP servers?
 
-As of April 2026, yes, but at different levels of integration. n8n has a native MCP Client Node. Zapier ships a managed Zapier MCP endpoint across every plan. Make supports MCP via HTTP modules and community apps. If MCP is central to your plans, n8n and Zapier are the cleaner picks.
+As of April 2026, yes, but at different levels of integration. n8n has a native MCP Client Node. Zapier ships a managed Zapier MCP endpoint across every plan. Make supports MCP via HTTP modules and community apps. If MCP is central to your plans, n8n and Zapier are the cleaner picks. Note that some platforms now ship their *own* MCP servers — Meta launched [official Meta Ads AI Connectors for ChatGPT and Claude](/posts/meta-ads-ai-connectors-chatgpt-claude-2026/) on April 29, 2026, which means you don't always need a workflow tool sitting between your AI and the platform anymore.
 
 ### Which is best for scraping and data extraction?
 
