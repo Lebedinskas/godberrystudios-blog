@@ -12,7 +12,7 @@ There are 168 hours in a week. If you run a small business, at least 20 of those
 
 The data backs this up: businesses implementing AI automation report 30–50% efficiency gains, with teams saving 10–12 hours per week. AI customer interactions cost $0.50–$0.70 compared to $6–$8 for human agents. Companies using AI marketing automation see 42% more content output and 27% higher conversion rates.
 
-But most business owners aren't automating the right things. They automate what's easy to automate, not what's expensive to do manually. This guide covers the 10 tasks where AI automation delivers the highest return on time invested.
+But most business owners aren't automating the right things. They automate what's easy to automate, not what's expensive to do manually. This guide covers the 10 tasks where AI automation delivers the highest return on time invested. The pattern is consistent with what Zoom's inaugural [Solopreneur 50 cohort](/posts/zoom-solopreneur-50-ai-stack-teardown-2026/) reported in May 2026 — the operators reclaiming 15–20 hours a week aren't using exotic tools; they're automating the right tasks in the right order.
 
 ## 1. Email Marketing and Customer Communication
 

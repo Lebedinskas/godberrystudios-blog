@@ -144,7 +144,7 @@ The recurring revenue model is the real winner. Build once, maintain and optimiz
 **Time to first dollar:** 2–6 weeks  
 **Difficulty:** Medium
 
-E-commerce AI adoption hit 89% of retailers in 2025. The businesses using AI for product descriptions, dynamic pricing, and personalization are outperforming those that don't — and the tools are now accessible to solo operators.
+E-commerce AI adoption hit 89% of retailers in 2025. The businesses using AI for product descriptions, dynamic pricing, and personalization are outperforming those that don't — and the tools are now accessible to solo operators. Zoom's inaugural [Solopreneur 50 list](/posts/zoom-solopreneur-50-ai-stack-teardown-2026/) — picked from ~3,000 applicants in May 2026 — included a baker running a global supply chain entirely from a home office, and the same playbook applies to any DTC operator with the right stack.
 
 **Three revenue models:**
 
