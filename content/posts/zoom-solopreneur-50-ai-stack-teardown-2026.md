@@ -29,7 +29,7 @@ Some other numbers that change the picture:
 - **62% revenue-generating.** This is a working population, not a hopeful one.
 - **Median founding year 2022.** The post-pandemic AI inflection — GPT-3.5 in late 2022, the wave of automation tools that followed — built a class of operators in roughly three years.
 
-The headline finding for an operator reading this: the moat is no longer "team size" or "office overhead." The moat is your stack and how cleanly it produces outcomes. A 1099 consultant with a tight stack outperforms a 6-person agency with a bloated one in pure margin terms.
+The headline finding for an operator reading this: the moat is no longer "team size" or "office overhead." The moat is your stack and how cleanly it produces outcomes. A 1099 consultant with a tight stack outperforms a 6-person agency with a bloated one in pure margin terms — which is also why [PE-backed acquirers are buying traditional digital agencies at 0.7–1.1× revenue](/posts/ai-agency-rollup-2026-survival-exit-playbook/) and converting them to agentic delivery the moment the deal closes.
 
 ## The 5 winners' stacks, unpacked
 
