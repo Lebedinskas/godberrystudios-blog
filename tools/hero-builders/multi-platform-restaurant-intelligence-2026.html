@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hero — Multi-Platform Restaurant Intelligence Stack 2026</title>
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  body { width: 1920px; height: 1080px; font-family: -apple-system, "Segoe UI", "Inter", system-ui, sans-serif; }
+  .stage {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    background:
+      radial-gradient(circle at 20% 24%, rgba(37, 99, 235, 0.22) 0%, transparent 45%),
+      radial-gradient(circle at 80% 76%, rgba(245, 158, 11, 0.18) 0%, transparent 45%),
+      linear-gradient(135deg, #07091a 0%, #0e1330 50%, #0a0e27 100%);
+    overflow: hidden;
+  }
+  .grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at center, black 35%, transparent 80%);
+  }
+  .eyebrow {
+    position: absolute; top: 90px; left: 50%; transform: translateX(-50%);
+    text-align: center; z-index: 5;
+  }
+  .eyebrow .top {
+    font-size: 22px; font-weight: 600; color: #9aa3b8;
+    letter-spacing: 6px; text-transform: uppercase;
+  }
+  .eyebrow .rule {
+    width: 320px; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(245, 158, 11, 0.7), transparent);
+    margin: 18px auto 18px;
+  }
+  .eyebrow .sub {
+    font-size: 32px; font-weight: 700; color: #e5e7eb;
+    letter-spacing: 1px;
+  }
+  .row {
+    position: absolute;
+    top: 320px; left: 50%; transform: translateX(-50%);
+    width: 1640px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 36px;
+    z-index: 4;
+  }
+  .tile {
+    background: rgba(15, 21, 47, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 38px 24px 30px;
+    display: flex; flex-direction: column; align-items: center; gap: 24px;
+    box-shadow: 0 12px 44px rgba(0,0,0,0.35);
+    backdrop-filter: blur(2px);
+    text-align: center;
+  }
+  .tile .mark {
+    width: 160px; height: 160px;
+    border-radius: 28px; flex: 0 0 160px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .tile .meta { min-width: 0; }
+  .tile .name {
+    font-size: 30px; font-weight: 800; color: #f3f4f6;
+    letter-spacing: -0.5px; line-height: 1.1;
+  }
+  .tile .role {
+    font-size: 15px; font-weight: 500; color: #8a93a8;
+    margin-top: 10px; letter-spacing: 0.3px; line-height: 1.45;
+  }
+  .strip {
+    position: absolute;
+    top: 770px; left: 50%; transform: translateX(-50%);
+    width: 1500px;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 4;
+    padding: 28px 50px;
+    background: rgba(7, 9, 26, 0.55);
+    border: 1px solid rgba(245, 158, 11, 0.18);
+    border-radius: 18px;
+  }
+  .stat { text-align: center; flex: 1; }
+  .stat .num {
+    font-size: 44px; font-weight: 900; color: #f59e0b; line-height: 1; letter-spacing: -1.5px;
+  }
+  .stat .lbl {
+    font-size: 14px; font-weight: 600; color: #8a93a8;
+    margin-top: 9px; letter-spacing: 2px; text-transform: uppercase;
+  }
+  .stat-divider {
+    width: 1px; height: 56px; background: rgba(255,255,255,0.07);
+  }
+  .brand {
+    position: absolute; bottom: 48px; left: 70px;
+    color: #6b7280; font-size: 18px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase; z-index: 5;
+  }
+  .brand .dot { color: #f59e0b; }
+  .stamp {
+    position: absolute; bottom: 48px; right: 70px;
+    text-align: right; z-index: 5;
+  }
+  .stamp .num { font-size: 64px; font-weight: 900; color: #f59e0b; line-height: 0.9; letter-spacing: -2px; }
+  .stamp .of { font-size: 14px; font-weight: 600; color: #6b7280; letter-spacing: 3px; text-transform: uppercase; margin-top: 4px; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="grid-bg"></div>
+
+    <div class="eyebrow">
+      <div class="top">Restaurant Intelligence · 4 Platforms · 1 Schema</div>
+      <div class="rule"></div>
+      <div class="sub">The 2026 Multi&#8209;Platform Restaurant Data Stack</div>
+    </div>
+
+    <div class="row">
+
+      <!-- 1. Google Maps -->
+      <div class="tile">
+        <div class="mark">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Google Maps">
+            <rect x="14" y="14" width="172" height="172" rx="34" fill="#FFFFFF"/>
+            <!-- Pin -->
+            <path d="M100 38 C75 38 56 57 56 82 C56 116 100 168 100 168 C100 168 144 116 144 82 C144 57 125 38 100 38 Z" fill="#EA4335"/>
+            <circle cx="100" cy="82" r="16" fill="#FFFFFF"/>
+            <!-- Google G accent on pin top -->
+            <circle cx="100" cy="82" r="9" fill="none" stroke="#4285F4" stroke-width="3"/>
+          </svg>
+        </div>
+        <div class="meta">
+          <div class="name">Google Maps</div>
+          <div class="role">Density &amp; casual&#8209;diner volume</div>
+        </div>
+      </div>
+
+      <!-- 2. Yelp -->
+      <div class="tile">
+        <div class="mark">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Yelp">
+            <rect x="14" y="14" width="172" height="172" rx="34" fill="#D32323"/>
+            <!-- Stylized "y" star burst -->
+            <path d="M88 44 L100 96 L106 44 Z" fill="#FFFFFF"/>
+            <path d="M58 78 L102 102 L62 110 Z" fill="#FFFFFF"/>
+            <path d="M148 78 L106 102 L146 110 Z" fill="#FFFFFF"/>
+            <path d="M76 156 L104 116 L100 158 Z" fill="#FFFFFF"/>
+            <path d="M132 158 L110 116 L138 156 Z" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <div class="meta">
+          <div class="name">Yelp</div>
+          <div class="role">Foodie depth &middot; ~40% reviews filtered</div>
+        </div>
+      </div>
+
+      <!-- 3. TripAdvisor -->
+      <div class="tile">
+        <div class="mark">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="TripAdvisor">
+            <rect x="14" y="14" width="172" height="172" rx="34" fill="#34E0A1"/>
+            <!-- Owl-eyes mark, simplified -->
+            <circle cx="68" cy="100" r="32" fill="#000000"/>
+            <circle cx="132" cy="100" r="32" fill="#000000"/>
+            <circle cx="68" cy="100" r="13" fill="#FFFFFF"/>
+            <circle cx="132" cy="100" r="13" fill="#FFFFFF"/>
+            <circle cx="68" cy="100" r="6" fill="#34E0A1"/>
+            <circle cx="132" cy="100" r="6" fill="#34E0A1"/>
+            <!-- Beak -->
+            <path d="M92 116 L100 130 L108 116 Z" fill="#000000"/>
+          </svg>
+        </div>
+        <div class="meta">
+          <div class="name">TripAdvisor</div>
+          <div class="role">Traveler &amp; tourist demand</div>
+        </div>
+      </div>
+
+      <!-- 4. OpenTable -->
+      <div class="tile">
+        <div class="mark">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="OpenTable">
+            <rect x="14" y="14" width="172" height="172" rx="34" fill="#DA3743"/>
+            <!-- Table + plate motif -->
+            <ellipse cx="100" cy="116" rx="64" ry="14" fill="#FFFFFF" opacity="0.18"/>
+            <circle cx="100" cy="92" r="38" fill="none" stroke="#FFFFFF" stroke-width="10"/>
+            <circle cx="100" cy="92" r="14" fill="#FFFFFF"/>
+            <rect x="96" y="120" width="8" height="46" rx="2" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <div class="meta">
+          <div class="name">OpenTable</div>
+          <div class="role">Reservations &middot; verified diners only</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="strip">
+      <div class="stat">
+        <div class="num">4</div>
+        <div class="lbl">Platforms Joined</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="num">10&ndash;1K</div>
+        <div class="lbl">Locations Modeled</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="num">~40%</div>
+        <div class="lbl">Yelp Reviews Filtered</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="num">6</div>
+        <div class="lbl">Stage Pipeline</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="num">1 of 3</div>
+        <div class="lbl">Briefs Change Verdict</div>
+      </div>
+    </div>
+
+    <div class="brand">Godberry<span class="dot">·</span>Studios</div>
+    <div class="stamp">
+      <div class="num">360&deg;</div>
+      <div class="of">View · Combined</div>
+    </div>
+  </div>
+</body>
+</html>
