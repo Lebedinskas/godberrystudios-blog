@@ -151,7 +151,7 @@ Google's UCP framework, announced in April 2026, aims to unify AP2, A2A, and MCP
 
 Alchemy's AgentPay, once it exits beta, could make protocol choice less important for merchants — integrate once and accept payments from any protocol. Whether the market consolidates around x402 or fragments across competing standards will likely depend on which ecosystems (Coinbase/Base vs. Lightning vs. Google) attract more agent developers.
 
-For now, x402 has the strongest combination of enterprise backing, transaction volume, and developer tooling. If you're building paid APIs or MCP servers today, it's the protocol worth investing integration time in.
+For now, x402 has the strongest combination of enterprise backing, transaction volume, and developer tooling. If you're building paid APIs or MCP servers today, it's the protocol worth investing integration time in. For the operator-side decision tree — which archetype you fit, which wallet to pick, and what to actually charge — see the [AWS Bedrock AgentCore Payments operator playbook](/posts/aws-bedrock-agentcore-payments-operator-playbook-2026/), the seller-side sequel to this protocol explainer.
 
 ## FAQ
 

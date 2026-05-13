@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hero — AWS Bedrock AgentCore Payments Operator Playbook 2026</title>
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  body { width: 1920px; height: 1080px; font-family: -apple-system, "Segoe UI", "Inter", system-ui, sans-serif; }
+  .stage {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    background:
+      radial-gradient(circle at 20% 24%, rgba(37, 99, 235, 0.22) 0%, transparent 45%),
+      radial-gradient(circle at 80% 76%, rgba(245, 158, 11, 0.18) 0%, transparent 45%),
+      linear-gradient(135deg, #07091a 0%, #0e1330 50%, #0a0e27 100%);
+    overflow: hidden;
+  }
+  .grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at center, black 35%, transparent 80%);
+  }
+  .eyebrow {
+    position: absolute; top: 90px; left: 50%; transform: translateX(-50%);
+    text-align: center; z-index: 5;
+  }
+  .eyebrow .top {
+    font-size: 22px; font-weight: 600; color: #9aa3b8;
+    letter-spacing: 6px; text-transform: uppercase;
+  }
+  .eyebrow .rule {
+    width: 360px; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(245, 158, 11, 0.7), transparent);
+    margin: 18px auto 18px;
+  }
+  .eyebrow .sub {
+    font-size: 32px; font-weight: 700; color: #e5e7eb;
+    letter-spacing: 1px;
+  }
+  .row {
+    position: absolute;
+    top: 320px; left: 50%; transform: translateX(-50%);
+    width: 1640px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 36px;
+    z-index: 4;
+  }
+  .tile {
+    background: rgba(15, 21, 47, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 38px 24px 30px;
+    display: flex; flex-direction: column; align-items: center; gap: 24px;
+    box-shadow: 0 12px 44px rgba(0,0,0,0.35);
+    backdrop-filter: blur(2px);
+    text-align: center;
+  }
+  .tile .mark {
+    width: 160px; height: 160px;
+    border-radius: 28px; flex: 0 0 160px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .tile .meta { min-width: 0; }
+  .tile .name {
+    font-size: 30px; font-weight: 800; color: #f3f4f6;
+    letter-spacing: -0.5px; line-height: 1.1;
+  }
+  .tile .role {
+    font-size: 15px; font-weight: 500; color: #8a93a8;
+    margin-top: 10px; letter-spacing: 0.3px; line-height: 1.45;
+  }
+  .strip {
+    position: absolute;
+    top: 770px; left: 50%; transform: translateX(-50%);
+    width: 1500px;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 4;
+    padding: 28px 50px;
+    background: rgba(7, 9, 26, 0.55);
+    border: 1px solid rgba(245, 158, 11, 0.18);
+    border-radius: 18px;
+  }
+  .stat { text-align: center; flex: 1; }
+  .stat .num {
+    font-size: 44px; font-weight: 900; color: #f59e0b; line-height: 1; letter-spacing: -1.5px;
+  }
+  .stat .lbl {
+    font-size: 14px; font-weight: 600; color: #8a93a8;
+    margin-top: 9px; letter-spacing: 2px; text-transform: uppercase;
+  }
+  .stat-divider {
+    width: 1px; height: 56px; background: rgba(255,255,255,0.07);
+  }
+  .brand {
+    position: absolute; bottom: 48px; left: 70px;
+    color: #6b7280; font-size: 18px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase; z-index: 5;
+  }
+  .brand .dot { color: #f59e0b; }
+  .stamp {
+    position: absolute; bottom: 48px; right: 70px;
+    text-align: right; z-index: 5;
+  }
+  .stamp .num { font-size: 64px; font-weight: 900; color: #f59e0b; line-height: 0.9; letter-spacing: -2px; }
+  .stamp .of { font-size: 14px; font-weight: 600; color: #6b7280; letter-spacing: 3px; text-transform: uppercase; margin-top: 4px; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="grid-bg"></div>
+
+    <div class="eyebrow">
+      <div class="top">Agentic Payment Rails &middot; Preview Shipped 2026&#8209;05&#8209;07</div>
+      <div class="rule"></div>
+      <div class="sub">AWS Bedrock AgentCore Payments &mdash; The Operator Playbook</div>
+    </div>
+
+    <div class="row">
+
+      <!-- 1. AWS Bedrock -->
+      <div class="tile">
+        <div class="mark">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="AWS Bedrock">
+            <rect x="14" y="14" width="172" height="172" rx="34" fill="#232F3E"/>
+            <!-- AWS smile -->
+            <text x="100" y="92" text-anchor="middle" font-family="Verdana, Arial, sans-serif" font-weight="700" font-size="46" fill="#FFFFFF">aws</text>
+            <path d="M58 116 Q100 146 142 116" stroke="#FF9900" stroke-width="9" stroke-linecap="round" fill="none"/>
+            <path d="M134 110 L142 116 L134 122" stroke="#FF9900" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="meta">
+          <div class="name">AWS Bedrock</div>
+          <div class="role">AgentCore Payments &middot; 4 regions</div>
+        </div>
+      </div>
+
+      <!-- 2. Coinbase x402 -->
+      <div class="tile">
+        <div class="mark">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Coinbase x402">
+            <rect x="14" y="14" width="172" height="172" rx="34" fill="#0052FF"/>
+            <!-- Coinbase circle mark -->
+            <circle cx="100" cy="100" r="62" fill="none" stroke="#FFFFFF" stroke-width="14"/>
+            <rect x="78" y="86" width="44" height="28" rx="6" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <div class="meta">
+          <div class="name">Coinbase x402</div>
+          <div class="role">CDP wallet &middot; USDC on Base &middot; ~200ms</div>
+        </div>
+      </div>
+
+      <!-- 3. Stripe Privy -->
+      <div class="tile">
+        <div class="mark">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Stripe Privy">
+            <rect x="14" y="14" width="172" height="172" rx="34" fill="#635BFF"/>
+            <!-- Stripe S -->
+            <path d="M118 72 C118 64 110 60 100 60 C84 60 72 70 72 86 C72 102 86 108 100 112 C112 116 122 120 122 130 C122 138 114 142 102 142 C90 142 80 138 72 132 L72 156 C82 162 92 164 102 164 C124 164 138 152 138 132 C138 116 124 110 110 106 C100 102 88 100 88 92 C88 84 96 80 104 80 C112 80 122 82 130 88 L130 66 C124 64 118 64 118 72 Z" fill="#FFFFFF"/>
+          </svg>
+        </div>
+        <div class="meta">
+          <div class="name">Stripe Privy</div>
+          <div class="role">Embedded wallet &middot; fiat or USDC</div>
+        </div>
+      </div>
+
+      <!-- 4. MCP Bazaar -->
+      <div class="tile">
+        <div class="mark">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="MCP Bazaar">
+            <rect x="14" y="14" width="172" height="172" rx="34" fill="#0F172A"/>
+            <!-- Connector / node-graph motif -->
+            <circle cx="58" cy="68" r="14" fill="#F59E0B"/>
+            <circle cx="142" cy="68" r="14" fill="#F59E0B"/>
+            <circle cx="100" cy="132" r="14" fill="#F59E0B"/>
+            <circle cx="100" cy="100" r="22" fill="#2563EB"/>
+            <path d="M68 76 L92 96" stroke="#FFFFFF" stroke-width="3" opacity="0.7"/>
+            <path d="M132 76 L108 96" stroke="#FFFFFF" stroke-width="3" opacity="0.7"/>
+            <path d="M100 122 L100 124" stroke="#FFFFFF" stroke-width="3" opacity="0.7"/>
+            <path d="M100 158 L100 175" stroke="#FFFFFF" stroke-width="3" opacity="0.0"/>
+            <text x="100" y="106" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="900" font-size="18" fill="#FFFFFF">MCP</text>
+          </svg>
+        </div>
+        <div class="meta">
+          <div class="name">x402 Bazaar</div>
+          <div class="role">10K+ endpoints &middot; agent-discoverable</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="strip">
+      <div class="stat">
+        <div class="num">2026&#8209;05&#8209;07</div>
+        <div class="lbl">Preview Shipped</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="num">165M+</div>
+        <div class="lbl">x402 Transactions</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="num">4</div>
+        <div class="lbl">Operator Archetypes</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="num">$0.005</div>
+        <div class="lbl">Per Call Floor</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="num">30/60/90</div>
+        <div class="lbl">Rollout Ramp</div>
+      </div>
+    </div>
+
+    <div class="brand">Godberry<span class="dot">&middot;</span>Studios</div>
+    <div class="stamp">
+      <div class="num">HTTP&nbsp;402</div>
+      <div class="of">The Seller Side</div>
+    </div>
+  </div>
+</body>
+</html>
