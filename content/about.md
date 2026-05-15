@@ -23,6 +23,7 @@ Godberry Studios was founded in 2026, out of a simple frustration: agents got sm
 
 - **[Content-to-Social MCP Server](https://apify.com/godberry/content-to-social-mcp)** — turn any URL, article, or text into ready-to-post social content. Callable directly from Claude, ChatGPT, and any MCP client. $0.07 per transformation.
 - **[Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper)** — pull Google Maps reviews for any business in under 60 seconds. Validated across 9 countries. From $0.10 per place.
+- **[Yelp Scraper](https://apify.com/godberry/yelp-scraper)** — full Yelp business profile + every review + menu + photo gallery in a single call. Worldwide (any `yelp.<tld>`), multilingual dates, no Yelp Fusion API key, no 3-review cap. Pay-per-event from $4.00 / 1,000 business profiles.
 
 More tools are in the pipeline. Subscribe to the newsletter on the homepage for early access.
 

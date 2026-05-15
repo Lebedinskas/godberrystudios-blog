@@ -33,3 +33,27 @@ Extract Google Maps reviews for any business. Perfect for reputation monitoring,
 **Platform:** Apify Store  
 
 [Try Google Reviews Scraper →](https://apify.com/godberry/google-reviews-scraper)
+
+---
+
+## Yelp Scraper
+
+Full Yelp business profile + every review (auto-expanded, ISO dates) + menu + photo gallery — in a single call. Worldwide: works on any `yelp.<tld>` country domain, parses dates across ~15 languages, normalizes phone numbers to E.164. No Yelp Fusion API key, no 3-review cap. GDPR-aware.
+
+**Pricing:** Pay-per-event — $0.004 / business, $0.0008 / review, $0.0005 / menu item  
+**Coverage:** ~31 country domains pre-verified (US, UK, DE, FR, IT, ES, AU, JP, BR, …)  
+**Platform:** Apify Store  
+
+[Try Yelp Scraper →](https://apify.com/godberry/yelp-scraper)
+
+---
+
+## Yelp Scraper
+
+Full Yelp business profile + every review (auto-expanded, ISO dates) + menu + photo gallery — in a single call. Worldwide: works on any `yelp.<tld>` country domain, parses dates across ~15 languages, normalizes phone numbers to E.164. No Yelp Fusion API key, no 3-review cap. GDPR-aware.
+
+**Pricing:** Pay-per-event — $0.004 / business, $0.0008 / review, $0.0005 / menu item  
+**Coverage:** ~31 country domains pre-verified (US, UK, DE, FR, IT, ES, AU, JP, BR, …)  
+**Platform:** Apify Store  
+
+[Try Yelp Scraper →](https://apify.com/godberry/yelp-scraper)
