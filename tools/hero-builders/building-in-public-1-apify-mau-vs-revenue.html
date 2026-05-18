@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hero — Building in Public #1: Apify MAU vs Revenue</title>
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  body { width: 1920px; height: 1080px; font-family: -apple-system, "Segoe UI", "Inter", system-ui, sans-serif; }
+  .stage {
+    position: relative;
+    width: 1920px; height: 1080px;
+    background:
+      radial-gradient(circle at 22% 28%, rgba(37, 99, 235, 0.22) 0%, transparent 45%),
+      radial-gradient(circle at 78% 72%, rgba(245, 158, 11, 0.16) 0%, transparent 45%),
+      linear-gradient(135deg, #07091a 0%, #0e1330 50%, #0a0e27 100%);
+    overflow: hidden;
+  }
+  .grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at center, black 35%, transparent 80%);
+  }
+  .eyebrow {
+    position: absolute; top: 88px; left: 50%; transform: translateX(-50%);
+    text-align: center; z-index: 5;
+  }
+  .eyebrow .top {
+    font-size: 22px; font-weight: 600; color: #9aa3b8;
+    letter-spacing: 6px; text-transform: uppercase;
+  }
+  .eyebrow .rule {
+    width: 360px; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(245, 158, 11, 0.7), transparent);
+    margin: 18px auto 18px;
+  }
+  .eyebrow .sub {
+    font-size: 36px; font-weight: 800; color: #f3f4f6;
+    letter-spacing: -0.5px;
+  }
+  .panels {
+    position: absolute;
+    top: 280px; left: 50%; transform: translateX(-50%);
+    width: 1640px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+    z-index: 4;
+  }
+  .panel {
+    background: rgba(15, 21, 47, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 36px 40px 30px;
+    box-shadow: 0 12px 44px rgba(0,0,0,0.35);
+    backdrop-filter: blur(2px);
+  }
+  .panel-title {
+    font-size: 20px; font-weight: 700; color: #9aa3b8;
+    letter-spacing: 4px; text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .panel-sub {
+    font-size: 26px; font-weight: 800; color: #f3f4f6;
+    letter-spacing: -0.3px;
+    margin-bottom: 28px;
+  }
+  .chart {
+    position: relative;
+    height: 320px;
+    width: 100%;
+  }
+  /* Bars container */
+  .bars {
+    display: flex; align-items: flex-end; gap: 14px;
+    height: 100%;
+    padding-left: 36px;
+    border-left: 1px solid rgba(255,255,255,0.12);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .bar { flex: 1; border-radius: 6px 6px 0 0; position: relative; }
+  /* Left panel — MAU rising, all blue (curiosity signal) */
+  .left .bar { background: linear-gradient(180deg, #2563eb 0%, #1e40af 100%); }
+  .left .bar.b1 { height: 18%; }
+  .left .bar.b2 { height: 28%; }
+  .left .bar.b3 { height: 38%; }
+  .left .bar.b4 { height: 52%; }
+  .left .bar.b5 { height: 64%; }
+  .left .bar.b6 { height: 74%; }
+  .left .bar.b7 { height: 82%; }
+  /* Right panel — Revenue flat at zero, then one tiny gold bar */
+  .right .bar { background: rgba(245, 158, 11, 0.18); }
+  .right .bar.b1 { height: 2%; }
+  .right .bar.b2 { height: 2%; }
+  .right .bar.b3 { height: 2%; }
+  .right .bar.b4 { height: 2%; }
+  .right .bar.b5 { height: 2%; }
+  .right .bar.b6 { height: 2%; }
+  .right .bar.b7 {
+    height: 16%;
+    background: linear-gradient(180deg, #f59e0b 0%, #b45309 100%);
+    box-shadow: 0 0 24px rgba(245, 158, 11, 0.6);
+  }
+  .axis-labels {
+    display: flex; justify-content: space-between;
+    margin-top: 10px;
+    padding-left: 36px;
+    font-size: 14px; font-weight: 500; color: #6b7280;
+    letter-spacing: 1px;
+  }
+  .axis-labels .first { color: #9aa3b8; }
+  .axis-labels .last { color: #f59e0b; font-weight: 700; }
+  .legend {
+    margin-top: 26px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .legend-row {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 20px; font-weight: 600; color: #d1d5db;
+  }
+  .swatch {
+    width: 22px; height: 22px; border-radius: 5px;
+  }
+  .swatch.mau { background: #2563eb; }
+  .swatch.rev { background: #f59e0b; box-shadow: 0 0 12px rgba(245, 158, 11, 0.5); }
+  .swatch.zero { background: rgba(245, 158, 11, 0.18); border: 1px solid rgba(245, 158, 11, 0.3); }
+  .legend-num {
+    margin-left: auto;
+    font-size: 26px; font-weight: 900; letter-spacing: -1px;
+  }
+  .legend-num.blue { color: #60a5fa; }
+  .legend-num.gold { color: #f59e0b; }
+  .legend-num.flat { color: #6b7280; }
+
+  .strip {
+    position: absolute;
+    top: 810px; left: 50%; transform: translateX(-50%);
+    width: 1640px;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 4;
+    padding: 30px 50px;
+    background: rgba(7, 9, 26, 0.55);
+    border: 1px solid rgba(245, 158, 11, 0.18);
+    border-radius: 18px;
+  }
+  .stat { text-align: center; flex: 1; }
+  .stat .num {
+    font-size: 44px; font-weight: 900; color: #f59e0b; line-height: 1; letter-spacing: -1.5px;
+  }
+  .stat .num.muted { color: #6b7280; }
+  .stat .lbl {
+    font-size: 13px; font-weight: 600; color: #8a93a8;
+    margin-top: 9px; letter-spacing: 2px; text-transform: uppercase;
+  }
+  .stat-divider { width: 1px; height: 56px; background: rgba(255,255,255,0.07); }
+
+  .brand {
+    position: absolute; bottom: 48px; left: 70px;
+    color: #6b7280; font-size: 18px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase; z-index: 5;
+  }
+  .brand .dot { color: #f59e0b; }
+  .stamp {
+    position: absolute; bottom: 48px; right: 70px;
+    text-align: right; z-index: 5;
+  }
+  .stamp .num { font-size: 60px; font-weight: 900; color: #f59e0b; line-height: 0.9; letter-spacing: -2px; }
+  .stamp .of { font-size: 14px; font-weight: 600; color: #6b7280; letter-spacing: 3px; text-transform: uppercase; margin-top: 6px; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="grid-bg"></div>
+
+    <div class="eyebrow">
+      <div class="top">Building in Public &middot; #1 &middot; Day 1 &rarr; Day 33</div>
+      <div class="rule"></div>
+      <div class="sub">When MAU Lies and Revenue Tells the Truth</div>
+    </div>
+
+    <div class="panels">
+
+      <!-- Left panel: MAU rising -->
+      <div class="panel left">
+        <div class="panel-title">Store Tile View</div>
+        <div class="panel-sub">Monthly Active Users &mdash; rising</div>
+        <div class="chart">
+          <div class="bars">
+            <div class="bar b1"></div>
+            <div class="bar b2"></div>
+            <div class="bar b3"></div>
+            <div class="bar b4"></div>
+            <div class="bar b5"></div>
+            <div class="bar b6"></div>
+            <div class="bar b7"></div>
+          </div>
+        </div>
+        <div class="axis-labels">
+          <span class="first">Day 1</span>
+          <span>Day 14</span>
+          <span class="last">Day 26</span>
+        </div>
+        <div class="legend">
+          <div class="legend-row">
+            <span class="swatch mau"></span>
+            <span>MAU on the store tile</span>
+            <span class="legend-num blue">5</span>
+          </div>
+          <div class="legend-row">
+            <span class="swatch mau" style="opacity:0.6"></span>
+            <span>Results across May 4&ndash;7</span>
+            <span class="legend-num blue">5,407</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right panel: Revenue flat at zero, then one bar -->
+      <div class="panel right">
+        <div class="panel-title">Billing Dashboard View</div>
+        <div class="panel-sub">Developer revenue &mdash; flat, then $0.95</div>
+        <div class="chart">
+          <div class="bars">
+            <div class="bar b1"></div>
+            <div class="bar b2"></div>
+            <div class="bar b3"></div>
+            <div class="bar b4"></div>
+            <div class="bar b5"></div>
+            <div class="bar b6"></div>
+            <div class="bar b7"></div>
+          </div>
+        </div>
+        <div class="axis-labels">
+          <span class="first">Day 1</span>
+          <span>Day 19</span>
+          <span class="last">Day 33</span>
+        </div>
+        <div class="legend">
+          <div class="legend-row">
+            <span class="swatch zero"></span>
+            <span>Days 1&ndash;28 developer revenue</span>
+            <span class="legend-num flat">$0.00</span>
+          </div>
+          <div class="legend-row">
+            <span class="swatch rev"></span>
+            <span>Day 29 first paying user</span>
+            <span class="legend-num gold">$0.95</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="strip">
+      <div class="stat">
+        <div class="num">3</div>
+        <div class="lbl">Apify Products Live</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="num muted">26</div>
+        <div class="lbl">Days to Read Billing</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="num muted">5,407</div>
+        <div class="lbl">Results Paid $0</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="num">$0.95</div>
+        <div class="lbl">First Paying User</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="num">5</div>
+        <div class="lbl">Lessons Logged</div>
+      </div>
+    </div>
+
+    <div class="brand">Godberry<span class="dot">&middot;</span>Studios</div>
+    <div class="stamp">
+      <div class="num">BIP #1</div>
+      <div class="of">36 Days &middot; 3 Products</div>
+    </div>
+  </div>
+</body>
+</html>

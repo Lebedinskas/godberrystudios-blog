@@ -41,7 +41,7 @@ PPE is not "per dataset row." A charge is any event you programmatically emit fr
 
 ## The 4-layer event taxonomy framework
 
-Most developers I've watched migrate rush this and regret it within a week. The instinct is to create one event called "result" and charge $0.01. That leaves money on the table for expensive events and prices you out for cheap ones.
+Most developers we've watched migrate rush this and regret it within a week. The instinct is to create one event called "result" and charge $0.01. That leaves money on the table for expensive events and prices you out for cheap ones.
 
 A better pattern is four layers, tuned to how costs actually scale:
 
@@ -251,7 +251,7 @@ A few data points from watching the Apify Store and competing platforms over the
 - **Smaller developers** are split. Some are waiting until September, assuming they can beat the deadline. That's risky — the notice period means anything submitted after mid-September won't be live by October 1.
 - **Platform competitors** (Bright Data, Firecrawl, custom hosts) don't have an equivalent per-event primitive yet. Apify's head start on PPE is real, and MCP servers shipping through Apify's store get the pricing model for free.
 
-The window to launch a PPE actor *into* the 2026 rush — rather than migrating one out of it — is open and narrowing. For indie developers looking at [AI-era revenue models](/posts/how-to-make-money-with-ai-2026/), the store is one of the few channels where usage-based pricing is already plumbed end to end. Every rental developer who migrates is creating confused users who look for alternatives.
+The window to launch a PPE actor *into* the 2026 rush — rather than migrating one out of it — is open and narrowing. For indie developers looking at [AI-era revenue models](/posts/how-to-make-money-with-ai-2026/), the store is one of the few channels where usage-based pricing is already plumbed end to end. Every rental developer who migrates is creating confused users who look for alternatives. For a real build log of shipping a PPE actor and watching it cross zero revenue, see [Building in Public #1 — 36 days, 3 Apify products, what Apify Insights actually showed](/posts/building-in-public-1-apify-mau-vs-revenue-2026/).
 
 ## FAQ
 
