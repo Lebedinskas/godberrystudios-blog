@@ -4,7 +4,7 @@ description: "AWS shipped AgentCore Payments in preview on 2026-05-07, built wit
 date: 2026-05-13
 lastmod: 2026-05-18
 categories: ["Web Scraping & Data Extraction", "AI Automation"]
-tags: ["AgentCore", "x402", "Coinbase", "Stripe", "Privy", "AWS Bedrock", "MCP", "Apify", "monetization", "stablecoins", "USDC", "Base"]
+tags: ["agentcore", "x402", "coinbase", "stripe", "privy", "aws bedrock", "mcp", "apify", "monetization", "stablecoins", "usdc", "base"]
 keywords: ["AWS Bedrock AgentCore Payments", "AgentCore payments tutorial", "x402 production 2026", "monetize MCP server x402", "AI agent payment rails", "Coinbase Bazaar MCP server", "Stripe Privy agent wallet", "x402 vs ACP vs AP2", "agentic monetization 2026", "how to charge AI agents for API", "autonomous agent micropayments 2026", "HTTP 402 production AWS"]
 image: /images/posts/aws-bedrock-agentcore-payments-operator-playbook-2026.jpg
 image_alt: "AWS Bedrock AgentCore Payments operator playbook hero — AWS, Coinbase x402, Stripe Privy, and MCP server brand marks showing the agent payment rails launched 2026-05-07"

@@ -3,7 +3,7 @@ title: "x402 Protocol Explained: How AI Agents Pay for APIs and Data in 2026"
 date: 2026-04-16T08:00:00+03:00
 description: "x402 turns the HTTP 402 status code into a real payment layer for AI agents. This guide explains how it works, how Cloudflare Pay Per Crawl and Google AP2 fit in, and how to add payments to your own MCP server."
 categories: ["AI Automation"]
-tags: ["x402", "AI agents", "payments", "HTTP 402", "MCP", "Cloudflare", "cryptocurrency"]
+tags: ["x402", "ai agents", "payments", "http 402", "mcp", "cloudflare", "cryptocurrency"]
 keywords: ["x402 protocol", "AI agent payments", "HTTP 402 payment", "x402 MCP server", "Cloudflare pay per crawl"]
 image: /images/posts/x402-protocol-ai-payments.jpg
 image_alt: "AI agent making a digital payment through an API endpoint with HTTP status codes and data streams"

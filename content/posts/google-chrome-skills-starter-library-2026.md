@@ -4,7 +4,7 @@ description: "Google launched Chrome Skills on April 14, 2026 — save any Gemin
 date: 2026-04-22
 draft: false
 categories: ["AI for Business", "Productivity"]
-tags: ["Chrome Skills", "Gemini", "AI prompts", "productivity", "Chrome", "workflow automation", "knowledge work"]
+tags: ["chrome skills", "gemini", "ai prompts", "productivity", "chrome", "workflow automation", "knowledge work"]
 keywords: ["Google Chrome Skills", "Chrome AI Skills guide", "Gemini Skills Chrome", "save AI prompts Chrome", "Chrome Skills tutorial", "how to use Chrome Skills", "Chrome Skills library"]
 image: /images/posts/google-chrome-skills-starter-library-2026.jpg
 image_alt: "Abstract editorial illustration of a Chrome browser window with a glowing slash-command prompt box and ten stacked prompt-card icons representing a Chrome Skills starter library"

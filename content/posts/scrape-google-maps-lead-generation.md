@@ -3,7 +3,7 @@ title: "How to Scrape Google Maps for Lead Generation in 2026"
 description: "Build targeted B2B lead lists from Google Maps in minutes. Step-by-step methods, Python code, no-code tools, CRM workflows, and the legal lines you shouldn't cross."
 date: 2026-05-08
 categories: ["Tutorials"]
-tags: ["google maps", "lead generation", "web scraping", "B2B leads", "data extraction", "apify"]
+tags: ["google maps", "lead generation", "web scraping", "b2b leads", "data extraction", "apify"]
 image: /images/posts/google-maps-lead-generation.jpg
 image_alt: "Digital city map with business pins lighting up and data streams flowing into a lead generation dashboard"
 affiliate_links: true

@@ -4,7 +4,7 @@ description: "Transform any URL, article, or text into ready-to-post social medi
 date: 2026-04-12
 lastmod: 2026-04-15
 categories: ["MCP", "Tutorials"]
-tags: ["social media", "automation", "MCP", "content creation", "AI", "apify", "content repurposing"]
+tags: ["social media", "automation", "mcp", "content creation", "ai", "apify", "content repurposing"]
 image: /images/posts/automate-social-media-mcp.jpg
 image_alt: "Blog post transforming into multiple social media posts through an automated content pipeline"
 ---

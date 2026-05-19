@@ -5,7 +5,7 @@ date: 2026-05-10
 lastmod: 2026-05-18
 draft: false
 categories: ["Web Scraping", "Data", "Restaurants"]
-tags: ["restaurant data", "multi-platform scraping", "Google Maps", "Yelp scraping", "TripAdvisor", "OpenTable", "competitive intelligence", "franchise data", "foodservice due diligence", "review monitoring"]
+tags: ["restaurant data", "multi-platform scraping", "google maps", "yelp scraping", "tripadvisor", "opentable", "competitive intelligence", "franchise data", "foodservice due diligence", "review monitoring"]
 keywords: ["restaurant competitor research data 2026", "scrape Yelp restaurant reviews 2026", "TripAdvisor restaurant scraping", "multi-platform restaurant data", "franchise competitive intelligence 2026", "OpenTable scraper", "restaurant market research scraping"]
 image: /images/posts/multi-platform-restaurant-intelligence-stack-2026.jpg
 image_alt: "Dark navy hero showing Google Maps, Yelp, TripAdvisor, and OpenTable brand marks side by side with a stat strip listing four platforms joined, ten to one thousand locations modeled, roughly forty percent of Yelp reviews filtered, six pipeline stages, and one in three briefs that change verdict — illustrating the 2026 multi-platform restaurant intelligence stack"
