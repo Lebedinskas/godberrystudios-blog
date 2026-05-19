@@ -2,6 +2,7 @@
 title: "n8n vs Make vs Zapier: Which Automation Platform for AI Agents in 2026?"
 description: "An honest, hands-on comparison of n8n, Make, and Zapier for building AI agents in 2026 — real pricing, agent capabilities, workflow examples, and a verdict for each use case."
 date: 2026-04-19
+lastmod: 2026-05-18
 categories: ["AI Automation"]
 tags: ["ai agents", "automation", "n8n", "make", "zapier", "no-code", "workflow", "2026"]
 keywords: ["n8n vs Make vs Zapier", "best automation tool AI agents 2026", "AI agent automation platform", "n8n 2.0 LangChain", "Zapier Agents pricing", "Make Maia AI"]
@@ -14,21 +15,19 @@ If you've been paying for Zapier for three years and keep hearing your nerdier f
 
 Short version: **n8n** wins on AI agents if you can self-host or don't mind the cloud tier. **Make** wins on price-per-operation and on visual scenario design for non-developers. **Zapier** wins on app coverage and on "I just need this to work in 30 seconds." All three launched serious AI agent features in the past twelve months, and that's the part most comparisons get wrong — they treat this like a 2023 automation review when the product category has shifted underneath them.
 
-The rest of this post walks through what each platform actually ships in April 2026, how the pricing really stacks up at realistic volumes, and which one to pick for specific jobs. Everything below is based on the current pricing pages, the current agent docs, and an afternoon of building the same lead-research workflow on each platform.
+One disclosure: I don't run my own production automations on any of these three. I ship Apify Store actors and the orchestration around them is custom Node + Hugo + Cloudflare Pages. That distance is part of why I'm writing this — I built the same lead-research workflow on each platform in one afternoon, with no platform loyalty to defend.
 
-## What Changed in 2025–2026: All Three Platforms Got Real AI Agents
+## What Changed in 2025–2026: All Three Got Real AI Agents
 
-If you haven't looked at this category since 2023, three things shifted.
+**n8n 2.0 shipped in December 2025** with a native LangChain layer — 70-plus nodes for AI agents, memory, vector stores, and LLM calls. The AI Agent node runs LangChain tool agents that can call any other n8n node as a tool, keep conversation memory, and stream responses. Pinecone, Qdrant, Supabase, and Azure AI Search plug in for RAG. There's an MCP Client Node, so any Model Context Protocol server can drop in as a tool source. Human-in-the-Loop arrived January 2026 and lets an agent pause for approval before doing something expensive.
 
-**n8n 2.0 shipped in December 2025.** It bundled a native LangChain layer — 70-plus nodes for AI agents, memory, vector stores, and LLM calls. The AI Agent node runs LangChain tool agents that can call any other n8n node as a tool, keep conversation memory, and stream responses. Pinecone, Qdrant, Supabase, and Azure AI Search plug in for RAG. There's an MCP Client Node too, so you can wire in any Model Context Protocol server as a tool source. The Human-in-the-Loop feature arrived January 2026 and lets an agent pause for approval before doing something expensive or irreversible.
+**Zapier launched Zapier Agents** as a separate product — conversational AI teammates that can call any Zap action as a tool and take autonomous actions across 8,000-plus apps. Zapier also ships Tables, Forms, and a managed Zapier MCP endpoint across every plan. The catch: Agents are priced separately from Zaps on activities-per-month, so total spend has two sliders.
 
-**Zapier launched Zapier Agents** as a separate product. Agents are conversational AI teammates that can call any Zap action as a tool and take autonomous actions across 8,000-plus connected apps — researching leads, updating CRMs, sending reminders. Zapier also ships Tables, Forms, and a managed Zapier MCP endpoint across every plan. The catch: Agents are priced separately from Zaps, on activities-per-month, which means your total spend has two sliders instead of one.
+**Make rolled out Maia** — a natural-language scenario builder — and Make AI Agents at their Waves conference. Maia drafts a working scenario from a prompt that you then edit visually. AI Agents can run inside any scenario as a node, pointing at Make's built-in model or a BYO OpenAI / Anthropic key. Make also swapped "operations" for "credits" in August 2025 to fit AI calls, which consume more resources per step.
 
-**Make rolled out Maia** — a natural-language scenario builder — and Make AI Agents at their Waves conference. Maia takes a prompt and drafts a working scenario you can then edit visually. AI Agents on Make can run inside any scenario as a node, and you can point them at Make's built-in model or bring your own OpenAI or Anthropic key. Make also swapped its old "operations" billing for "credits" in August 2025 to fit AI calls, which consume more resources per step than a simple HTTP request.
+The 2024 framing of "Zapier is simpler, n8n is cheaper, Make is in between" no longer covers it. The AI agent story is the differentiator now, and it's different on each platform.
 
-What this means for a buyer: the 2024 "Zapier is simpler, n8n is cheaper, Make is somewhere in between" framing is no longer enough. The AI agent story is the differentiator now, and it's different on each platform.
-
-## The 60-Second Verdict (Skip Here If You're in a Hurry)
+## The 60-Second Verdict
 
 | You are… | Pick | Why |
 |---|---|---|
@@ -57,7 +56,7 @@ If you can tell which row you're in, skim to the matching section. Otherwise, ke
 
 The gap is clearest in the first and last rows. **n8n** is the only one where the agent is a first-class node inside the same workflow engine, and the only one you can run on your own box with no vendor quota. For power users that's a big deal; for a marketer who just wants a working agent tomorrow, the other two will feel less like assembly.
 
-[Anthropic shipped Claude Managed Agents in April 2026](https://docs.claude.com) as another option in the same category, but it lives at a different level of the stack — you still need something to wire it into your apps, which is exactly what these three do. If you're curious about the broader agent ecosystem, our piece on [business tasks you should automate with AI right now](/posts/automate-business-tasks-with-ai-2026/) covers the adjacent tools.
+[Anthropic shipped Claude Managed Agents in April 2026](https://docs.claude.com) as another option in the same category, but it lives at a different level of the stack — you still need something to wire it into your apps, which is exactly what these three do. If you're curious about the broader agent ecosystem, my piece on [business tasks you should automate with AI right now](/posts/automate-business-tasks-with-ai-2026/) covers the adjacent tools.
 
 ## Pricing in 2026: The Real Numbers at Realistic Volumes
 
@@ -101,13 +100,9 @@ Now triple the volume to 3,000 leads.
 | Make | 18,000 ops | ~$29 (Teams tier) |
 | Zapier | 15,000 tasks | $289 (Team is 2,000; Team 50k is $289) |
 
-At meaningful volumes, the order of magnitude gap is not small. If you're building anything that touches 10,000+ items a month, **n8n's per-execution model wins on price almost every time**. If you're under a few thousand a month and you value the Zapier ecosystem, the premium can still be worth it.
+At meaningful volumes the order-of-magnitude gap is not small. If you're building anything that touches 10,000+ items a month, **n8n's per-execution model wins on price almost every time**. Under a few thousand a month, and if you value the Zapier ecosystem, the premium can still be worth it.
 
-### Hidden Costs: Agents Are Priced Separately on Zapier
-
-Zapier Agents has its own activity meter — 400/month free, 1,500/month on Pro for $20/mo. If you run both Zaps and Agents at volume, you're paying two subscriptions. Make and n8n roll agents into the same meter as everything else, which makes modeling simpler.
-
-This isn't a gotcha; it's a choice Zapier made so Agents pricing could scale independently. Just know it exists before you sign up.
+Zapier Agents also has its own activity meter — 400/month free, 1,500/month on Pro for $20/mo. If you run both Zaps and Agents at volume, you're paying two subscriptions. Make and n8n roll agents into the same meter as everything else, which makes modeling simpler. Not a gotcha — Zapier did it so Agents can scale independently — just know it before you sign up.
 
 ## Building the Same Workflow Three Times
 
@@ -150,39 +145,33 @@ Drag the same nodes onto a canvas:
 
 On n8n you can optionally replace the regex step with the AI Agent node and let it call the HTTP, HTML Extract, and OpenAI nodes as tools. That's the 2.0 unlock — you describe the job in one prompt, and the agent orchestrates the steps itself. For predictable data extraction, the manual pipeline is faster to debug. For fuzzy, "figure out which page has the bio" tasks, the agent version is dramatically better. Executions per lead: 1. Cost at 3,000 leads: $50/mo on Cloud Pro, $0 self-hosted.
 
-**Which one would I pick for this job?** n8n, partly because it's cheapest but mostly because HTML Extract + HTTP nodes are built for this. If you already know Zapier and the volume is under 500/month, Zapier is fine. If the team is non-technical and wants something they can read, Make.
+**The platform I'd pick for this job is n8n** — partly because it's cheapest, mostly because HTML Extract + HTTP nodes are built for it. If you already know Zapier and the volume is under 500/month, Zapier is fine. If the team is non-technical and wants something they can read, Make.
 
-For anyone doing scraping at volume, we've covered the pipeline in depth in our post on [scraping Google Maps for lead generation](/posts/scrape-google-maps-lead-generation/), and the same pattern — Apify actor in the middle, automation platform around the edges — works whether the automation layer is n8n, Make, or Zapier.
+For anyone doing scraping at volume, I've covered the pipeline in depth in my post on [scraping Google Maps for lead generation](/posts/scrape-google-maps-lead-generation/), and the same pattern — Apify actor in the middle, automation platform around the edges — works whether the automation layer is n8n, Make, or Zapier.
 
 ## AI Agent Depth: Where n8n Pulls Ahead
 
-If you're building real agents (not trigger-based automations), the gap between n8n and the other two widens.
+If you're building real agents (not trigger-based automations), the gap widens.
 
-**n8n's AI Agent node** runs a LangChain tool agent with your choice of LLM. Every other node in the workflow can be exposed as a tool for the agent to call. You can attach a WindowBuffer or SummaryBuffer memory node so the agent remembers prior turns. You can attach a vector store (Pinecone, Qdrant, Supabase) so it does RAG over your docs. You can chain agents — an orchestrator agent that calls a research agent that calls a scraping agent. And the MCP Client Node means you can drop any Model Context Protocol server into the tool list, which is where the ecosystem is moving.
+**n8n's AI Agent node** runs a LangChain tool agent with your choice of LLM. Every other node in the workflow can be exposed as a tool. Attach a WindowBuffer or SummaryBuffer memory node so the agent remembers prior turns. Attach a vector store (Pinecone, Qdrant, Supabase) so it does RAG over your docs. Chain agents — an orchestrator agent that calls a research agent that calls a scraping agent. And the MCP Client Node means any MCP server drops into the tool list, which is where the ecosystem is moving.
 
-**Make AI Agents** runs inside a scenario as a module. You give it a goal, pick a model, and hand it tools. It's simpler to set up than n8n, but the integration is less deep — fewer memory primitives, no native MCP client (you wire MCP via HTTP), and the agent lives inside one scenario rather than orchestrating multiple.
+**Make AI Agents** runs inside a scenario as a module. Give it a goal, pick a model, hand it tools. Simpler to set up than n8n, but the integration is less deep — fewer memory primitives, no native MCP client (wire via HTTP), and the agent lives inside one scenario rather than orchestrating multiple.
 
-**Zapier Agents** is the most abstracted. You describe what you want in plain English, connect the Zap actions you want the agent to have access to, and let it run. There's no workflow canvas at all — the agent decides what to call and when. This is fantastic for "email me when a VIP customer mentions us on social" and terrible for "run a 12-step pipeline with specific error handling."
+**Zapier Agents** is the most abstracted. Describe what you want in plain English, connect Zap actions as tools, let it run. No workflow canvas — the agent decides what to call and when. Fantastic for "email me when a VIP mentions us on social," terrible for "run a 12-step pipeline with specific error handling."
 
-A useful mental model: Zapier Agents is ChatGPT with your apps bolted on. Make AI Agents is an agent that lives inside a scenario. n8n's AI Agent is a LangChain wrapper you can wire into anything.
+A useful mental model: Zapier Agents is ChatGPT with your apps bolted on; Make AI Agents is an agent that lives inside a scenario; n8n's AI Agent is a LangChain wrapper you can wire into anything. If your agents make HTTP calls to paid APIs, you also want an execution model cheap enough that the agent itself isn't the cost center, and one that can settle [per-request payments via x402 or similar protocols](/posts/x402-protocol-ai-agent-payments-2026/) when the target API demands it. All three can do this with enough HTTP configuration; n8n and Make make it materially less painful than Zapier.
 
-For teams that want agents that pay their own way, the economics matter too. If your agents are making HTTP calls to paid APIs, you want an execution model where the agent itself is cheap — and where it can settle [per-request payments via x402 or similar protocols](/posts/x402-protocol-ai-agent-payments-2026/) when the target API demands it. All three can do this with enough HTTP configuration, but n8n and Make make it materially less painful than Zapier.
+## Integration Coverage and Learning Curve
 
-## Integration Coverage: Zapier Still Has the Edge
-
-Numbers as of April 2026:
+Coverage numbers as of April 2026:
 
 - **Zapier:** 8,000+ apps, and it's still the ceiling. If a SaaS tool exists, Zapier probably has an integration within a few weeks of launch.
 - **Make:** 3,000+ apps, with deeper integrations per app (Make's modules tend to expose more endpoints per connection).
 - **n8n:** 800+ native nodes, plus HTTP Request and Code nodes that let you talk to anything with an API.
 
-On paper, Zapier's 8,000 is the killer stat. In practice: if the tool you care about has an official API and a halfway reasonable auth flow, **any of the three** can talk to it. The delta in coverage mostly shows up in long-tail SaaS — a niche CRM, a regional payment processor, a vertical-specific tool.
+On paper, Zapier's 8,000 is the killer stat. In practice: if the tool you care about has an official API and a halfway reasonable auth flow, **any of the three** can talk to it. The delta in coverage mostly shows up in long-tail SaaS — a niche CRM, a regional payment processor, a vertical-specific tool. If 80% of your stack is HubSpot + Salesforce + Slack + Gmail + Notion + Airtable + Google Sheets + OpenAI + Stripe, coverage isn't the bottleneck. Pricing and agent depth are.
 
-If 80% of your stack is HubSpot + Salesforce + Slack + Gmail + Notion + Airtable + Google Sheets + OpenAI + Stripe, coverage isn't the bottleneck. Pricing and agent depth are.
-
-## Learning Curve and Non-Developer Fit
-
-This is the honest order of difficulty:
+The honest order of difficulty:
 
 1. **Zapier.** Fifteen minutes to your first Zap. Linear editor, no branching unless you opt in, plain-English action names. A non-technical person can build a 5-step automation on day one.
 2. **Make.** Two hours to internalize the scenario + module model, then it clicks. Once it clicks, it's faster than Zapier for complex flows because of routers, aggregators, and iterators. A designer-minded non-developer thrives here.
@@ -192,12 +181,7 @@ Maia (Make) and Zapier's "Copilot" both try to paper over the learning curve wit
 
 ## Security, Compliance, and Data Residency
 
-All three now ship:
-
-- SOC 2 Type II
-- GDPR-compliant data handling (with DPAs)
-- SSO on enterprise tiers
-- Audit logs
+All three now ship SOC 2 Type II, GDPR-compliant data handling (with DPAs), SSO on enterprise tiers, and audit logs.
 
 Where they differ:
 
@@ -205,43 +189,35 @@ Where they differ:
 - **Zapier** runs on US-based infrastructure by default. EU data residency is on Enterprise plans.
 - **Make** is headquartered in Prague and offers EU data residency earlier in the tier stack. For European teams uneasy about US-hosted automation, that's worth checking.
 
-If you're building agents that handle PII or customer data in the EU, the [GDPR angle on automated data processing](/posts/automate-business-tasks-with-ai-2026/) is worth reading before you pick a platform.
-
-Security of the agent itself — prompt injection, tool poisoning, data exfiltration — is a category concern that applies to all three. The same [MCP security patterns we've covered for production servers](/posts/mcp-security-tool-poisoning-prompt-injection-2026/) apply whether your agent is running inside n8n or Zapier or Make.
+If you're building agents that handle PII or customer data in the EU, the [GDPR angle on automated data processing](/posts/automate-business-tasks-with-ai-2026/) is worth reading before you pick a platform. Security of the agent itself — prompt injection, tool poisoning, data exfiltration — applies to all three; the same [MCP security patterns I've covered for production servers](/posts/mcp-security-tool-poisoning-prompt-injection-2026/) apply whether your agent runs inside n8n, Make, or Zapier.
 
 ## Honest Weaknesses of Each Platform
 
-Nobody picks a tool by reading only the marketing page. Here's what we'd have told ourselves before starting.
+Nobody picks a tool by reading only the marketing page. Here's what I'd flag before signing up.
 
-**Zapier weaknesses.** Price climbs fast at scale. HTML and web scraping support is weak. Branching is bolt-on, not first-class. Agents are priced separately, and the activity counter is opaque until you've run it for a month.
+**Zapier.** Price climbs fast at scale. HTML and web scraping support is weak. Branching is bolt-on, not first-class. Agents are priced separately, and the activity counter is opaque until you've run it for a month.
 
-**Make weaknesses.** Learning curve is real. Credits accounting after the August 2025 switch is more complex than the old operations model — read the FAQ. Error handling is flexible but the UI for it is buried. Maia is good for drafting but sometimes generates scenarios with obsolete app versions.
+**Make.** Learning curve is real. Credits accounting after the August 2025 switch is more complex than the old operations model — read the FAQ. Error handling is flexible but the UI for it is buried. Maia is good for drafting but sometimes generates scenarios with obsolete app versions.
 
-**n8n weaknesses.** Cloud pricing is the best of the three, but self-hosting needs a real server and real ops hygiene (backups, SSL, updates). The community edition doesn't include SSO. Some complex nodes (Webhook, Code) have rough edges. Documentation is better than it was, but still lags behind Zapier's for sheer volume.
+**n8n.** Cloud pricing is the best of the three, but self-hosting needs a real server and real ops hygiene (backups, SSL, updates). The community edition doesn't include SSO. Some complex nodes (Webhook, Code) have rough edges. Documentation is better than it was, but still lags behind Zapier's for sheer volume.
 
 ## Recommendation by Business Type
 
-**Solo founder / indie hacker.** Start on **n8n** — self-host on a $10/mo VPS if you can, or Cloud Starter at $20/mo. You'll outgrow Zapier's free tier in a week and Make's free tier in a month. The agent tooling is better and the price ceiling is sane.
+**Solo founder / indie hacker.** Start on **n8n** — self-host on a $10/mo VPS if you can, or Cloud Starter at $20/mo. You'll outgrow Zapier's free tier in a week and Make's in a month. When I picked the automation layer for my own Apify-actor pipeline, I ended up writing it in plain Node rather than reaching for one of these three. If I weren't already deep in custom code, n8n self-hosted is what I'd reach for.
 
-**Marketing team, 5–20 people.** **Make**. Maia gets your less technical marketers to "agents in a scenario" faster, the visual layout is handoff-friendly, and the price at 20,000–100,000 ops/month is comfortable. {{< affiliate slug="make" label="Make" >}} has a free tier that's enough to build and test the first scenarios before you commit — start there, then upgrade to Core or Pro once you know your credit burn. Pair it with [a free AI tool stack](/posts/free-ai-tools-replace-expensive-software-2026/) for the rest of your workflow and you'll save five figures a year.
+**Marketing team, 5–20 people.** **Make**. Maia gets less technical marketers to "agents in a scenario" faster, the visual layout is handoff-friendly, and the price at 20,000–100,000 ops/month is comfortable. {{< affiliate slug="make" label="Make" >}} has a free tier that's enough to build and test the first scenarios before you commit. Pair it with [a free AI tool stack](/posts/free-ai-tools-replace-expensive-software-2026/) for the rest of your workflow.
 
-**Sales or RevOps team inside a large org.** **Zapier**, unless you already have a developer on the team. The ecosystem coverage matters — every SaaS your team adopts will have a Zapier integration within weeks. If you have a developer, reconsider n8n, especially for anything involving HTTP or scraping.
+**Sales or RevOps team inside a large org.** **Zapier**, unless you already have a developer on the team. Every SaaS your team adopts will have a Zapier integration within weeks. If you have a developer, reconsider n8n — especially for anything involving HTTP or scraping.
 
-**Agency selling automation to clients.** **Make**. Scenarios are readable by non-technical clients, the pricing is predictable, and the Teams plan supports multi-org setups cleanly. {{< affiliate slug="make" label="Make's Partner program" >}} even gives agencies recurring revenue from every client you onboard, which can cover your own tooling costs.
+**Agency selling automation to clients.** **Make**. Scenarios are readable by non-technical clients, the pricing is predictable, and Teams supports multi-org cleanly. {{< affiliate slug="make" label="Make's Partner program" >}} gives agencies recurring revenue from every client onboarded.
 
-**Anyone doing serious data extraction or scraping.** **n8n**. The HTML Extract + HTTP Request + Code nodes are genuinely built for this. You can wire in a headless browser if you need one. Combine it with an Apify actor for the heavy lifting — we've written about [how to turn a scraping pipeline into a paid product](/posts/how-to-make-money-with-ai-2026/) using exactly this pattern.
+**Anyone doing serious data extraction or scraping.** **n8n**. The HTML Extract + HTTP Request + Code nodes are genuinely built for this. Combine it with an Apify actor for the heavy lifting — I've written about [how to turn a scraping pipeline into a paid product](/posts/how-to-make-money-with-ai-2026/) using exactly this pattern.
 
 **Engineering team with compliance requirements.** **n8n Enterprise** or **Zapier Enterprise**. Self-host if your compliance team prefers it; pick Zapier if your security review is easier with a SaaS-first SOC 2 vendor.
 
-## A Word on Switching Costs
+## Switching Costs
 
-None of these is a one-way door, but the switching cost is higher than people expect.
-
-- **Zapier → Make** is the easiest — most Zaps translate directly to a scenario, and Make's documentation has a migration guide.
-- **Make → n8n** requires rebuilding each scenario as a workflow. The node mapping isn't one-to-one.
-- **n8n → anything else** is painful because expressions and JavaScript code nodes don't translate.
-
-Better approach: pick one, go deep, and only switch when the pain of staying is demonstrably higher than the pain of moving. Running two platforms in parallel usually ends with nobody maintaining either.
+None of these is a one-way door, but switching is harder than people expect. **Zapier → Make** is easiest — most Zaps translate directly to a scenario. **Make → n8n** requires rebuilding each scenario; the node mapping isn't one-to-one. **n8n → anything else** is painful because expressions and JavaScript code nodes don't translate. Pick one, go deep, and only switch when the pain of staying is demonstrably higher than the pain of moving.
 
 ## Frequently Asked Questions
 
@@ -249,46 +225,16 @@ Better approach: pick one, go deep, and only switch when the pain of staying is 
 
 At any volume above ~2,000 workflow executions per month, yes — typically by 3–10×. The reason is the billing model: n8n charges per workflow run regardless of how many steps, while Zapier charges per task (action step). Self-hosted n8n is free for unlimited executions, which makes the gap effectively unlimited at the top end.
 
-### Can Make replace Zapier for my business?
-
-For most mid-market businesses, yes. Make has 3,000+ app integrations (vs Zapier's 8,000+), but unless you use uncommon tools, the coverage overlap is effectively complete. Make's visual scenario builder handles complex branching and error handling better than Zapier, and it costs 60–80% less at volumes above 20,000 operations per month.
-
 ### Which platform has the best AI agent builder?
 
 n8n 2.0 has the deepest AI agent layer of the three, with native LangChain integration, 70+ AI nodes, vector store support for RAG, and an MCP Client Node for connecting to Model Context Protocol servers. Make AI Agents and Zapier Agents are both easier to set up but less customizable. For production AI agents, n8n wins on capability; for "first agent in an hour," Zapier wins on speed.
 
-### Does Zapier Agents cost extra on top of Zaps?
-
-Yes. Zapier Agents has its own activities-based pricing separate from Zap tasks. The free tier includes 400 agent activities per month; the Pro plan adds 1,500 activities for $20/month. If you run both Zaps and Agents at volume, budget for two subscriptions.
-
-### Can I self-host any of these platforms?
-
-Only n8n. It's open-source at its core, and you can run the full platform on your own server for free with unlimited executions. Make and Zapier are SaaS-only.
-
-### What's the learning curve for each platform?
-
-Zapier: a non-technical person can build a useful Zap in 15 minutes. Make: plan for ~2 hours to understand scenarios, routers, and iterators, then it's fast. n8n: plan for a full day, especially if you want to use expressions and Code nodes. Maia (Make) and Zapier's Copilot both soften the curve by drafting scenarios from natural language prompts.
-
 ### Do all three support MCP servers?
 
-As of April 2026, yes, but at different levels of integration. n8n has a native MCP Client Node. Zapier ships a managed Zapier MCP endpoint across every plan. Make supports MCP via HTTP modules and community apps. If MCP is central to your plans, n8n and Zapier are the cleaner picks. Note that some platforms now ship their *own* MCP servers — Meta launched [official Meta Ads AI Connectors for ChatGPT and Claude](/posts/meta-ads-ai-connectors-chatgpt-claude-2026/) on April 29, 2026, which means you don't always need a workflow tool sitting between your AI and the platform anymore.
-
-### Which is best for scraping and data extraction?
-
-n8n. It has dedicated HTML Extract and HTTP Request nodes, first-class support for headers and redirects, and no hard limits on rate if you self-host. Make works for light extraction. Zapier's HTML parsing is the weakest of the three and chokes on JS-rendered sites.
-
-### What happens if I hit my task / operation / execution limit?
-
-Zapier holds Zaps in a queue and runs them when your quota resets, unless you upgrade. Make pauses scenarios but notifies you. n8n Cloud also pauses; self-hosted n8n has no limit at all. None of them charge overage fees automatically — you have to actively upgrade.
-
-### Is there a free plan that's actually useful for agents?
-
-n8n self-hosted is the most useful free tier by a wide margin — full platform, unlimited runs. Zapier's Agents free plan (400 activities/month) is enough to test the concept. Make's free plan (1,000 ops/month, 2 active scenarios) is the most restrictive for agent workloads.
+As of April 2026, yes, but at different levels. n8n has a native MCP Client Node. Zapier ships a managed Zapier MCP endpoint across every plan. Make supports MCP via HTTP modules and community apps. Some platforms now ship their *own* MCP servers — Meta launched [official Meta Ads AI Connectors for ChatGPT and Claude](/posts/meta-ads-ai-connectors-chatgpt-claude-2026/) on April 29, 2026, which means you don't always need a workflow tool sitting between your AI and the platform anymore.
 
 ## Final Pick
 
-If we had to ship this article as a single sentence: **build on n8n if you can stomach the learning curve, on Make if you want visual and cheap, and on Zapier if you want it to work tomorrow and you're under 2,000 tasks a month.**
+If I had to ship this article as a single sentence: **build on n8n if you can stomach the learning curve, on Make if you want visual and cheap, and on Zapier if you want it to work tomorrow and you're under 2,000 tasks a month.** All three are good software. None of them is going away. The right answer depends less on the platform and more on what you're actually trying to automate — which is exactly the question most tool-comparison articles forget to ask.
 
-All three are good software. None of them is going away. The right answer depends less on the platform and more on what you're actually trying to automate — which is exactly the question most tool-comparison articles forget to ask. Pick the one that matches your volume and your team's skill, commit for at least three months, and re-evaluate when your workflow count doubles. If your workflows have grown into multi-step, decision-making territory that an automation graph can't handle cleanly, that's the signal to look at [enterprise AI agent platforms — Workspace Agents, Claude Managed Agents, and Copilot Studio]({{< ref "chatgpt-workspace-agents-vs-claude-managed-agents-vs-copilot-studio-2026" >}}) — which sit one layer above this category.
-
-If you're just starting out and don't have an automation stack yet, the order we'd try them in: **Zapier free tier for a weekend to learn the mental model → {{< affiliate slug="make" label="Make free tier" >}} for two weeks to learn scenarios → n8n self-host or Cloud Starter for the thing you actually want to scale.** By the third step you'll know exactly which platform fits your work.
+If you're just starting out and don't have an automation stack yet, the order I'd try them in is: Zapier free tier for a weekend to learn the mental model, then {{< affiliate slug="make" label="Make free tier" >}} for two weeks to learn scenarios, then n8n self-host or Cloud Starter for the thing you actually want to scale. By the third step you'll know which platform fits your work. And if your workflows have grown into multi-step decision-making territory that an automation graph can't handle cleanly, that's the signal to look at [enterprise AI agent platforms — Workspace Agents, Claude Managed Agents, and Copilot Studio]({{< ref "chatgpt-workspace-agents-vs-claude-managed-agents-vs-copilot-studio-2026" >}}) — which sit one layer above this category.

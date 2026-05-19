@@ -2,6 +2,7 @@
 title: "Google Chrome Skills: The 10-Skill Starter Library to Turn Your Best AI Prompts into One-Click Tools (2026 Hands-On Guide)"
 description: "Google launched Chrome Skills on April 14, 2026 — save any Gemini prompt as a reusable slash command across any page and tabs. An honest practitioner walkthrough with a 10-Skill starter library, naming and versioning rules, multi-tab patterns, and when to pick a Skill over a Custom GPT, Claude Project, or a real automation."
 date: 2026-04-22
+lastmod: 2026-05-18
 draft: false
 categories: ["AI for Business", "Productivity"]
 tags: ["chrome skills", "gemini", "ai prompts", "productivity", "chrome", "workflow automation", "knowledge work"]
@@ -12,7 +13,7 @@ image_alt: "Abstract editorial illustration of a Chrome browser window with a gl
 
 Google Chrome Skills, launched on April 14, 2026, let you save any Gemini prompt as a one-click workflow that runs on the page you're viewing, plus any other tabs you select. You trigger a saved Skill by typing `/` in the Gemini side panel. It is free on desktop, ships pre-loaded with a 50+ prompt library at `chrome://skills/browse`, and currently requires Chrome language set to English (US) on Mac, Windows, or ChromeOS.
 
-That is the short version. The longer version — why most people will save five useless Skills and abandon the feature, what a good Skill looks like, and when a Skill is the wrong tool entirely — is what this article is about.
+That is the short version. The longer version — why most people save five useless Skills and abandon the feature, what a good Skill looks like, and when a Skill is the wrong tool entirely — is what I want to walk through here, based on the library I've actually been running on my own tabs since launch week.
 
 ## What Chrome Skills actually is (and isn't)
 
@@ -32,25 +33,25 @@ Wait for Gemini to answer. In the chat history, find that prompt. Click the thre
 
 Now the Skill lives in your library. On any SaaS pricing page, open the side panel, type `/pri`, pick the Skill, hit enter. Same output, no retyping.
 
-To browse everything Google shipped — over 50 prebuilt Skills spanning Learning, Research, Shopping, Writing, and Productivity categories — visit `chrome://skills/browse` in the address bar. You can use any library Skill as-is or customize its underlying prompt. To manage your own, open the side panel, type `/`, click the compass icon.
+To browse everything Google shipped — over 50 prebuilt Skills spanning Learning, Research, Shopping, Writing, and Productivity categories — visit `chrome://skills/browse`. Use any library Skill as-is or customize its underlying prompt. To manage your own, open the side panel, type `/`, click the compass icon.
 
 Saved Skills sync across every signed-in Chrome desktop device tied to your Google account.
 
 ## Why most people's first Skills are bad
 
-Three patterns I see in everyone's first batch:
+Three patterns show up in everyone's first batch, including mine:
 
-**The one-page Skill.** Someone writes a prompt that only makes sense on a specific site — "summarize this r/cscareerquestions thread and rank the comments by contrarian signal." It works on Reddit. It produces garbage everywhere else. If a Skill doesn't travel across pages of similar type, it's not reusable, just a bookmark.
+**The one-page Skill.** A prompt that only makes sense on a specific site — "summarize this r/cscareerquestions thread and rank the comments by contrarian signal." Works on Reddit, produces garbage everywhere else. If a Skill doesn't travel across pages of similar type, it's not reusable, just a bookmark.
 
 **The wish-list Skill.** "Analyze this product and tell me everything." Gemini returns a generic 400-word summary. You already had a generic summary — it's called the page. Good Skills ask for something specific you can't eyeball in ten seconds.
 
-**The eight-paragraph Skill.** People treat the prompt box like a ChatGPT system prompt and paste in their full persona, 40 bullet points of "be helpful, be clear," and a writing-style guide. Then the model spends context window on preamble and your actual question gets one line. Short, sharp prompts with a concrete output format beat long character briefs. Every time.
+**The eight-paragraph Skill.** People treat the prompt box like a ChatGPT system prompt and paste in their full persona, 40 bullet points of "be helpful, be clear," and a writing-style guide. The model then spends context window on preamble and your actual question gets one line. Short, sharp prompts with a concrete output format beat long character briefs. Every time.
 
 A usable Skill has four parts: a role (optional), a single task framed as "extract / compare / rewrite / score", a fixed output format (table, bullet list, JSON-ish block), and an escape hatch if the page isn't what the Skill expected ("If this page isn't X, say so in one line and stop.").
 
 ## The 10-Skill starter library
 
-These are the Skills we'd install first when setting up Chrome Skills for a marketer, consultant, founder, or operator who lives in tabs. Copy them into your Skills library as-is, then edit the output format to match how you actually work.
+These are the Skills I'd install first when setting up Chrome Skills for a marketer, consultant, founder, or operator who lives in tabs. Copy them into your Skills library as-is, then edit the output format to match how you actually work.
 
 ### 1. Competitive research — one-page teardown
 
@@ -112,7 +113,7 @@ Do not invent fields not visible on the page. If a field is
 missing, leave it blank. If the page isn't a list, say so.
 ```
 
-A triage Skill, not a database. Treat the output as a starting point for outreach — you'll still need a real data pipeline before you buy a list of 10,000 leads. For structured, repeatable extraction at volume — scraping reviews, place data, contact lists, or anything you need to run on a schedule — a Skill is the wrong tool. A deterministic scraper gives you the same rows every time, which an LLM prompt by definition cannot.
+A triage Skill, not a database. Treat the output as a starting point for outreach. For structured, repeatable extraction at volume — scraping reviews, place data, contact lists, anything you need to run on a schedule — a Skill is the wrong tool. A deterministic scraper gives you the same rows every time, which an LLM prompt by definition cannot. (That's the line where my own Apify actors take over from a one-shot Skill.)
 
 ### 5. Meeting prep — from a single LinkedIn or bio page
 
@@ -183,7 +184,7 @@ Output: original text, rewrite, and a one-line diagnosis of
 what was weak in the original.
 ```
 
-Use this on your own pages, not competitors'. The cliché list is the whole trick — Gemini will quietly break it on pass one, so you'll want to keep a second "cliché sweep" Skill on hand. We run this weekly and it has saved more copy than any editor we've worked with.
+Use this on your own pages, not competitors'. The cliché list is the whole trick — Gemini will quietly break it on pass one, so keep a second "cliché sweep" Skill on hand. When I tested this on my own Apify store listings, the diagnosis line alone was worth the run.
 
 ### 9. Email draft from context
 
@@ -244,13 +245,13 @@ Four rules that keep the library usable:
 
 **Version the ones you iterate on.** When you rewrite a Skill for the third time, keep `product/pricing-table-v3` and delete `v2`. Not because you need the history — Skills has no history — but because the name tells you which is the current one.
 
-**Retire dead Skills monthly.** If you haven't used a Skill in 30 days, delete it. A library with 15 Skills you use is more useful than a library with 80 Skills where the good ones are buried.
+**Retire dead Skills monthly.** If you haven't used a Skill in 30 days, delete it. A library of 15 Skills you use is more useful than a library of 80 where the good ones are buried.
 
 **Write the description field.** Google doesn't surface it by default, but it shows up in the manage-Skills view. Use it to describe *when* to run the Skill, not what the Skill does. "Run on competitor pricing pages, 3–5 tabs at once" beats "compares pricing."
 
 ## Chrome Skills vs Custom GPTs vs Claude Projects vs Gemini Gems
 
-A quick decision matrix — because every commenter on the launch thread is asking:
+A quick decision matrix:
 
 | Feature | Chrome Skills | Custom GPTs | Claude Projects | Gemini Gems |
 |---|---|---|---|---|
@@ -271,7 +272,7 @@ If you're a knowledge worker who spends the day in tabs, Skills covers maybe 60%
 
 A week of daily use surfaces these:
 
-- **PDFs and Word docs.** Skills runs on web pages. A linked PDF in a tab isn't always treated as full context, and a Word doc opened in the Office viewer is hit-or-miss. For those, export to HTML or paste the text.
+- **PDFs and Word docs.** Skills runs on web pages. A linked PDF in a tab isn't always treated as full context, and a Word doc in the Office viewer is hit-or-miss. For those, export to HTML or paste the text.
 - **Paywalled and login-gated content.** Gemini reads what Chrome sees. If you can't see it logged in, neither can the Skill.
 - **Client-rendered or infinite-scroll pages.** Some JavaScript-heavy apps don't expose their content in a form Gemini can read reliably. Load the page, scroll to the section you want, then run the Skill.
 - **Writing to pages.** Skills generate answers in the side panel. They do not fill forms, click buttons, or automate UI actions. That's a different product — either a browsing agent or a real [automation platform like n8n, Make, or Zapier](/posts/n8n-vs-make-vs-zapier-ai-agents-2026/).
@@ -291,143 +292,10 @@ Skills shines for one-off, context-dependent work that happens inside a browser 
 - **Multiple people need the same output.** Skills are personal. For shared workflows, you need a platform — a team-level GPT, a shared n8n flow, or a proper script.
 - **The page is behind an API you could just hit.** If there's a free or cheap API, the API is faster and cleaner than an LLM reading the rendered page.
 
-A practical rule: if you find yourself running the same Skill more than 20 times a week on different tabs, that's a signal you have a real workflow and should promote it. Either script it, move it to a [business-task automation platform](/posts/automate-business-tasks-with-ai-2026/), or — if the task is structured extraction at volume — build or buy a dedicated extractor. A prompt can help you investigate. A pipeline is what runs the business.
+A practical rule I use: if I find myself running the same Skill more than 20 times a week on different tabs, that's the signal it's a real workflow. Either I script it, move it to a [business-task automation platform](/posts/automate-business-tasks-with-ai-2026/), or — if the task is structured extraction at volume — promote it to a dedicated Apify actor. A prompt can help you investigate. A pipeline is what runs the business.
 
-## A note on AI model costs and why Skills still feels cheap
+## Closing
 
-Skills is free at the user level. No subscription. No token counter.
+Chrome Skills is the first AI feature I've adopted into daily work without having to remember to use it. The `/` trigger lives where my work lives — in tabs — and the 10 Skills above cover roughly 80% of the on-page reading, comparing, and rewriting I'd otherwise paste into a chat window. Build the small library, prune it monthly, and accept that it's a knife, not a kitchen.
 
-But under the hood, every Skill run is a Gemini API call on a page's worth of HTML plus your prompt plus the output. For Google, the cost per call adds up fast. The bet is that keeping users inside Chrome — and inside Google's AI layer — is worth more than the compute. Expect limits to tighten over the next 6–12 months as usage scales. Heavy users have already seen rate-limiting on Pro-model Skills during peak hours.
-
-If you're comparing models for serious agent and automation work, frontier-model pricing moved noticeably in April 2026 — see our analysis of [how Claude Opus 4.7's new tokenizer inflated per-prompt costs](/posts/claude-opus-4-7-tokenizer-tax-cost-weekend-fix/) for a sense of how fast the ground shifts.
-
-## FAQ
-
-### What is Google Chrome Skills?
-
-Google Chrome Skills is a feature that lets you save any Gemini prompt as a reusable, one-click workflow in the Chrome desktop browser, triggered by typing `/` in the Gemini side panel. It runs on the current page plus any tabs you select, using either the Fast or Pro Gemini model. It launched on April 14, 2026, and is free for Chrome desktop users signed into a Google account.
-
-### How do I save a prompt as a Skill in Chrome?
-
-Open the Gemini side panel in Chrome by clicking the "Ask Gemini" sparkle icon. Write and run your prompt. In the chat history, click the three-dot menu next to your prompt and choose "Save as Skill." Give it a short name and description, pick the model (Fast for speed, Pro for quality), and save. You can access saved Skills by typing `/` in the prompt box.
-
-### How do I browse the prebuilt Skills library?
-
-Visit `chrome://skills/browse` in the Chrome address bar to see the full library of 50+ prebuilt Skills organized across Learning, Research, Shopping, Writing, and Productivity. You can use any library Skill as-is or customize its underlying prompt. You can also manage your own Skills by typing `/` in Gemini and clicking the compass icon.
-
-### Is Chrome Skills free?
-
-Yes. Chrome Skills is free for any Chrome desktop user signed into a Google account. You do not need Google AI Pro, Google AI Ultra, or any paid subscription to save and use Skills. Google may tighten rate limits over time, but the core feature is free.
-
-### What platforms support Chrome Skills?
-
-Chrome Skills runs on Chrome desktop on Mac, Windows, and ChromeOS. As of April 2026, the feature requires Chrome's browser language to be set to English (US). There is no mobile support (iOS or Android) yet.
-
-### Can Chrome Skills read multiple tabs at once?
-
-Yes. When you trigger a Skill with `/`, Chrome lets you include up to 10 open tabs in a single run using the `+` tab picker. Skills with multi-tab context are especially useful for side-by-side product comparisons, competitor research, and synthesizing themes across several articles at once.
-
-### How is Chrome Skills different from Custom GPTs or Claude Projects?
-
-Chrome Skills lives inside the browser and runs on the page you're viewing, with up to 10 tabs of context. Custom GPTs and Claude Projects live inside their respective chat apps and are built around uploaded file knowledge bases and persistent memory. Skills wins for on-page, in-the-moment tasks. Custom GPTs and Claude Projects win when you need a reusable assistant with a document corpus.
-
-### Can I share my Chrome Skills with my team?
-
-Not yet. Saved Skills are personal and sync across your own signed-in Chrome desktop devices, but there is no team sharing, export, or published Skills library as of April 2026. Teams that want shared AI workflows should standardize on a platform with real sharing — Custom GPTs (GPT Store), Claude Projects (within a team plan), or a proper automation tool like n8n, Make, or Zapier.
-
-### Are Chrome Skills safe to use?
-
-Chrome Skills uses the same safeguards as standard Gemini in Chrome. Any Skill that tries to take an action with real-world consequences — sending an email, adding a calendar event, posting a message — will ask for your confirmation before executing. Read-only Skills (audits, extractions, summaries) run without prompting. Gemini's general content filtering and Chrome's layered security protections apply.
-
-### When should I NOT use a Chrome Skill?
-
-Skip a Skill when the task needs to run on a schedule, produce deterministic output, process 500+ pages, or be shared with a team. For volume extraction or structured data pipelines, a dedicated scraper or a real automation tool is the right choice. Skills is best for one-off, context-dependent browser work that a human is driving.
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is Google Chrome Skills?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Google Chrome Skills is a feature that lets you save any Gemini prompt as a reusable, one-click workflow in the Chrome desktop browser, triggered by typing / in the Gemini side panel. It runs on the current page plus any tabs you select, using either the Fast or Pro Gemini model. It launched on April 14, 2026, and is free for Chrome desktop users signed into a Google account."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I save a prompt as a Skill in Chrome?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Open the Gemini side panel in Chrome by clicking the Ask Gemini sparkle icon. Write and run your prompt. In the chat history, click the three-dot menu next to your prompt and choose Save as Skill. Give it a short name and description, pick the model (Fast for speed, Pro for quality), and save. You can access saved Skills by typing / in the prompt box."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I browse the prebuilt Skills library?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Visit chrome://skills/browse in the Chrome address bar to see the full library of 50+ prebuilt Skills organized across Learning, Research, Shopping, Writing, and Productivity. You can use any library Skill as-is or customize its underlying prompt. You can also manage your own Skills by typing / in Gemini and clicking the compass icon."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is Chrome Skills free?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Chrome Skills is free for any Chrome desktop user signed into a Google account. You do not need Google AI Pro, Google AI Ultra, or any paid subscription to save and use Skills."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What platforms support Chrome Skills?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Chrome Skills runs on Chrome desktop on Mac, Windows, and ChromeOS. As of April 2026, the feature requires Chrome's browser language to be set to English (US). There is no mobile support (iOS or Android) yet."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can Chrome Skills read multiple tabs at once?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. When you trigger a Skill with /, Chrome lets you include up to 10 open tabs in a single run using the + tab picker. Skills with multi-tab context are especially useful for side-by-side product comparisons, competitor research, and synthesizing themes across several articles at once."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is Chrome Skills different from Custom GPTs or Claude Projects?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Chrome Skills lives inside the browser and runs on the page you're viewing, with up to 10 tabs of context. Custom GPTs and Claude Projects live inside their respective chat apps and are built around uploaded file knowledge bases and persistent memory. Skills wins for on-page, in-the-moment tasks. Custom GPTs and Claude Projects win when you need a reusable assistant with a document corpus."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I share my Chrome Skills with my team?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Not yet. Saved Skills are personal and sync across your own signed-in Chrome desktop devices, but there is no team sharing, export, or published Skills library as of April 2026."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are Chrome Skills safe to use?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Chrome Skills uses the same safeguards as standard Gemini in Chrome. Any Skill that tries to take an action with real-world consequences — sending an email, adding a calendar event, posting a message — will ask for your confirmation before executing. Read-only Skills (audits, extractions, summaries) run without prompting."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "When should I NOT use a Chrome Skill?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Skip a Skill when the task needs to run on a schedule, produce deterministic output, process 500+ pages, or be shared with a team. For volume extraction or structured data pipelines, a dedicated scraper or a real automation tool is the right choice."
-      }
-    }
-  ]
-}
-</script>
+The frontier isn't the Skill itself — it's knowing which prompts deserve to live in the sidebar versus which ones should graduate to a real pipeline. Use Skills where the work is ad-hoc and visual. Use a scraper or automation platform where the work has to repeat without you in the loop.
