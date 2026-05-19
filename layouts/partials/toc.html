@@ -1,0 +1,13 @@
+{{/* Sticky Table of Contents — renders Hugo's .TableOfContents from H2/H3 headings.
+     Hidden if the post has fewer than 3 headings or sets `toc: false` in frontmatter. */}}
+{{- $toc := .TableOfContents -}}
+{{- $headingCount := len (findRE "<li>" $toc) -}}
+{{- $tocEnabled := .Params.toc | default true -}}
+{{- if and $tocEnabled (ge $headingCount 3) -}}
+<nav class="post-toc" aria-label="Table of contents">
+  <div class="post-toc-inner">
+    <div class="post-toc-title">On this page</div>
+    {{ $toc | safeHTML }}
+  </div>
+</nav>
+{{- end -}}

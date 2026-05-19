@@ -2,7 +2,7 @@
 title: "WebMCP Explained: What Chrome's New Web Standard Means for Scraping and AI Agents"
 description: "Chrome 146 shipped WebMCP, turning websites into structured tools for AI agents. Here's how it works, what it means for scrapers, and how to implement it today."
 date: 2026-04-15
-categories: ["Tutorials"]
+categories: ["MCP", "Tutorials"]
 tags: ["webmcp", "chrome", "ai agents", "mcp", "web scraping", "browser automation", "web standards"]
 image: /images/posts/webmcp-chrome-ai-agents.png
 image_alt: "Chrome browser with an AI brain inside extending robotic arms to interact with multiple websites simultaneously"

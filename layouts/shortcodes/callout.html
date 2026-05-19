@@ -1,0 +1,10 @@
+{{- $type := .Get "type" | default "note" -}}
+{{- $title := .Get "title" -}}
+{{- $defaultTitle := dict "note" "Note" "tip" "Tip" "warn" "Warning" "info" "Heads up" -}}
+{{- $resolvedTitle := $title | default (index $defaultTitle $type) -}}
+<aside class="callout callout-{{ $type }}">
+  {{- with $resolvedTitle }}<div class="callout-title">{{ . }}</div>{{ end }}
+  <div class="callout-body">
+    {{ .Inner | markdownify }}
+  </div>
+</aside>

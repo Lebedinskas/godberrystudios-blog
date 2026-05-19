@@ -2,7 +2,7 @@
 title: "Building Production-Ready MCP Servers: The 2026 Deployment Playbook"
 description: "Most MCP servers die in production. Here's the deployment architecture, Docker setup, monitoring, and security patterns that keep yours alive."
 date: 2026-04-14
-categories: ["Tutorials"]
+categories: ["MCP", "Tutorials"]
 tags: ["mcp", "deployment", "docker", "production", "devops", "ai agents", "monitoring"]
 image: /images/posts/deploy-mcp-server.png
 image_alt: "Rocket launching from a laptop into cloud infrastructure representing MCP server deployment to production"

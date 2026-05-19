@@ -1,7 +1,7 @@
 ---
 title: "10 Business Tasks You Should Automate with AI Right Now (2026 Guide)"
 description: "Stop doing these manually. Here are 10 business tasks that AI can automate today — with the exact tools, setup time, and money saved for each one."
-date: 2026-04-15
+date: 2026-05-06
 categories: ["AI Automation"]
 tags: ["ai", "automation", "business", "productivity", "tools", "no-code", "2026"]
 image: /images/posts/automate-business-tasks-ai.png

@@ -1,7 +1,7 @@
 ---
 title: "The Apify Pay-Per-Event Migration Playbook: Save Your Revenue Before October 2026"
 description: "Apify is sunsetting rental pricing on October 1, 2026. Here's the migration playbook — event taxonomy, pricing math, code snippets, and the mistakes that quietly destroy revenue after you switch."
-date: 2026-04-17
+date: 2026-05-18
 categories: ["Web Scraping"]
 tags: ["apify", "actor monetization", "pay per event", "migration", "indie developer", "apify store"]
 keywords: ["apify pay per event", "apify rental sunset", "apify monetization 2026", "apify actor migration", "pay per event pricing"]

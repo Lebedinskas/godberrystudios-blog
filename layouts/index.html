@@ -16,17 +16,24 @@
     <div class="posts-grid">
       {{ range first 6 (where .Site.RegularPages "Section" "posts") }}
       <article class="post-card">
-        <div class="post-meta">
-          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-          <span class="meta-sep">&middot;</span>
-          <span class="reading-time">{{ math.Round (div (countwords .Content) 200.0) }} min read</span>
-          {{ with .Params.categories }}
-            {{ range first 1 . }}<span class="post-category">{{ . }}</span>{{ end }}
-          {{ end }}
+        {{ with .Params.image }}
+        <a href="{{ $.RelPermalink }}" class="post-card-thumb">
+          <img src="{{ . }}" alt="{{ $.Params.image_alt | default $.Title }}" loading="lazy" width="800" height="450">
+        </a>
+        {{ end }}
+        <div class="post-card-body">
+          <div class="post-meta">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+            <span class="meta-sep">&middot;</span>
+            <span class="reading-time">{{ math.Round (div (countwords .Content) 200.0) }} min read</span>
+            {{ with .Params.categories }}
+              {{ range first 1 . }}<span class="post-category">{{ . }}</span>{{ end }}
+            {{ end }}
+          </div>
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p>{{ .Summary | truncate 150 }}</p>
+          <a href="{{ .RelPermalink }}" class="read-more">Read more &rarr;</a>
         </div>
-        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        <p>{{ .Summary | truncate 150 }}</p>
-        <a href="{{ .RelPermalink }}" class="read-more">Read more &rarr;</a>
       </article>
       {{ end }}
     </div>

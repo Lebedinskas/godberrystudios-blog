@@ -6,6 +6,10 @@
       {{ if $isBlogPost }}
       <div class="post-meta">
         <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        {{ if and .Lastmod (gt (.Lastmod.Sub .Date).Hours 24.0) }}
+          <span class="meta-sep">&middot;</span>
+          <span class="post-updated">Updated <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "January 2, 2006" }}</time></span>
+        {{ end }}
         <span class="meta-sep">&middot;</span>
         <span class="reading-time">{{ math.Round (div (countwords .Content) 200.0) }} min read</span>
         {{ with .Params.categories }}
@@ -27,27 +31,47 @@
 
     {{ if $isBlogPost }}
     <!-- Author -->
-    <div class="post-author">
-      <div class="author-avatar"><img src="/favicon.svg" alt="Godberry Studios" class="author-avatar-img"></div>
+    <a href="/author/tomas/" class="post-author">
+      <div class="author-avatar">
+        <img src="/images/authors/tomas.jpg" alt="Tomas Lebedinskas" class="author-avatar-img" loading="lazy" width="44" height="44">
+      </div>
       <div class="author-info">
-        <span class="author-name">Godberry Studios</span>
-        <span class="author-role">Web Scraping & Automation Tools</span>
+        <span class="author-name">Tomas Lebedinskas</span>
+        <span class="author-role">Founder, Godberry Studios &middot; MCP &amp; web scraping</span>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+
+  {{ if $isBlogPost }}
+  <div class="container post-body-container">
+    <div class="post-layout">
+      <aside class="post-sidebar">
+        {{ partial "toc.html" . }}
+        {{ partial "share-rail.html" . }}
+      </aside>
+      <div class="post-content">
+        {{ .Content }}
       </div>
     </div>
-    {{ end }}
-
+  </div>
+  {{ else }}
+  <div class="container container-narrow">
     <div class="post-content">
       {{ .Content }}
     </div>
+  </div>
+  {{ end }}
 
+  <div class="container container-narrow">
     {{ if $isBlogPost }}
     <!-- Product CTA -->
     <div class="studio-product-card">
-      <h3>Want to try the tools mentioned in this article?</h3>
-      <p>Check out our tools on the Apify Store:</p>
+      <h3>Our tools on the Apify Store</h3>
+      <p>Pay-per-use scrapers and MCP servers — no seats, no contracts.</p>
       <div class="product-actions">
-        <a href="https://apify.com/godberry/content-to-social-mcp" target="_blank" rel="noopener" class="btn btn-primary">Content to Social MCP</a>
-        <a href="https://apify.com/godberry/google-reviews-scraper" target="_blank" rel="noopener" class="btn btn-secondary">Google Reviews Scraper</a>
+        <a href="https://apify.com/godberry/google-reviews-scraper" target="_blank" rel="noopener" class="btn btn-primary">Google Reviews Scraper</a>
+        <a href="https://apify.com/godberry/yelp-scraper" target="_blank" rel="noopener" class="btn btn-secondary">Yelp Scraper</a>
       </div>
     </div>
 

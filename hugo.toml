@@ -35,16 +35,31 @@ googleAnalytics = "G-C98MN3XRGK"
   priority = 0.5
 
 [[menu.main]]
+  name = "MCP"
+  url = "/categories/mcp/"
+  weight = 1
+
+[[menu.main]]
+  name = "Scraping"
+  url = "/categories/web-scraping/"
+  weight = 2
+
+[[menu.main]]
+  name = "AI Automation"
+  url = "/categories/ai-automation/"
+  weight = 3
+
+[[menu.main]]
   name = "Blog"
   url = "/posts/"
-  weight = 1
+  weight = 4
 
 [[menu.main]]
   name = "Tools"
   url = "/tools/"
-  weight = 2
+  weight = 5
 
 [[menu.main]]
   name = "About"
   url = "/about/"
-  weight = 3
+  weight = 6

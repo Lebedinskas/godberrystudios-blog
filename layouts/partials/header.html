@@ -6,7 +6,8 @@
     </a>
     <div class="header-right">
       <nav class="main-nav">
-        {{ range .Site.Menus.main }}
+        {{ range $i, $e := .Site.Menus.main }}
+          {{ if gt $i 0 }}<span class="nav-sep" aria-hidden="true">/</span>{{ end }}
           <a href="{{ .URL }}" class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }}">{{ .Name }}</a>
         {{ end }}
       </nav>

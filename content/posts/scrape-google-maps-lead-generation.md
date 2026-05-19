@@ -1,7 +1,7 @@
 ---
 title: "How to Scrape Google Maps for Lead Generation in 2026"
 description: "Build targeted B2B lead lists from Google Maps in minutes. Step-by-step methods, Python code, no-code tools, CRM workflows, and the legal lines you shouldn't cross."
-date: 2026-04-14
+date: 2026-05-08
 categories: ["Tutorials"]
 tags: ["google maps", "lead generation", "web scraping", "B2B leads", "data extraction", "apify"]
 image: /images/posts/google-maps-lead-generation.png
@@ -134,7 +134,7 @@ def extract_field(page, selector, attr=None):
 **Important caveats with the DIY approach:**
 
 1. **Selectors break.** Google changes their Maps UI regularly. What works today might throw errors next week. Budget time for maintenance.
-2. **Rate limiting.** Google will temporarily block your IP if you scrape too aggressively. Use random delays between requests (I use 2-4 seconds), rotate proxies, and keep sessions short.
+2. **Rate limiting.** Google will temporarily block your IP if you scrape too aggressively. Use random delays between requests (2-4 seconds is a reasonable starting point), rotate proxies, and keep sessions short.
 3. **Headless detection.** Google actively detects headless browsers. Libraries like `playwright-stealth` help, but it's a cat-and-mouse game.
 4. **Scale limits.** A single Playwright instance tops out at maybe 500-1000 listings per session before things get unreliable. For bigger jobs, use a managed platform.
 
@@ -236,7 +236,7 @@ Get structured review data for any Google Maps business — ratings, full text, 
 
 ## The Legal Section You Shouldn't Skip
 
-I know you want to skip this. Don't. The answer to "is this legal?" depends on where you are and what data you're pulling — and getting it wrong can actually cost you.
+You probably want to skip this. Don't. The answer to "is this legal?" depends on where you are and what data you're pulling — and getting it wrong can actually cost you.
 
 ### United States
 
@@ -246,7 +246,7 @@ That said, it violates Google's Terms of Service. Google can't put you in jail f
 
 ### European Union (GDPR)
 
-Here's where I pay more attention, since Godberry is based in the EU. GDPR applies when you're collecting data that can identify a living individual. Business names and addresses? Usually fine — those are commercial entities. But reviewer names, personal phone numbers, or sole-proprietor businesses where the business name IS the person's name? That's personal data under GDPR.
+Here's where we pay closer attention, since Godberry Studios operates from the EU. GDPR applies when you're collecting data that can identify a living individual. Business names and addresses? Usually fine — those are commercial entities. But reviewer names, personal phone numbers, or sole-proprietor businesses where the business name IS the person's name? That's personal data under GDPR.
 
 To stay compliant:
 
@@ -262,11 +262,11 @@ To stay compliant:
 3. **Rate-limit your scraping.** Don't hammer Google's servers. Use delays, respect robots.txt, be a good internet citizen.
 4. **Keep records.** Document what you scraped, when, and why. If anyone asks, you want a clear paper trail.
 
-*I'm not a lawyer. If you're operating at scale or in a regulated industry, get proper legal counsel. This section is a starting point, not legal advice.*
+*We're not lawyers. If you're operating at scale or in a regulated industry, get proper legal counsel. This section is a starting point, not legal advice.*
 
 ## Putting It All Together: A Complete Lead Gen Workflow
 
-Here's what I'd actually do if I were starting from scratch today:
+Here's what we'd actually do starting from scratch today:
 
 **Week 1: Validate**
 1. Pick one niche and one city (e.g., "dentists in Portland, OR")
@@ -286,7 +286,7 @@ Here's what I'd actually do if I were starting from scratch today:
 3. Set up scheduled scrapes (weekly or monthly) to keep your lead list fresh
 4. Build email templates that reference specific details from the scraped data (category, rating, review themes)
 
-I've seen people spend entire weekends building slick automation pipelines for niches with 0% reply rates. Don't be that person. Validate first, automate second.
+We've watched people spend entire weekends building slick automation pipelines for niches with 0% reply rates. Don't be that person. Validate first, automate second.
 
 ## Common Mistakes That Waste Your Time
 
