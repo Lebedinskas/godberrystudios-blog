@@ -818,13 +818,20 @@ a.post-author:hover .author-name { color: var(--accent); }
     position: sticky;
     top: 100px;
     max-height: calc(100vh - 120px);
-    overflow-y: auto;
     padding-right: 4px;
   }
 }
 .post-toc {
   font-size: 14px;
   line-height: 1.5;
+  min-height: 0;
+}
+@media (min-width: 1024px) {
+  .post-toc {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    min-height: 0;
+  }
 }
 .post-toc-inner {
   background: var(--bg-white);
