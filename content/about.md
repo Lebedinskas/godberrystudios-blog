@@ -34,7 +34,10 @@ Deep-dives on MCP, WebMCP, x402, agent security, anti-bot scraping, and everythi
 
 **Case studies — real output, real cost:**
 
-Walkthroughs of what each tool actually returns and the workflows worth wiring it into. First one up: [Google Reviews Scraper — what 1,000 reviews actually costs and looks like](/case-studies/google-reviews-scraper/).
+Walkthroughs of what each tool actually returns and the workflows worth wiring it into.
+
+- [Yelp Scraper — what one business profile costs, what 60 seconds returns, and the anti-bot reality](/case-studies/yelp-scraper/)
+- [Google Reviews Scraper — what 1,000 reviews actually costs and looks like](/case-studies/google-reviews-scraper/)
 
 ## Who this is for
 
