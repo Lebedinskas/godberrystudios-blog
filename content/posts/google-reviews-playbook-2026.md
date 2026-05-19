@@ -5,7 +5,7 @@ date: 2026-04-19
 categories: ["Local SEO", "AI for Business"]
 tags: ["google reviews", "local seo", "google business profile", "ask maps", "ai mode", "review management"]
 keywords: ["google reviews 2026", "google reviews for local business", "how to get more google reviews", "google reviews statistics", "google ask maps restaurant"]
-image: /images/posts/google-reviews-playbook-2026.png
+image: /images/posts/google-reviews-playbook-2026.jpg
 image_alt: "Editorial illustration of a local business storefront with floating five-star Google review cards and an AI assistant, representing the 2026 Google Reviews playbook for local SEO"
 ---
 

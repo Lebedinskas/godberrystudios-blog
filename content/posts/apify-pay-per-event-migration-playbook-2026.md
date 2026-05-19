@@ -6,7 +6,7 @@ lastmod: 2026-05-18
 categories: ["Web Scraping"]
 tags: ["apify", "actor monetization", "pay per event", "migration", "indie developer", "apify store"]
 keywords: ["apify pay per event", "apify rental sunset", "apify monetization 2026", "apify actor migration", "pay per event pricing"]
-image: /images/posts/apify-pay-per-event-migration-playbook-2026.png
+image: /images/posts/apify-pay-per-event-migration-playbook-2026.jpg
 image_alt: "Illustration of an hourglass with coins flowing through, representing the October 2026 deadline for Apify actor developers to migrate from rental to pay-per-event pricing"
 ---
 

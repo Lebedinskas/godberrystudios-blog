@@ -5,7 +5,7 @@ date: 2026-04-17
 categories: ["Web Scraping"]
 tags: ["google maps", "scraping", "reviews", "limited view", "apify"]
 keywords: ["google maps limited view", "google maps reviews scraping 2026", "scrape google maps reviews", "google maps limited view bypass"]
-image: /images/posts/google-maps-limited-view-scraping-2026.png
+image: /images/posts/google-maps-limited-view-scraping-2026.jpg
 image_alt: "Illustration of a Google Maps pin split into a visible public side and a locked signed-in side, showing how the limited view hides reviews and photos"
 ---
 

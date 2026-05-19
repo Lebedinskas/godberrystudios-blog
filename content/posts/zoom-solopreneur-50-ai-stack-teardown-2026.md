@@ -7,7 +7,7 @@ draft: false
 categories: ["AI for Business & Creators"]
 tags: ["solopreneur", "ai tools", "automation", "small business", "ai stack", "zoom", "consulting", "freelance"]
 keywords: ["Zoom Solopreneur 50", "AI tools for solopreneurs 2026", "best solopreneur AI stack 2026", "AI tools for self-employed", "AI stack for businesses of one", "solopreneur AI workflow 2026", "AI replace team solopreneur", "33 million self-employed AI"]
-image: /images/posts/zoom-solopreneur-50-ai-stack-teardown-2026.png
+image: /images/posts/zoom-solopreneur-50-ai-stack-teardown-2026.jpg
 image_alt: "Zoom Solopreneur 50 AI stack teardown hero — solo operator dashboard showing the 7-tool starter stack across 12 industries with cost-per-outcome math"
 affiliate_links: false
 ---

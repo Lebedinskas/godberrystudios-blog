@@ -5,7 +5,7 @@ date: 2026-04-11
 lastmod: 2026-04-15
 categories: ["Guides"]
 tags: ["web scraping", "beginners", "data extraction", "automation", "apify", "tutorial", "playwright", "scrapy", "python"]
-image: /images/posts/web-scraping-beginners.png
+image: /images/posts/web-scraping-beginners.jpg
 image_alt: "Friendly robot spider crawling a webpage and collecting data points into organized columns"
 ---
 

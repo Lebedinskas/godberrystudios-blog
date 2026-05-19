@@ -7,7 +7,7 @@ draft: false
 categories: ["AI for Business & Creators"]
 tags: ["agency", "m&a", "exit planning", "agentic ai", "private equity", "agency roll-up", "agency exit", "ai agency", "solopreneur agency"]
 keywords: ["AI agency M&A 2026", "agency roll-up 2026", "sell AI agency", "agentic agency acquisition", "agency exit multiples 2026", "AI agency consolidation", "agentic delivery agency", "agency buyer market 2026", "boutique agency exit playbook", "small agency survive AI"]
-image: /images/posts/ai-agency-rollup-2026-survival-exit-playbook.png
+image: /images/posts/ai-agency-rollup-2026-survival-exit-playbook.jpg
 image_alt: "AI agency roll-up wave 2026 hero illustration — strategic decision tree showing four survival paths for agency owners as PE-backed agentic acquirers compress multiples"
 affiliate_links: true
 ---

@@ -5,7 +5,7 @@ description: "x402 turns the HTTP 402 status code into a real payment layer for 
 categories: ["AI Automation"]
 tags: ["x402", "AI agents", "payments", "HTTP 402", "MCP", "Cloudflare", "cryptocurrency"]
 keywords: ["x402 protocol", "AI agent payments", "HTTP 402 payment", "x402 MCP server", "Cloudflare pay per crawl"]
-image: /images/posts/x402-protocol-ai-payments.png
+image: /images/posts/x402-protocol-ai-payments.jpg
 image_alt: "AI agent making a digital payment through an API endpoint with HTTP status codes and data streams"
 ---
 

@@ -4,7 +4,7 @@ description: "Stop doing these manually. Here are 10 business tasks that AI can 
 date: 2026-05-06
 categories: ["AI Automation"]
 tags: ["ai", "automation", "business", "productivity", "tools", "no-code", "2026"]
-image: /images/posts/automate-business-tasks-ai.png
+image: /images/posts/automate-business-tasks-ai.jpg
 image_alt: "AI automation illustration showing a robotic hand managing business tasks on a holographic interface"
 ---
 

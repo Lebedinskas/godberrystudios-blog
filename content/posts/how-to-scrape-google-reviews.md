@@ -5,7 +5,7 @@ date: 2026-05-02
 lastmod: 2026-04-15
 categories: ["Tutorials"]
 tags: ["google reviews", "web scraping", "no-code", "data extraction", "apify", "google places api", "sentiment analysis"]
-image: /images/posts/scrape-google-reviews.png
+image: /images/posts/scrape-google-reviews.jpg
 image_alt: "Google Maps pin with star ratings flowing out as structured data cards for review extraction"
 ---
 

@@ -5,7 +5,7 @@ date: 2026-04-19
 categories: ["SEO"]
 tags: ["seo", "google core update", "ai content", "programmatic seo", "e-e-a-t", "content strategy", "2026"]
 keywords: ["Google March 2026 core update", "AI content penalty 2026", "programmatic SEO recovery", "scaled content Google update", "E-E-A-T 2026"]
-image: /images/posts/surviving-google-march-2026-core-update.png
+image: /images/posts/surviving-google-march-2026-core-update.jpg
 image_alt: "A fractured search results page with collapsing ranking bars, symbolizing the March 2026 Google core update impact on AI-generated content"
 ---
 

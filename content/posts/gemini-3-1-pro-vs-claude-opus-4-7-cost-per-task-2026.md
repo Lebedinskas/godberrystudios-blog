@@ -5,7 +5,7 @@ date: 2026-04-25
 categories: ["AI for Business", "AI Engineering"]
 tags: ["gemini 3.1 pro", "claude opus 4.7", "frontier model comparison", "llm cost optimization", "model routing", "deep think", "ai api pricing 2026", "prompt caching"]
 keywords: ["Gemini 3.1 Pro vs Claude Opus 4.7", "best AI model 2026", "frontier model comparison 2026", "Claude vs Gemini cost", "which AI model 2026", "Gemini 3.1 Pro pricing", "Opus 4.7 pricing", "cost per task LLM"]
-image: /images/posts/gemini-3-1-pro-vs-claude-opus-4-7-cost-per-task-2026.png
+image: /images/posts/gemini-3-1-pro-vs-claude-opus-4-7-cost-per-task-2026.jpg
 image_alt: "Head-to-head hero showing the Google Gemini blue four-point sparkle logo on the left and the Anthropic Claude orange burst logo on the right, separated by a VS divider with the eyebrow Cost · Latency · Accuracy and the 10 Tasks · 2026 Benchmark framing — labeled Gemini 3.1 Pro ($2 / $12 per M tokens, 2M context) and Claude Opus 4.7 ($5 / $25 per M tokens, 200K context)"
 ---
 

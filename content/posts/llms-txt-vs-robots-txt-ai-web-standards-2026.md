@@ -6,7 +6,7 @@ draft: false
 categories: ["AI for Business", "Web Standards", "SEO"]
 tags: ["llms.txt", "robots.txt", "AI SEO", "GEO", "AEO", "AI crawlers", "GPTBot", "ClaudeBot", "web standards"]
 keywords: ["llms.txt vs robots.txt", "llms.txt explained", "ai.txt web standard 2026", "does llms.txt work", "should I add llms.txt", "AI crawler robots.txt 2026", "GPTBot ClaudeBot block"]
-image: /images/posts/llms-txt-vs-robots-txt-ai-web-standards-2026.png
+image: /images/posts/llms-txt-vs-robots-txt-ai-web-standards-2026.jpg
 image_alt: "Editorial illustration on dark background showing two stylized text files labeled robots.txt and llms.txt with a blue signal line and gold arrows representing AI crawlers choosing between them"
 ---
 

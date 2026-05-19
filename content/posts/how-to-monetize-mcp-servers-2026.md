@@ -6,7 +6,7 @@ lastmod: 2026-05-18
 categories: ["MCP"]
 tags: ["mcp", "monetization", "apify", "mcpize", "x402", "stripe mpp", "indie developer", "passive income", "revenue"]
 keywords: ["monetize MCP server", "MCP server income", "paid MCP server", "MCP server revenue", "how to monetize MCP", "MCP pricing models", "Apify MCP monetization", "MCPize revenue share"]
-image: /images/posts/how-to-monetize-mcp-servers-2026.png
+image: /images/posts/how-to-monetize-mcp-servers-2026.jpg
 image_alt: "Editorial illustration of a golden coin flowing through a network of connected nodes representing AI agents calling a paid MCP server, with blue and gold accents on a dark background"
 ---
 

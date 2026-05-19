@@ -5,7 +5,7 @@ date: 2026-04-30
 categories: ["AI for Business", "Creator Tools"]
 tags: ["claude for creative work", "claude connectors", "claude photoshop", "claude blender", "claude autodesk fusion", "claude ableton", "claude sketchup", "claude resolume", "anthropic mcp creative", "ai for designers 2026", "ai for 3d artists 2026"]
 keywords: ["Claude for creative work", "Claude Adobe connector", "Claude Photoshop integration", "Claude Blender connector", "Claude Autodesk Fusion", "Claude Ableton", "Anthropic creative connectors 2026", "AI for designers 2026", "AI for 3D artists 2026", "Claude SketchUp tutorial", "Claude Resolume VJ"]
-image: /images/posts/claude-for-creative-work-9-connectors-tested-2026.png
+image: /images/posts/claude-for-creative-work-9-connectors-tested-2026.jpg
 image_alt: "Editorial illustration on dark navy background with electric blue and gold accents showing nine glowing creative-tool connector nodes — pen-tip, donut, gear, waveform, vinyl, brush, ruler, and twin video monitors — connected by gold light-trails to a central radiant Claude burst, representing the April 28 2026 launch of nine Anthropic Claude connectors for Photoshop Blender Fusion Ableton Splice Affinity SketchUp and Resolume"
 ---
 

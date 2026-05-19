@@ -5,7 +5,7 @@ description: "30 CVEs in 60 days exposed serious flaws in MCP servers. This guid
 categories: ["MCP", "AI Automation"]
 tags: ["MCP", "security", "prompt injection", "tool poisoning", "OAuth 2.1", "OWASP"]
 keywords: ["MCP security", "MCP tool poisoning", "MCP prompt injection", "secure MCP server", "OWASP MCP Top 10"]
-image: /images/posts/mcp-security-tool-poisoning.png
+image: /images/posts/mcp-security-tool-poisoning.jpg
 image_alt: "Shield protecting a server rack from attack vectors like poisoned data streams and prompt injection"
 ---
 

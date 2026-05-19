@@ -6,7 +6,7 @@ draft: false
 categories: ["AI for Business", "Productivity"]
 tags: ["Chrome Skills", "Gemini", "AI prompts", "productivity", "Chrome", "workflow automation", "knowledge work"]
 keywords: ["Google Chrome Skills", "Chrome AI Skills guide", "Gemini Skills Chrome", "save AI prompts Chrome", "Chrome Skills tutorial", "how to use Chrome Skills", "Chrome Skills library"]
-image: /images/posts/google-chrome-skills-starter-library-2026.png
+image: /images/posts/google-chrome-skills-starter-library-2026.jpg
 image_alt: "Abstract editorial illustration of a Chrome browser window with a glowing slash-command prompt box and ten stacked prompt-card icons representing a Chrome Skills starter library"
 ---
 
@@ -50,7 +50,7 @@ A usable Skill has four parts: a role (optional), a single task framed as "extra
 
 ## The 10-Skill starter library
 
-These are the Skills I'd install first if I were setting up Chrome Skills for a marketer, consultant, founder, or operator who lives in tabs. Copy them into your Skills library as-is, then edit the output format to match how you actually work.
+These are the Skills we'd install first when setting up Chrome Skills for a marketer, consultant, founder, or operator who lives in tabs. Copy them into your Skills library as-is, then edit the output format to match how you actually work.
 
 ### 1. Competitive research — one-page teardown
 
@@ -183,7 +183,7 @@ Output: original text, rewrite, and a one-line diagnosis of
 what was weak in the original.
 ```
 
-Use this on your own pages, not competitors'. The cliché list is the whole trick — Gemini will quietly break it on pass one, so you'll want to keep a second "cliché sweep" Skill on hand. I run this weekly and it has saved more copy than any editor I've worked with.
+Use this on your own pages, not competitors'. The cliché list is the whole trick — Gemini will quietly break it on pass one, so you'll want to keep a second "cliché sweep" Skill on hand. We run this weekly and it has saved more copy than any editor we've worked with.
 
 ### 9. Email draft from context
 

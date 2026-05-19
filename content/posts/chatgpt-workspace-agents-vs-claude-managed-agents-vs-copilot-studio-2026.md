@@ -6,7 +6,7 @@ lastmod: 2026-05-18
 categories: ["AI for Business", "Enterprise AI"]
 tags: ["chatgpt workspace agents", "claude managed agents", "microsoft copilot studio", "enterprise ai agents", "ai agent platforms", "ai agent comparison", "ai buyer guide 2026", "agent 365"]
 keywords: ["ChatGPT workspace agents vs Claude", "Claude managed agents vs Copilot Studio", "best enterprise AI agent platform 2026", "workspace agents review", "AI agent buyer guide", "Codex vs Anthropic agents", "Copilot Studio vs Workspace Agents"]
-image: /images/posts/chatgpt-workspace-agents-vs-claude-managed-agents-vs-copilot-studio-2026.png
+image: /images/posts/chatgpt-workspace-agents-vs-claude-managed-agents-vs-copilot-studio-2026.jpg
 image_alt: "Three-way comparison hero showing the OpenAI ChatGPT logo, Anthropic Claude burst logo, and Microsoft Copilot Studio hexagon logo arranged across a dark navy benchmark layout — labeled Workspace Agents free until May 6, Claude Managed Agents $0.08 per session hour plus tokens, and Copilot Studio $200 per 25,000 credits, framed as a 2026 enterprise AI agent buyer's guide"
 ---
 

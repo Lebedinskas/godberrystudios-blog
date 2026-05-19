@@ -7,7 +7,7 @@ draft: false
 categories: ["AI for Business & Creators", "Marketing"]
 tags: ["meta ads", "facebook ads", "instagram ads", "chatgpt", "claude", "mcp", "ad agency", "media buying", "advertising automation"]
 keywords: ["meta ads ai connectors", "meta ads chatgpt", "meta ads claude mcp", "manage meta ads from ai", "meta mcp server", "meta ads natural language", "meta ads ai agent", "meta ads ai connector setup"]
-image: /images/posts/meta-ads-ai-connectors-chatgpt-claude-2026.png
+image: /images/posts/meta-ads-ai-connectors-chatgpt-claude-2026.jpg
 image_alt: "Meta Ads AI Connectors hero — Meta logo connected to ChatGPT and Claude logos via MCP server, showing campaign management from natural-language AI agents"
 ---
 

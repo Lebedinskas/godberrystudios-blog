@@ -5,7 +5,7 @@ date: 2026-04-17
 categories: ["MCP"]
 tags: ["mcp", "apify", "pay per event", "starter kit", "open source", "typescript", "claude"]
 keywords: ["mcp server starter", "mcp server boilerplate", "apify mcp server", "pay per use mcp", "mcp typescript starter", "remote mcp server"]
-image: /images/posts/mcp-server-apify-starter-announcement.png
+image: /images/posts/mcp-server-apify-starter-announcement.jpg
 image_alt: "Diagram showing an MCP client calling a remote MCP server hosted on Apify with pay-per-event billing wired in"
 ---
 

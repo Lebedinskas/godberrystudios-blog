@@ -6,7 +6,7 @@ lastmod: 2026-05-18
 categories: ["AI for Business", "SEO"]
 tags: ["aeo", "answer engine optimization", "generative search", "chatgpt seo", "perplexity seo", "google ai overviews", "geo", "2026"]
 keywords: ["answer engine optimization 2026", "get cited by ChatGPT", "AEO playbook 2026", "how to rank in AI search", "Perplexity SEO", "Google AI Overviews citations", "AEO strategy"]
-image: /images/posts/aeo-playbook-get-cited-by-ai-2026.png
+image: /images/posts/aeo-playbook-get-cited-by-ai-2026.jpg
 image_alt: "Editorial illustration of three AI answer engines — ChatGPT, Perplexity, and Google AI — pulling citations from a single blog, representing the 2026 answer engine optimization playbook"
 ---
 

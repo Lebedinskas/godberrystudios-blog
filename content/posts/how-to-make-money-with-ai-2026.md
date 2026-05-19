@@ -4,7 +4,7 @@ description: "Forget the hype. Here are 12 concrete ways people are actually ear
 date: 2026-04-15
 categories: ["AI Automation"]
 tags: ["ai", "make money", "passive income", "automation", "side hustle", "business", "2026"]
-image: /images/posts/make-money-ai-2026.png
+image: /images/posts/make-money-ai-2026.jpg
 image_alt: "AI neural network connections transforming into golden coins and revenue charts representing AI income streams"
 ---
 

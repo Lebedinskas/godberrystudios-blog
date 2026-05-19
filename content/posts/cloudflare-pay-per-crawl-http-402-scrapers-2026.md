@@ -6,7 +6,7 @@ lastmod: 2026-05-18
 categories: ["Web Scraping", "AI for Business"]
 tags: ["cloudflare pay per crawl", "http 402", "ai crawlers", "web scraping 2026", "ai crawl control", "x402", "stack overflow", "godaddy cloudflare", "scraping economy", "ai bot monetization"]
 keywords: ["Cloudflare pay per crawl", "HTTP 402 scraping", "pay per crawl explained", "crawler-price header", "ai crawl control", "cloudflare 402 payment required", "scraping costs 2026", "ai bot paywall"]
-image: /images/posts/cloudflare-pay-per-crawl-http-402-scrapers-2026.png
+image: /images/posts/cloudflare-pay-per-crawl-http-402-scrapers-2026.jpg
 image_alt: "Editorial illustration of a web server gateway issuing HTTP 402 Payment Required responses to AI crawler bots, with coins passing through the door representing Cloudflare Pay Per Crawl monetization in 2026"
 ---
 

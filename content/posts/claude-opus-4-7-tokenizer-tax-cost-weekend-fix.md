@@ -5,7 +5,7 @@ date: 2026-04-21
 categories: ["AI for Business", "AI Engineering"]
 tags: ["claude opus 4.7", "claude tokenizer", "anthropic pricing", "llm cost optimization", "prompt caching", "claude sonnet 4.6", "model routing", "ai api costs 2026"]
 keywords: ["Claude Opus 4.7 tokenizer", "Claude 4.7 token inflation", "Claude 4.7 cost increase", "Anthropic API cost jump 2026", "Opus 4.7 vs 4.6 pricing", "Claude prompt caching", "LLM cost optimization 2026"]
-image: /images/posts/claude-opus-4-7-tokenizer-tax-cost-weekend-fix.png
+image: /images/posts/claude-opus-4-7-tokenizer-tax-cost-weekend-fix.jpg
 image_alt: "Editorial illustration showing a stack of Claude API invoices growing taller overnight, with a golden token counter hovering above and the Anthropic-style silhouette of Claude in the background, representing the Opus 4.7 tokenizer tax that raised effective costs at unchanged sticker price"
 ---
 
