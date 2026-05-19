@@ -15,4 +15,17 @@
     {{ $toc | safeHTML }}
   </div>
 </details>
+<script>
+(function(){
+  var toc = document.currentScript.previousElementSibling;
+  if (!toc || toc.tagName !== 'DETAILS') return;
+  var mq = window.matchMedia('(min-width: 1024px)');
+  var apply = function(){
+    if (mq.matches) toc.setAttribute('open', '');
+  };
+  apply();
+  if (mq.addEventListener) mq.addEventListener('change', apply);
+  else if (mq.addListener) mq.addListener(apply);
+})();
+</script>
 {{- end -}}
