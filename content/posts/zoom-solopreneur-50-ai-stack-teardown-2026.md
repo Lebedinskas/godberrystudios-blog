@@ -14,7 +14,7 @@ affiliate_links: false
 
 Zoom's inaugural Solopreneur 50 dropped on May 4, 2026 — fifty AI-powered businesses of one picked by an independent jury from nearly 3,000 applicants across 48 states and 400+ cities. Five winners walked away with $30,000 each. Every coverage piece so far is event recap. None tell you what tools the operators actually run, what the cost math looks like at $5K, $15K, or $40K monthly revenue, or how to copy the pattern. That's what this teardown does.
 
-I'm writing this as a solo operator myself — a few months into Godberry Studios, running an Apify Store + Hugo blog + Cloudflare Pages + GitHub org stack out of Lithuania. I haven't hit Solopreneur 50 numbers and I'm not pretending otherwise. But I spend my days looking at the same architecture decisions these fifty people made, so the patterns below read like a calibration check on my own work as much as a teardown of theirs.
+Writing this as a solo operator myself — a few months into Godberry Studios, running an Apify Store + Hugo blog + Cloudflare Pages + GitHub org stack out of Lithuania. Solopreneur 50 numbers aren't mine yet, and there's no pretending otherwise. But the same architecture decisions these fifty people made show up in my work every week, so the patterns below read like a calibration check on a small shop as much as a teardown of theirs.
 
 Per Zoom's accompanying research, 33 million Americans are now self-employed, 82% of U.S. small businesses operate without a single employee, and 62% of the Solopreneur 50 applicants are running active, revenue-generating shops with a median founding year of 2022. Solopreneurship isn't a side-hustle category anymore. It happened.
 

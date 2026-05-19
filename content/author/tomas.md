@@ -9,18 +9,18 @@ image: "/images/authors/tomas.jpg"
   <img src="/images/authors/tomas.jpg" alt="Tomas Lebedinskas" width="180" height="180" loading="eager">
 </div>
 
-Hi — I'm Tomas. I'm a solo developer in Lithuania running Godberry Studios as a one-person shop. I build small, sharp tools for the MCP and AI-agent era and write down what I learn shipping them.
+Hi — Tomas here. Solo developer in Lithuania, running Godberry Studios as a one-person shop. The work is small, sharp tools for the MCP and AI-agent era, plus writing down what shipping them actually teaches.
 
-## What I ship
+## Shipped products
 
 - **[Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper)** — Apify Store actor for pulling Google Maps reviews. Pay-per-event pricing, validated across 9 countries.
 - **[Yelp Scraper](https://apify.com/godberry/yelp-scraper)** — full Yelp business profile + reviews + menu + photos in one call. Worldwide (any `yelp.<tld>`), multilingual date parsing, no Fusion API key required.
 - **[Content-to-Social MCP Server](https://apify.com/godberry/content-to-social-mcp)** — MCP server that turns any URL or text into ready-to-post social content. Callable from Claude, ChatGPT, and any MCP client.
 - **Open source:** [github.com/godberrystudios](https://github.com/godberrystudios) — MIT-licensed MCP server starter, curated MCP tools list, and the studio's profile.
 
-## What I write about
+## Writing
 
-Practitioner posts on the things I actually touch: MCP server design and monetization, web scraping in the anti-bot era, agent-payments protocols (x402, AgentCore Payments, Stripe MPP), and the AEO / GEO shift that's eating SEO clicks. The blog is a working notebook, not a marketing funnel — when something I shipped didn't work, I write that too.
+Practitioner posts on the things actually being touched: MCP server design and monetization, web scraping in the anti-bot era, agent-payments protocols (x402, AgentCore Payments, Stripe MPP), and the AEO / GEO shift that's eating SEO clicks. The blog is a working notebook, not a marketing funnel — when something doesn't work, that ships too.
 
 ## Where to find me
 
