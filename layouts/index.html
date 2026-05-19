@@ -1,20 +1,60 @@
 {{ define "main" }}
-<section class="hero">
-  <div class="container">
-    <h1>Build Smarter with <span class="highlight">Web Scraping</span> & <span class="highlight">Automation</span></h1>
-    <p class="hero-sub">Tutorials, tools, and guides to help you extract data and automate content workflows.</p>
-    <div class="hero-actions">
-      <a href="/posts/" class="btn btn-primary">Read the Blog</a>
-      <a href="/tools/" class="btn btn-secondary">Explore Tools</a>
-    </div>
+{{ $allPosts := where .Site.RegularPages "Section" "posts" }}
+{{ $featured := index $allPosts 0 }}
+{{ $rest := after 1 $allPosts | first 6 }}
+
+<section class="home-identity">
+  <div class="container container-narrow">
+    <p class="home-identity-line">Godberry Studios &mdash; <a href="/author/tomas/">Tomas</a> writes about web scraping, MCP servers, and Apify economics. Also ships <a href="/tools/">paid actors</a>.</p>
   </div>
 </section>
 
+<section class="home-channels">
+  <div class="container">
+    <nav class="channel-strip" aria-label="Channels">
+      <a href="/posts/" class="channel-link">All</a>
+      <a href="/categories/mcp/" class="channel-link">MCP</a>
+      <a href="/categories/web-scraping/" class="channel-link">Scraping</a>
+      <a href="/categories/ai-automation/" class="channel-link">AI Automation</a>
+      <a href="/categories/seo/" class="channel-link">AEO &amp; SEO</a>
+    </nav>
+  </div>
+</section>
+
+{{ with $featured }}
+<section class="home-featured">
+  <div class="container">
+    <a href="{{ .RelPermalink }}" class="featured-card">
+      {{ with .Params.image }}
+      <div class="featured-card-image">
+        <img src="{{ . }}" alt="{{ $.Params.image_alt | default $.Title }}" loading="eager" width="1200" height="675">
+      </div>
+      {{ end }}
+      <div class="featured-card-body">
+        <div class="featured-card-meta">
+          {{ with .Params.categories }}
+            {{ range first 1 . }}<span class="post-category">{{ . }}</span>{{ end }}
+          {{ end }}
+          <span class="featured-card-eyebrow">Latest post</span>
+        </div>
+        <h2 class="featured-card-title">{{ .Title }}</h2>
+        {{ with .Description }}<p class="featured-card-dek">{{ . }}</p>{{ end }}
+        <div class="featured-card-footer">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+          <span class="meta-sep">&middot;</span>
+          <span class="reading-time">{{ math.Round (div (countwords .Content) 200.0) }} min read</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+{{ end }}
+
 <section class="recent-posts">
   <div class="container">
-    <h2>Latest Articles</h2>
+    <h2>More articles</h2>
     <div class="posts-grid">
-      {{ range first 6 (where .Site.RegularPages "Section" "posts") }}
+      {{ range $rest }}
       <article class="post-card">
         {{ with .Params.image }}
         <a href="{{ $.RelPermalink }}" class="post-card-thumb">
@@ -36,6 +76,9 @@
         </div>
       </article>
       {{ end }}
+    </div>
+    <div class="recent-posts-footer">
+      <a href="/posts/" class="btn btn-secondary">Browse all articles &rarr;</a>
     </div>
   </div>
 </section>

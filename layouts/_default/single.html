@@ -40,6 +40,19 @@
         <span class="author-role">Founder, Godberry Studios &middot; MCP &amp; web scraping</span>
       </div>
     </a>
+    {{ with .OutputFormats.Get "Markdown" }}
+    {{ $mdUrl := .RelPermalink }}
+    <div class="post-llm-tools" aria-label="Developer tools">
+      <button class="post-llm-btn" type="button" data-md-url="{{ $mdUrl }}" data-action="copy-markdown" aria-label="Copy article markdown to clipboard">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <span>Copy markdown</span>
+      </button>
+      <a class="post-llm-btn" href="{{ $mdUrl }}" target="_blank" rel="noopener" aria-label="View raw markdown source">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <span>View as markdown</span>
+      </a>
+    </div>
+    {{ end }}
     {{ end }}
   </div>
 
@@ -48,11 +61,16 @@
     <div class="post-layout">
       <aside class="post-sidebar">
         {{ partial "toc.html" . }}
-        {{ partial "share-rail.html" . }}
+        <div class="post-share-desktop">
+          {{ partial "share-rail.html" . }}
+        </div>
       </aside>
       <div class="post-content">
         {{ .Content }}
       </div>
+    </div>
+    <div class="post-share-mobile">
+      {{ partial "share-rail.html" . }}
     </div>
   </div>
   {{ else }}
@@ -113,4 +131,26 @@
     {{ end }}
   </div>
 </article>
+
+{{ if $isBlogPost }}
+<script>
+(function(){
+  var btn = document.querySelector('.post-llm-btn[data-action="copy-markdown"]');
+  if (!btn || !navigator.clipboard || !window.fetch) return;
+  btn.addEventListener('click', async function(){
+    try {
+      var res = await fetch(btn.dataset.mdUrl);
+      if (!res.ok) throw new Error('fetch failed');
+      var text = await res.text();
+      await navigator.clipboard.writeText(text);
+      btn.classList.add('is-copied');
+      setTimeout(function(){ btn.classList.remove('is-copied'); }, 1800);
+    } catch (e) {
+      btn.classList.add('is-error');
+      setTimeout(function(){ btn.classList.remove('is-error'); }, 1800);
+    }
+  });
+})();
+</script>
+{{ end }}
 {{ end }}

@@ -29,6 +29,16 @@ googleAnalytics = "G-C98MN3XRGK"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+  page = ["HTML", "Markdown"]
+
+[outputFormats.Markdown]
+  mediaType = "text/markdown"
+  isPlainText = true
+  notAlternative = true
+  permalinkable = false
+
+[mediaTypes."text/markdown"]
+  suffixes = ["md"]
 
 [sitemap]
   changefreq = "weekly"
