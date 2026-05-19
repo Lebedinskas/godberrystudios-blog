@@ -1,8 +1,8 @@
 ---
 title: "The 2026 AI Agency Roll-up Wave: 21 Deals Up 162% YoY — A Solo and Boutique Agency Owner's Survival + Exit Playbook"
-description: "Q1+Q2 2026 saw 21 disclosed agency deals, up 162% YoY. PE-backed agentic acquirers are buying traditional digital shops at 0.7–1.1× revenue, compressing delivery cost 50%, and hitting roughly 14-month payback. Here's the four-path decision tree, the seven-question audit, and the calendar of inflection points before multiples compress in H1 2027."
+description: "Q1+Q2 2026 saw 21 disclosed agency deals, up 162% YoY per Digital Applied's tracker. PE-backed agentic acquirers are buying traditional digital shops at 0.7–1.1× revenue, compressing delivery cost 50%, and hitting roughly 14-month payback. Here's the four-path decision tree, the seven-question audit, and the calendar of inflection points before multiples compress in H1 2027."
 date: 2026-05-08
-lastmod: 2026-05-08
+lastmod: 2026-05-18
 draft: false
 categories: ["AI for Business & Creators"]
 tags: ["agency", "m&a", "exit planning", "agentic ai", "private equity", "agency roll-up", "agency exit", "ai agency", "solopreneur agency"]
@@ -12,17 +12,17 @@ image_alt: "AI agency roll-up wave 2026 hero illustration — strategic decision
 affiliate_links: true
 ---
 
-If you run a solo or boutique agency, the next nine months will decide whether your shop is a 14-month payback for someone else, an independent business with an agentic delivery moat, or a vertical specialist nobody bothers to acquire. Q1 and Q2 of 2026 already booked 21 disclosed agency deals — up 162% year-over-year — and Digital Applied's running M&A model forecasts 120 to 180 disclosed deals across Q3 2026 through Q2 2027. Multiples peak in Q4 2026 / Q1 2027, then compress in H1 2027 as competition for the best shops thins out and the average target gets weaker. This is the strategic decision tree most agency owners will only see in a deck their broker shows them six months too late.
+If you run a solo or boutique agency, the next nine months will decide whether your shop is a 14-month payback for someone else, an independent business with an agentic delivery moat, or a vertical specialist nobody bothers to acquire. Q1 and Q2 of 2026 booked 21 disclosed agency deals — up 162% year-over-year per Digital Applied's tracker (one source, treat as directional rather than industry consensus) — and the same tracker's running M&A model forecasts 120 to 180 disclosed deals across Q3 2026 through Q2 2027. Multiples peak in Q4 2026 / Q1 2027, then compress in H1 2027 as competition for the best shops thins out and the average target gets weaker. I've watched enough founders see this kind of decision tree only in the deck their broker shows them six months too late, so this is the version I'd want before that conversation.
 
 The wave is moving because the unit economics work for acquirers in a way they haven't worked in agency M&A in a decade. A PE-backed agentic-native acquirer can buy a traditional $20M-revenue book at 0.7× ($14M acquisition cost), apply agentic delivery to compress labor cost from $14M to roughly $7–8M, retain 90–95% of revenue in year one, and run the book at about 50% gross margin. New gross profit lands near $10M per year. Roughly 14-month payback at modest scale, faster at larger scale because cross-portfolio leverage on tooling, data, and client overlap kicks in. That's the highest-IRR move available in the agency category, which is why every PE platform with an agentic-delivery thesis is on the same hunting trip.
 
-The agency owner reading this has four real options before Q4 closes the window: build the agentic delta and stay independent, prep for sale at peak multiples, join a roll-up as a partner-track operator, or niche down hard enough that consolidators ignore you. Most owners will pick a path by accident. The ones who pick on purpose will keep more of the value.
+The owner reading this has four real options before Q4 closes the window: build the agentic delta and stay independent, prep for sale at peak multiples, join a roll-up as a partner-track operator, or niche down hard enough that consolidators ignore you. Most owners will pick a path by accident. The ones who pick on purpose will keep more of the value.
 
 ## The numbers, with sources
 
 Three sets of numbers anchor every decision in this post.
 
-**Deal volume and growth.** Digital Applied's tracker recorded 21 disclosed agency deals in Q1+Q2 2026 — 162% above the same period in 2025. The forecast band of 120–180 deals across Q3 2026 → Q2 2027 implies roughly 20–30 deals per quarter at peak, which is the largest agency-side roll-up wave since the 2017–2019 holdco cycle. Most of these deals will not be reported in mainstream M&A media because the targets are sub-$50M revenue and the acquirers are PE platforms operating below the SEC disclosure line.
+**Deal volume and growth.** Digital Applied's tracker recorded 21 disclosed agency deals in Q1+Q2 2026 — 162% above the same period in 2025. The forecast band of 120–180 deals across Q3 2026 → Q2 2027 implies roughly 20–30 deals per quarter at peak, which would be the largest agency-side roll-up wave since the 2017–2019 holdco cycle. Most of these deals will not be reported in mainstream M&A media because the targets are sub-$50M revenue and the acquirers are PE platforms operating below the SEC disclosure line.
 
 **Multiples by deal pattern.** Three patterns dominate the disclosed slice:
 
@@ -36,7 +36,7 @@ EBITDA-based multiples sit on top of revenue multiples for agencies that have re
 
 **Deal structure.** Most disclosed deals carry 60/40 cash/earn-out, with the earn-out tied to revenue retention over 24 months. Earn-outs are acquirer-favorable in this cycle — client attrition during the agentic-delivery conversion is the single largest source of value loss, and the earn-out makes the seller pay for it.
 
-For a solo or boutique owner, the relevant translation is this: if your agency does $1M–5M in revenue with traditional delivery, you are inside the 0.7–1.1× band. The same agency with documented agentic delivery, 18+ months of retained-revenue history, and a clean financial book climbs into the 1.0–1.4× band — that's the difference between $700K and $1.4M on a $1M-revenue exit. The premium is real, and it is achievable in roughly two quarters of disciplined work.
+The honest read for a solo or boutique owner: if your agency does $1M–5M in revenue with traditional delivery, you are inside the 0.7–1.1× band. The same agency with documented agentic delivery, 18+ months of retained-revenue history, and a clean financial book climbs into the 1.0–1.4× band — that's the difference between $700K and $1.4M on a $1M-revenue exit. The premium is real, and it is achievable in roughly two quarters of disciplined work.
 
 ## The four forcing functions
 
@@ -52,7 +52,7 @@ Three external pressures and one internal pressure are pushing the timeline.
 
 ## The four-path decision tree
 
-Pick one path on purpose. Hybrids are possible, but most hybrid attempts under-execute on both sides. The cleanest framing is to commit to a primary path and let the other three serve as fallbacks if the primary stalls.
+Pick one path on purpose. Hybrids are possible, but most hybrid attempts under-execute on both sides. My rule: commit to a primary path and let the other three serve as fallbacks if the primary stalls.
 
 ### Path 1: Build agentic delta and stay independent
 
@@ -73,55 +73,25 @@ A note on platform choice. The agentic-delivery layer sits on top of orchestrati
 
 ### Path 2: Prep for sale at peak
 
-This is the right path if you want out, your runway is short, the work is grinding, or you've calculated that an exit at peak multiples beats five more years of operating. The exit window is roughly Q3 2026 listing → Q1 2027 close. Below is the 12-month exit prep checklist; if you are reading this in May 2026, the timing is tight but workable.
+This is the right path if you want out, your runway is short, the work is grinding, or you've calculated that an exit at peak multiples beats five more years of operating. The exit window is roughly Q3 2026 listing → Q1 2027 close.
 
-**Months 12–9 before listing (now through August 2026):**
+The 12-month prep falls into four buckets. The first six months (now through November 2026) are about getting the financial story straight — P&L by client, by service line, by quarter for three years minimum; recurring vs. project revenue documented (acquirers pay 2–3× more for recurring); client concentration cleaned up (any single client over 25% is a discount, over 40% is a deal-killer); and a minimal agentic-readiness story built (three documented workflows is enough to pick up the 1–2× EBITDA premium).
 
-- Clean the books. P&L by client, by service line, by quarter. Three years minimum. If you do not have this, your broker will spend the first six weeks building it and your asking price will drop.
-- Document recurring vs. project revenue. Acquirers pay 2–3× more for recurring retainer revenue than for project revenue at the same revenue level. If your book is 60% project, you have a positioning problem.
-- Document client concentration. Any single client over 25% of revenue is a discount. Any single client over 40% is a deal-killer for most acquirers.
-- Build the agentic-readiness story. Even minimal agentic delivery — three documented workflows — adds the 1–2× EBITDA premium. If you have nothing, build the cheapest possible version: proposal automation, reporting automation, and content QA.
+The middle three months (November 2026–February 2027) are broker selection and positioning. For sub-$5M EBITDA agencies, [FE International](https://www.feinternational.com) (94.1% close rate, 1,500+ deals, $250K–$25M+ range) and [Quiet Light](https://thedigitalmerchant.com/quiet-light-brokerage/) ($250K–$25M, 4–6 month timeline) are the workhorses. For $5M+ EBITDA, add boutique advisory firms with agency-specific experience. Anchor your multiple against comps from the broker's database. Decide cash/earn-out tolerance: the 60/40 cash/earn-out structure is industry standard — earn-out under 30% is a strong deal, above 50% is structurally weak.
 
-**Months 9–6 before listing (August–November 2026):**
+The final three months (February–April 2027) are due-diligence prep and listing mechanics. Lock in retention metrics — client retention over the prior 18 months is the single most-scrutinized number in due diligence. Document key-person risk; if 80% of client relationships are personally yours, your transferability discount will be 20–30%, so move client relationships to senior PMs before listing. Run a compliance audit (EU AI Act if relevant, GDPR, US state privacy laws). Anything that surfaces in due diligence should surface in your audit first. Then: listing memorandum, buyer outreach, LOI negotiation on the 60/40 structure, 24-month earn-out, indemnity caps.
 
-- Shortlist brokers. For sub-$5M EBITDA agencies, [FE International](https://www.feinternational.com) (94.1% close rate, 1,500+ deals, $250K–$25M+ range) and [Quiet Light](https://thedigitalmerchant.com/quiet-light-brokerage/) ($250K–$25M, 4–6 month timeline, 6–9 months for complex deals) are the workhorses. For $5M+ EBITDA, add boutique advisory firms with agency-specific experience.
-- Anchor your multiple. Pull comps from your broker's database. The 0.7–1.1× revenue band and 5–7× EBITDA band are public benchmarks; your actual number depends on retention, recurring %, and agentic delta.
-- Decide cash/earn-out tolerance. The 60/40 cash/earn-out structure is industry standard. If your earn-out is below 30%, you have a strong deal; above 50%, you have a structurally weak deal.
-
-**Months 6–3 before listing (November 2026–February 2027):**
-
-- Lock in retention metrics. Client retention over the prior 18 months is the single most-scrutinized number in due diligence.
-- Document key-person risk. If 80% of client relationships are personally yours, your transferability discount will be 20–30%. Move client relationships to senior PMs before listing.
-- Run a compliance audit (EU AI Act if relevant, GDPR, US state privacy laws). Anything that surfaces in due diligence should surface in your audit first.
-
-**Months 3–0 before listing (February–April 2027):**
-
-- Listing memorandum. Broker drafts; you fact-check.
-- Buyer outreach. Broker manages; you stay in interview readiness.
-- LOI negotiation. The 60/40 structure, the 24-month earn-out, the seller-financing exposure, the indemnity caps — all negotiated here.
-
-The piece of advice every broker gives and every founder ignores: list six months earlier than feels comfortable. The peak is Q4 2026 / Q1 2027. Listings closing in Q1 2027 priced their valuations against Q3 2026 comparables and locked in peak multiples. Listings closing in Q3 2027 will be pricing against Q1 2027 comparables — already compressed.
+The advice every broker gives and every founder ignores: list six months earlier than feels comfortable. Listings closing in Q1 2027 price against Q3 2026 comparables and lock in peak multiples. Listings closing in Q3 2027 price against Q1 2027 comparables — already compressed.
 
 ### Path 3: Join a roll-up as a partner-track operator
 
-This is the right path if you want to keep operating but the platform-economics of independence look fragile. Many PE-backed agentic acquirers will buy your shop, integrate it, and offer you a partner-track role — running a service line at platform scale, with platform-level data, tooling, and capital. The trade is autonomy for leverage. For some operators it's the right deal. For others it's slow-motion misery.
+This is the right path if you want to keep operating but the platform-economics of independence look fragile. Many PE-backed agentic acquirers will buy your shop, integrate it, and offer you a partner-track role — running a service line at platform scale, with platform-level data, tooling, and capital. The trade is autonomy for leverage. For some operators it's the right deal. For others it's slow-motion misery — and the term-sheet language tells you which one you're being offered.
 
-The five red flags in roll-up term sheets:
+The five term-sheet patterns to walk away from: earn-outs over 50% of total consideration (that's acquirer leverage, not partnership — confident acquirers pay more cash up front); founder lockup over 36 months without escape clauses tied to platform performance (the platform might pivot or sell, you should not be stuck); vague integration plans ("we'll figure it out in the first 90 days" means parallel systems for 18 months); no documented agentic-delivery infrastructure (if they're buying you to build their own stack, you're the experiment, not the harvest); and equity rolling into a parent vehicle with no documented liquidity-event timeline (dead capital).
 
-1. **Earn-outs over 50% of total consideration.** This is acquirer leverage, not partnership. If the acquirer is genuinely confident in the integration, they pay more cash up front and shorter earn-outs.
-2. **Founder lockup over 36 months.** Anything beyond 24 months without escape clauses tied to platform performance is a bad bet. The platform might pivot or sell; you should not be stuck.
-3. **Vague integration plans.** "We'll figure out the platform fit in the first 90 days" is a phrase that means you will be running parallel systems for 18 months. The deal that wins is the one where the acquirer has a documented integration playbook for agencies of your size.
-4. **No documented agentic-delivery infrastructure.** If the acquirer is buying you to build their own agentic stack, you are the experiment, not the harvest. Pass.
-5. **Equity rolls into a parent vehicle with no liquidity event timeline.** Partner-track usually involves rolling some equity into the acquirer's holding co. If the holding co has no documented liquidity event timeline — sale, IPO, recapitalization — your equity is dead capital.
+The questions to ask before signing: What's your existing client retention rate on integrated agencies? (Below 80% is a problem.) Show me three operators who joined 12+ months ago — are they still here? What does the comp structure look like at month 13 — base, bonus, equity vest? What's the earn-out trigger structure? (Revenue retention is fair. Margin retention is acquirer-favorable. Both is acceptable.)
 
-The questions to ask before signing:
-
-- What's your existing client retention rate on integrated agencies? (Below 80% is a problem.)
-- Show me three operators who joined 12+ months ago. Are they still here?
-- What does the comp structure look like at month 13 — base, bonus, equity vest?
-- What's the earn-out trigger structure? (Revenue retention is fair. Margin retention is acquirer-favorable. Both is acceptable.)
-
-Roll-ups can be the best deal of the three exit options when the acquirer is competent and the platform is real. They can also be slow-motion attrition. The sniff test is: does the acquirer's existing operator base look healthy, or is everyone six months from leaving?
+Roll-ups can be the best deal of the three exit options when the acquirer is competent and the platform is real. They can also be slow-motion attrition. The sniff test: does the acquirer's existing operator base look healthy, or is everyone six months from leaving?
 
 ### Path 4: Niche down to immunity
 
@@ -134,9 +104,7 @@ Verticals consolidators won't touch in 2026:
 - **Founder-led brand work.** If your clients are paying for your taste and your reputation, the consolidator cannot acquire that. They can acquire the cash flow but not the source of the cash flow. Most agencies underestimate how much of their value is founder-locked.
 - **Retainer sizes under $10K/month with high volume.** Below $10K/month, the deal-by-deal margin doesn't justify the integration cost for a consolidator. They want $20K+/month retainers with sub-50 client books. A 200-client book at $5K/month is operationally complicated and unattractive to most acquirers.
 
-The niche-down trade is explicit: you keep the shop, you keep the autonomy, you keep the founder-led identity. You give up the option to sell at a multiple. You also give up the productivity ceiling — niche shops typically don't scale beyond $1–3M revenue without converting to agentic delivery and rejoining the consolidation conversation. For some founders that's exactly right. For others it's a slow walk into a smaller business than they wanted to build.
-
-Niche-down is not "do nothing." It's an active strategic choice to redesign the shop around a vertical and a price point that consolidators won't bid for. That requires positioning work, often a website rebuild, sometimes a partner buyout. Done well, the result is a shop that runs for 10+ years on its own terms. Done badly, it's a shop that wakes up in 2028 with no exit and a flat book.
+The niche-down trade is explicit: you keep the shop, the autonomy, the founder-led identity. You give up the option to sell at a multiple, and you give up the productivity ceiling — niche shops typically don't scale beyond $1–3M revenue without converting to agentic delivery and rejoining the consolidation conversation. Done well, the result is a shop that runs for 10+ years on its own terms. Done badly, it's a shop that wakes up in 2028 with no exit and a flat book.
 
 ## The seven-question audit every owner should run this quarter
 
@@ -150,24 +118,7 @@ Run these honestly. Two or fewer "concerning" answers — Path 1 (build agentic 
 6. **Talent retention.** Has any senior strategist, mid-level creative, or senior PM left in the last 12 months without a documented replacement plan? (Concerning if yes — talent flight is the leading indicator of margin compression.)
 7. **Brand-vs-platform identity.** If you removed your name and face from the website, would the agency still close pitches? (Concerning if no — the brand is you, and you cannot sell yourself.)
 
-Most agencies score 3–4 concerning answers on this audit, which puts them squarely in the Path 2 / Path 3 conversation. The honest answer to question 7 — the brand-vs-platform identity question — is usually what decides between Path 2 (sell the platform) and Path 4 (niche down with the brand intact).
-
-## Calendar of 2026 inflection points
-
-Three dates anchor the next twelve months.
-
-**August 2, 2026 — EU AI Act high-risk provisions enforce.** Agencies with EU consumer data exposure either have documentation or lose mid-market RFPs in Q3. The Q3 forecast: 30%+ of mid-market RFPs will require fresh AI documentation. By Q4 it's the default.
-
-**Q4 2026 / Q1 2027 — Multiples peak.** Disclosed agency deals price against the strongest comparables of the cycle. Sellers who list in Q3 2026 close in Q1 2027 at peak. Sellers who list in Q1 2027 close in Q3 2027 against compressed comparables.
-
-**H1 2027 — Multiples compress.** The supply of clean targets thins. The remaining targets have weaker margins, weaker retention, and unbuilt agentic delta. Bid-ask spreads widen. The window does not reopen in 2028.
-
-For the agency owner reading this in May 2026, the practical translation is:
-
-- If you are choosing Path 1 (build agentic delta), every week between now and November is delivery-conversion runway. Start with proposal generation. Add reporting. Add content production. Each workflow in production is a multiplier on the next.
-- If you are choosing Path 2 (sell at peak), broker outreach in Q3 2026 → listing in late Q3 / early Q4 → close in Q1 2027 is the optimal sequence. Slipping that timeline by a quarter probably costs 10–20% on your final number.
-- If you are choosing Path 3 (join a roll-up), inbound from PE-backed acquirers is already happening and will accelerate. The goal is not to sign the first offer; it is to compare three before signing any.
-- If you are choosing Path 4 (niche down), the work is positioning, not deal-making. Pick the vertical, rebuild the website, fire the clients who don't fit, and stop competing for general-purpose accounts that consolidators will eventually win on cost.
+Most agencies I look at score 3–4 concerning answers on this audit, which puts them squarely in the Path 2 / Path 3 conversation. The honest answer to question 7 — the brand-vs-platform identity question — is usually what decides between Path 2 (sell the platform) and Path 4 (niche down with the brand intact).
 
 ## What survives the wave
 
@@ -175,7 +126,7 @@ The agency that survives this cycle is not the one that bought the most AI tools
 
 Two structural advantages compound regardless of path:
 
-**Proprietary data.** Cross-location reviews, competitor signals, prospect data, content performance benchmarks, audience telemetry — anything the agency owns and the consolidator can't easily replicate. The agencies that survive Path 1 (build agentic delta) and the niche shops that survive Path 4 both have this in common: their agentic workflows or their vertical specialization run on data the rest of the market doesn't have. Without proprietary data, agentic delivery is just running someone else's models against someone else's data, and the cost advantage erodes the moment the next platform releases.
+**Proprietary data.** Cross-location reviews, competitor signals, prospect data, content performance benchmarks, audience telemetry — anything the agency owns and the consolidator can't easily replicate. Path-1 survivors and niche-shop Path-4 survivors share this trait: their agentic workflows or vertical specialization run on data the rest of the market doesn't have. Without proprietary data, agentic delivery is just running someone else's models against someone else's data, and the cost advantage erodes the moment the next platform releases.
 
 **Structured external feeds.** The flip side is the data that lives outside the agency — listings, reviews, search results, social signals, ad-platform metrics — that agentic workflows have to ingest to be useful. Agencies that build clean pipelines into structured external feeds outperform agencies that scrape ad-hoc or rely on platform exports. The cost difference at $1M revenue is small. At $20M revenue it's enormous, and it shows up in margin.
 
@@ -183,39 +134,23 @@ The 88% of organizations using AI in at least one business function (McKinsey 20
 
 ## FAQ
 
-**What is the AI agency roll-up wave?**
-
-The AI agency roll-up wave is the M&A cycle running from Q3 2026 through Q2 2027 in which PE-backed agentic-native acquirers buy traditional digital agencies at 0.7–1.1× revenue, apply agentic delivery to compress costs by roughly 50%, and run the acquired book at significantly higher gross margin. Q1+Q2 2026 already booked 21 disclosed deals, up 162% YoY.
-
-**How do I know if my agency is a target?**
-
-Most disclosed targets are sub-$50M revenue digital, performance-marketing, or creative agencies with traditional (non-agentic) delivery, retainer-heavy revenue, and clean financials. If your agency is $1–20M revenue with at least 18 months of stable retention and margins above 25%, you're inside the bid range. Below $1M revenue, you're typically below the diligence-cost threshold — closer to Path 4 (niche down) than Path 2 (sell at peak).
-
 **What's a fair multiple for my agency in 2026?**
 
 The disclosed bands are 0.7–1.1× revenue for traditional digital shops, 1.0–1.4× revenue for specialist agentic-focused shops, and 0.9–1.3× revenue for vertical-specialist platforms. On EBITDA, owner-operated $300K-EBITDA shops trade 3–4×, mid-market $1.5M+ EBITDA shops with diversified clients trade 5–7×, and $5M+ EBITDA performance-marketing shops trade 8–12×. Documented agentic delivery adds a 1–2× EBITDA premium.
 
 **Should I sell my agency in 2026 or 2027?**
 
-Multiples peak Q4 2026 / Q1 2027. Listings closing in that window price against peak comparables. Listings closing in Q3 2027 price against compressed comparables. If your goal is maximum proceeds, broker outreach in Q3 2026 → listing in late Q3 / early Q4 → close in Q1 2027 is the optimal sequence. Slipping by a quarter typically costs 10–20%.
-
-**What happens if I do nothing?**
-
-Agencies that take no path will lose senior talent first, then mid-market RFPs starting Q3 2026 (post-EU AI Act enforcement), then retainer renewals through 2027 as clients comparison-shop against agentic-delivery competitors. The path of doing nothing leads to a forced sale in 2027–2028 at compressed multiples — typically 0.4–0.6× revenue with weak earn-out terms.
+Multiples peak Q4 2026 / Q1 2027 per Digital Applied's model. Listings closing in that window price against peak comparables. Listings closing in Q3 2027 price against compressed comparables. If your goal is maximum proceeds, broker outreach in Q3 2026 → listing in late Q3 / early Q4 → close in Q1 2027 is the optimal sequence. Slipping by a quarter typically costs 10–20%.
 
 **What's the cheapest version of building agentic delta?**
 
 Three workflows: proposal generation, weekly client reporting, and content QA. Pick one orchestration platform (Make or n8n for non-developers; Zapier if you want the lightest learning curve). Pick one agent layer (Lindy, Gumloop, or Relevance AI). Pick one model provider per use case. The total tooling cost for a $1M-revenue boutique is typically $300–$800/month. The labor saved in the first quarter usually exceeds the annual tooling spend.
 
-**Are vertical specialists really safe from acquirers?**
-
-Hyper-local, founder-led, regulated-industry, or under-$10K/month-retainer shops are typically below the consolidator threshold. Healthcare marketing under HIPAA, financial-services creative under SEC/FINRA, legal marketing under state-bar rules, and three-county HVAC marketing all carry compliance and relationship overhead that consolidators don't easily replicate. The trade-off is permanent: niche shops typically don't scale beyond $1–3M revenue without rejoining the consolidation conversation.
-
 ## The next move
 
-Pick a path this week. Not next quarter, not after one more pitch, not after the next client renewal. The window is twelve months wide and every week of indecision compresses the available options. If you're choosing Path 1, start with proposal generation by the end of May. If you're choosing Path 2, get your books in front of a broker by the end of July. If you're choosing Path 3, take three discovery calls before signing anything. If you're choosing Path 4, write the new positioning by the end of June and start firing the clients who don't fit by August.
+Pick a path this week. The window is twelve months wide and every week of indecision compresses the available options. If you're Path 1, start the proposal-generation workflow by end of May — it's the highest-leverage build and feeds every other workflow you'll add later. If you're Path 2, get books in front of a broker by end of July; the optimal listing window is late Q3 / early Q4 2026. If you're Path 3, take three discovery calls before signing anything; the spread between the best and worst roll-up offers in this cycle is wider than most founders realize. If you're Path 4, write the new positioning by end of June and start firing clients who don't fit by August.
 
-The agencies that survive this wave aren't the ones that bought the most AI tools. They're the ones that picked a path on purpose.
+The agencies that come through this cycle in good shape aren't the ones that bought the most tools or had the cleanest pitch deck. They're the ones whose owners decided on purpose, in time, and with their eyes open about which trade-offs they were taking and which they were declining.
 
 ## Sources
 

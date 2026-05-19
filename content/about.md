@@ -1,43 +1,44 @@
 ---
 title: "About Godberry Studios"
-description: "Tools and writing for the MCP era — for developers building with AI agents, and the operators who run on their output."
+description: "I'm Tomas, the solo developer behind Godberry Studios. I build small, sharp tools for the MCP era and write about what I learn shipping them."
 ---
 
-## Our mission
+Hi — I'm [Tomas](/author/tomas/), and Godberry Studios is the one-person shop I run from Lithuania.
 
-We build small, sharp tools that let AI agents actually *do* things — extract, transform, publish — without the bloat of legacy SaaS. Pay per use. No seats. No meetings.
+I build small, sharp tools that let AI agents actually *do* things — extract, transform, publish — without the bloat of legacy SaaS. Pay per use. No seats. No meetings.
 
-## Our story
-
-Godberry Studios was founded in 2026, out of a simple frustration: agents got smart faster than the tools around them. The scraping stack, the content pipeline, the billing rail — none of it was built for software that calls itself. So we started shipping the missing pieces, one at a time, and writing down what we learn as we go.
-
-## What we believe
+## What I believe
 
 - **Agent-native beats human-native.** Tools should be callable, priced per use, and boring to integrate.
 - **Small and composable wins.** One tool that does one thing well, ten times, is worth more than a platform.
-- **Write what you ship.** Our blog is a working notebook — what we actually learned this week, not a marketing funnel.
+- **Write what you ship.** This blog is a working notebook — what I actually learned this week, not a marketing funnel.
 
-## What we ship
+## What I ship
 
 **Products — pay-per-use on the Apify Store:**
 
-- **[Content-to-Social MCP Server](https://apify.com/godberry/content-to-social-mcp)** — turn any URL, article, or text into ready-to-post social content. Callable directly from Claude, ChatGPT, and any MCP client. $0.07 per transformation.
 - **[Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper)** — pull Google Maps reviews for any business in under 60 seconds. Validated across 9 countries. From $0.10 per place.
 - **[Yelp Scraper](https://apify.com/godberry/yelp-scraper)** — full Yelp business profile + every review + menu + photo gallery in a single call. Worldwide (any `yelp.<tld>`), multilingual dates, no Yelp Fusion API key, no 3-review cap. Pay-per-event from $4.00 / 1,000 business profiles.
+- **[Content-to-Social MCP Server](https://apify.com/godberry/content-to-social-mcp)** — turn any URL, article, or text into ready-to-post social content. Callable directly from Claude, ChatGPT, and any MCP client. $0.07 per transformation.
 
-More tools are in the pipeline. Subscribe to the newsletter on the homepage for early access.
+More tools are in the pipeline. Subscribe on the homepage for early access.
+
+**Open source — MIT / CC0 on GitHub:**
+
+- **[mcp-server-apify-starter](https://github.com/godberrystudios/mcp-server-apify-starter)** — the pay-per-use MCP server starter I wish I'd had when I shipped my first one.
+- **[awesome-mcp-tools](https://github.com/godberrystudios/awesome-mcp-tools)** — a curated MCP ecosystem directory.
 
 **Writing — the MCP-era stack:**
 
-Deep-dives on MCP, WebMCP, x402, agent security, and everything else emerging around autonomous software. New posts most weeks. Start with the [blog index](/).
+Deep-dives on MCP, WebMCP, x402, agent security, anti-bot scraping, and everything else emerging around autonomous software. New posts most weeks. Start with the [blog index](/posts/) or pick a channel: [MCP](/categories/mcp/), [Scraping](/categories/web-scraping/), [AI Automation](/categories/ai-automation/).
 
-## Who we serve
+## Who I serve
 
 - **Developers** building with MCP and AI agents who want tools that drop into an agent loop without glue code.
 - **Marketers and operators** who want the same power delivered as clean output, without writing code.
-- **Agencies** reselling automation to their own clients — talk to us about API access and volume pricing.
+- **Agencies** reselling automation to their own clients — get in touch about API access and volume pricing.
 
-## Work with us
+## Get in touch
 
 Questions, partnerships, press, or wholesale API access — **[hello@godberrystudios.com](mailto:hello@godberrystudios.com)**
 
@@ -45,4 +46,4 @@ Tool-specific support lives on the Apify Store: [apify.com/godberry](https://api
 
 Open-source work: [github.com/godberrystudios](https://github.com/godberrystudios).
 
-Follow along on Facebook: [Godberry Studio](https://www.facebook.com/profile.php?id=61570965581596).
+Follow along on Facebook: [Godberry Studios](https://www.facebook.com/profile.php?id=61570965581596).

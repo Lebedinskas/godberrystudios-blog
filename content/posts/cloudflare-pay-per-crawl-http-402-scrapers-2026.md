@@ -2,6 +2,7 @@
 title: "Cloudflare Pay Per Crawl: What the HTTP 402 Web Means for Scrapers and AI Developers in 2026"
 description: "A practitioner's guide to Cloudflare's Pay Per Crawl — how HTTP 402 actually works, what it costs per request, who's adopting it (Stack Overflow, GoDaddy), and what changes for indie scraper operators and AI developers in 2026."
 date: 2026-04-20
+lastmod: 2026-05-18
 categories: ["Web Scraping", "AI for Business"]
 tags: ["cloudflare pay per crawl", "http 402", "ai crawlers", "web scraping 2026", "ai crawl control", "x402", "stack overflow", "godaddy cloudflare", "scraping economy", "ai bot monetization"]
 keywords: ["Cloudflare pay per crawl", "HTTP 402 scraping", "pay per crawl explained", "crawler-price header", "ai crawl control", "cloudflare 402 payment required", "scraping costs 2026", "ai bot paywall"]
@@ -9,11 +10,9 @@ image: /images/posts/cloudflare-pay-per-crawl-http-402-scrapers-2026.png
 image_alt: "Editorial illustration of a web server gateway issuing HTTP 402 Payment Required responses to AI crawler bots, with coins passing through the door representing Cloudflare Pay Per Crawl monetization in 2026"
 ---
 
-Cloudflare Pay Per Crawl turns the long-dormant HTTP 402 "Payment Required" status code into a live toll booth between AI crawlers and the sites they scrape. A site owner sets a per-request price (minimum $0.01), Cloudflare returns a `402` with a `crawler-price` header when an AI bot asks for a page, and the crawler either retries with a signed payment header or walks away. As of April 2026, Cloudflare is sending over one billion `402` response codes per day across its network, Stack Overflow is live as the flagship publisher, and GoDaddy is folding the same AI Crawl Control into its hosting dashboard for ~20 million customers.
+Cloudflare Pay Per Crawl turns the long-dormant HTTP 402 "Payment Required" status code into a live toll booth between AI crawlers and the sites they scrape. A site owner sets a per-request price (minimum $0.01), Cloudflare returns a `402` with a `crawler-price` header when an AI bot asks for a page, and the crawler either retries with a signed payment header or walks away. As of April 2026, Cloudflare is sending **over one billion `402` response codes per day** across its network, Stack Overflow is live as the flagship publisher, and GoDaddy is folding the same AI Crawl Control into its hosting dashboard for ~20 million customers.
 
-What that means for you depends on which side of the request you're on. If you operate scrapers, you now have a metered tier sitting between "free" and "blocked" — and a new authenticated API to discover which domains charge what. If you build AI agents that pull live web content, Pay Per Crawl changes your cost model in ways the public pricing pages don't surface. If you run a site, you have a third option between "open door" and "hard block" that didn't exist eighteen months ago.
-
-This post walks through how the protocol works on the wire, what it actually costs to operate under it, where it breaks down, and the practical decisions indie developers should be making this quarter.
+I ship paid scrapers on the Apify Store — the [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) and the [Yelp Scraper](https://apify.com/godberry/yelp-scraper) — so the question of who pays whom when a bot hits a Cloudflare-fronted page is not academic for me. This post walks through how the protocol works on the wire, what it actually costs to operate under it, where it breaks down, and what an indie scraper operator should be doing about it.
 
 ## How HTTP 402 Actually Works on the Wire
 
@@ -38,7 +37,7 @@ On the crawler side, Cloudflare also shipped a `/crawl` endpoint and an authenti
 
 Cloudflare's public statements say its customers were already sending **over one billion `402` response codes per day** before general availability — Pay Per Crawl is still in private beta as of this writing. That single data point tells you most of what you need to know about the scale of crawl-for-AI-training traffic on the open web.
 
-For context, the crawl-to-referral ratios Cloudflare has been publishing through 2025 and early 2026 make the problem for publishers concrete:
+The crawl-to-referral ratios Cloudflare has been publishing make the publisher side of the problem concrete:
 
 - Anthropic's ClaudeBot: **~43,000 pages crawled for every 1 referral** sent back. Earlier 2026 Cloudflare Radar data put it at ~23,951:1; by Q1 2026 it moved into the 43,000:1 range.
 - OpenAI's GPTBot: **~1,280 pages crawled per referral**.
@@ -50,9 +49,9 @@ Before Pay Per Crawl, a publisher's options were binary: let the crawler in (and
 
 ## Who's Actually Using It in April 2026
 
-**Stack Overflow** was the flagship public rollout, announced in early 2026 alongside the pay-per-crawl co-launch. Stack's story is specific: they already had Google's scrape-for-indexing relationship, their own enterprise data licensing deals with OpenAI, and the community trust obligation to keep the content open to humans. A per-request price for AI bots lets them compensate the community without locking out researchers and allows bots that don't want to pay to self-select into the `402` wall. Notably, Stack reported that some bots receiving a `402` simply stopped sending requests rather than paying — which is a clean way to filter training crawlers from agentic-search crawlers with very different willingness to pay.
+**Stack Overflow** was the flagship public rollout, announced in early 2026 alongside the pay-per-crawl co-launch. Stack's story is specific: they already had Google's scrape-for-indexing relationship, their own enterprise data licensing deals with OpenAI, and the community trust obligation to keep the content open to humans. A per-request price for AI bots lets them compensate the community without locking out researchers and allows bots that don't want to pay to self-select into the `402` wall. Notably, Stack reported that some bots receiving a `402` simply stopped sending requests rather than paying — a clean way to filter training crawlers from agentic-search crawlers with very different willingness to pay.
 
-**GoDaddy** announced a partnership with Cloudflare on April 7, 2026, folding AI Crawl Control (the product umbrella that contains Pay Per Crawl) into its hosting platform. That drops the setup friction for small-business sites to roughly zero: the GoDaddy dashboard gets an "allow / block / charge" toggle, and the site owner doesn't have to know anything about HTTP status codes. The long-tail effect on the overall share of AI-crawlable web could be meaningful — GoDaddy hosts millions of small sites, most of which have never thought about AI bot policy.
+**GoDaddy** announced a partnership with Cloudflare on April 7, 2026, folding AI Crawl Control (the product umbrella that contains Pay Per Crawl) into its hosting platform. That drops the setup friction for small-business sites to roughly zero: the GoDaddy dashboard gets an "allow / block / charge" toggle, and the site owner doesn't have to know anything about HTTP status codes. GoDaddy hosts millions of small sites, most of which have never thought about AI bot policy — the long-tail effect on the share of AI-crawlable web could be meaningful.
 
 **Creative Commons** published cautious support for pay-to-crawl systems in December 2025, with guardrails. Their concern is a two-tier web: rich AI companies buying access at scale, researchers and non-profits priced out. They backed the pattern in principle while asking for preserved free-access carve-outs for public-interest use.
 
@@ -76,15 +75,17 @@ Assume you're operating a scraper that pulls ~100,000 pages per day across a mix
 2. **Blocked sites** on Cloudflare that returned you `403` or a challenge a year ago. Still blocked unless they explicitly allow you.
 3. **Pay Per Crawl sites** where you now see a `402` with a price.
 
-If 20% of your crawl falls into bucket #3 at the minimum $0.01 rate, your daily Pay Per Crawl bill is 20,000 × $0.01 = **$200/day, or about $6,000/month**. At a more realistic $0.02 average with site-owner price increases, that's $12,000/month. At the kind of 50-domain-curated crawl that a news aggregator runs, where publishers set prices in the $0.05-$0.25 range, you end up at a level where the crawl budget competes with engineering salary.
+If 20% of your crawl falls into bucket #3 at the minimum $0.01 rate, your daily Pay Per Crawl bill is 20,000 × $0.01 = **$200/day, or about $6,000/month**. At a more realistic $0.02 average with site-owner price increases, that's $12,000/month. At the kind of 50-domain-curated crawl that a news aggregator runs, where publishers set prices in the $0.05-$0.25 range, the crawl budget starts competing with engineering salary.
 
 The first implication: most hobbyist scrapers are now uneconomical on any site behind Cloudflare that turns Pay Per Crawl on. The $0.01 floor looks low, but hobby scrapers typically hit pages at rates that assume zero marginal cost per fetch. Pay Per Crawl introduces a marginal cost that survives any amount of proxy optimization.
 
 The second implication: the value of targeted crawling — knowing exactly which URLs you need before you request them — goes up sharply. Broad spider-the-whole-site patterns become expensive. Patterns that hit sitemaps, feeds, and known-changed pages stay cheap. The `/crawl` Discovery API helps here because it tells you upfront which domains will charge you, so you can budget before your crawler touches them.
 
-The third implication: the LLM-extraction-per-page trend that most "AI scraping" content was pushing through 2024 and 2025 now has a second cost stacked on top of it. LLM extraction already costs 10-50× more per page than CSS parsing. Add $0.01-$0.05 for the page fetch itself, and the margin on an AI-powered scraper shrinks fast. If you're planning a product in this space, the [LLM cost optimization techniques](/posts/web-scraping-for-beginners-2026-guide/) that let you stay on deterministic extraction for known layouts become mandatory rather than optional.
+The third implication: the LLM-extraction-per-page trend that most "AI scraping" content was pushing through 2024 and 2025 now has a second cost stacked on top of it. LLM extraction already costs 10-50× more per page than CSS parsing. Add $0.01-$0.05 for the page fetch itself, and the margin on an AI-powered scraper shrinks fast. The [LLM cost optimization techniques](/posts/web-scraping-for-beginners-2026-guide/) that let you stay on deterministic extraction for known layouts become mandatory rather than optional.
 
-There's a fourth effect that's harder to price but likely more important long-term. When crawls carry a meter, you're forced to design scrapers that **know what they want** before they request it. That pushes development toward reliable, narrow, schema-first extractors and away from the "grab the whole page, let the LLM sort it out" pattern. If you're building for the [Apify store or a similar marketplace](/posts/apify-pay-per-event-migration-playbook-2026/), that's actually aligned with how pay-per-event pricing wants your actor to behave anyway.
+When I shipped the Yelp Scraper, the move that actually worked against DataDome was the same move that survives a `402` future: extract structured data (JSON-LD `@type:Restaurant` blocks) instead of LLM-parsing the page. One fetch, one parse, fully deterministic — and on a metered future you only pay for the one fetch. The "grab the whole page, let the LLM sort it out" pattern is the most expensive thing you can do per record under both regimes, and the gap is going to widen.
+
+There's a fourth effect that's harder to price but likely more important long-term. When crawls carry a meter, you're forced to design scrapers that **know what they want** before they request it. That pushes development toward reliable, narrow, schema-first extractors and away from the "grab the whole page" pattern. If you're building for the [Apify store or a similar marketplace](/posts/apify-pay-per-event-migration-playbook-2026/), that's actually aligned with how pay-per-event pricing wants your actor to behave anyway.
 
 ## What Changes for AI Agent Developers
 
@@ -96,37 +97,29 @@ Second, **payment rails become part of your stack**. The current Pay Per Crawl b
 
 Third, **graceful degradation becomes a design requirement**. An agent that hits a `402` needs to decide: pay the quoted price, fall back to a cached source, skip the URL, or escalate to a human approver. None of those decisions should be made at the LLM call layer — they're budget policy. The sane pattern is a fetch-layer middleware that sees the `402`, checks the price against a per-task budget, and either pays or raises a structured error that the agent loop can plan around. That's the same pattern you'd use for a rate-limited paid API; Pay Per Crawl just generalizes it across the whole web.
 
-For developers building MCP servers that expose tools to AI agents, this is worth internalizing. Your tool's total cost-per-invocation now includes any Pay Per Crawl fees the underlying scrape incurs. That's a line you should expose in your pricing page if you charge per-call, and a budget parameter you should accept if you charge per-session. Anything that obscures this cost from the agent author is going to cause a surprise bill downstream.
+For developers building MCP servers that expose tools to AI agents, your tool's total cost-per-invocation now includes any Pay Per Crawl fees the underlying scrape incurs. That's a line you should expose in your pricing page if you charge per-call, and a budget parameter you should accept if you charge per-session. Anything that obscures this cost from the agent author is going to cause a surprise bill downstream.
 
 ## Where Pay Per Crawl Breaks Down
 
 **The pricing model is too flat.** A site with investigative journalism and a FAQ page shouldn't charge the same per crawl. Custom per-path pricing closes part of this gap but requires publishers to actively configure it. Most won't. Publishers that heavily invest in original content argue the default flat fee undervalues them — one of the louder criticisms in trade press through early 2026.
 
-**The enforcement is honour-system outside Cloudflare's network.** Cloudflare can stop unpaid traffic at its edge. It cannot compel a crawler to pay. A crawler that identifies as a generic browser, rotates residential IPs, and serves human-pattern traffic still bypasses the `402` entirely — the Cloudflare bot team has to classify it as a bot before the toll applies. Bot detection keeps getting better, but the cat-and-mouse continues. The [stealth scraping stack of 2026](/posts/google-maps-limited-view-scraping-2026/) looks materially different today than it did two years ago, and Pay Per Crawl is a new reason to stay in the mouse column if your economics don't survive the toll.
+**The enforcement is honour-system outside Cloudflare's network.** Cloudflare can stop unpaid traffic at its edge. It cannot compel a crawler to pay. A crawler that identifies as a generic browser, rotates residential IPs, and serves human-pattern traffic still bypasses the `402` entirely — Cloudflare's bot team has to classify it as a bot before the toll applies. The actors I ship currently see this from the other side: DataDome blocks Apify residential IPs against yelp.com and yelp.ca regardless of stealth configuration, while yelp.de and yelp.co.uk scrape direct. Cat-and-mouse continues. The [stealth scraping stack of 2026](/posts/google-maps-limited-view-scraping-2026/) looks materially different today than it did two years ago, and Pay Per Crawl is a new reason to stay in the mouse column if your economics don't survive the toll.
 
-**Training data already happened.** GPTBot and ClaudeBot and their peers trained on Common Crawl and open scrapes for years before any of this existed. The models already know most of the internet's public text. Pay Per Crawl primarily changes the economics of ongoing crawling — training data updates, retrieval-augmented generation freshness, live search indexing — not the sunk cost of the original training corpora. That's a real limit on how much revenue publishers can actually claw back.
+**Training data already happened.** GPTBot and ClaudeBot trained on Common Crawl and open scrapes for years before any of this existed. The models already know most of the internet's public text. Pay Per Crawl primarily changes the economics of ongoing crawling — training data updates, retrieval-augmented generation freshness, live search indexing — not the sunk cost of the original training corpora. That's a real limit on how much revenue publishers can actually claw back.
 
-Also worth flagging: the system is still in **private beta** as of this writing. Pricing mechanics, the Discovery API surface, and which crawlers are considered verified are all still shifting. Anything you design around it today should be behind a feature flag.
+Worth flagging: the system is still in **private beta** as of this writing. Pricing mechanics, the Discovery API surface, and which crawlers are considered verified are all still shifting. Anything you design around it today should be behind a feature flag.
 
-## What to Actually Do This Quarter
+## What NOT To Do
 
-**If you run a site on Cloudflare.** Request access to the Pay Per Crawl private beta if you haven't. Keep the free-AI-crawler allowlist tight — allow verified search engines (Googlebot, Bingbot) and any AI crawler that demonstrably sends you real referrals. Set a modest per-crawl price ($0.02-$0.05) for the rest. Watch for a quarter before tuning. Most sites underestimate how much 402-triggered abandonment they'll see versus actual paid crawls; that's signal about which crawlers respect the protocol versus which ones were about to get blocked anyway.
+A few patterns I see indie operators reaching for that don't survive contact with a metered web:
 
-**If you run scrapers for your own products.** Audit which of your target domains are behind Cloudflare and which have Pay Per Crawl enabled. Build a pre-flight check against the `/crawl` Discovery API for accounts you have verified. Move any broad-spider patterns to targeted-URL patterns. Put a hard per-task budget on anything that might hit `402` walls — never let a crawler loop spend uncapped. And document the cost-per-record in your product internals, because Pay Per Crawl is going to change it. If you're selling actors on a marketplace, the [Apify pay-per-event migration playbook](/posts/apify-pay-per-event-migration-playbook-2026/) is a clean template for how to expose those per-record costs to end users.
-
-**If you're building AI agents.** Assume any live-web-fetch tool you expose will someday hit `402`. Build the fetch middleware now. Surface the price in the tool's response when it's non-zero. Add a budget parameter to every agent invocation. If you're shipping an MCP server, document the worst-case per-call cost. Agent authors will thank you once the first production bill arrives.
-
-**If you're building a scraping SaaS.** The obvious business: aggregate Pay Per Crawl payments across customers, get better rates through volume, abstract the payment protocol entirely so customers see a single rate-card. That's roughly what TollBit and Skyfire are building for the publisher side; the equivalent for the crawler side is going to exist by late 2026. If you're early enough to build it, the `/crawl` Discovery API plus an x402 wallet plus clean billing is the rough shape.
+- **Don't budget by guessing.** If you don't know which of your target domains are behind Cloudflare with Pay Per Crawl on, you don't have a cost model — you have a hope. Hit the `/crawl` Discovery API or do a one-time `HEAD` sweep before any production run. Cost surprises in scraping are almost always cheaper to find on a Tuesday than after the monthly invoice.
+- **Don't paper over a `402` by rotating IPs and pretending you're a browser.** That's the most expensive bypass possible: you keep paying for residential proxies, you accept the legal exposure of explicitly evading a pricing signal, and on the day Cloudflare's bot team tightens detection on your fingerprint, you're locked out entirely instead of just metered.
+- **Don't extract with an LLM what JSON-LD already gives you.** Schema-first extractors are the only pattern that's cheaper under a metered regime, not more expensive. If a site exposes `<script type="application/ld+json">`, parse that and keep your LLM budget for the long tail.
+- **Don't ship a crawler without a per-task budget cap.** A crawler loop with no spending ceiling is one cron misfire away from a four-figure Stripe charge. Ask me about the time the Yelp Scraper almost charged for events on every retry attempt before I caught the `actor-start` billing bug at v0.4.2 — the same discipline applies upstream.
+- **Don't assume Pay Per Crawl will be optional forever.** GoDaddy putting the toggle in front of millions of small-site owners means the default is moving from "open" to "off or metered" over the next 12-18 months. Design for the metered case now.
 
 ## FAQ
-
-### What is Cloudflare Pay Per Crawl?
-
-Pay Per Crawl is a Cloudflare AI Crawl Control feature that lets site owners charge AI bots per page request. The server returns an HTTP 402 Payment Required response with a `crawler-price` header when an unpaid bot asks for content; the bot then either retries with a signed payment header or is denied. Minimum price is $0.01 USD per successful retrieval. As of April 2026 it's in private beta, with Stack Overflow and GoDaddy as the most visible adopters.
-
-### How does HTTP 402 work for AI crawlers?
-
-When a crawler requests a protected URL, Cloudflare returns `402 Payment Required` with a `crawler-price` response header (for example, `crawler-price: USD 0.02`). The crawler replies with either `crawler-exact-price: USD 0.02` (paying the quoted price) or `crawler-max-price: USD 0.05` (a willingness-to-pay cap). Both headers must be included in the Web Bot Auth signature so they can't be forged. If the price is acceptable, Cloudflare charges the crawler's account and returns `200` with the content.
 
 ### How much does Pay Per Crawl cost per request in 2026?
 
@@ -140,23 +133,15 @@ Stack Overflow is live as a publisher. GoDaddy announced a partnership on April 
 
 Pay Per Crawl is the Cloudflare product — the dashboard configuration, the billing reconciliation, the `/crawl` Discovery API. It currently settles through a crawler's Cloudflare account (funded via Stripe). x402 is an open protocol announced by Cloudflare and Coinbase in late 2025 that uses the same HTTP 402 status code but settles payments on-chain via stablecoins. The two are complementary: Pay Per Crawl is the product, x402 is a payment rail the product is moving toward supporting.
 
-### Can I bypass Pay Per Crawl by rotating IPs?
-
-Technically yes, at the cost of being classified as an unwanted bot. Pay Per Crawl only applies to crawlers that Cloudflare's bot detection identifies as bots in the first place. A scraper that mimics a real human browser and evades detection won't see the 402 wall — it will hit the general bot-detection system instead. That's a different game with different costs (proxies, session management, rate limits) and different risks (being blocked entirely on sites that don't want unknown traffic). The ethical and legal footing is also materially worse once you're explicitly evading a pricing signal the site owner set.
-
-### Does Pay Per Crawl affect SEO?
-
-Not directly. Cloudflare's AI blocking and Pay Per Crawl rules explicitly exclude verified search engine crawlers like Googlebot and Bingbot. Your organic search traffic is unaffected. What it does change is AI-search referral dynamics — sites that charge Perplexity or ChatGPT crawlers a fee will see different inclusion rates in AI answer engines, which matters for Answer Engine Optimization strategy but not traditional SEO.
-
 ### Will Pay Per Crawl kill web scraping?
 
 No. It changes the economics at the margin, especially for broad uncurated crawling behind Cloudflare. Targeted scraping with known URLs, narrow schemas, and deterministic parsing stays viable. LLM-heavy "grab the page, extract with an LLM" patterns get materially more expensive when the page fetch itself costs a cent. Indie operators who lean into schema-first design and budget-aware crawl planning keep their margins. Those who don't will feel the squeeze first.
 
 ## Closing
 
-HTTP 402 sat in the HTTP spec for 35 years waiting for a use case. AI training data at industrial scale turned out to be it. Cloudflare is shipping over a billion `402` responses a day before the product is even GA. Stack Overflow and GoDaddy are the first public adopters. The pricing floor is one cent per request. For anyone running scrapers, building AI agents, or publishing on the open web, the practical move for April through June 2026 is to assume the meter is already running, design for explicit budgets, and stop treating page fetches as free.
+HTTP 402 sat in the spec for 35 years waiting for a use case. AI training data at industrial scale turned out to be it. Over a billion `402` responses a day before the product is GA, Stack Overflow and GoDaddy as the first public adopters, a $0.01 floor per request — the meter is already running on a meaningful slice of the open web, and the slice is growing.
 
-If you're working on a scraper that needs to survive this transition, the [2026 scraping fundamentals guide](/posts/web-scraping-for-beginners-2026-guide/) walks through the deterministic-parsing patterns that hold up under a marginal-cost world. If you're more focused on the AI agent side, the [x402 protocol explainer](/posts/x402-protocol-ai-agent-payments-2026/) and the [MCP production deployment playbook](/posts/deploy-mcp-server-production/) cover the payment and tool-exposure pieces respectively. And once you decide to take agent payments yourself, the [AWS Bedrock AgentCore Payments operator playbook](/posts/aws-bedrock-agentcore-payments-operator-playbook-2026/) covers the wallet stack, fee math, and 30/60/90 rollout for sellers of MCP tools, APIs, and scraped data.
+For an indie scraper operator the actionable read is short: assume the domains you care about will be metered within 18 months, design extractors that hit one URL and get a complete record (JSON-LD before LLM, sitemaps before spidering), cap every crawl loop with a budget, and treat `402` as a routine response code your fetch layer handles, not an exception. The scrapers I'm shipping under [godberry](https://apify.com/godberry) already operate on a similar discipline because pay-per-event marketplace pricing demanded it. Pay Per Crawl just extends the same logic from the seller's edge to the request's edge. If you've already been writing scrapers like every page costs something, you were early.
 
 ## Sources
 
@@ -192,22 +177,6 @@ If you're working on a scraper that needs to survive this transition, the [2026 
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is Cloudflare Pay Per Crawl?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Pay Per Crawl is a Cloudflare AI Crawl Control feature that lets site owners charge AI bots per page request. The server returns an HTTP 402 Payment Required response with a crawler-price header when an unpaid bot asks for content; the bot then either retries with a signed payment header or is denied. Minimum price is $0.01 USD per successful retrieval. As of April 2026 it is in private beta, with Stack Overflow and GoDaddy as the most visible adopters."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does HTTP 402 work for AI crawlers?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "When a crawler requests a protected URL, Cloudflare returns 402 Payment Required with a crawler-price response header (for example, crawler-price: USD 0.02). The crawler replies with either crawler-exact-price to pay the quoted price or crawler-max-price to set a willingness-to-pay cap. Both headers must be included in the Web Bot Auth signature so they cannot be forged. If the price is acceptable, Cloudflare charges the crawler's account and returns 200 with the content."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "How much does Pay Per Crawl cost per request in 2026?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -228,14 +197,6 @@ If you're working on a scraper that needs to survive this transition, the [2026 
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Pay Per Crawl is the Cloudflare product — dashboard configuration, billing reconciliation, and the /crawl Discovery API. It currently settles through a crawler's Cloudflare account funded via Stripe. x402 is an open protocol announced by Cloudflare and Coinbase in late 2025 that uses the same HTTP 402 status code but settles payments on-chain via stablecoins. The two are complementary — Pay Per Crawl is the product, x402 is a payment rail the product is moving toward supporting."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Pay Per Crawl affect SEO?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Not directly. Cloudflare's AI blocking and Pay Per Crawl rules explicitly exclude verified search engine crawlers like Googlebot and Bingbot. Organic search traffic is unaffected. What it does change is AI-search referral dynamics — sites that charge Perplexity or ChatGPT crawlers a fee will see different inclusion rates in AI answer engines, which matters for Answer Engine Optimization strategy but not traditional SEO."
       }
     },
     {
