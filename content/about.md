@@ -32,6 +32,10 @@ More tools are in the pipeline — subscribe on the homepage for early access.
 
 Deep-dives on MCP, WebMCP, x402, agent security, anti-bot scraping, and everything else emerging around autonomous software. New posts most weeks. Start with the [blog index](/posts/) or pick a channel: [MCP](/categories/mcp/), [Scraping](/categories/web-scraping/), [AI Automation](/categories/ai-automation/).
 
+**Case studies — real output, real cost:**
+
+Walkthroughs of what each tool actually returns and the workflows worth wiring it into. First one up: [Google Reviews Scraper — what 1,000 reviews actually costs and looks like](/case-studies/google-reviews-scraper/).
+
 ## Who this is for
 
 - **Developers** building with MCP and AI agents who want tools that drop into an agent loop without glue code.
