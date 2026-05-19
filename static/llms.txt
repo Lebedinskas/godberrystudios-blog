@@ -1,0 +1,31 @@
+# Godberry Studios
+
+> Web scraping and content automation tools for the MCP era. Pay-per-use Apify Store actors plus a technical blog covering MCP server design, agent-payments protocols, anti-bot scraping, and the AEO/GEO shift eating SEO clicks. Solo-founder shop run by Tomas Lebedinskas from Lithuania.
+
+## Tools
+
+- [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper): Apify Store actor for pulling Google Maps reviews. Pay-per-event pricing, validated across 9 countries.
+- [Yelp Scraper](https://apify.com/godberry/yelp-scraper): full Yelp business profile + reviews + menu + photos in one call. Worldwide (any yelp.<tld>), multilingual date parsing, no Fusion API key required.
+- [Content-to-Social MCP Server](https://apify.com/godberry/content-to-social-mcp): MCP server that turns any URL or text into ready-to-post social content. Callable from Claude, ChatGPT, and any MCP client.
+
+## Channels
+
+- [MCP server playbooks](https://godberrystudios.com/categories/mcp/): MCP server design, monetization, security, and deployment.
+- [Web scraping](https://godberrystudios.com/categories/web-scraping/): anti-bot stacks, Apify actor design, Cloudflare bypass, lead generation.
+- [AI automation](https://godberrystudios.com/categories/ai-automation/): workflow automation, agent stacks, prompt patterns, no-code tools.
+- [All posts](https://godberrystudios.com/posts/): full chronological index.
+- [About the author](https://godberrystudios.com/author/tomas/): Tomas Lebedinskas, founder.
+
+## Featured posts
+
+- [How to Monetize MCP Servers in 2026](https://godberrystudios.com/posts/how-to-monetize-mcp-servers-2026/): pricing models, platform economics, real revenue data, code patterns.
+- [The Apify Pay-Per-Event Migration Playbook](https://godberrystudios.com/posts/apify-pay-per-event-migration-playbook-2026/): migrating Apify actors from rental to pay-per-event before October 2026.
+- [AEO in 2026](https://godberrystudios.com/posts/aeo-playbook-get-cited-by-ai-2026/): what actually gets you cited by ChatGPT, Perplexity, and Google AI — verifiable citation data, no fake studies.
+- [MCP Security in 2026](https://godberrystudios.com/posts/mcp-security-tool-poisoning-prompt-injection-2026/): tool poisoning, prompt injection via sampling, OWASP MCP Top 10, hardening patterns.
+- [Building Production-Ready MCP Servers](https://godberrystudios.com/posts/deploy-mcp-server-production/): deployment architecture, Docker, monitoring, security.
+
+## Contact
+
+- Email: hello@godberrystudios.com
+- GitHub org: https://github.com/godberrystudios
+- Apify store: https://apify.com/godberry

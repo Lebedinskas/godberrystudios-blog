@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section class="page-header">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+  </div>
+</section>
+<section class="terms-list">
+  <div class="container">
+    <ul class="terms-grid">
+      {{ range $name, $taxonomy := .Data.Terms.ByCount }}
+      <li class="term-card">
+        <a href="{{ .Page.RelPermalink }}">
+          <span class="term-name">{{ .Page.Title }}</span>
+          <span class="term-count">{{ .Count }} {{ if eq .Count 1 }}post{{ else }}posts{{ end }}</span>
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</section>
+{{ end }}
