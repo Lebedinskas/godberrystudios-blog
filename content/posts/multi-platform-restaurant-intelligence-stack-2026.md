@@ -9,6 +9,13 @@ tags: ["restaurant data", "multi-platform scraping", "google maps", "yelp scrapi
 keywords: ["restaurant competitor research data 2026", "scrape Yelp restaurant reviews 2026", "TripAdvisor restaurant scraping", "multi-platform restaurant data", "franchise competitive intelligence 2026", "OpenTable scraper", "restaurant market research scraping"]
 image: /images/posts/multi-platform-restaurant-intelligence-stack-2026.jpg
 image_alt: "Dark navy hero showing Google Maps, Yelp, TripAdvisor, and OpenTable brand marks side by side with a stat strip listing four platforms joined, ten to one thousand locations modeled, roughly forty percent of Yelp reviews filtered, six pipeline stages, and one in three briefs that change verdict — illustrating the 2026 multi-platform restaurant intelligence stack"
+faq:
+  - q: "Can I just use the Google Place Details API and skip the rest?"
+    a: "No, for two reasons. First, the API caps at five reviews per place, which makes any meaningful trend or sentiment analysis impossible. Second, even with unlimited Google reviews you would miss the Yelp foodie audience, the TripAdvisor traveler audience, and the OpenTable verified-diner audience. The four-platform stack exists for that audience dispersion."
+  - q: "How often should we refresh the data?"
+    a: "Quarterly for most analytical use cases — acquisition diligence, competitive cluster analysis, expansion planning. Monthly for operators actively managing a turnaround. Daily makes sense only for crisis monitoring, and even then you usually focus the daily pull on Google and Yelp while TripAdvisor and OpenTable run weekly."
+  - q: "What's the realistic accuracy of cross-platform reviewer matching?"
+    a: "A text-prefix plus date plus place hash sits at 78 to 86 percent precision on within-day cross-platform matching. That is good enough for de-duplicating sentiment averages but not for identity resolution if a client question depends on it. Make matching a flag column, not the analytical foundation of the brief."
 ---
 
 Short answer: **one platform is one audience.** If you advise restaurants — running a franchise group, scoring an acquisition, expanding into new metros, or just deciding whether to relocate a single shop — you need Google Maps for casual-diner volume, Yelp for foodie sentiment depth, TripAdvisor for the traveler audience, and OpenTable for verified-diner behavior. Each captures a different slice of demand and each lies in distinct ways. Combine them and a real chunk of competitive briefs end up changing verdict once the missing 60% of the picture shows up.
@@ -238,20 +245,6 @@ The honest version, not the fearmongering one.
 - **Shipping without ISO dates.** "3 weeks ago" is not a date. Force every row through an absolute-date parser. Multi-locale support is non-optional if any client touches non-US markets.
 - **Bulk-pulling TripAdvisor and OpenTable at the concurrency you'd use for Google Maps.** You'll burn the IP block, the account, or both.
 - **Assuming Google Maps reviews are stable across UI versions.** Google has shipped multiple "limited view" experiments in 2026 that change which reviews are returned to a logged-out scraper — the [Google Maps Limited View notes](/posts/google-maps-limited-view-scraping-2026/) cover what changed and what still works.
-
-## FAQ
-
-### Can I just use the Google Place Details API and skip the rest?
-
-No, for two reasons. First, the API caps at five reviews per place — that makes any meaningful trend or sentiment analysis impossible. Second, even with unlimited Google reviews, you'd miss the Yelp foodie audience, the TripAdvisor traveler audience, and the OpenTable verified-diner audience. The whole point of the four-platform stack is the audience dispersion.
-
-### How often should we refresh the data?
-
-Quarterly for most analytical use cases (acquisition diligence, competitive cluster analysis, expansion planning). Monthly for operators actively managing a turnaround. Daily makes sense only for crisis monitoring, and even then you'll usually focus the daily pull on Google + Yelp and let TripAdvisor + OpenTable run weekly.
-
-### What's the realistic accuracy of cross-platform reviewer matching?
-
-A text-prefix + date + place hash sits at 78–86% precision on within-day cross-platform matching. Good enough for de-duplicating sentiment averages; not good enough for identity resolution if any client question depends on it. Make matching a flag column, not the analytical foundation.
 
 ---
 

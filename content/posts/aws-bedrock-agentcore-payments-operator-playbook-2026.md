@@ -8,6 +8,13 @@ tags: ["agentcore", "x402", "coinbase", "stripe", "privy", "aws bedrock", "mcp",
 keywords: ["AWS Bedrock AgentCore Payments", "AgentCore payments tutorial", "x402 production 2026", "monetize MCP server x402", "AI agent payment rails", "Coinbase Bazaar MCP server", "Stripe Privy agent wallet", "x402 vs ACP vs AP2", "agentic monetization 2026", "how to charge AI agents for API", "autonomous agent micropayments 2026", "HTTP 402 production AWS"]
 image: /images/posts/aws-bedrock-agentcore-payments-operator-playbook-2026.jpg
 image_alt: "AWS Bedrock AgentCore Payments operator playbook hero — AWS, Coinbase x402, Stripe Privy, and MCP server brand marks showing the agent payment rails launched 2026-05-07"
+faq:
+  - q: "Do I need an AWS account to take x402 payments?"
+    a: "No. AgentCore is one path; the Cloudflare Agents SDK is another and is free on the Cloudflare Workers free tier. You can also self-host the Coinbase x402 facilitator reference implementation. AWS is the highest-leverage option if you already use Bedrock; Cloudflare is the lowest-friction option for a new operator."
+  - q: "How do I price my x402 endpoint?"
+    a: "Start at 0.005 to 0.05 dollars per call for most MCP tool calls or scraper rows. Premium endpoints like LLM-orchestrated workflows or specialized data can range to 0.50 to 5 dollars. The Coinbase Bazaar's 10,000-plus existing endpoints are a useful comparable — list yours alongside, then iterate based on call volume and customer mix."
+  - q: "Will x402 work with Apify pay-per-event actors?"
+    a: "Yes, in parallel. Apify pay-per-event handles billing for runs through the Apify Store; x402 handles billing for direct-to-agent HTTP calls outside it. Most operators end up running both — Apify for the human storefront, x402 for the agent surface — with the underlying scraper code shared between them."
 ---
 
 If you sell an MCP server, an API, or a scraped-data product and you want autonomous AI agents to pay you for using it, the rails finally shipped at AWS scale. Amazon Bedrock AgentCore Payments launched in preview on 2026-05-07, built with Coinbase and Stripe. When an agent hits a paid endpoint and gets back an HTTP 402, AgentCore handles the x402 negotiation, wallet authentication, USDC settlement on Base, and proof delivery — all without breaking the agent's reasoning loop. This is my operator's playbook: the decision tree for adding x402 to what you already sell, the wallet stack to pick, and the per-endpoint pricing math.
@@ -181,22 +188,6 @@ A few things to watch through Q3-Q4 2026 if you've decided to commit:
 - **MCP Apps + x402.** The MCP Apps SEP-1865 that Anthropic launched in January 2026 plus x402 monetization is the architectural pattern most production MCP servers will end up using. On FastMCP 3.0, the integration shrinks to dozens of lines.
 - **AP2 enterprise rollout.** Google will likely ship AP2 to production sometime this year. If your buyers are mid-market enterprises with procurement workflows, AP2 may matter more than x402 to your specific revenue.
 - **Cryptorefills-style ecommerce adoption.** Cryptorefills shipped x402-priced gift cards on 2026-05-11. Expect more retail/utility purchase categories to follow over the summer. Operators with structured data adjacent to commerce (product catalogs, pricing intel, review data) will see new buyer types as a result.
-
-## Frequently asked questions
-
-### Do I need an AWS account to take x402 payments?
-
-No. AgentCore is one path; Cloudflare Agents SDK is another and is free on the Cloudflare Workers free tier. You can also self-host the Coinbase x402 facilitator reference implementation. AWS is the highest-leverage option if you already use Bedrock; Cloudflare is the lowest-friction option for a new operator.
-
-### How do I price my endpoint?
-
-Start at $0.005-$0.05 per call for most MCP tool calls or scraper rows. Premium endpoints (LLM-orchestrated workflows, specialized data) can range to $0.50-$5. The Coinbase Bazaar's existing 10,000+ endpoints are a useful comparable — list yours alongside, then iterate based on call volume and customer mix.
-
-### Will this work with Apify pay-per-event actors?
-
-Yes, in parallel. [Apify pay-per-event](/posts/apify-pay-per-event-migration-playbook-2026/) handles billing for runs through the Apify Store. x402 handles billing for direct-to-agent HTTP calls outside the Apify store. Most operators will end up running both — Apify for the human storefront, x402 for the agent surface. The underlying scraper code is shared.
-
----
 
 ## The seller-side bet
 

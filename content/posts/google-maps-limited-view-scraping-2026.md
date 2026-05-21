@@ -7,6 +7,17 @@ tags: ["google maps", "scraping", "reviews", "limited view", "apify"]
 keywords: ["google maps limited view", "google maps reviews scraping 2026", "scrape google maps reviews", "google maps limited view bypass"]
 image: /images/posts/google-maps-limited-view-scraping-2026.jpg
 image_alt: "Illustration of a Google Maps pin split into a visible public side and a locked signed-in side, showing how the limited view hides reviews and photos"
+faq:
+  - q: "Is Google Maps limited view still active in April 2026?"
+    a: "Yes, intermittently. Google rolled back the February 2026 blanket restriction for signed-out users within about a week, but the system is still used for 'unusual traffic' responses, regional tests, and specific account patterns. Scrapers can still hit it."
+  - q: "Will authenticated scraping get my Google account banned?"
+    a: "It can. Google's automated systems flag accounts used for heavy programmatic browsing. Operators who scrape at volume typically rotate across multiple warmed-up accounts and accept that some will be disabled over time."
+  - q: "What's the cheapest way to get Google Maps reviews in 2026?"
+    a: "For small volumes, Apify's pay-per-event actors at around $0.25 per 1,000 reviews are the cheapest real-time option. For bulk pre-indexed exports, Scrap.io's subscriptions are cheaper per record."
+  - q: "Can I use the official Google Places API instead?"
+    a: "Yes, for compliance-sensitive use cases. It's reliable and ToS-clean but costs about $17 per 1,000 requests and limits how many reviews you can fetch per place."
+  - q: "How do I detect if my scraper is getting limited view responses?"
+    a: "Check for a missing review count field, search the HTML for limited view banner text like 'sign in to see reviews', and maintain canary URLs — known places with reviews you scrape on a schedule to catch silent regressions."
 ---
 
 On February 18, 2026, a lot of scrapers started returning blank review sections from Google Maps. The HTML looked almost normal — place name, address, hours, star rating — but reviews, photos, popular times, and related locations were gone. Developers on r/webscraping thought their selectors had broken. They hadn't. Google had rolled out a feature it called "limited view," which stripped public place pages down to the basics for anyone not signed in.
@@ -179,28 +190,6 @@ Most scrapers in the wild in 2026 were written before the February change. A qui
 
 This is also why the pay-per-event pricing model Apify moved to for its Google Maps actors matters for scraping operators: predictable cost per review extracted, no monthly minimum if traffic drops, and the actor author handles the Google-specific workarounds. For teams that want to focus on their core product instead of fighting Google's anti-automation roadmap, that tradeoff increasingly wins out.
 
-## Frequently asked questions
-
-**Is Google Maps limited view still active in April 2026?**
-
-Yes, but not in the same form as February. Google rolled back the blanket signed-out restriction within about a week of launch. The underlying system is still used for intermittent "unusual traffic" responses, regional tests, and specific account patterns. Scrapers today can hit limited view without warning, but it's no longer the default state for every logged-out session.
-
-**Will authenticated scraping get my Google account banned?**
-
-It can. Google's automated systems flag accounts used for heavy programmatic browsing, especially if they skip normal behaviors like searches, map panning, or profile updates. Operators who scrape at volume typically rotate across multiple warmed-up accounts and accept that some percentage will get disabled over time. If losing an account would hurt you personally, don't use it for scraping.
-
-**What's the cheapest way to get Google Maps reviews in 2026?**
-
-For small volumes under a few thousand reviews per month, Apify's pay-per-event actors (around $0.25 per 1,000 reviews) are the cheapest real-time option. For bulk exports where freshness isn't critical, Scrap.io's pre-indexed subscription is cheaper per record. Running your own scraper is only cheaper when you have zero value for your time, which is rarely true.
-
-**Can I use the official Google Places API instead?**
-
-Yes, for compliance-sensitive use cases. It's reliable and ToS-clean, but it's also the most expensive option at around $17 per 1,000 requests, and it limits the number of reviews you can fetch per place (typically the five most recent). For in-depth review analysis across many places, it's not cost-competitive.
-
-**How do I know my scraper is returning incomplete data right now?**
-
-Add a canary check. Pick five to ten Google Maps places you know have reviews, scrape them on a schedule, and alert if any of them start coming back with zero reviews. That single signal catches most limited view regressions within an hour.
-
 ## What to do this week
 
 If you run a Google Maps scraper in production, three concrete things are worth doing in the next few days:
@@ -210,52 +199,3 @@ If you run a Google Maps scraper in production, three concrete things are worth 
 3. **Decide your fallback path.** Search-based navigation, authenticated sessions, or a paid API — pick one and integrate it before you need it, not after.
 
 Google isn't done with its limited view infrastructure. The next iteration will probably target a different field, or fire under different conditions, but the downstream effect on your pipeline is predictable. Operators who added detection and a fallback path before the February rollout lost maybe a day fixing things. Everyone else lost a week, and some of them only noticed because a customer asked why their review counts looked wrong.
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Is Google Maps limited view still active in April 2026?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, intermittently. Google rolled back the February 2026 blanket restriction for signed-out users within about a week, but the system is still used for 'unusual traffic' responses, regional tests, and specific account patterns. Scrapers can still hit it."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Will authenticated scraping get my Google account banned?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It can. Google's automated systems flag accounts used for heavy programmatic browsing. Operators who scrape at volume typically rotate across multiple warmed-up accounts and accept that some will be disabled over time."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the cheapest way to get Google Maps reviews in 2026?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For small volumes, Apify's pay-per-event actors at around $0.25 per 1,000 reviews are the cheapest real-time option. For bulk pre-indexed exports, Scrap.io's subscriptions are cheaper per record."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use the official Google Places API instead?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, for compliance-sensitive use cases. It's reliable and ToS-clean but costs about $17 per 1,000 requests and limits how many reviews you can fetch per place."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I detect if my scraper is getting limited view responses?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Check for a missing review count field, search the HTML for limited view banner text like 'sign in to see reviews', and maintain canary URLs — known places with reviews you scrape on a schedule to catch silent regressions."
-      }
-    }
-  ]
-}
-</script>

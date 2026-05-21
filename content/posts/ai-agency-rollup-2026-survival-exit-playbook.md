@@ -10,6 +10,13 @@ keywords: ["AI agency M&A 2026", "agency roll-up 2026", "sell AI agency", "agent
 image: /images/posts/ai-agency-rollup-2026-survival-exit-playbook.jpg
 image_alt: "AI agency roll-up wave 2026 hero illustration — strategic decision tree showing four survival paths for agency owners as PE-backed agentic acquirers compress multiples"
 affiliate_links: true
+faq:
+  - q: "What's a fair multiple for my agency in 2026?"
+    a: "Disclosed bands run 0.7 to 1.1 times revenue for traditional digital shops, 1.0 to 1.4 times for specialist agentic shops, and 0.9 to 1.3 times for vertical specialists. On EBITDA, owner-operated 300K-EBITDA shops trade 3 to 4 times, mid-market 1.5M-EBITDA shops 5 to 7 times. Documented agentic delivery adds a 1 to 2 times EBITDA premium."
+  - q: "Should I sell my agency in 2026 or 2027?"
+    a: "Multiples peak Q4 2026 and Q1 2027 per Digital Applied's model. Listings closing in that window price against peak comparables; listings closing in Q3 2027 price against compressed ones. For maximum proceeds, do broker outreach in Q3 2026, list in late Q3, and close in Q1 2027. Slipping a quarter typically costs 10 to 20 percent."
+  - q: "What's the cheapest version of building agentic delta?"
+    a: "Three workflows — proposal generation, weekly client reporting, and content QA. Pick one orchestration platform (Make or n8n for non-developers), one agent layer (Lindy, Gumloop, or Relevance AI), and one model provider per use case. Total tooling for a 1M-revenue boutique runs 300 to 800 dollars per month, usually less than the first quarter's labor savings."
 ---
 
 If you run a solo or boutique agency, the next nine months will decide whether your shop is a 14-month payback for someone else, an independent business with an agentic delivery moat, or a vertical specialist nobody bothers to acquire. Q1 and Q2 of 2026 booked 21 disclosed agency deals — up 162% year-over-year per Digital Applied's tracker (one source, treat as directional rather than industry consensus) — and the same tracker's running M&A model forecasts 120 to 180 disclosed deals across Q3 2026 through Q2 2027. Multiples peak in Q4 2026 / Q1 2027, then compress in H1 2027 as competition for the best shops thins out and the average target gets weaker. I've watched enough founders see this kind of decision tree only in the deck their broker shows them six months too late, so this is the version I'd want before that conversation.
@@ -131,20 +138,6 @@ Two structural advantages compound regardless of path:
 **Structured external feeds.** The flip side is the data that lives outside the agency — listings, reviews, search results, social signals, ad-platform metrics — that agentic workflows have to ingest to be useful. Agencies that build clean pipelines into structured external feeds outperform agencies that scrape ad-hoc or rely on platform exports. The cost difference at $1M revenue is small. At $20M revenue it's enormous, and it shows up in margin.
 
 The 88% of organizations using AI in at least one business function (McKinsey 2025) and the 39% that attribute any EBIT impact (same survey) tell you the gap. Tools alone don't move EBIT. The data the tools run on, and the workflows the tools sit inside, do.
-
-## FAQ
-
-**What's a fair multiple for my agency in 2026?**
-
-The disclosed bands are 0.7–1.1× revenue for traditional digital shops, 1.0–1.4× revenue for specialist agentic-focused shops, and 0.9–1.3× revenue for vertical-specialist platforms. On EBITDA, owner-operated $300K-EBITDA shops trade 3–4×, mid-market $1.5M+ EBITDA shops with diversified clients trade 5–7×, and $5M+ EBITDA performance-marketing shops trade 8–12×. Documented agentic delivery adds a 1–2× EBITDA premium.
-
-**Should I sell my agency in 2026 or 2027?**
-
-Multiples peak Q4 2026 / Q1 2027 per Digital Applied's model. Listings closing in that window price against peak comparables. Listings closing in Q3 2027 price against compressed comparables. If your goal is maximum proceeds, broker outreach in Q3 2026 → listing in late Q3 / early Q4 → close in Q1 2027 is the optimal sequence. Slipping by a quarter typically costs 10–20%.
-
-**What's the cheapest version of building agentic delta?**
-
-Three workflows: proposal generation, weekly client reporting, and content QA. Pick one orchestration platform (Make or n8n for non-developers; Zapier if you want the lightest learning curve). Pick one agent layer (Lindy, Gumloop, or Relevance AI). Pick one model provider per use case. The total tooling cost for a $1M-revenue boutique is typically $300–$800/month. The labor saved in the first quarter usually exceeds the annual tooling spend.
 
 ## The next move
 

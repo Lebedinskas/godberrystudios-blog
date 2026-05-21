@@ -7,6 +7,19 @@ categories: ["AI for Business", "Creator Tools"]
 tags: ["claude for creative work", "claude connectors", "claude photoshop", "claude blender", "claude autodesk fusion", "claude ableton", "claude sketchup", "claude resolume", "anthropic mcp creative", "ai for designers 2026", "ai for 3d artists 2026"]
 keywords: ["Claude for creative work", "Claude Adobe connector", "Claude Photoshop integration", "Claude Blender connector", "Claude Autodesk Fusion", "Claude Ableton", "Anthropic creative connectors 2026", "AI for designers 2026", "AI for 3D artists 2026", "Claude SketchUp tutorial", "Claude Resolume VJ"]
 image: /images/posts/claude-for-creative-work-9-connectors-tested-2026.jpg
+faq:
+  - q: "Are Claude connectors free to use?"
+    a: "Connectors are free to enable on every paid Claude plan — Pro at 20 dollars a month, Max, Team, Enterprise. The free Claude tier does not get them. Most still need a partner account: Claude orchestrates but is not a license replacement. Affinity's connector is free during beta; SketchUp ships a free entitlement for 30 saved models."
+  - q: "Which of the nine connectors should I install first?"
+    a: "Match the connector to your weekly bottleneck, not the hype. Photographers and social designers start with Adobe for Creativity. 3D artists start with Blender. Music producers pair Splice and Ableton. Architects start with SketchUp using its free 30-model entitlement. VJs install Resolume Arena and Wire together."
+  - q: "Can I use these connectors with GPT or Gemini instead of Claude?"
+    a: "The connectors run on the open Model Context Protocol, so another MCP-capable model could in principle connect to the same servers. In practice, as of the April 28 2026 launch each vendor's official integration is Claude-only. Expect the MCP layer to spread, but treat the partner integrations as Claude-first today."
+  - q: "Does the Ableton connector actually edit my Live set?"
+    a: "No. As of the April 28 2026 launch the Ableton connector is documentation-only — it answers questions grounded in official Live and Push manuals but never mutates your set. Adobe, Resolume, and Affinity all write back, so a future Ableton iteration likely will too, but today it is read-only."
+  - q: "Should I use Sonnet 4.6 or Opus 4.7 for connector work?"
+    a: "Sonnet 4.6 at 3 and 15 dollars per million tokens is the safer default for connector orchestration. Opus 4.7 at 5 and 25 dollars is overkill for most connector prompts, and its new tokenizer widens the practical cost gap beyond the headline price. Reserve Opus for genuinely hard reasoning, not routine creative-tool calls."
+  - q: "Can a connector scrape competitor catalogs or reference images for me?"
+    a: "No. Connectors drive creative software — Claude can build a Blender scene or retouch a portrait, but it cannot pull a competitor's product photography, extract a brand palette from a landing page, or build a reference dataset. That data layer needs a deterministic scraper; it sits entirely outside any connector's reach."
 image_alt: "Editorial illustration on dark navy background with electric blue and gold accents showing nine glowing creative-tool connector nodes — pen-tip, donut, gear, waveform, vinyl, brush, ruler, and twin video monitors — connected by gold light-trails to a central radiant Claude burst, representing the April 28 2026 launch of nine Anthropic Claude connectors for Photoshop Blender Fusion Ableton Splice Affinity SketchUp and Resolume"
 ---
 
@@ -155,20 +168,6 @@ The honest gap is everything outside the creative-software vendor walls. Claude 
 That data layer sits in deterministic-pipeline land — competitor catalogs, brand reference libraries, public review corpora, location databases. I keep my [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) and [Yelp Scraper](https://apify.com/godberry/yelp-scraper) feeding the front-end of exactly that pipeline because the economics don't compare: a determined scraper hits a known target reliably for fractions of a cent, while a connector orchestrating creative work bills in tokens. Use both — just don't ask either to do the other one's job.
 
 If you want a wider tour of the AI tools that pair with these connectors, the [47 free AI tools that replace expensive software](/posts/free-ai-tools-replace-expensive-software-2026/) roundup catalogs the adjacent pieces. For agencies pricing the operational layer beneath, the [enterprise AI agent buyer's guide](/posts/chatgpt-workspace-agents-vs-claude-managed-agents-vs-copilot-studio-2026/) covers the agent-runtime layer.
-
-## FAQ
-
-**Are Claude connectors free?**
-
-Connectors are free to enable on every paid Claude plan (Pro, Max, Team, Enterprise). Free Claude tier doesn't include them. Most require an account on the partner side — Claude orchestrates but doesn't replace the underlying license. Affinity's connector is free during beta. SketchUp ships a free entitlement for up to 30 saved models before requiring a paid plan.
-
-**Which connector should I install first?**
-
-Match the connector to the bottleneck in your week, not the most-hyped tool. Photographers and social designers: Adobe first. 3D artists: Blender. Music producers: Splice + Ableton. Architects: SketchUp (use the free entitlement). VJs: Resolume Arena + Wire. Agency leads: Adobe + Affinity.
-
-**Can I use these connectors with GPT or Gemini?**
-
-The connectors are built on the open Model Context Protocol, which isn't Claude-exclusive. Another MCP-capable model can in principle connect to the same servers. In practice, as of April 28 each vendor's official integration is Claude-only. Expect the MCP layer to spread, but treat partner integrations as Claude-first today.
 
 ## Two Things to Take Away
 

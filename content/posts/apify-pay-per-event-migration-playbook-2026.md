@@ -8,6 +8,13 @@ tags: ["apify", "actor monetization", "pay per event", "migration", "indie devel
 keywords: ["apify pay per event", "apify rental sunset", "apify monetization 2026", "apify actor migration", "pay per event pricing"]
 image: /images/posts/apify-pay-per-event-migration-playbook-2026.jpg
 image_alt: "Illustration of an hourglass with coins flowing through, representing the October 2026 deadline for Apify actor developers to migrate from rental to pay-per-event pricing"
+faq:
+  - q: "When does Apify rental pricing end?"
+    a: "Rental actor creation ended April 1, 2026. Existing rental actors continue to work until October 1, 2026, when Apify auto-migrates them to pay-per-usage. Developers who want control over pricing should migrate to pay-per-event manually before that date, with a 14-day user-facing notice period."
+  - q: "How much does Apify take from pay-per-event revenue?"
+    a: "Apify takes 20% of pay-per-event revenue. Developers keep 80% minus platform compute costs. One catch: charges fired by free-plan users do not pay out to developers — only paid-plan subscriber events count toward revenue."
+  - q: "What happens if I don't migrate by October 1, 2026?"
+    a: "Your actor is automatically moved to pay-per-usage, where Apify bills users for compute costs and gives you a fixed share. PPU take rates are typically lower than well-designed PPE pricing. You can switch from PPU to PPE later, but you lose store positioning and revenue during the gap."
 ---
 
 If you sell an actor on the Apify Store under the rental model, you have until **October 1, 2026** to migrate to pay-per-event (PPE) — or Apify will auto-migrate you to pay-per-usage, which almost always earns less. New rental actors have been blocked since April 1, 2026, and pricing changes on existing rentals are frozen. I've shipped two PPE actors this year — [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) and [Yelp Scraper](https://apify.com/godberry/yelp-scraper) — so this isn't theory: timeline, event taxonomy, code snippets, pricing math, and the quiet bugs that eat revenue after you switch, written by someone who ate a few of them already.
@@ -227,57 +234,6 @@ Migrate the most-run actor first. If something breaks, you want to catch it on t
 
 October 1 is not a distant deadline. Counting the 14-day notice plus a safe 14 days of live observation, the real *ship-by* date is mid-September 2026. Build from there backward.
 
-## FAQ
-
-### When does Apify rental pricing end?
-
-Rental actor creation ended April 1, 2026. Existing rental actors continue to work until October 1, 2026, when Apify auto-migrates them to pay-per-usage. Developers who want control over pricing should migrate to pay-per-event manually before that date, with a 14-day user-facing notice period.
-
-### How much does Apify take from pay-per-event revenue?
-
-Apify takes 20% of pay-per-event revenue. Developers keep 80% minus platform compute costs (CPU, memory, proxy, dataset storage). One catch: charges fired by free-plan users do not pay out to developers — only paid-plan subscriber events count toward revenue.
-
-### What happens if I don't migrate by October 1, 2026?
-
-Your actor is automatically moved to pay-per-usage, where Apify bills users for compute costs and gives you a fixed share. PPU take rates are typically lower than well-designed PPE pricing. You can switch from PPU to PPE later, but you lose store positioning and revenue during the gap.
-
----
-
 The two things I'd carry into any PPE migration in 2026: design the event taxonomy before you touch code, and build a free-plan gate before you publish. The taxonomy decision compounds — once you publish, you get one significant price change per month, so the first one needs to be roughly right. The free-plan gate is what stops the structural revenue leak that nobody at Apify will warn you about, where your charges fire correctly and your dashboard fills up and the payout column stays at zero because the only people running your actor are on the plan that doesn't pay developers.
 
 The deadline is real. The auto-migration penalty is real. But the migration itself, done deliberately, is a one-week project that protects the asset for the next several years. Mid-September 2026 is the real ship-by date. Anyone telling you to wait until late August is hoping their 14-day notice clock doesn't slip.
-
----
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "When does Apify rental pricing end?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Rental actor creation ended April 1, 2026. Existing rental actors continue to work until October 1, 2026, when Apify auto-migrates them to pay-per-usage. Developers who want control over pricing should migrate to pay-per-event manually before that date, with a 14-day user-facing notice period."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much does Apify take from pay-per-event revenue?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Apify takes 20% of pay-per-event revenue. Developers keep 80% minus platform compute costs. One catch: charges fired by free-plan users do not pay out to developers — only paid-plan subscriber events count toward revenue."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What happens if I don't migrate by October 1, 2026?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Your actor is automatically moved to pay-per-usage, where Apify bills users for compute costs and gives you a fixed share. PPU take rates are typically lower than well-designed PPE pricing. You can switch from PPU to PPE later, but you lose store positioning and revenue during the gap."
-      }
-    }
-  ]
-}
-</script>

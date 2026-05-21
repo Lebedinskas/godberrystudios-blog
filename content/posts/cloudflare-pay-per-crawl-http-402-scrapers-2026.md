@@ -8,6 +8,15 @@ tags: ["cloudflare pay per crawl", "http 402", "ai crawlers", "web scraping", "a
 keywords: ["Cloudflare pay per crawl", "HTTP 402 scraping", "pay per crawl explained", "crawler-price header", "ai crawl control", "cloudflare 402 payment required", "scraping costs 2026", "ai bot paywall"]
 image: /images/posts/cloudflare-pay-per-crawl-http-402-scrapers-2026.jpg
 image_alt: "Editorial illustration of a web server gateway issuing HTTP 402 Payment Required responses to AI crawler bots, with coins passing through the door representing Cloudflare Pay Per Crawl monetization in 2026"
+faq:
+  - q: "How much does Pay Per Crawl cost per request in 2026?"
+    a: "The minimum is $0.01 USD per request. There is no published maximum — site owners set their own price. Real-world settings range from $0.01 on long-tail sites to $0.05-$0.25 on news and publisher content. Custom per-path pricing shipped in private beta in December 2025, which lets publishers charge different rates for different sections of a site."
+  - q: "Which companies have adopted Pay Per Crawl?"
+    a: "Stack Overflow is live as a publisher. GoDaddy announced a partnership on April 7, 2026 to integrate AI Crawl Control (including Pay Per Crawl) into its hosting platform. Major publishers including Condé Nast, TIME, The Associated Press, The Atlantic, ADWEEK, and Fortune signed onto Cloudflare's default-block-AI-crawlers stance in July 2025. Cloudflare is reporting over one billion 402 response codes sent per day across its network."
+  - q: "What is the difference between Pay Per Crawl and x402?"
+    a: "Pay Per Crawl is the Cloudflare product — dashboard configuration, billing reconciliation, and the /crawl Discovery API. It currently settles through a crawler's Cloudflare account funded via Stripe. x402 is an open protocol announced by Cloudflare and Coinbase in late 2025 that uses the same HTTP 402 status code but settles payments on-chain via stablecoins. The two are complementary — Pay Per Crawl is the product, x402 is a payment rail the product is moving toward supporting."
+  - q: "Will Pay Per Crawl kill web scraping?"
+    a: "No. It changes the economics at the margin, especially for broad uncurated crawling behind Cloudflare. Targeted scraping with known URLs, narrow schemas, and deterministic parsing stays viable. LLM-heavy patterns get materially more expensive when the page fetch itself costs a cent. Indie operators who lean into schema-first design and budget-aware crawl planning keep their margins."
 ---
 
 Cloudflare Pay Per Crawl turns the long-dormant HTTP 402 "Payment Required" status code into a live toll booth between AI crawlers and the sites they scrape. A site owner sets a per-request price (minimum $0.01), Cloudflare returns a `402` with a `crawler-price` header when an AI bot asks for a page, and the crawler either retries with a signed payment header or walks away. As of April 2026, Cloudflare is sending **over one billion `402` response codes per day** across its network, Stack Overflow is live as the flagship publisher, and GoDaddy is folding the same AI Crawl Control into its hosting dashboard for ~20 million customers.
@@ -119,24 +128,6 @@ A few patterns I see indie operators reaching for that don't survive contact wit
 - **Don't ship a crawler without a per-task budget cap.** A crawler loop with no spending ceiling is one cron misfire away from a four-figure Stripe charge. Ask me about the time the Yelp Scraper almost charged for events on every retry attempt before I caught the `actor-start` billing bug at v0.4.2 — the same discipline applies upstream.
 - **Don't assume Pay Per Crawl will be optional forever.** GoDaddy putting the toggle in front of millions of small-site owners means the default is moving from "open" to "off or metered" over the next 12-18 months. Design for the metered case now.
 
-## FAQ
-
-### How much does Pay Per Crawl cost per request in 2026?
-
-The minimum is $0.01 USD per request. There is no published maximum — site owners set their own price. Real-world settings range from $0.01 on long-tail sites to $0.05-$0.25 on news and publisher content. Custom per-path pricing shipped in private beta in December 2025, which lets publishers charge different rates for different sections of a site.
-
-### Which companies have adopted Pay Per Crawl?
-
-Stack Overflow is live as a publisher. GoDaddy announced a partnership on April 7, 2026 to integrate AI Crawl Control (including Pay Per Crawl) into its hosting platform. Major publishers including Condé Nast, TIME, The Associated Press, The Atlantic, ADWEEK, and Fortune signed onto Cloudflare's default-block-AI-crawlers stance in July 2025 and are candidates to turn on Pay Per Crawl once it exits private beta. Cloudflare is reporting over one billion `402` response codes sent per day across its network.
-
-### What's the difference between Pay Per Crawl and x402?
-
-Pay Per Crawl is the Cloudflare product — the dashboard configuration, the billing reconciliation, the `/crawl` Discovery API. It currently settles through a crawler's Cloudflare account (funded via Stripe). x402 is an open protocol announced by Cloudflare and Coinbase in late 2025 that uses the same HTTP 402 status code but settles payments on-chain via stablecoins. The two are complementary: Pay Per Crawl is the product, x402 is a payment rail the product is moving toward supporting.
-
-### Will Pay Per Crawl kill web scraping?
-
-No. It changes the economics at the margin, especially for broad uncurated crawling behind Cloudflare. Targeted scraping with known URLs, narrow schemas, and deterministic parsing stays viable. LLM-heavy "grab the page, extract with an LLM" patterns get materially more expensive when the page fetch itself costs a cent. Indie operators who lean into schema-first design and budget-aware crawl planning keep their margins. Those who don't will feel the squeeze first.
-
 ## Closing
 
 HTTP 402 sat in the spec for 35 years waiting for a use case. AI training data at industrial scale turned out to be it. Over a billion `402` responses a day before the product is GA, Stack Overflow and GoDaddy as the first public adopters, a $0.01 floor per request — the meter is already running on a meaningful slice of the open web, and the slice is growing.
@@ -169,44 +160,3 @@ For an indie scraper operator the actionable read is short: assume the domains y
 - [Cloudflare Radar 2025 Year in Review](https://radar.cloudflare.com/year-in-review/2025)
 
 *This article is informational. It does not recommend any specific configuration of Cloudflare services for your site or crawler and does not constitute legal or financial advice. Pay Per Crawl is a private beta feature as of publication; pricing, headers, and API surfaces may change.*
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How much does Pay Per Crawl cost per request in 2026?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The minimum is $0.01 USD per request. There is no published maximum — site owners set their own price. Real-world settings range from $0.01 on long-tail sites to $0.05-$0.25 on news and publisher content. Custom per-path pricing shipped in private beta in December 2025, which lets publishers charge different rates for different sections of a site."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Which companies have adopted Pay Per Crawl?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Stack Overflow is live as a publisher. GoDaddy announced a partnership on April 7, 2026 to integrate AI Crawl Control (including Pay Per Crawl) into its hosting platform. Major publishers including Conde Nast, TIME, The Associated Press, The Atlantic, ADWEEK, and Fortune signed onto Cloudflare's default-block-AI-crawlers stance in July 2025. Cloudflare is reporting over one billion 402 response codes sent per day across its network."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the difference between Pay Per Crawl and x402?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Pay Per Crawl is the Cloudflare product — dashboard configuration, billing reconciliation, and the /crawl Discovery API. It currently settles through a crawler's Cloudflare account funded via Stripe. x402 is an open protocol announced by Cloudflare and Coinbase in late 2025 that uses the same HTTP 402 status code but settles payments on-chain via stablecoins. The two are complementary — Pay Per Crawl is the product, x402 is a payment rail the product is moving toward supporting."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Will Pay Per Crawl kill web scraping?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. It changes the economics at the margin, especially for broad uncurated crawling behind Cloudflare. Targeted scraping with known URLs, narrow schemas, and deterministic parsing stays viable. LLM-heavy patterns get materially more expensive when the page fetch itself costs a cent. Indie operators who lean into schema-first design and budget-aware crawl planning keep their margins."
-      }
-    }
-  ]
-}
-</script>

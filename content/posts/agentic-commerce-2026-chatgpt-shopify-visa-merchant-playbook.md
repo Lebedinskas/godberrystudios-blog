@@ -8,6 +8,21 @@ tags: ["agentic commerce", "agentic commerce protocol", "universal commerce prot
 keywords: ["agentic commerce 2026", "ChatGPT shopping", "AI shopping agents", "Agentic Commerce Protocol", "Shopify agentic storefronts", "Visa Intelligent Commerce Connect", "Universal Commerce Protocol", "AI retail spend 2026"]
 image: /images/posts/agentic-commerce-2026-chatgpt-shopify-visa-merchant-playbook.jpg
 image_alt: "Editorial illustration of an AI shopping agent selecting products from a retailer's catalog while four open protocols (ACP, UCP, MPP, Trusted Agent Protocol) sit between the agent and the merchant checkout, representing agentic commerce in 2026"
+faq:
+  - q: "Do I need to integrate ACP, UCP, MPP, and Trusted Agent Protocol separately?"
+    a: "No. If you use Shopify, Stripe, or a major ecommerce platform, most of the protocol plumbing is handled for you. Visa's Intelligent Commerce Connect, announced April 8 2026, bundles all four into a single integration through the Visa Acceptance Platform. Most merchants adopt it via their existing payment processor."
+  - q: "My store is on Shopify — is it already inside ChatGPT?"
+    a: "Yes, by default. As of March 24 2026, every eligible US Shopify store is discoverable in ChatGPT, Microsoft Copilot, Google AI Mode, and the Gemini app. You can toggle individual channels off in the admin, but most merchants should leave them on — the default is everything on."
+  - q: "How fast do my inventory and pricing feeds need to update?"
+    a: "The current operational standard is a 15-minute lag at most. Batch overnight syncs are no longer viable for high-velocity SKUs. Agents track merchant reliability scores, so an item that shows in stock at 199 dollars on one request and out of stock at 249 dollars five minutes later gets downranked in future recommendation sets."
+  - q: "What is the single highest-impact fix if I only have time for one thing?"
+    a: "Pull your top 20 SKUs by revenue and confirm every one has a GTIN, complete attributes, and live schema.org/Product markup. One production audit found AI assistants ignored over 40 percent of a US Shopify catalog purely because the feed lacked structured attributes and stable identifiers. Missing GTINs are the largest cause of invisible-to-agent."
+  - q: "Why did OpenAI remove Instant Checkout from ChatGPT?"
+    a: "OpenAI pulled Instant Checkout on March 5 2026 because five months of live data showed only 8 percent of US adult ChatGPT users tried it and only about twelve Shopify merchants had integrated. The signal was that shoppers wanted ChatGPT as a discovery channel, not the register, so checkout moved back to the merchant's own storefront."
+  - q: "Do reviews affect whether an agent surfaces my product?"
+    a: "Yes. In 2026 reviews are a ranking signal, not just a conversion asset. A 4.6 rating with 2,400 reviews beats a 4.8 with 12 in most agent heuristics. Recency matters too, and cross-source consistency is decisive — if your site shows 4.9 and Google shows 3.2, the agent hedges and may surface neither."
+  - q: "Why do agents abandon a checkout even after picking my product?"
+    a: "Four triggers dominate: a CAPTCHA wall, forced account creation before cart review, shipping costs revealed only at step three, and a price mismatch between the product page and the cart. An agent quoted 49.99 dollars that sees 54.99 at checkout treats it as a contract violation and bails."
 ---
 
 Agentic commerce is the shift where AI assistants — ChatGPT, Gemini, Copilot, Perplexity — discover, compare, and buy on behalf of the shopper, and eMarketer projects it will move roughly $20.9 billion of US retail spend in 2026, nearly 4× the 2025 figure. Four protocols now stitch it together (ACP, UCP, MPP, Trusted Agent Protocol). Shopify flipped every eligible US store into ChatGPT by default on March 24, 2026. Visa announced Intelligent Commerce Connect on April 8, 2026. OpenAI pulled its own Instant Checkout on March 5, 2026 after only about twelve merchants integrated. If you sell anything online, the next month decides whether an agent will even show your product to the shopper who asked for it.
@@ -171,17 +186,3 @@ A few patterns show up in every post-mortem of "we launched on AI channels and n
 The four-protocol alphabet soup simplifies from here. Visa's Intelligent Commerce Connect is already a single on-ramp to all four, and most merchants will adopt it through their payment processor rather than directly. ACP and UCP will converge on a shared core over the next 12 months. The Trusted Agent Protocol will absorb into the larger Web Bot Auth standard on the IETF track. MPP stays its own thing because it solves a different problem (agent-to-service payment) — and, for developers like me, it will quietly become the metering layer underneath paid APIs. Meta opened its own MCP server to ChatGPT and Claude on April 29, 2026, which means the *paid* layer above all of this — your Meta ad account — is now reachable from the same agent reading your catalog. The [Meta Ads AI Connectors walkthrough](/posts/meta-ads-ai-connectors-chatgpt-claude-2026/) covers how that connection works.
 
 If I had a storefront, the move I would make this week is not glamorous: pull the top 20 SKUs by revenue, confirm every one has a GTIN, complete attributes, live schema.org/Product markup, and an inventory state that matches actual stock within 15 minutes. That single exercise finds the majority of lost visibility for most stores. Everything else — channel toggles, review pipelines, FAQ writing — compounds on top of a clean data foundation, and falls apart without it.
-
-## FAQ
-
-**What is agentic commerce, in one sentence?**
-Agentic commerce is the shift where AI assistants — ChatGPT, Gemini, Copilot, Perplexity — discover, compare, and complete purchases on behalf of a shopper, using open protocols that let them talk directly to a merchant's catalog and checkout.
-
-**Do I need to integrate ACP, UCP, MPP, and Trusted Agent Protocol separately?**
-No. If you use Shopify, Stripe, or a major ecommerce platform, most of the protocol plumbing is handled for you. Visa's Intelligent Commerce Connect (announced April 8, 2026) bundles all four into a single integration through the Visa Acceptance Platform. Most merchants adopt it via their existing payment processor.
-
-**My store is on Shopify. Is it already inside ChatGPT?**
-Yes, by default. As of March 24, 2026, every eligible US Shopify store is discoverable in ChatGPT, Microsoft Copilot, Google AI Mode, and the Gemini app. You can toggle individual channels off in the admin. Most merchants should leave them on.
-
-**How fast do my inventory and pricing need to update for agent channels?**
-The current operational standard is a 15-minute lag at most. Batch overnight syncs are no longer viable for high-velocity SKUs. Agents track merchant reliability scores — frequent stale-inventory mismatches mean less surface area over time.

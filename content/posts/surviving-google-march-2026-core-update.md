@@ -8,6 +8,19 @@ tags: ["seo", "google core update", "ai content", "programmatic seo", "e-e-a-t",
 keywords: ["Google March 2026 core update", "AI content penalty 2026", "programmatic SEO recovery", "scaled content Google update", "E-E-A-T 2026"]
 image: /images/posts/surviving-google-march-2026-core-update.jpg
 image_alt: "A fractured search results page with collapsing ranking bars, symbolizing the March 2026 Google core update impact on AI-generated content"
+faq:
+  - q: "Did Google ban AI content in the March 2026 core update?"
+    a: "No. Google's position since 2023 is unchanged — AI-assisted content is not penalized for being AI-generated. The March 2026 update improved Google's ability to detect content produced at scale without editorial oversight. AI content with first-hand experience, dated numbers, and real editing rode the update fine or gained traffic."
+  - q: "How much traffic did AI content sites actually lose?"
+    a: "April 2026 recovery analyses put the hit at 60 to 80 percent for content farms running templated AI output, 40 to 55 percent for finance and lifestyle affiliate sites, and 30 to 50 percent for keyword-swapped programmatic pages. Sites with strong E-E-A-T signals saw little change or picked up traffic from competitors who fell."
+  - q: "If I rewrite my AI content, how long until traffic recovers?"
+    a: "Not immediately. Content-quality recoveries usually wait for the next core update, expected around June or July 2026. A minor refresh takes 8 to 16 weeks; a major rewrite plus E-E-A-T signals lands at the next update or two. Sites that rewrite once and wait outperform sites that churn through repeated rewrites."
+  - q: "How do I know if a traffic drop was the core update or a technical problem?"
+    a: "Check Search Console impressions for the March 27 to April 8 window — a drop over 20 percent sustained past April 10 signals a quality classification. Then segment by URL template and topic cluster. If no pattern matches, the cause is likely technical: crawl budget, Core Web Vitals, or mobile rendering."
+  - q: "How many affiliate links per post is too many?"
+    a: "The March update appears to down-weight pages where affiliate link density exceeds roughly one link per 150 to 200 words of body copy, especially when links are front-loaded before any real value. Comparison and roundup posts that lead with affiliate links before delivering substance were hit hardest."
+  - q: "Can I still publish high volume, or do I have to slow down?"
+    a: "Volume is not the signal — originality is. You can publish 100 posts a month if every one passes the anti-slop checklist, and kill a site with 10 shallow posts. The defensible zone for a solo operator is low volume, high depth: one to three posts a week, each with a real point of view and proof."
 ---
 
 Google's March 2026 core update finished rolling out April 8 and left a pile of AI content sites at 60–80% of their previous traffic. The short version: the update didn't ban AI content — it got much better at ignoring content written at scale without real editorial work. I watched this from godberrystudios.com — a four-month-old blog with about 35 posts, the kind of site that would be classic collateral damage if the filter ran a wide net. It didn't. The posts that hold a position have held, and the ones that wobbled are the ones I now know to rewrite.
@@ -155,20 +168,6 @@ Content quality recoveries are not fast. Post-update analyses from the December 
 The worst thing you can do in this window is churn. Pick a plan, execute for 30 days, then let it cook for at least 90. Sites that rewrite, panic, rewrite again, and panic again tend to recover slower than sites that make one clean pass and hold.
 
 If your traffic loss is severe enough that the business can't survive the 3–6 month wait, the short-term answer isn't more SEO — it's paid acquisition, partnerships, or email list reactivation. My own blog funnels to two Apify Store products rather than counting on a single traffic channel — the [guide on AI business automation](/posts/automate-business-tasks-with-ai-2026/) covers diversified customer acquisition patterns, and [the "how to make money with AI" post](/posts/how-to-make-money-with-ai-2026/) walks through revenue models that don't depend on Google.
-
-## Frequently Asked Questions
-
-### Did Google ban AI content in the March 2026 core update?
-
-No. Google's position has been consistent since 2023: AI-assisted content is not penalized for being AI-generated. The March 2026 update improved Google's ability to detect content produced at scale without editorial oversight, which is most common in AI content farms. AI content with first-hand experience, original examples, and real editorial effort rode the update fine or gained traffic.
-
-### How much traffic did AI content sites lose?
-
-Recovery analyses from April 2026 put the hit at 60–80% for content farms with templated AI output, 40–55% for affiliate sites in finance and lifestyle verticals, and 30–50% for sites relying on keyword-swapped programmatic pages. Sites with strong E-E-A-T signals and first-hand experience markers saw little change or picked up traffic from competitors who fell.
-
-### Can I recover if I rewrite my AI content?
-
-Yes, but not immediately. Content quality recoveries typically wait for the next core update, which is expected around June or July 2026. Major rewrites plus E-E-A-T improvements are usually rewarded at the first update after the rewrite, with full recovery often taking 1–2 updates. Sites that rewrite once and wait outperform sites that churn through multiple rewrites.
 
 ## Closing
 

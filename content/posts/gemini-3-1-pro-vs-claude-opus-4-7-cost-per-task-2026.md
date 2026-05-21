@@ -8,6 +8,13 @@ tags: ["gemini 3.1 pro", "claude opus 4.7", "frontier model comparison", "llm co
 keywords: ["Gemini 3.1 Pro vs Claude Opus 4.7", "best AI model 2026", "frontier model comparison 2026", "Claude vs Gemini cost", "which AI model 2026", "Gemini 3.1 Pro pricing", "Opus 4.7 pricing", "cost per task LLM"]
 image: /images/posts/gemini-3-1-pro-vs-claude-opus-4-7-cost-per-task-2026.jpg
 image_alt: "Head-to-head hero showing the Google Gemini blue four-point sparkle logo on the left and the Anthropic Claude orange burst logo on the right, separated by a VS divider with the eyebrow Cost · Latency · Accuracy and the 10 Tasks · 2026 Benchmark framing — labeled Gemini 3.1 Pro ($2 / $12 per M tokens, 2M context) and Claude Opus 4.7 ($5 / $25 per M tokens, 200K context)"
+faq:
+  - q: "Is Gemini 3.1 Pro better than Claude Opus 4.7?"
+    a: "Neither is universally better. Gemini 3.1 Pro is cheaper on 9 of 10 production tasks measured and wins outright on long-context reasoning, RAG, and image understanding. Claude Opus 4.7 wins on multi-file code refactoring, agent loops with irreversible actions, and strict JSON schema adherence. The right answer in 2026 is a router that uses both — Gemini for the easy 80% of traffic, Opus for the workloads where its accuracy advantage justifies the 2-2.5x per-token premium."
+  - q: "How much does Gemini 3.1 Pro cost compared to Claude Opus 4.7?"
+    a: "Gemini 3.1 Pro lists at $2 per million input tokens and $12 per million output tokens up to 200K context, stepping to $4/$18 above 200K. Claude Opus 4.7 lists at $5 per million input and $25 per million output. On sticker price Gemini is 2.5x cheaper on input and 2.08x cheaper on output. Real per-task ratios ranged from 0.71x (Opus cheaper after counting Gemini retry) to 5.18x (Gemini 5x cheaper on image OCR)."
+  - q: "When should I use Claude Opus 4.7 instead of Gemini 3.1 Pro?"
+    a: "Use Opus 4.7 when accuracy on a small set of high-stakes tasks justifies the 2-2.5x per-token premium: multi-file code refactoring (Opus scores 87.6% on SWE-bench Verified vs Gemini's 71.4%), agent loops where any tool call is irreversible, strict JSON schema or tool-use chains with no downstream validator (Opus 99.1% schema compliance vs Gemini 92.4%), and compliance-critical extraction. For everything else — long-context, RAG, vision, web research, single-file codegen, content tasks — Gemini 3.1 Pro is the cheaper, faster, comparably accurate choice."
 ---
 
 Gemini 3.1 Pro lists at $2 per million input tokens and $12 per million output tokens. Claude Opus 4.7 lists at $5 in and $25 out. Sticker price says Gemini is 2.5× cheaper on input and roughly 2× cheaper on output. Sticker price is not what you pay. Opus 4.7 ships a new tokenizer that inflates the same prompt 1.0× to 1.47× depending on content type, and Gemini 3.1 Pro bills every "thinking" token at the full output rate — so a HIGH-effort answer that reasons through 4,000 tokens before writing a 500-token response charges you for 4,500 output tokens.
@@ -265,50 +272,3 @@ A team running a typical product mix — agents, RAG, content, codegen, support 
 The market consolidated to two practical answers: Gemini 3.1 Pro for cost-sensitive, context-heavy, vision-heavy, or RAG-dominated workloads; Opus 4.7 for code, agents, and strict structured output. GPT-5.4 sits in between on price and quality but doesn't dominate either dimension. Open-source alternatives (DeepSeek, Llama 4.x derivatives, Qwen 3) are 5-15× cheaper still and are the right call for the truly high-volume, low-stakes layer of a routed stack — the layer that handles 80% of calls and 20% of the value.
 
 If your AI bill is north of $5,000/month and you haven't audited it in the last 30 days, this week is the right week. The tokenizer tax on Opus 4.7, the thinking-token bill on Gemini HIGH, and the cache-rate discounts you're not using are quietly costing you 40-70% of your spend. Pull last month's invoice, sort calls by cost, route the top three endpoints first — that's where the money is.
-
-## FAQ
-
-### Is Gemini 3.1 Pro better than Claude Opus 4.7?
-
-Neither is universally better. Gemini 3.1 Pro is cheaper on 9 of 10 production tasks I measured and wins outright on long-context reasoning, RAG, and image understanding. Claude Opus 4.7 wins on multi-file code refactoring, agent loops with irreversible actions, and strict JSON schema adherence. The right answer in 2026 is a router that uses both — Gemini for the easy 80%, Opus for the workloads where its accuracy advantage justifies the 2-2.5× per-token premium.
-
-### How much does Gemini 3.1 Pro cost compared to Claude Opus 4.7?
-
-Gemini 3.1 Pro lists at $2/M input and $12/M output up to 200K context, stepping to $4/$18 above 200K. Claude Opus 4.7 lists at $5/M input and $25/M output. On sticker price Gemini is 2.5× cheaper on input and 2.08× cheaper on output. Real-world ratio depends on Opus 4.7's new tokenizer (1.0× to 1.47× inflation) and Gemini's thinking-token billing (HIGH effort can add 5,000-20,000 output tokens per call). Per-task end-to-end ratios in my benchmark ranged from 0.71× (Opus cheaper after counting Gemini's retry) to 5.18× (Gemini 5× cheaper on image OCR).
-
-### When should I use Claude Opus 4.7 instead of Gemini 3.1 Pro?
-
-Use Opus 4.7 when accuracy on a small set of high-stakes tasks justifies the 2-2.5× per-token premium: multi-file code refactoring (Opus scores 87.6% on SWE-bench Verified vs Gemini's 71.4%), agent loops where any tool call is irreversible (Opus made 0/5 wrong refunds in my test vs Gemini's 1/5), strict JSON schema or tool-use chains with no downstream validator (Opus 99.1% schema compliance vs Gemini 92.4%), and compliance-critical extraction. For everything else — long-context, RAG, vision, web research, single-file codegen, content tasks — Gemini 3.1 Pro is the cheaper, faster, comparably accurate choice.
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Is Gemini 3.1 Pro better than Claude Opus 4.7?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Neither is universally better. Gemini 3.1 Pro is cheaper on 9 of 10 production tasks measured and wins outright on long-context reasoning, RAG, and image understanding. Claude Opus 4.7 wins on multi-file code refactoring, agent loops with irreversible actions, and strict JSON schema adherence. The right answer in 2026 is a router that uses both — Gemini for the easy 80% of traffic, Opus for the workloads where its accuracy advantage justifies the 2-2.5x per-token premium."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much does Gemini 3.1 Pro cost compared to Claude Opus 4.7?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Gemini 3.1 Pro lists at $2 per million input tokens and $12 per million output tokens up to 200K context, stepping to $4/$18 above 200K. Claude Opus 4.7 lists at $5 per million input and $25 per million output. On sticker price Gemini is 2.5x cheaper on input and 2.08x cheaper on output. Real per-task ratios ranged from 0.71x (Opus cheaper after counting Gemini retry) to 5.18x (Gemini 5x cheaper on image OCR)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "When should I use Claude Opus 4.7 instead of Gemini 3.1 Pro?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use Opus 4.7 when accuracy on a small set of high-stakes tasks justifies the 2-2.5x per-token premium: multi-file code refactoring (Opus scores 87.6% on SWE-bench Verified vs Gemini's 71.4%), agent loops where any tool call is irreversible, strict JSON schema or tool-use chains with no downstream validator (Opus 99.1% schema compliance vs Gemini 92.4%), and compliance-critical extraction. For everything else — long-context, RAG, vision, web research, single-file codegen, content tasks — Gemini 3.1 Pro is the cheaper, faster, comparably accurate choice."
-      }
-    }
-  ]
-}
-</script>

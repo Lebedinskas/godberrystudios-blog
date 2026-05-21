@@ -6,6 +6,17 @@ categories: ["AI Automation"]
 tags: ["ai", "make money", "passive income", "automation", "side hustle", "business", "2026"]
 image: /images/posts/make-money-ai-2026.jpg
 image_alt: "AI neural network connections transforming into golden coins and revenue charts representing AI income streams"
+faq:
+  - q: "Which of the 12 methods is fastest to a first dollar?"
+    a: "AI-enhanced freelancing and AI voice services both list 1-2 weeks to first dollar, because you sell an existing skill to people already buying it. Content agency and data enrichment land at 1-3 weeks. Avoid YouTube as a starter — it lists 3-6 months before ad revenue arrives."
+  - q: "Do I need to know how to code to build automation tools on Apify?"
+    a: "No. Method 2 notes coding helps but no-code options exist, and Method 7 cites 62% no-code scraping-tool adoption. You can list pre-built scrapers and add value with AI analysis. A Google Reviews scraper runs at about $0.10 per location versus $7-14 per Places API request."
+  - q: "Is AI income actually passive?"
+    a: "No. The post calls it semi-passive — significant upfront work building systems that then run with 80-90% automation. You still maintain, update, and fix things. Apify Store actors are the closest to passive once shipped, but even those need selector upkeep when sites change."
+  - q: "How much money do I need to start?"
+    a: "Almost nothing. Eight of the 12 methods list a $0 startup floor, and most tools have free tiers — Grammarly, Canva, Voiceflow, Langchain. Claude or ChatGPT at $20/month covers writing and analysis. The real investment is time spent building your first deliverable and finding a first client."
+  - q: "Will the EU AI Act affect what I build in 2026?"
+    a: "It can. The EU AI Act takes full effect in August 2026. If you serve European clients or use EU-sourced data, you need to understand compliance. High-risk applications — recruitment, credit scoring, biometric identification — carry strict obligations. Most content and scraping work sits outside the high-risk tier."
 ---
 
 Half of all US workers now use AI daily. But here's the split nobody talks about: most use AI to do their existing job slightly faster. A small percentage use AI to build entirely new income streams.

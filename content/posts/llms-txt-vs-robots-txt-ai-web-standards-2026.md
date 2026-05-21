@@ -8,6 +8,23 @@ tags: ["llms.txt", "robots.txt", "ai seo", "geo", "aeo", "ai crawlers", "gptbot"
 keywords: ["llms.txt vs robots.txt", "llms.txt explained", "ai.txt web standard 2026", "does llms.txt work", "should I add llms.txt", "AI crawler robots.txt 2026", "GPTBot ClaudeBot block"]
 image: /images/posts/llms-txt-vs-robots-txt-ai-web-standards-2026.jpg
 image_alt: "Editorial illustration on dark background showing two stylized text files labeled robots.txt and llms.txt with a blue signal line and gold arrows representing AI crawlers choosing between them"
+faq:
+  - q: "Does llms.txt improve my ranking in ChatGPT or Perplexity?"
+    a: "No measurable effect as of April 2026. Ahrefs and SE Ranking both ran studies across hundreds of thousands of domains and found no correlation between an llms.txt file and AI citation frequency. Google's John Mueller has publicly said no AI system currently consumes the file."
+  - q: "Is llms.txt a Google Search signal?"
+    a: "No. Gary Illyes and John Mueller have both said Google does not support llms.txt and has no plans to. A brief listing in Google Search Central docs on December 3, 2025 was removed within hours of being spotted, after Mueller responded publicly with a dismissive note."
+  - q: "What's the difference between llms.txt and llms-full.txt?"
+    a: "llms.txt is an index — a markdown file with links to pages, grouped into sections. llms-full.txt is the same index with the full markdown body of every linked page concatenated. Use the full version when you want a model to ingest a whole site in one shot, useful for on-site chatbots."
+  - q: "Does llms.txt replace robots.txt?"
+    a: "No. They solve different problems. robots.txt controls access — whether a bot can visit your site at all, and has been honored since 1994. llms.txt is a content-curation hint for bots that have already decided to read you. You still need robots.txt regardless of whether you add llms.txt."
+  - q: "Should I block GPTBot and ClaudeBot in 2026?"
+    a: "Block them if you do not want your content used to train new models — 69 percent of tracked sites now block ClaudeBot and 62 percent block GPTBot per Q1 2026 Cloudflare data. Keep the search-flavor bots OAI-SearchBot, Claude-SearchBot, ChatGPT-User, Claude-User, and PerplexityBot allowed for citations."
+  - q: "What if my site is behind Cloudflare?"
+    a: "Check your AI Crawl Control dashboard. Since mid-2025, Cloudflare's default for new sites has been to block AI crawlers entirely, so many owners do not realize they have been opted out of AI citations. You can allow, block, or charge per bot individually from that dashboard."
+  - q: "Is ai.txt the same thing as llms.txt?"
+    a: "No. ai.txt is an earlier Spawning.ai proposal focused on training-data opt-out signals for media. llms.txt is a newer Answer.AI proposal focused on content curation for LLM consumption. In practice, modern robots.txt has absorbed the ai.txt use case through directives like Google-Extended and GPTBot."
+  - q: "How do I know if AI crawlers are actually visiting my site?"
+    a: "Look at your server logs or Cloudflare AI Crawl Control for user-agent strings matching GPTBot, ClaudeBot, PerplexityBot, or OAI-SearchBot. If you see ChatGPT-User or Claude-User hits, that is someone actively asking ChatGPT or Claude about a URL on your site — high-intent traffic worth keeping unblocked."
 ---
 
 Short answer: **robots.txt tells AI crawlers whether they can access your site. `llms.txt` tries to tell AI models how to read it once they're there. Only one of them actually does anything measurable in April 2026 — and it's the one that's been around since 1994.**
@@ -200,40 +217,6 @@ No → Skip. Run your own robots.txt.
 Yes → Watch the `operate.txt` spec. It's early but moving.
 
 No → Skip. Revisit next year.
-
-## FAQ
-
-**Does llms.txt improve my ranking in ChatGPT or Perplexity?**
-
-No measurable effect as of April 2026. Ahrefs and SE Ranking both ran studies across hundreds of thousands of domains and found no correlation between `llms.txt` presence and AI citation frequency. Google's John Mueller has publicly said no AI system currently consumes the file.
-
-**Is llms.txt a Google Search signal?**
-
-No. Gary Illyes and John Mueller have both said Google does not support `llms.txt` and has no plans to. A brief listing in Google Search Central docs in December 2025 was removed within hours of being spotted.
-
-**What's the difference between llms.txt and llms-full.txt?**
-
-`llms.txt` is an index — a markdown file with links to pages, grouped into sections. `llms-full.txt` is the same index with the full markdown body of every linked page concatenated. Use the full version when you want a model to ingest the whole site in one shot (useful for on-site chatbots). Use the index-only version for general AI-vendor consumption, if you care about that at all.
-
-**Does llms.txt replace robots.txt?**
-
-No. They solve different problems. `robots.txt` controls access — whether a bot can visit your site at all. `llms.txt` is a content curation hint for bots that have already decided to read you. You still need robots.txt regardless of whether you add `llms.txt`.
-
-**Should I block GPTBot and ClaudeBot in 2026?**
-
-Block them if you don't want your content used to train new models — 69% of tracked sites now block `ClaudeBot` and 62% block `GPTBot`. Keep the search-flavor bots (`OAI-SearchBot`, `Claude-SearchBot`, `ChatGPT-User`, `Claude-User`, `PerplexityBot`) allowed if you want to show up in ChatGPT Search, Claude's search results, and Perplexity citations.
-
-**What if my site is behind Cloudflare?**
-
-Check your AI Crawl Control dashboard. Since mid-2025, Cloudflare's default for new sites has been to block AI crawlers entirely. Many site owners don't realize they've been opted out of AI citations. You can allow, block, or charge per bot individually.
-
-**Is ai.txt the same thing as llms.txt?**
-
-No. `ai.txt` is an earlier Spawning.ai proposal focused on training-data opt-out signals for media. `llms.txt` is a newer Answer.AI proposal focused on content curation for LLM consumption. In practice, modern robots.txt has absorbed the ai.txt use case through user-agent directives like `Google-Extended` and `GPTBot`.
-
-**How do I know if AI crawlers are actually visiting my site?**
-
-Look at your server logs or Cloudflare AI Crawl Control for user-agent strings matching `GPTBot`, `ClaudeBot`, `PerplexityBot`, `OAI-SearchBot`, etc. If you see `ChatGPT-User` or `Claude-User` hits, that's someone actively asking ChatGPT or Claude about a URL on your site — high-intent traffic worth keeping unblocked.
 
 ## The bottom line
 

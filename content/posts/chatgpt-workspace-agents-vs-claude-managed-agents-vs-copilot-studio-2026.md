@@ -8,6 +8,13 @@ tags: ["chatgpt workspace agents", "claude managed agents", "microsoft copilot s
 keywords: ["ChatGPT workspace agents vs Claude", "Claude managed agents vs Copilot Studio", "best enterprise AI agent platform 2026", "workspace agents review", "AI agent buyer guide", "Codex vs Anthropic agents", "Copilot Studio vs Workspace Agents"]
 image: /images/posts/chatgpt-workspace-agents-vs-claude-managed-agents-vs-copilot-studio-2026.jpg
 image_alt: "Three-way comparison hero showing the OpenAI ChatGPT logo, Anthropic Claude burst logo, and Microsoft Copilot Studio hexagon logo arranged across a dark navy benchmark layout — labeled Workspace Agents free until May 6, Claude Managed Agents $0.08 per session hour plus tokens, and Copilot Studio $200 per 25,000 credits, framed as a 2026 enterprise AI agent buyer's guide"
+faq:
+  - q: "What is the difference between ChatGPT Workspace Agents and a Custom GPT?"
+    a: "Custom GPTs were single-prompt assistants living inside a chat session. Workspace Agents, launched April 22 2026, run in their own Codex cloud container, can write or run code, call connected apps, persist memory across runs, and trigger on a schedule or Slack message. They are team-shared and governed by workspace admin policies."
+  - q: "How much does Claude Managed Agents cost vs running my own agent loop?"
+    a: "Managed Agents charges 0.08 dollars per session-hour plus standard Claude API token rates — a 4-minute Sonnet 4.6 session lands around 0.08 dollars total, of which roughly 0.005 dollars is the runtime fee. Rolling your own loop is cheaper per run, but Anthropic estimates 3 to 6 months of engineering to replicate the harness, sandboxing, and state management."
+  - q: "Will Workspace Agents stay free after May 6, 2026?"
+    a: "No. Credit-based pricing begins May 6, 2026. The exact per-credit consumption rate for agent runs was not published as of late April 2026, but the structure mirrors Codex credit pricing. Plan on 0.05 to 0.30 dollars per substantive run and scope your pilot accordingly before the meter turns on."
 ---
 
 Three tech giants launched enterprise AI agent platforms inside a three-week window. OpenAI's Workspace Agents shipped April 22, 2026, free until May 6 then credit-priced inside ChatGPT Business and Enterprise. Anthropic's Claude Managed Agents has been in public beta since April 8 at $0.08 per session-hour plus token costs. Microsoft's Copilot Studio sits at 230,000 organizations on tenant-wide credit packs of $200 per 25,000 credits, with the new Agent 365 governance plane shipping May 1 at $15 per user per month. Every ops, RevOps, and IT director with budget left in the quarter is pricing this out right now.
@@ -217,17 +224,6 @@ Four signals tell you to build (or buy) a single-purpose tool instead of an agen
 **Regulated single-purpose** — medical record summarizer, contract clause extractor, compliance check. Build a narrow tool with a narrow audit trail; general-purpose agent platforms add governance complexity you do not need for a one-in/one-out job.
 
 **Vendor already ships an MCP server.** Meta shipped one for ad accounts on April 29 — see the [Meta Ads AI Connectors walkthrough](/posts/meta-ads-ai-connectors-chatgpt-claude-2026/). When the source has its own connector, plugging Claude or ChatGPT straight into it usually beats wrapping it in an agent platform.
-
-## FAQ
-
-**What is the difference between ChatGPT Workspace Agents and a Custom GPT?**
-Custom GPTs were single-prompt assistants that lived inside a chat session. Workspace Agents run in their own cloud container, can write or run code, call connected apps, persist memory across runs, and trigger on a schedule or Slack message. They are also team-shared, governed by workspace admin policies, and powered by Codex rather than the standard chat model. OpenAI positions them as the successor to Custom GPTs for enterprise teams.
-
-**How much does Claude Managed Agents cost vs running my own agent loop?**
-Managed Agents charges $0.08 per session-hour plus standard Claude API token rates — a 4-minute Sonnet 4.6 session lands around $0.08 total, of which roughly $0.005 is the runtime fee. Rolling your own loop is technically cheaper but you take on the engineering cost of the harness, sandboxing, error recovery, and state management — Anthropic estimates 3-6 months of engineering work to replicate what Managed Agents handles out of the box.
-
-**Will Workspace Agents stay free after May 6, 2026?**
-No. Credit-based pricing begins May 6. The exact per-credit consumption rate for agent runs has not been published as of late April 2026, but the structure mirrors Codex credit pricing. Plan on $0.05 to $0.30 per substantive run and scope your pilot accordingly.
 
 ## Closing
 

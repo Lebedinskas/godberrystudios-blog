@@ -8,6 +8,19 @@ tags: ["x402", "ai agents", "payments", "http 402", "mcp", "cloudflare", "crypto
 keywords: ["x402 protocol", "AI agent payments", "HTTP 402 payment", "x402 MCP server", "Cloudflare pay per crawl"]
 image: /images/posts/x402-protocol-ai-payments.jpg
 image_alt: "AI agent making a digital payment through an API endpoint with HTTP status codes and data streams"
+faq:
+  - q: "What is the x402 protocol?"
+    a: "x402 is an open payment protocol that uses the HTTP 402 Payment Required status code to enable instant stablecoin payments for API calls and web resources. When a client requests a paid resource, the server returns 402 with pricing details. The client pays in USDC on Base, Polygon, or Solana and retries with cryptographic payment proof. The protocol charges zero fees and is governed by the Linux Foundation as of April 2026."
+  - q: "How is x402 different from Cloudflare Pay Per Crawl?"
+    a: "x402 is a general-purpose protocol for any HTTP server using on-chain stablecoin settlement. Cloudflare Pay Per Crawl is a CDN-specific product using fiat billing where Cloudflare acts as merchant of record. Pay Per Crawl targets AI crawler monetization, while x402 works for any API or MCP server. You can use both simultaneously."
+  - q: "Can I add x402 payments to my MCP server?"
+    a: "Yes. Coinbase provides x402 middleware for Express, Next.js, and Cloudflare Workers. The x402-axios library handles the client side automatically — when your MCP server calls a paid API and receives a 402, the library signs a payment and retries. Vercel has published an x402 AI Starter template you can deploy in minutes."
+  - q: "What is Google's AP2 protocol?"
+    a: "AP2 (Agent Payments Protocol) is Google's open protocol for AI agent commerce focused on e-commerce rather than API payments. It uses verifiable digital credentials for purchase authorization with 60+ global partners including Mastercard and PayPal. Google expanded AP2 into the Universal Commerce Protocol (UCP) integrating with MCP and A2A."
+  - q: "How does x402 compare to L402 Lightning payments?"
+    a: "x402 uses stablecoins (USDC) on EVM chains and Solana, avoiding crypto price volatility. L402 uses Bitcoin Lightning Network with near-instant settlement and no facilitator needed. x402 has broader enterprise adoption (119M+ transactions, Linux Foundation governance) while L402 is more decentralized."
+  - q: "How much does x402 cost to integrate?"
+    a: "The protocol charges zero fees. Coinbase's hosted facilitator offers 1,000 free verifications per month. Beyond that, costs are standard blockchain transaction fees — on Base typically under $0.01 per transaction. All middleware libraries are open-source under Apache 2.0."
 ---
 
 The x402 protocol turns the long-dormant HTTP 402 "Payment Required" status code into an actual payment layer for the web. An AI agent hits your API, gets a 402 response with a price tag, pays in USDC, and retries — all without human intervention. Since Coinbase open-sourced x402 in May 2025, the protocol has processed over 119 million transactions on Base and 35 million on Solana, handling roughly $600 million in annualized volume. On April 2, 2026, x402 joined the Linux Foundation with Google, AWS, Microsoft, Stripe, Visa, Mastercard, and 20+ other founding members.
@@ -123,78 +136,3 @@ If you want a working implementation to clone, Vercel published an x402 AI Start
 The honest read from where I'm standing: I already run a pay-per-call business. Every Yelp business profile my actor returns bills $0.004; every Google place returned bills $0.10 or $0.25. The pricing logic, the per-event taxonomy, the "agents-can-meter-themselves" affordance — that's already shipped, just inside Apify's centralized rail. x402 is the same model with the platform layer dissolved into HTTP and on-chain settlement.
 
 What I'm not doing yet is wrapping my own x402 endpoint. The first paying users on both actors are humans on paid Apify plans, not autonomous agents, so the marginal value of running a parallel x402 surface today is mostly maintenance overhead. The trigger to add one is the agent-traffic signal in the run logs. When it shows up, the work is small — the event taxonomy already exists; only the rail changes. For the seller-side decision tree (which archetype you are, which wallet, what to charge), the [AWS Bedrock AgentCore Payments operator playbook](/posts/aws-bedrock-agentcore-payments-operator-playbook-2026/) is the sequel.
-
-## FAQ
-
-### What is the x402 protocol?
-
-x402 is an open payment protocol that uses the HTTP 402 "Payment Required" status code to enable instant stablecoin payments for API calls and web resources. When a client requests a paid resource, the server returns 402 with pricing details. The client pays in USDC on Base, Polygon, or Solana and retries the request with cryptographic payment proof. The protocol charges zero fees and is governed by the Linux Foundation as of April 2026.
-
-### How is x402 different from Cloudflare Pay Per Crawl?
-
-x402 is a general-purpose protocol that works with any HTTP server and settles payments in stablecoins on-chain. Cloudflare Pay Per Crawl is a product feature specific to Cloudflare's CDN that uses fiat billing — Cloudflare handles the money as merchant of record. Pay Per Crawl targets AI crawler monetization specifically, while x402 works for any API or MCP server. You can use both simultaneously.
-
-### Can I add x402 payments to my MCP server?
-
-Yes. Coinbase provides x402 middleware for Express, Next.js, and Cloudflare Workers. The `x402-axios` library handles the client side automatically — when your MCP server calls a paid external API and gets a 402 response, the library signs a payment and retries without manual intervention. Vercel has published an x402 AI Starter template you can deploy in minutes.
-
-### How does x402 compare to L402 Lightning payments?
-
-x402 uses stablecoins (USDC) on EVM chains and Solana, avoiding crypto price volatility. L402 uses Bitcoin Lightning Network with near-instant settlement and no facilitator requirement. x402 has broader enterprise adoption (119M+ transactions, Linux Foundation governance) while L402 is more decentralized. The choice depends on your ecosystem — x402 for stablecoin-native apps, L402 for Bitcoin-native environments.
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the x402 protocol?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "x402 is an open payment protocol that uses the HTTP 402 Payment Required status code to enable instant stablecoin payments for API calls and web resources. When a client requests a paid resource, the server returns 402 with pricing details. The client pays in USDC on Base, Polygon, or Solana and retries with cryptographic payment proof. The protocol charges zero fees and is governed by the Linux Foundation as of April 2026."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is x402 different from Cloudflare Pay Per Crawl?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "x402 is a general-purpose protocol for any HTTP server using on-chain stablecoin settlement. Cloudflare Pay Per Crawl is a CDN-specific product using fiat billing where Cloudflare acts as merchant of record. Pay Per Crawl targets AI crawler monetization, while x402 works for any API or MCP server. You can use both simultaneously."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I add x402 payments to my MCP server?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Coinbase provides x402 middleware for Express, Next.js, and Cloudflare Workers. The x402-axios library handles the client side automatically — when your MCP server calls a paid API and receives a 402, the library signs a payment and retries. Vercel has published an x402 AI Starter template you can deploy in minutes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is Google's AP2 protocol?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "AP2 (Agent Payments Protocol) is Google's open protocol for AI agent commerce focused on e-commerce rather than API payments. It uses verifiable digital credentials for purchase authorization with 60+ global partners including Mastercard and PayPal. Google expanded AP2 into the Universal Commerce Protocol (UCP) integrating with MCP and A2A."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does x402 compare to L402 Lightning payments?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "x402 uses stablecoins (USDC) on EVM chains and Solana, avoiding crypto price volatility. L402 uses Bitcoin Lightning Network with near-instant settlement and no facilitator needed. x402 has broader enterprise adoption (119M+ transactions, Linux Foundation governance) while L402 is more decentralized."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much does x402 cost to integrate?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The protocol charges zero fees. Coinbase's hosted facilitator offers 1,000 free verifications per month. Beyond that, costs are standard blockchain transaction fees — on Base typically under $0.01 per transaction. All middleware libraries are open-source under Apache 2.0."
-      }
-    }
-  ]
-}
-</script>

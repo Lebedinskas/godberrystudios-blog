@@ -6,6 +6,17 @@ categories: ["AI Automation"]
 tags: ["ai", "automation", "business", "productivity", "tools", "no-code", "2026"]
 image: /images/posts/automate-business-tasks-ai.jpg
 image_alt: "AI automation illustration showing a robotic hand managing business tasks on a holographic interface"
+faq:
+  - q: "Which of the 10 tasks should I automate first?"
+    a: "Lead capture and qualification. It sits closest to revenue, AI cuts cost-per-lead 40-60%, and every hour of follow-up delay hurts conversion. The framework says automate daily 30-minute tasks with clear inputs and outputs first — lead capture fits all three and pays back fastest."
+  - q: "What does a full automation stack actually cost per month?"
+    a: "Rarely more than $200/month for a comprehensive stack, and most tools here have free tiers — MailerLite, Buffer, Tidio, Otter.ai, Calendly, Looker Studio. Set against 20 hours a week of manual work at $50/hour, that is $2,400/year to save roughly $52,000 in time."
+  - q: "Is it safe to automate hiring and recruitment with AI?"
+    a: "Partly. AI resume screening cuts time-to-shortlist 75%, but the EU AI Act classifies recruitment AI as high-risk, with rules applying from August 2, 2026. Human oversight is mandatory — AI recommends, humans decide. Never fully automate decisions about people; the framework lists that as automate-last."
+  - q: "Will AI bookkeeping replace my accountant?"
+    a: "No. Tools like Booke.ai or QuickBooks Intuit Assist process the bank feed and categorize transactions daily, dropping monthly bookkeeping from 4-8 hours to about 30 minutes of review. Accuracy exceeds 95% after a month of learning your patterns, but you still review and an accountant still handles judgment calls."
+  - q: "Do I need coding skills to set any of this up?"
+    a: "No. Every tool listed is no-code. Most chatbots build themselves from an uploaded FAQ document, meeting assistants connect in about 5 minutes, and bookkeeping tools need 30 minutes to link bank accounts. Initial setup runs 1-4 hours per task, then the automation runs itself."
 ---
 
 There are 168 hours in a week. If you run a small business, at least 20 of those go to tasks that AI can already handle for you. Not next year — today, with tools that have free tiers and take an afternoon to set up.

@@ -7,6 +7,19 @@ categories: ["AI Automation"]
 tags: ["ai tools", "free", "software", "productivity", "business", "2026", "save money"]
 image: /images/posts/free-ai-tools-replace-software.jpg
 image_alt: "Premium software boxes being replaced by a wave of glowing free AI tool alternatives"
+faq:
+  - q: "Are these really free, or just free trials?"
+    a: "Every one of the 47 tools has a genuine free tier, not a 7-day trial. Limits apply — Make caps at 1,000 operations a month, Tidio at 50 AI conversations, ElevenLabs at 10,000 characters, Loom at 25 videos — but the core use case works at zero cost indefinitely on each one."
+  - q: "How much can I actually save by switching?"
+    a: "Replacing every paid tool on the list with its free alternative saves roughly 13,284 dollars a year — over 1,100 dollars a month. The biggest category is SEO and marketing at 3,636 dollars, since Google Search Console alone covers the basic features of Ahrefs at 99 dollars and SEMrush at 120 dollars a month."
+  - q: "When should I actually pay for the upgrade instead of staying free?"
+    a: "Upgrade when you consistently hit a usage cap, when your team outgrows the seat allowance, when a missing integration costs more in time than the subscription would in money, or when you have compliance needs — SOC 2, HIPAA, enterprise SSO — that free tiers do not carry."
+  - q: "Is it safe to put customer data into free AI tools?"
+    a: "Some free tools monetize through data, so check privacy policies before feeding them customer records. For sensitive work, default to self-hosted open source like n8n, Metabase, or Supabase, or local AI like LM Studio and Ollama, where no data leaves your machine."
+  - q: "Which free tools work without any cloud account at all?"
+    a: "LM Studio and Ollama run large language models entirely on your own hardware — no API keys, no limits, no data sharing. Ollama needs one command, ollama run llama3, to get a capable assistant. Photopea, Hemingway Editor, and n8n self-hosted also avoid handing data to a vendor cloud."
+  - q: "What does a complete $0 software stack look like?"
+    a: "A working solo stack: Claude and ChatGPT and Canva for content, Cloudflare Pages or Vercel for hosting, Tidio or Crisp for support, HubSpot for CRM, GA4 plus Search Console for analytics, n8n or Make for automation, Notion for project management, Calendly for scheduling. That replaces roughly 500 dollars a month of paid software."
 ---
 
 I run a one-person studio out of Lithuania — a Hugo blog on Cloudflare Pages, two scrapers on the Apify Store, a couple of MCP servers. Total monthly software spend is under $30, most of that the domain. Everything below is what I actually use or what I'd swap to if my current tool tripled in price tomorrow.

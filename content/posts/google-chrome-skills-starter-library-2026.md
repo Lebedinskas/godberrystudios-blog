@@ -9,6 +9,19 @@ tags: ["chrome skills", "gemini", "ai prompts", "productivity", "chrome", "workf
 keywords: ["Google Chrome Skills", "Chrome AI Skills guide", "Gemini Skills Chrome", "save AI prompts Chrome", "Chrome Skills tutorial", "how to use Chrome Skills", "Chrome Skills library"]
 image: /images/posts/google-chrome-skills-starter-library-2026.jpg
 image_alt: "Abstract editorial illustration of a Chrome browser window with a glowing slash-command prompt box and ten stacked prompt-card icons representing a Chrome Skills starter library"
+faq:
+  - q: "Does Chrome Skills cost anything?"
+    a: "No. Chrome Skills is free on desktop and ships pre-loaded with a library of more than 50 prebuilt Skills at chrome://skills/browse. You pick the Fast model for speed or Pro for quality on each Skill. There is no paid tier, no API, and no team plan as of April 2026."
+  - q: "Should I use a Chrome Skill or a Custom GPT?"
+    a: "Use a Skill when the work is on the page you are looking at — it triggers with a slash on any tab and can pull context from up to 10 open tabs. Use a Custom GPT or Claude Project when the work means answering from a file knowledge base you uploaded once. Skills cannot hold a file corpus."
+  - q: "Can Chrome Skills fill forms or click buttons for me?"
+    a: "No. Skills generate answers in the Gemini side panel only — they do not fill forms, click buttons, or automate UI actions. That is a different product, either a browsing agent or a real automation platform like n8n, Make, or Zapier. Skills is read-and-respond, not act."
+  - q: "Is Chrome Skills available on mobile?"
+    a: "No. As of April 2026 Skills is desktop only — Mac, Windows, or ChromeOS — with no iOS or Android version. It also requires Chrome's language set to English (US); any other language and the slash picker will not surface your Skills yet."
+  - q: "When should I move a task off Skills to a real scraper?"
+    a: "Graduate to a scraper or automation tool when you need to run the same prompt on hundreds of URLs, when the output must be deterministic for a report or database, or when the task runs on a schedule. A practical signal: if you run the same Skill more than 20 times a week, it is a real workflow."
+  - q: "Can I share a Chrome Skill with my team?"
+    a: "No. Skills are personal and sync only across your own signed-in Chrome desktop devices. You cannot export a Skill, send one to a colleague, or post one to a team library. A teammate who finds a useful prompt still has to paste it into Slack and have everyone save it manually."
 ---
 
 Google Chrome Skills, launched on April 14, 2026, let you save any Gemini prompt as a one-click workflow that runs on the page you're viewing, plus any other tabs you select. You trigger a saved Skill by typing `/` in the Gemini side panel. It is free on desktop, ships pre-loaded with a 50+ prompt library at `chrome://skills/browse`, and currently requires Chrome language set to English (US) on Mac, Windows, or ChromeOS.

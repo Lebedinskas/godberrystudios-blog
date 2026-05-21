@@ -9,6 +9,13 @@ tags: ["meta ads", "facebook ads", "instagram ads", "chatgpt", "claude", "mcp", 
 keywords: ["meta ads ai connectors", "meta ads chatgpt", "meta ads claude mcp", "manage meta ads from ai", "meta mcp server", "meta ads natural language", "meta ads ai agent", "meta ads ai connector setup"]
 image: /images/posts/meta-ads-ai-connectors-chatgpt-claude-2026.jpg
 image_alt: "Meta Ads AI Connectors hero — Meta logo connected to ChatGPT and Claude logos via MCP server, showing campaign management from natural-language AI agents"
+faq:
+  - q: "How much do Meta Ads AI Connectors cost?"
+    a: "Free during the open beta that launched April 29, 2026. Meta has not announced post-beta pricing. The official MCP server at mcp.facebook.com/ads and the @meta/ads-cli command-line tool are both included free. You still pay for whatever AI subscription you use to connect (Claude or ChatGPT)."
+  - q: "Will using AI connectors get my Meta ad account banned?"
+    a: "Not by itself, but Meta's automated enforcement in 2026 is aggressive and several advertisers reported account shutdowns shortly after enabling AI connectors. The pattern seems tied to rapid-fire write calls, not the connector itself. Stay read-only for the first 2-4 weeks and don't run multiple AI agents on the same account."
+  - q: "What permissions should I grant Meta Ads AI Connectors?"
+    a: "Grant only ads_read and business_management for the first two weeks. Those two scopes cover every reporting, diagnostic, and analysis prompt. Add ads_management only after the AI has behaved on your data for 14+ days. Add catalog_management only if you actively need ecommerce feed troubleshooting through chat."
 ---
 
 Meta opened its official MCP server to outside AI tools on April 29, 2026. Any advertiser with a Meta Business account can connect Claude Desktop or ChatGPT, paste one URL, sign in once, and start running their ad account in plain English — no developer app, no token, no app review. About five minutes of setup, and 29 tools come live the moment the OAuth handshake completes.
@@ -163,55 +170,8 @@ The prompts above only work because the AI has the live numbers. But the prompts
 
 For ecommerce that means structured product feed data, cross-channel pricing signals, and customer review intelligence pulled from outside Meta. For local businesses it means Google Business Profile review monitoring, competitor location intelligence, and lead enrichment — this is exactly the gap my own [Google Reviews](https://apify.com/godberry/google-reviews-scraper) and [Yelp](https://apify.com/godberry/yelp-scraper) scrapers were built to plug. The [AI local SEO stack benchmark](/posts/ai-local-seo-stack-merchynt-birdeye-podium-gohighlevel-nicejob-2026/) covers what survives a 30-day production test on the local-business side. The AI in your chat is the orchestrator; the data it reasons over has to come from somewhere. Most early adopters underestimate this and end up writing prompts that ask the connector for context it can never have.
 
-## FAQ
-
-**How much do Meta Ads AI Connectors cost?**
-
-Free during the open beta. Meta has not announced post-beta pricing. The official MCP server at `https://mcp.facebook.com/ads` and the `@meta/ads-cli` CLI are both included free. You'll still pay for whatever AI subscription you use to connect (Claude, ChatGPT). No commitment to a free tier post-GA, so factor a possible monthly fee into 6-month planning.
-
-**Will using AI connectors get my Meta ad account banned?**
-
-Not by itself, but Meta's [automated enforcement in 2026](https://www.jonloomer.com/ai-related-ad-account-shutdowns/) is aggressive and several advertisers reported account shutdowns shortly after enabling AI connectors. The pattern looks tied to suspicious-looking traffic (rapid-fire write calls, unusual edit cadences), not the connector itself. Stay read-only for the first 2-4 weeks, don't run multiple AI agents on the same account, and don't connect on a brand-new ad account with no spend history.
-
-**What permissions should I grant?**
-
-For the first two weeks, only `ads_read` and `business_management`. Those two cover every reporting, diagnostic, and analysis prompt above. Add `ads_management` only after you've seen the AI behave on your data for 14+ days. Add `catalog_management` only if you're an ecommerce seller who actually needs feed troubleshooting through chat.
-
 ## The pieces to build now
 
 The connector matters because it deletes the boring half of Meta Ads operations — the reporting and diagnostic seat-time most agencies were eating every week. It also rides the early-adopter risk curve where a real chunk of users will burn an ad account learning what not to do. Skip that curve: stay read-only for two weeks, build your prompt library from the eight templates above, and let the time savings cash out as more clients, more strategy time, or more sleep.
 
 The harder pieces are still on you. Which campaigns to launch, which audiences to test, which creative direction is worth a budget — none of that comes out of the connector. It accelerates the work around the work. The judgment is still yours.
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How much do Meta Ads AI Connectors cost?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Free during the open beta that launched April 29, 2026. Meta has not announced post-beta pricing. The official MCP server at mcp.facebook.com/ads and the @meta/ads-cli command-line tool are both included free. You still pay for whatever AI subscription you use to connect (Claude or ChatGPT)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Will using AI connectors get my Meta ad account banned?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Not by itself, but Meta's automated enforcement in 2026 is aggressive and several advertisers reported account shutdowns shortly after enabling AI connectors. The pattern seems tied to rapid-fire write calls, not the connector itself. Stay read-only for the first 2-4 weeks and don't run multiple AI agents on the same account."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What permissions should I grant Meta Ads AI Connectors?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Grant only ads_read and business_management for the first two weeks. Those two scopes cover every reporting, diagnostic, and analysis prompt. Add ads_management only after the AI has behaved on your data for 14+ days. Add catalog_management only if you actively need ecommerce feed troubleshooting through chat."
-      }
-    }
-  ]
-}
-</script>

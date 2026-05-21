@@ -8,6 +8,19 @@ tags: ["mcp", "security", "prompt injection", "tool poisoning", "oauth 2.1", "ow
 keywords: ["MCP security", "MCP tool poisoning", "MCP prompt injection", "secure MCP server", "OWASP MCP Top 10"]
 image: /images/posts/mcp-security-tool-poisoning.jpg
 image_alt: "Shield protecting a server rack from attack vectors like poisoned data streams and prompt injection"
+faq:
+  - q: "What is MCP tool poisoning?"
+    a: "Tool poisoning is an attack where malicious instructions are embedded in MCP tool descriptions or metadata. When an AI model reads these descriptions to decide how to use a tool, it follows the hidden instructions as if they were legitimate. Snyk found that 13.4% of publicly available MCP skills contain critical security issues, including tool poisoning payloads."
+  - q: "How many CVEs have been filed against MCP servers?"
+    a: "Over 30 CVEs were filed against MCP implementations between January and March 2026. The most severe, CVE-2026-5058 in aws-mcp-server, scored CVSS 9.8 — allowing remote code execution. By attack vector, 43% involve shell injection."
+  - q: "What is the OWASP MCP Top 10?"
+    a: "The OWASP MCP Top 10 is a standardized framework released in early 2026 identifying the most critical security risks specific to MCP-enabled systems, covering token mismanagement, privilege escalation, command injection, tool poisoning, supply chain attacks, shadow servers, context over-sharing, and insufficient authentication."
+  - q: "How do I scan my MCP server for vulnerabilities?"
+    a: "Two free open-source tools: Golf Scanner (Go CLI, discovers MCP configs across 7 IDEs, runs ~20 security checks) and Snyk Agent Scan (formerly mcp-scan, auto-discovers agent configs, scans 15+ risk categories). Both integrate into CI/CD pipelines."
+  - q: "Does the MCP spec require OAuth 2.1?"
+    a: "Yes. As of November 2025, the MCP specification mandates OAuth 2.1 with SHA-256 PKCE for all clients. Servers still using API keys or basic authentication are below the spec's required security baseline."
+  - q: "What is MCP sampling and why is it a security risk?"
+    a: "MCP sampling lets a server ask the client's LLM to generate text on its behalf, reversing normal request-response flow. Palo Alto Unit 42 showed this turns MCP servers from passive tools into active prompt authors, creating new prompt injection angles where compromised servers can inject prompts to exfiltrate data."
 ---
 
 Between January and March 2026, security researchers filed over 30 CVEs against Model Context Protocol implementations. One of them — CVE-2026-5058 in aws-mcp-server — scored a CVSS 9.8, meaning remote code execution through crafted input. If you're [running an MCP server in production](/posts/deploy-mcp-server-production/) right now, your attack surface is wider than you probably think.
@@ -106,83 +119,8 @@ Standard application monitoring misses MCP-specific attack patterns. Track three
 
 The defaults I shipped in [mcp-server-apify-starter](https://github.com/godberrystudios/mcp-server-apify-starter) (MIT) bake a slice of this in — strict input schemas with `additionalProperties: false`, idempotent charge keys so retries don't re-bill the caller, and a charge-on-success boundary so a failed tool can't quietly accumulate revenue. It's not a security framework. It's the minimum I needed before pointing a paid actor at the open internet.
 
-## FAQ
-
-### What is MCP tool poisoning?
-
-Malicious instructions embedded in MCP tool descriptions or metadata. The AI model reads the descriptions as trusted context and follows the hidden instructions as if they were legitimate. Snyk's ToxicSkills study found 13.4% of publicly available MCP skills contain critical security issues, including tool poisoning payloads.
-
-### What is the OWASP MCP Top 10?
-
-A standardized framework released in early 2026 covering token mismanagement, excessive privilege escalation, command injection, tool poisoning, supply chain attacks, shadow MCP servers, context over-sharing, and insufficient authentication. Modeled on the OWASP Top 10 for web applications but addressing MCP-specific attack classes.
-
-### Does the MCP spec require OAuth 2.1?
-
-Yes. The November 2025 revision mandates OAuth 2.1 with SHA-256 PKCE for all clients — plain PKCE must not be accepted. Servers still on API keys or basic auth are below the spec's required security baseline.
-
-### What is MCP sampling and why is it a security risk?
-
-Sampling lets a server ask the client's LLM to generate text on its behalf, reversing the normal request-response flow. Palo Alto Unit 42 showed this turns MCP servers from passive tools into active prompt authors. A compromised server can use sampling to inject prompts that instruct the model to exfiltrate data or call additional tools without the user's knowledge.
-
 ## Where to start
 
 Pick the two controls that change the slope of your risk: strict input schemas on every tool handler (`additionalProperties: false`, regex constraints, enums where they fit) and a default-deny egress network policy around the container. Those two cover most of what the CVEs from January to March 2026 exploited. Everything else in this post is incremental on top of those.
 
 If you're shipping a paid MCP server, add one more — charge on success at the end of the tool handler, not at the top, with idempotent keys. Retries and partial failures will otherwise turn into a revenue leak the first time a popular agent loops your endpoint. That, more than any single CVE, is the failure mode that hits indie operators first. The [monetization playbook](/posts/how-to-monetize-mcp-servers-2026/) covers the billing side of the same boundary.
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is MCP tool poisoning?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Tool poisoning is an attack where malicious instructions are embedded in MCP tool descriptions or metadata. When an AI model reads these descriptions to decide how to use a tool, it follows the hidden instructions as if they were legitimate. Snyk found that 13.4% of publicly available MCP skills contain critical security issues, including tool poisoning payloads."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many CVEs have been filed against MCP servers?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Over 30 CVEs were filed against MCP implementations between January and March 2026. The most severe, CVE-2026-5058 in aws-mcp-server, scored CVSS 9.8 — allowing remote code execution. By attack vector, 43% involve shell injection."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the OWASP MCP Top 10?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The OWASP MCP Top 10 is a standardized framework released in early 2026 identifying the most critical security risks specific to MCP-enabled systems, covering token mismanagement, privilege escalation, command injection, tool poisoning, supply chain attacks, shadow servers, context over-sharing, and insufficient authentication."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I scan my MCP server for vulnerabilities?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Two free open-source tools: Golf Scanner (Go CLI, discovers MCP configs across 7 IDEs, runs ~20 security checks) and Snyk Agent Scan (formerly mcp-scan, auto-discovers agent configs, scans 15+ risk categories). Both integrate into CI/CD pipelines."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does the MCP spec require OAuth 2.1?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. As of November 2025, the MCP specification mandates OAuth 2.1 with SHA-256 PKCE for all clients. Servers still using API keys or basic authentication are below the spec's required security baseline."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is MCP sampling and why is it a security risk?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "MCP sampling lets a server ask the client's LLM to generate text on its behalf, reversing normal request-response flow. Palo Alto Unit 42 showed this turns MCP servers from passive tools into active prompt authors, creating new prompt injection angles where compromised servers can inject prompts to exfiltrate data."
-      }
-    }
-  ]
-}
-</script>

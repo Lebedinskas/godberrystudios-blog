@@ -7,7 +7,20 @@ tags: ["google maps", "lead generation", "web scraping", "b2b leads", "data extr
 image: /images/posts/google-maps-lead-generation.jpg
 image_alt: "Digital city map with business pins lighting up and data streams flowing into a lead generation dashboard"
 affiliate_links: true
-# Quality scores (Phase 4): Value: 8/10, Originality: 7/10, Readability: 8/10, Voice: 8/10, SEO: 8/10 → Weighted: 7.8/10 — PUBLISH
+faq:
+  - q: "How many leads can I scrape from Google Maps per day?"
+    a: "With a managed tool on Apify, thousands — the platform handles proxies and rate-limiting for you. A DIY Python script should stay under 1,000 listings per session to avoid IP blocks. The official Google Places API caps text search at 60 results per query, so it is the slowest of the three."
+  - q: "Is it legal to cold email leads I scraped from Google Maps?"
+    a: "In the US, CAN-SPAM requires an unsubscribe link and your physical address but no prior consent for B2B email. In the EU, the ePrivacy Directive and GDPR are stricter — many countries require prior consent or a documented legitimate interest. Check the rules for the specific country you are emailing into."
+  - q: "How do I find email addresses if Google Maps only gives phone and website?"
+    a: "Use an email finder like Hunter.io, Apollo, or Snov.io — feed in the business domain and they return verified addresses for people at that company. Alternatively, scrape the business website's About or Contact page directly to pull names and emails yourself."
+  - q: "Which niche works best for Google Maps lead generation?"
+    a: "Local services with low online sophistication: HVAC, plumbing, dental offices, legal practices, auto repair, restaurants, real estate agencies. These businesses need marketing help, are reachable, and are not hidden behind corporate gatekeepers. A 3.2-star place with 12 reviews is a far better lead than a 4.9-star one with 2,000."
+  - q: "Should I build a Python scraper or use a no-code tool?"
+    a: "For most lead generation, a managed no-code tool wins — 5-minute setup, no maintenance, scales past 10K, roughly $4-10 per 1,000 leads. Build a Python scraper only when you need custom filtering, such as businesses without websites or places under 30 reviews. Expect high selector-maintenance overhead with DIY."
+  - q: "How often should I re-scrape my lead list?"
+    a: "Monthly for most niches. Businesses open and close, ratings shift, and stale data hurts outreach. Set up a scheduled scrape if your tool supports it. Re-scraping also lets you tag CRM entries by batch date so you can see which scrape sources actually convert over time."
+# Quality scores (Phase 4): Value: 8/10, Originality: 7/10, Readability: 8/10, Voice: 8/10, SEO: 8/10 → PUBLISH
 ---
 
 You need 500 plumbers in Dallas. Or 200 coffee shops in Berlin. Or every yoga studio in Melbourne with fewer than 50 Google reviews.
@@ -299,23 +312,6 @@ We've watched people spend entire weekends building slick automation pipelines f
 **Not tracking which scrapes convert.** Tag your CRM entries by source. After a month, you'll know that "HVAC companies in mid-size Texas cities" converts at 4% while "restaurants in New York" converts at 0.1%. Double down on what works.
 
 **Building before validating.** Don't spend 20 hours building an n8n workflow before you've manually emailed 30 leads from the niche. Validate the market first.
-
-## Frequently Asked Questions
-
-**How many leads can I scrape from Google Maps per day?**
-With a managed tool on Apify, thousands — the platform handles proxies and rate-limiting for you. With a DIY Python script, keep it under 1,000 per session to avoid IP blocks. With the official Google API, you're limited to 60 results per text search query.
-
-**Is it legal to cold email leads I scraped from Google Maps?**
-In the U.S., CAN-SPAM requires you to include an unsubscribe link and your physical address, but doesn't require prior consent for B2B email. In the EU, the ePrivacy Directive and GDPR make unsolicited B2B email more restricted — many EU countries require prior consent or at minimum a clear legitimate interest. Check the rules for your specific country.
-
-**How do I find email addresses if Google Maps only gives me phone and website?**
-Use an email finder tool like Hunter.io, Apollo, or Snov.io. Feed in the business domain, and they'll return verified email addresses for people at that company. Alternatively, scrape the business website's contact page.
-
-**What's the best niche for Google Maps lead generation?**
-Local services with low online sophistication: HVAC, plumbing, dental offices, legal practices, auto repair, restaurants, real estate agencies. These businesses need marketing help and are reachable — they're not hidden behind corporate gatekeepers.
-
-**How often should I re-scrape?**
-Monthly for most niches. Businesses open and close, ratings change, and you want fresh data for your outreach. Set up a scheduled scrape if your tool supports it.
 
 ## What to Do Next
 

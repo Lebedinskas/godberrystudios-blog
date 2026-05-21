@@ -10,6 +10,13 @@ keywords: ["Zoom Solopreneur 50", "AI tools for solopreneurs 2026", "best solopr
 image: /images/posts/zoom-solopreneur-50-ai-stack-teardown-2026.jpg
 image_alt: "Zoom Solopreneur 50 AI stack teardown hero — solo operator dashboard showing the 7-tool starter stack across 12 industries with cost-per-outcome math"
 affiliate_links: false
+faq:
+  - q: "What is the Zoom Solopreneur 50?"
+    a: "The Zoom Solopreneur 50 is an inaugural recognition and grant program announced May 4, 2026, honoring 50 AI-powered businesses of one across the United States. Zoom selected the list from nearly 3,000 applicants across 48 states and 400+ cities, awarding $30,000 to each of five top winners."
+  - q: "What AI tools do the Solopreneur 50 winners actually use?"
+    a: "The visible stack across named winners converges on seven categories: AI conversation capture, a workspace and light CRM, a workflow automation platform, scheduling, payments, email and nurture, and external structured data. Total monthly cost ranges from under $30 at early stage to under $800 at mature stage."
+  - q: "How much does a working solopreneur AI stack cost in 2026?"
+    a: "A functional solopreneur stack in 2026 runs roughly $20–$30/month at $5K monthly revenue, $120–$150/month at $15K monthly revenue, and $300–$800/month at $40K+ monthly revenue. The ratio across all three tiers stays below 2% of revenue."
 ---
 
 Zoom's inaugural Solopreneur 50 dropped on May 4, 2026 — fifty AI-powered businesses of one picked by an independent jury from nearly 3,000 applicants across 48 states and 400+ cities. Five winners walked away with $30,000 each. Every coverage piece so far is event recap. None tell you what tools the operators actually run, what the cost math looks like at $5K, $15K, or $40K monthly revenue, or how to copy the pattern. That's what this teardown does.
@@ -179,55 +186,6 @@ Three honest critiques worth flagging, because the Solopreneur 50 narrative is u
 
 **The "AI saves 20 hours a week" claim is averaged across self-reports.** Plausible for some categories, aspirational for others. A real test: track your own time for two weeks before adding any new tool. Then add the tool. Then track again. If it's not visibly five hours by week six, it's not the right tool for your workflow — even if it shows up in every Solopreneur 50 profile.
 
-## FAQ
-
-### What is the Zoom Solopreneur 50?
-
-The Zoom Solopreneur 50 is an inaugural recognition and grant program announced May 4, 2026, honoring 50 AI-powered businesses of one across the United States. Zoom selected the list from nearly 3,000 applicants across 48 states and 400+ cities, awarding $30,000 to each of five top winners — Cierra Gross (Worklution), Derek McCracken (The Owl's Nest), Dana Snyder (Positive Equation), Angela Morrison (Cakes by Angela Morrison), and a fifth honoree.
-
-### What AI tools do the Solopreneur 50 winners actually use?
-
-The visible stack across named winners converges on seven categories: AI conversation capture (Zoom AI Companion, Otter, Fathom), a workspace and light CRM (Notion or Coda), a workflow automation platform (Zapier, Make, or n8n), scheduling (Calendly or Cal.com), payments (Stripe), email and nurture (ConvertKit, Klaviyo, or MailerLite), and external structured data (Apify actors, Bright Data, niche APIs). Total monthly cost ranges from under $30 at early stage to under $800 at mature stage.
-
-### How much does a working solopreneur AI stack cost in 2026?
-
-A functional solopreneur stack in 2026 runs roughly $20–$30/month at $5K monthly revenue, $120–$150/month at $15K monthly revenue, and $300–$800/month at $40K+ monthly revenue. The ratio across all three tiers stays below 2% of revenue. If your stack spend exceeds 5% of revenue, you've over-bought tools or under-priced your service.
-
----
-
 The Solopreneur 50 is not a recipe. It's a snapshot of what's working for fifty specific people in one country at one moment. The fact that the stack converges on seven recognizable categories at every revenue tier is the real signal — under 2% of revenue on tooling, automation that under-fires on the relationship layer and over-fires on operations, and a data layer that nobody puts in the headline but every $15K+ operator quietly runs.
 
 If you're a few months in like I am, the move isn't to copy line by line. It's to pick the one layer of the seven where your current stack is weakest, fix that, and recheck the ratio. Solo businesses fail at the workflow layer way more often than they fail at the tool-selection layer — the tools are mostly solved.
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the Zoom Solopreneur 50?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The Zoom Solopreneur 50 is an inaugural recognition and grant program announced May 4, 2026, honoring 50 AI-powered businesses of one across the United States. Zoom selected the list from nearly 3,000 applicants across 48 states and 400+ cities, awarding $30,000 to each of five top winners."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What AI tools do the Solopreneur 50 winners actually use?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The visible stack across named winners converges on seven categories: AI conversation capture, a workspace and light CRM, a workflow automation platform, scheduling, payments, email and nurture, and external structured data. Total monthly cost ranges from under $30 at early stage to under $800 at mature stage."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much does a working solopreneur AI stack cost in 2026?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A functional solopreneur stack in 2026 runs roughly $20–$30/month at $5K monthly revenue, $120–$150/month at $15K monthly revenue, and $300–$800/month at $40K+ monthly revenue. The ratio across all three tiers stays below 2% of revenue."
-      }
-    }
-  ]
-}
-</script>

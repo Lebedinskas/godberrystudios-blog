@@ -7,6 +7,19 @@ categories: ["Guides"]
 tags: ["web scraping", "beginners", "data extraction", "automation", "apify", "tutorial", "playwright", "scrapy", "python"]
 image: /images/posts/web-scraping-beginners.jpg
 image_alt: "Friendly robot spider crawling a webpage and collecting data points into organized columns"
+faq:
+  - q: "Is web scraping legal?"
+    a: "Scraping publicly available data is legal in most jurisdictions — the 2022 US hiQ v. LinkedIn ruling affirmed it does not violate the Computer Fraud and Abuse Act. Scraping behind login walls, violating GDPR for personal data, or overwhelming servers with requests creates real legal exposure. Respect rate limits and use data responsibly."
+  - q: "Should I learn Python or JavaScript for scraping?"
+    a: "Python dominates — BeautifulSoup, Scrapy, and Playwright all have excellent Python support and a larger community. JavaScript with Crawlee and Puppeteer is a strong second, and is the better pick if you build on Apify since Crawlee is the recommended Actor framework. For most beginners, Python's simpler syntax wins."
+  - q: "Do I actually need to write code to scrape a website?"
+    a: "Not for most use cases. No-code platforms like Apify host 19,000-plus pre-built Actors that handle infrastructure, anti-bot evasion, and proxy rotation — you paste a URL and get JSON. Low-code tools like Octoparse cover custom sites. Code-based frameworks are only required when no pre-built tool fits your target."
+  - q: "How much does web scraping cost in 2026?"
+    a: "Pre-built tools on Apify range from free to a few cents per page — its free tier includes 5 dollars per month in credits. Custom scrapers cost developer time plus residential proxies at 5 to 15 dollars per GB. For most business use cases, a 50 to 100 dollar monthly budget covers significant volume."
+  - q: "Why does so much scraping now need a real browser?"
+    a: "Roughly 65 to 70 percent of scraping targets in 2026 require JavaScript rendering, up from about 40 percent five years ago. Social feeds, Google Maps, and React or Vue single-page apps load content after JavaScript runs, so HTTP-only tools see an empty shell. Browser-based tools like Playwright execute the JavaScript first."
+  - q: "When should I use an API instead of scraping?"
+    a: "Always prefer an official API when one exists — APIs return structured data in a documented format and are sanctioned. Scraping fills the gap when no API exists or the API is crippled, like Google's 5-review cap. Start with the API and fall back to scraping only when it does not provide what you need."
 ---
 
 Web scraping is the automated extraction of data from websites. You point a tool at a webpage, tell it what data you want, and it returns structured results — as JSON, CSV, or a database — instead of you manually copying and pasting. In 2026, businesses use web scraping for pricing intelligence, lead generation, market research, content aggregation, competitive analysis, and AI training data.
@@ -244,23 +257,3 @@ with sync_playwright() as p:
 **Week 4: Build something real.** Combine what you've learned into a scraper that solves a real problem for you or your business. Or build an Apify Actor using Crawlee and publish it on the store.
 
 If you're interested in how AI is changing the scraping and automation landscape — particularly the Model Context Protocol that connects AI assistants to tools like scrapers — see our [guide to deploying MCP servers in production](/posts/deploy-mcp-server-production/).
-
-## Frequently Asked Questions
-
-**Is web scraping legal?**
-Scraping publicly available data is legal in most jurisdictions. The US *hiQ v. LinkedIn* ruling (2022) affirmed this. However, scraping behind login walls, violating GDPR for personal data, or overwhelming servers with requests can create legal issues. Use the data responsibly and respect rate limits.
-
-**What's the best programming language for web scraping?**
-Python dominates — BeautifulSoup, Scrapy, and Playwright all have excellent Python support. JavaScript/Node.js is a strong second choice, especially with Crawlee and Puppeteer. For most beginners, Python's simpler syntax and larger community make it the better starting point.
-
-**How do I handle CAPTCHAs?**
-Use managed platforms that handle CAPTCHA solving automatically, or stealth browser tools (Nodriver, SeleniumBase UC Mode) that avoid triggering CAPTCHAs in the first place. Manual CAPTCHA solving services exist but add latency and cost ($2-3 per 1,000 CAPTCHAs).
-
-**How much does web scraping cost?**
-Pre-built tools on Apify range from free to a few cents per page. Custom scrapers cost developer time plus proxy services ($5-15/GB for residential proxies). For most business use cases, a $50-100/month budget covers significant scraping volume.
-
-**Can websites detect and block scrapers?**
-Yes. Modern anti-bot systems (Cloudflare, Akamai, DataDome) use TLS fingerprinting, JavaScript challenges, and behavioral analysis. The arms race is ongoing. Managed platforms stay ahead by continuously updating their evasion techniques. If building your own, budget ongoing maintenance time.
-
-**What's the difference between web scraping and using an API?**
-APIs are officially sanctioned data access points — they return structured data in a documented format. Web scraping extracts data from the visual webpage. APIs are always preferred when available, but many valuable data sources (reviews, prices, job listings) either don't have APIs or have APIs with severe limitations (like Google's 5-review cap). Scraping fills the gap.

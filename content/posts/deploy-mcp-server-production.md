@@ -8,6 +8,13 @@ tags: ["mcp", "deployment", "docker", "production", "devops", "ai agents", "moni
 image: /images/posts/deploy-mcp-server.jpg
 image_alt: "Rocket launching from a laptop into cloud infrastructure representing MCP server deployment to production"
 # Quality scores (Phase 4): Value: 8/10, Originality: 8/10, Readability: 8/10, Voice: 8/10, SEO: 8/10 → Weighted: 8.0/10 — PUBLISH
+faq:
+  - q: "Do I need Kubernetes for MCP servers?"
+    a: "For most use cases, no. Docker Compose on a single VPS handles surprising amounts of traffic. Kubernetes adds value when you're running 5+ servers, need auto-scaling, or have strict uptime requirements. Don't add orchestration complexity before you need it."
+  - q: "Should I use SSE or Streamable HTTP?"
+    a: "Streamable HTTP. The older HTTP+SSE transport still works, but Streamable HTTP is the current spec recommendation and has better client support. Simpler to deploy and works better behind load balancers."
+  - q: "How do I test MCP servers before deploying?"
+    a: "Use the MCP Inspector (npx @modelcontextprotocol/inspector) to call tools interactively and inspect responses. Write automated integration tests that call each tool with known inputs and verify output structure. Test with the Streamable HTTP transport, not STDIO — transport bugs only surface in the transport you actually use."
 ---
 
 You built an MCP server. It works on your laptop. Claude connects, tools fire, results come back. Ship it, right?
@@ -303,47 +310,3 @@ Trade-off: less infrastructure control, a platform fee. For revenue-generating s
 End-to-end sequence: tool logic working locally on STDIO → Streamable HTTP verified with the MCP Inspector → Dockerize (or skip to [mcp-server-apify-starter](https://github.com/godberrystudios/mcp-server-apify-starter) if Apify is your target) → real health checks → reverse proxy with TLS + rate limiting → metrics, logs, three alerts. No Kubernetes, no service mesh, no over-engineering.
 
 The MCP SDK crossed 164 million monthly downloads in April 2026 and the ecosystem is growing faster than production quality is. The developers who get deployment and reliability right now will own this space. Build something that stays alive, and bill the people calling it.
-
-## FAQ
-
-**Do I need Kubernetes for MCP servers?**
-For most use cases, no. Docker Compose on a single VPS handles surprising amounts of traffic. Kubernetes adds value when you're running 5+ servers, need auto-scaling, or have strict uptime requirements. Don't add orchestration complexity before you need it.
-
-**Should I use SSE or Streamable HTTP?**
-Streamable HTTP. The older HTTP+SSE transport still works, but Streamable HTTP is the current spec recommendation and has better client support. Simpler to deploy and works better behind load balancers.
-
-**How do I test MCP servers before deploying?**
-The MCP Inspector (`npx @modelcontextprotocol/inspector`) lets you call tools interactively and inspect responses. Write automated integration tests that call each tool with known inputs and verify output structure. Test with the Streamable HTTP transport — transport bugs only surface in the transport you actually use.
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Do I need Kubernetes for MCP servers?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For most use cases, no. Docker Compose on a single VPS handles surprising amounts of traffic. Kubernetes adds value when you're running 5+ servers, need auto-scaling, or have strict uptime requirements. Don't add orchestration complexity before you need it."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Should I use SSE or Streamable HTTP?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Streamable HTTP. The older HTTP+SSE transport still works, but Streamable HTTP is the current spec recommendation and has better client support. Simpler to deploy and works better behind load balancers."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I test MCP servers before deploying?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use the MCP Inspector (npx @modelcontextprotocol/inspector) to call tools interactively and inspect responses. Write automated integration tests that call each tool with known inputs and verify output structure. Test with the Streamable HTTP transport, not STDIO — transport bugs only surface in the transport you actually use."
-      }
-    }
-  ]
-}
-</script>

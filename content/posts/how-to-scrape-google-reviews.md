@@ -7,6 +7,19 @@ categories: ["Tutorials"]
 tags: ["google reviews", "web scraping", "no-code", "data extraction", "apify", "google places api", "sentiment analysis"]
 image: /images/posts/scrape-google-reviews.jpg
 image_alt: "Google Maps pin with star ratings flowing out as structured data cards for review extraction"
+faq:
+  - q: "How many reviews can I scrape per business?"
+    a: "With the Apify Google Reviews Scraper there is no artificial cap — you extract every available review. Google's official Places API returns a maximum of 5 reviews per place with no pagination option, which makes it useless for any serious trend or sentiment analysis."
+  - q: "What format is the output?"
+    a: "Structured JSON by default, with fields for author name, star rating, full review text, relative and absolute date, owner response, and detected review language. You can also export directly from Apify as CSV or Excel, so the data plugs straight into spreadsheets or ML pipelines."
+  - q: "Does this work for businesses outside the US?"
+    a: "Yes. The scraper has been validated across 9 countries — US, UK, Japan, Germany, Brazil, Australia, UAE, South Korea, and Lithuania. Multi-language reviews are extracted with the original text preserved, so a German or Korean review comes back intact rather than translated or dropped."
+  - q: "What about Google's February 2026 limited view change?"
+    a: "Google added a limited view for non-logged users on direct place URLs in February 2026. Managed scrapers handle it automatically via search-based navigation. A custom scraper must navigate through Google Maps search results instead of direct URLs, or it returns thinner data than expected."
+  - q: "How often should I scrape reviews?"
+    a: "It depends on the use case. Weekly is usually enough for reputation monitoring; monthly works well for competitive intelligence. Daily runs are possible for real-time alerts, but most businesses do not generate reviews fast enough to justify the cost. Monitoring 5 competitors weekly costs about $2.00 a month."
+  - q: "Can I scrape reviews for my own business?"
+    a: "Yes, and it is the most legally defensible use case — you are extracting your own customer feedback for analysis. Publicly available reviews are generally fair game under the 2022 hiQ Labs v. LinkedIn ruling, but your own data carries no ambiguity at all."
 ---
 
 Scraping Google reviews lets you extract structured review data — author names, star ratings, review text, dates, and response status — from any Google Maps listing, without manually copying anything. Businesses use this data for reputation monitoring, competitor analysis, sentiment tracking, and lead generation. The most affordable no-code method costs about $0.10 per place (up to 50 reviews), compared to $0.02–0.025 per API call through Google's official Places API.
@@ -193,26 +206,6 @@ Publicly available Google reviews are generally considered fair game for data ex
 - **Google's ToS** — Google's terms technically prohibit scraping, but enforcement is primarily through technical measures (CAPTCHAs, rate limiting) rather than legal action against individual users
 
 When in doubt, use established platforms like Apify that handle rate limiting and ethical scraping practices for you. Developers who are thinking about publishing their own scrapers on the store should also read the [Apify pay-per-event migration playbook](/posts/apify-pay-per-event-migration-playbook-2026/) — the pricing model changed in 2026 and every actor needs to migrate before October 1.
-
-## Frequently Asked Questions
-
-**How many reviews can I scrape per business?**
-With the Apify scraper, you can extract all available reviews — there's no artificial cap. Google's official API, by contrast, returns a maximum of 5 reviews per place with no pagination option.
-
-**What format is the output?**
-Structured JSON by default, with fields for author name, rating, review text, date, owner response, and review language. You can also export as CSV or Excel directly from Apify.
-
-**Does this work for businesses outside the US?**
-Yes. The scraper has been validated across 9 countries including the US, UK, Japan, Germany, Brazil, Australia, UAE, South Korea, and Lithuania. Multi-language reviews are extracted with the original text preserved.
-
-**What about Google's February 2026 "limited view" change?**
-Google implemented a "limited view" for non-logged users on direct place URLs in February 2026. Managed scrapers handle this automatically via search-based navigation. If you're building a custom scraper, you'll need to adapt your approach — navigating through Google Maps search results rather than direct URLs. The [deep dive on Google Maps limited view](/posts/google-maps-limited-view-scraping-2026/) covers detection code, three bypass methods, and a pricing comparison for reviews extraction tools.
-
-**How often should I scrape reviews?**
-Depends on your use case. For reputation monitoring, weekly is usually sufficient. For competitive intelligence, monthly works well. For real-time alerts, daily runs are possible but most businesses don't generate reviews fast enough to justify the cost.
-
-**Can I scrape reviews for my own business?**
-Absolutely — and this is the most defensible use case legally. You're extracting your own customer feedback for analysis.
 
 ## Get Started
 

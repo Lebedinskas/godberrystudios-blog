@@ -7,6 +7,19 @@ tags: ["webmcp", "chrome", "ai agents", "mcp", "web scraping", "browser automati
 image: /images/posts/webmcp-chrome-ai-agents.jpg
 image_alt: "Chrome browser with an AI brain inside extending robotic arms to interact with multiple websites simultaneously"
 # Quality scores (Phase 4): Value: 9/10, Originality: 8/10, Readability: 8/10, Voice: 8/10, SEO: 8/10 → Weighted: 8.3/10 — PUBLISH
+faq:
+  - q: "Is WebMCP the same as Anthropic's MCP protocol?"
+    a: "No. They share a conceptual lineage — both define structured tool interfaces for AI — but they are different specs. Anthropic's MCP runs server-side via JSON-RPC, connecting platforms like Claude to databases and APIs. WebMCP runs client-side in the browser via navigator.modelContext. They are complementary, and one site can implement both."
+  - q: "Which browsers support WebMCP right now?"
+    a: "Chrome 146 Canary behind a flag, and Edge 147 and up which added support in March 2026. For other browsers, the @mcp-b/global polyfill provides the navigator.modelContext API. Native, flag-free support across Chrome and Edge is expected in the second half of 2026."
+  - q: "Does WebMCP replace web scraping?"
+    a: "Not for most cases. WebMCP is opt-in — sites that never add toolname attributes or call registerTool are invisible to the standard, so existing scrapers for them keep working unchanged. For cooperating sites that adopt it, WebMCP removes the need to reverse-engineer their DOM. Traditional scraping continues everywhere else."
+  - q: "Can a WebMCP tool submit a form without my consent?"
+    a: "Only if the developer adds the toolautosubmit attribute to the form. Without it, the agent fills in the fields and waits for the user to review and click submit manually. Expect security and permission models around this to tighten as the W3C spec matures."
+  - q: "Will adopting WebMCP break my existing scrapers?"
+    a: "No. WebMCP adds a structured tool layer on top of existing HTML — it does not remove or change the underlying DOM. Your current selectors and scrapers keep running. You can choose to migrate to structured tool calls for better reliability, or keep your existing approach with no downside."
+  - q: "Why would a site bother adding WebMCP if it has no SERP benefit?"
+    a: "The same reason sites added schema.org markup in 2012 despite skepticism — early adopters compounded an advantage. Sites with commercial incentives, like e-commerce that wants agents to search and buy, gain agent-driven traffic. Adding toolname and tooldescription to a form you already have takes five minutes and costs nothing."
 ---
 
 Your AI agent is blind. It stares at a webpage the way a human stares at assembly code — it can technically parse what's there, but it has no idea what anything *means*.
@@ -277,30 +290,6 @@ That skepticism points to the real tension: WebMCP works best when site owners *
 My take: the skeptics are making the same mistake people made about schema.org markup in 2012. "Why would I add extra metadata just to help Google?" Because the sites that did got rich snippets, better CTR, and a compounding SEO advantage that lasted a decade. WebMCP will play out the same way. Sites that expose tools to agents will get more agent-driven traffic and transactions. Sites that don't will wonder why their competitors keep showing up in AI-powered shopping results.
 
 For developers, the pragmatic move is to start adding WebMCP to your own sites now while it's low-effort. If you control forms on a site, adding `toolname` and `tooldescription` takes five minutes and costs nothing. When browser agents start calling those tools — whether that's in six months or two years — you're already ahead.
-
-## FAQ
-
-**Is WebMCP the same as Anthropic's MCP protocol?**
-
-No. They share a conceptual lineage (both define structured tool interfaces for AI), but they're different specs for different contexts. MCP runs server-side via JSON-RPC. WebMCP runs client-side in the browser via `navigator.modelContext`. They're complementary — a site can implement both.
-
-**Which browsers support WebMCP right now?**
-
-Chrome 146 Canary (behind a flag) and Edge 147+. A polyfill (`@mcp-b/global`) provides support in other browsers. Native, flag-free support across Chrome and Edge is expected in the second half of 2026.
-
-**Does WebMCP replace web scraping?**
-
-Not for most cases. WebMCP is opt-in — sites that don't implement it are invisible to the standard. For cooperating sites that adopt it, WebMCP replaces the need to reverse-engineer their DOM. For everything else, traditional scraping continues as-is.
-
-**Can WebMCP tools auto-submit forms without user consent?**
-
-Only if the developer adds `toolautosubmit` to the form. Without it, the browser fills in the form fields and waits for the user to review and submit manually. Expect security and permission models around this to tighten as the spec matures.
-
-**What happens to my existing scrapers when sites adopt WebMCP?**
-
-Nothing — your scrapers keep working. WebMCP adds a structured layer on top of existing HTML. It doesn't remove or change the underlying DOM. You can choose to migrate to WebMCP tool calls for better reliability, or keep your existing approach.
-
----
 
 WebMCP isn't going to replace scraping overnight. Most of the web won't implement it for years, if ever. But for the sites that do adopt it, you stop fighting CSS selectors that break every Tuesday — and your agent's success rate jumps from "works most of the time" to 97.9%.
 

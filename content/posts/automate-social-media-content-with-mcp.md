@@ -7,6 +7,17 @@ categories: ["MCP", "Tutorials"]
 tags: ["social media", "automation", "mcp", "content creation", "ai", "apify", "content repurposing"]
 image: /images/posts/automate-social-media-mcp.jpg
 image_alt: "Blog post transforming into multiple social media posts through an automated content pipeline"
+faq:
+  - q: "Does this replace a social media manager?"
+    a: "No. It replaces the repetitive writing work, not the strategy, community management, or creative direction. Think of it as a drafting assistant that delivers about 80 percent of the work in 10 percent of the time. You still review, edit, and decide what to post across LinkedIn, Twitter/X, Facebook, and Instagram."
+  - q: "Can I customize the tone and style?"
+    a: "Yes. You can specify tone — professional, casual, or witty — plus target audience and platform preferences. When using Claude Desktop with the MCP server connected, you can iteratively refine the output in conversation, asking for a more casual LinkedIn version or a question at the end of a tweet."
+  - q: "What content formats work best as input?"
+    a: "Blog posts, articles, product descriptions, press releases, and changelogs all work well. The Content to Social MCP Server extracts key points regardless of input length. Very short inputs under 100 words produce less differentiated output across the four platforms, since there is less material to tailor."
+  - q: "Does it generate images or just text?"
+    a: "Currently text only, at about 0.07 dollars per transformation. For visual content, pair it with image generation tools or use your existing brand assets. Most social platforms prioritize text engagement anyway — LinkedIn posts without images often outperform image posts in reach."
+  - q: "How does this handle brand voice consistency?"
+    a: "The MCP server maintains consistent tone within a single transformation, and you can specify tone parameters. For strict brand guidelines, use the output as a first draft and apply your brand voice manually — still much faster than writing four platform-specific posts from scratch."
 ---
 
 The Model Context Protocol (MCP) lets you feed a URL or any text into an AI-connected tool and get back platform-specific social media posts for LinkedIn, Twitter/X, Facebook, and Instagram in seconds — not minutes. A single blog post becomes 4-7 tailored posts without manual rewriting. The cost is about $0.07 per transformation, compared to $0.10–$0.40+ per post from dedicated social media AI tools like Jasper or Copy.ai.
@@ -161,23 +172,6 @@ Traditional automation (n8n, Make.com, Zapier) is better for **repeatable pipeli
 For most content creators and marketers, the ideal setup combines both: MCP for the creative transformation, traditional automation for the scheduling and distribution.
 
 If you want to understand MCP more deeply — including how to build and deploy your own MCP servers — see our [production deployment guide](/posts/deploy-mcp-server-production/).
-
-## Frequently Asked Questions
-
-**Does this replace a social media manager?**
-No. It replaces the repetitive writing work, not the strategy, community management, or creative direction. Think of it as a drafting assistant that gives you 80% of the work done in 10% of the time. You still review, edit, and decide what to post.
-
-**Can I customize the tone and style?**
-Yes. You can specify tone (professional, casual, witty), target audience, and platform preferences. When using Claude Desktop, you can iteratively refine the output in conversation.
-
-**What content formats work best as input?**
-Blog posts, articles, product descriptions, press releases, and changelogs all work well. The tool extracts key points regardless of input length. Very short inputs (under 100 words) produce less differentiated output across platforms.
-
-**Does it generate images or just text?**
-Currently text only. For visual content, pair it with image generation tools or use your existing brand assets. Most social platforms prioritize text engagement anyway — LinkedIn posts without images often outperform image posts in reach.
-
-**How does this handle brand voice consistency?**
-The MCP server maintains consistent tone within a single transformation, and you can specify tone parameters. For strict brand guidelines, use the output as a first draft and apply your brand voice manually — which is still much faster than writing from scratch.
 
 ## Get Started
 

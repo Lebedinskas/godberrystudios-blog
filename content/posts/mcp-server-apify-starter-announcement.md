@@ -7,6 +7,17 @@ tags: ["mcp", "apify", "pay per event", "starter kit", "open source", "typescrip
 keywords: ["mcp server starter", "mcp server boilerplate", "apify mcp server", "pay per use mcp", "mcp typescript starter", "remote mcp server"]
 image: /images/posts/mcp-server-apify-starter-announcement.jpg
 image_alt: "Diagram showing an MCP client calling a remote MCP server hosted on Apify with pay-per-event billing wired in"
+faq:
+  - q: "Should I use this starter or the Vercel + Stripe pattern?"
+    a: "Use this Apify starter if you want the fastest path to a first paying customer — the billing rail and Store distribution are already there, no Stripe account or webhook reconciliation. A separate Vercel + Stripe (or x402) starter is planned in two or three weeks for developers who need full control and accept more setup."
+  - q: "Why charge before running the expensive work instead of after?"
+    a: "Flip the order and you hand free compute to users whose billing failed — a silent leak on anything calling a paid upstream API like Anthropic. The starter calls chargeEvent first; it throws if the account cannot pay, so the expensive call never runs."
+  - q: "Do callers need an Apify account to use my MCP server?"
+    a: "Yes. Distribution runs through the Apify Store, and users authenticate with their own Apify API token passed as a bearer header. Any client speaking Streamable HTTP — Claude Desktop, Claude Code, Cursor, Cline, custom agents — can call it. Apify bills that caller's account directly."
+  - q: "What does the starter deliberately leave out?"
+    a: "It is not a general-purpose MCP SDK, not a Stripe or x402 integration, and not an agent framework. It uses Apify's built-in billing because that is the fastest path to paying customers. For full control, use the official TypeScript SDK directly and host anywhere you like."
+  - q: "Why does every paid tool need a free neighbor?"
+    a: "Cheap reads build trust before money changes hands. If an agent can call extract-preview before paying for transform, or validate before submit, friction drops and conversion rises. The starter ships word-count as the free example and summarize-text as the paid one so you see both patterns at once."
 ---
 
 Every Model Context Protocol tutorial ends the same way: you get a `stdio` server running on localhost, the Inspector turns green, and the author waves you off toward production. The gap between that demo and a server you can charge for is the whole job — transport, hosting, billing, distribution. We spent a month closing that gap for our own products. Today we're open-sourcing the result as **[mcp-server-apify-starter](https://github.com/godberrystudios/mcp-server-apify-starter)**, MIT licensed, on the Godberry Studios GitHub org.
