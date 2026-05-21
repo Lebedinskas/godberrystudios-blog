@@ -14,12 +14,16 @@
 {{ end }}
 <section class="posts-list">
   <div class="container">
+    {{ if and .Content (eq .Kind "term") }}
+    <h2 class="list-section-heading">Latest in {{ .Title }}</h2>
+    {{ end }}
     <div class="posts-grid">
       {{ range .Pages }}
+      {{ $post := . }}
       <article class="post-card">
         {{ with .Params.image }}
-        <a href="{{ $.RelPermalink }}" class="post-card-thumb">
-          <img src="{{ . }}" alt="{{ $.Params.image_alt | default $.Title }}" loading="lazy" width="800" height="450">
+        <a href="{{ $post.RelPermalink }}" class="post-card-thumb" aria-label="{{ $post.Title }}">
+          <img src="{{ . }}" alt="{{ $post.Params.image_alt | default $post.Title }}" loading="lazy" width="800" height="450">
         </a>
         {{ end }}
         <div class="post-card-body">

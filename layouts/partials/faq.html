@@ -12,10 +12,10 @@
 <section class="post-faq" aria-labelledby="faq-heading">
   <h2 id="faq-heading">Frequently asked questions</h2>
   <div class="faq-list">
-  {{- range . }}
-    <details class="faq-item">
-      <summary>{{ .q }}</summary>
-      <p class="faq-answer">{{ .a }}</p>
+  {{- range $i, $item := . }}
+    <details class="faq-item"{{ if eq $i 0 }} open{{ end }}>
+      <summary>{{ $item.q }}</summary>
+      <p class="faq-answer">{{ $item.a }}</p>
     </details>
   {{- end }}
   </div>

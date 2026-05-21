@@ -1510,6 +1510,16 @@ a.post-author:hover .author-name { color: var(--accent); }
 .page-intro .post-content {
   font-size: 16px;
 }
+.list-section-heading {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin: 0 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
 
 /* === FAQ === */
 .post-faq {
