@@ -10,3 +10,11 @@ author: Tomas Lebedinskas
 ---
 
 {{ .RawContent | safeHTML }}
+{{- with .Params.faq }}
+
+## Frequently asked questions
+{{ range . }}
+### {{ .q | safeHTML }}
+
+{{ .a | safeHTML }}
+{{ end }}{{- end }}

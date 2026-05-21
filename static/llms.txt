@@ -27,5 +27,6 @@
 ## Contact
 
 - Email: hello@godberrystudios.com
+- LinkedIn: https://www.linkedin.com/in/tomas-lebedinskas-446103196/
 - GitHub org: https://github.com/godberrystudios
 - Apify store: https://apify.com/godberry

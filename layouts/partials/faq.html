@@ -1,0 +1,30 @@
+{{- /*
+  Frontmatter-driven FAQ. Add to any post:
+
+    faq:
+      - q: "Question in plain text?"
+        a: "Answer, 40-60 words, plain text, naming a specific number/date/tool."
+
+  Renders a visible <details> accordion AND valid FAQPage JSON-LD from the
+  same source — no hand-pasted <script> blocks, no drift between the two.
+*/ -}}
+{{- with .Params.faq -}}
+<section class="post-faq" aria-labelledby="faq-heading">
+  <h2 id="faq-heading">Frequently asked questions</h2>
+  <div class="faq-list">
+  {{- range . }}
+    <details class="faq-item">
+      <summary>{{ .q }}</summary>
+      <p class="faq-answer">{{ .a }}</p>
+    </details>
+  {{- end }}
+  </div>
+</section>
+{{- $items := slice -}}
+{{- range . -}}
+  {{- $items = $items | append (dict "@type" "Question" "name" .q "acceptedAnswer" (dict "@type" "Answer" "text" .a)) -}}
+{{- end -}}
+<script type="application/ld+json">
+{{ dict "@context" "https://schema.org" "@type" "FAQPage" "mainEntity" $items | jsonify (dict "indent" "  ") }}
+</script>
+{{- end -}}

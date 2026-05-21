@@ -1503,6 +1503,60 @@ a.post-author:hover .author-name { color: var(--accent); }
   line-height: 1.4;
 }
 
+/* === CATEGORY / LIST PAGE INTRO === */
+.page-intro {
+  padding: 8px 0 4px;
+}
+.page-intro .post-content {
+  font-size: 16px;
+}
+
+/* === FAQ === */
+.post-faq {
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+.post-faq h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.faq-item {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0 18px;
+}
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text);
+  padding: 16px 0;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  float: right;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-left: 12px;
+}
+.faq-item[open] summary::after { content: "\2212"; }
+.faq-item[open] summary { border-bottom: 1px solid var(--border); }
+.faq-answer {
+  margin: 14px 0 18px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
 /* === FOOTER === */
 .site-footer {
   background: var(--text);

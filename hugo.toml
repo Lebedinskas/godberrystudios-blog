@@ -15,6 +15,7 @@ googleAnalytics = "G-C98MN3XRGK"
   [params.social]
     facebook = "https://www.facebook.com/profile.php?id=61570965581596"
     facebookPageId = "61570965581596"
+    linkedin = "https://www.linkedin.com/in/tomas-lebedinskas-446103196/"
 
 [markup]
   [markup.highlight]

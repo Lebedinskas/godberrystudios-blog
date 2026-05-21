@@ -8,6 +8,15 @@ tags: ["aeo", "answer engine optimization", "generative search", "chatgpt seo", 
 keywords: ["answer engine optimization 2026", "get cited by ChatGPT", "AEO playbook 2026", "how to rank in AI search", "Perplexity SEO", "Google AI Overviews citations", "AEO strategy"]
 image: /images/posts/aeo-playbook-get-cited-by-ai-2026.jpg
 image_alt: "Editorial illustration of three AI answer engines — ChatGPT, Perplexity, and Google AI — pulling citations from a single blog, representing the 2026 answer engine optimization playbook"
+faq:
+  - q: "What is answer engine optimization?"
+    a: "Answer engine optimization is the practice of structuring content so AI answer engines like ChatGPT, Perplexity, and Google AI Overviews cite your site as a source. It overlaps with SEO but weights extractable answer blocks, schema markup, and verifiable author signals over backlinks and keyword density."
+  - q: "How is AEO different from SEO?"
+    a: "SEO optimizes for the click after a ranked result. AEO optimizes for being cited inside the AI-generated answer, often without a click. The structural work overlaps; the weighting is different — answer-first paragraphs and FAQ schema matter more than backlinks, and verifiable author identity matters more than anchor-text strategies."
+  - q: "How long does AEO take to show results?"
+    a: "Roughly 6–12 weeks for the first new citations after a serious rewrite of on-page structure. Off-page Reddit and Quora work can show up faster — 3–4 weeks — because those platforms get re-indexed often. Brand search volume effects lag further, 6–12 months."
+  - q: "Which engine should I optimize for first?"
+    a: "Optimize on-page once for all three. Then split off-page by audience. For B2B: Perplexity and LinkedIn. For consumer or developer topics: Reddit and Wikipedia-adjacent sources, which feeds ChatGPT and Google AI Overviews together."
 ---
 
 Getting cited by ChatGPT, Perplexity, and Google AI in 2026 comes down to four things: answer-first opening paragraphs of 40–60 words, FAQ and Article schema, unlinked brand mentions on Reddit and Quora, and a real author byline that links to a verifiable profile. Each engine weights those differently. This post sticks to what's actually known.
@@ -108,62 +117,3 @@ For an existing blog of 20–50 posts:
 **Week 4 — Off-page.** Pick two subreddits, answer five questions in each with real 300-word answers that link to one of your posts when it actually helps. Eight Quora answers. One long-form LinkedIn post summarizing one of your articles.
 
 The 8-week mark is where you'll see the first new citations if the on-page work was real. Citation graphs take 6–12 weeks to recompute, so anyone promising results in three weeks is selling you something.
-
-## FAQ
-
-### What is answer engine optimization?
-
-Answer engine optimization is the practice of structuring content so AI answer engines like ChatGPT, Perplexity, and Google AI Overviews cite your site as a source. It overlaps with SEO but weights extractable answer blocks, schema markup, and verifiable author signals over backlinks and keyword density.
-
-### How is AEO different from SEO?
-
-SEO optimizes for the click after a ranked result. AEO optimizes for being cited inside the AI-generated answer, often without a click. The structural work overlaps; the weighting is different — answer-first paragraphs and FAQ schema matter more than backlinks, and verifiable author identity matters more than anchor-text strategies.
-
-### How long does AEO take to show results?
-
-Roughly 6–12 weeks for the first new citations after a serious rewrite of on-page structure. Off-page Reddit and Quora work can show up faster — 3–4 weeks — because those platforms get re-indexed often. Brand search volume effects lag further, 6–12 months.
-
-### Which engine should I optimize for first?
-
-Optimize on-page once for all three. Then split off-page by audience. For B2B: Perplexity and LinkedIn. For consumer or developer topics: Reddit and Wikipedia-adjacent sources, which feeds ChatGPT and Google AI Overviews together.
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is answer engine optimization?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Answer engine optimization is the practice of structuring content so AI answer engines like ChatGPT, Perplexity, and Google AI Overviews cite your site as a source. It overlaps with SEO but weights extractable answer blocks, schema markup, and verifiable author signals over backlinks and keyword density."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is AEO different from SEO?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "SEO optimizes for the click after a ranked result. AEO optimizes for being cited inside the AI-generated answer, often without a click. The structural work overlaps; the weighting is different — answer-first paragraphs and FAQ schema matter more than backlinks, and verifiable author identity matters more than anchor-text strategies."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does AEO take to show results?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Roughly 6–12 weeks for the first new citations after a serious rewrite of on-page structure. Off-page Reddit and Quora work can show up faster — 3–4 weeks — because those platforms get re-indexed often. Brand search volume effects lag further, 6–12 months."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Which engine should I optimize for first?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Optimize on-page once for all three. Then split off-page by audience. For B2B: Perplexity and LinkedIn. For consumer or developer topics: Reddit and Wikipedia-adjacent sources, which feeds ChatGPT and Google AI Overviews together."
-      }
-    }
-  ]
-}
-</script>

@@ -83,6 +83,9 @@
 
   <div class="container container-narrow">
     {{ if $isBlogPost }}
+    <!-- FAQ (frontmatter-driven: visible accordion + FAQPage JSON-LD) -->
+    {{ partial "faq.html" . }}
+
     <!-- Product CTA -->
     <div class="studio-product-card">
       <h3>My tools on the Apify Store</h3>

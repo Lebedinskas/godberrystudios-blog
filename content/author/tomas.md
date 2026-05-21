@@ -25,6 +25,7 @@ Practitioner posts on the things actually being touched: MCP server design and m
 ## Where to find me
 
 - Email — [hello@godberrystudios.com](mailto:hello@godberrystudios.com)
+- LinkedIn — [Tomas Lebedinskas](https://www.linkedin.com/in/tomas-lebedinskas-446103196/)
 - GitHub — [@Lebedinskas](https://github.com/Lebedinskas) (personal) and [godberrystudios](https://github.com/godberrystudios) (org)
 - Apify Store — [apify.com/godberry](https://apify.com/godberry)
 - Facebook — [Godberry Studios](https://www.facebook.com/profile.php?id=61570965581596)
@@ -56,6 +57,7 @@ For partnership, press, or wholesale API access, email me directly.
     "Answer engine optimization"
   ],
   "sameAs": [
+    "https://www.linkedin.com/in/tomas-lebedinskas-446103196/",
     "https://github.com/Lebedinskas",
     "https://github.com/godberrystudios",
     "https://apify.com/godberry",

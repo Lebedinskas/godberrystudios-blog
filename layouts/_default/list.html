@@ -5,6 +5,13 @@
     {{ with .Description }}<p>{{ . }}</p>{{ end }}
   </div>
 </section>
+{{ with .Content }}
+<section class="page-intro">
+  <div class="container container-narrow">
+    <div class="post-content">{{ . }}</div>
+  </div>
+</section>
+{{ end }}
 <section class="posts-list">
   <div class="container">
     <div class="posts-grid">
