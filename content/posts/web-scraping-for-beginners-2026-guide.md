@@ -122,7 +122,7 @@ Modern websites actively defend against scrapers. Understanding these defenses h
 
 3. **Randomize behavior.** Add random delays between requests (1-5 seconds), scroll pages before extracting data, and vary your navigation patterns. Don't hit 100 pages per second from a single IP.
 
-4. **Monitor success rates — and the data itself.** Anti-bot systems update frequently. A scraper that works today might get blocked next week. Track your success rate per site and adjust when it drops below 90%. Watch more than the status code, too: a run can return HTTP 200 on every request and still be fed [decoy data that never came from your target](/posts/scraper-data-verification-cloudflare-decoy-200-ok-2026/).
+4. **Monitor success rates.** Anti-bot systems update frequently. A scraper that works today might get blocked next week. Track your success rate per site and adjust when it drops below 90%.
 
 **What doesn't work anymore:** Simple User-Agent rotation hasn't been sufficient since around 2022. Headers are necessary but nowhere near sufficient. Similarly, basic headless Chrome without fingerprint patching is detected by most Cloudflare-protected sites within a few requests.
 
