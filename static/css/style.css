@@ -1761,3 +1761,41 @@ a.post-author:hover .author-name { color: var(--accent); }
   .post-content a { color: #000; text-decoration: underline; }
   .post-content a::after { content: " (" attr(href) ")"; font-size: 0.8em; }
 }
+
+/* === APIFY RADAR FEATURE (homepage) === */
+.radar-feature { padding: 28px 0 4px; }
+.radar-feature-card {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  background: var(--accent-light);
+  border: 1px solid #D7D3FA;
+  border-radius: var(--radius);
+  padding: 26px 30px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.radar-feature-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+.radar-feature-mark { flex-shrink: 0; color: var(--accent); }
+.radar-feature-body { flex: 1; min-width: 0; }
+.radar-feature-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.radar-feature-body h2 { font-size: 23px; margin: 4px 0 5px; }
+.radar-feature-body p { margin: 0; color: var(--text-body); font-size: 15px; }
+.radar-feature-cta { flex-shrink: 0; white-space: nowrap; }
+@media (max-width: 640px) {
+  .radar-feature-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 22px;
+  }
+  .radar-feature-cta { width: 100%; }
+}
