@@ -1,19 +1,23 @@
 ---
-title: "Google Reviews Scraper — what 1,000 reviews actually costs and looks like"
-description: "Walkthrough: 1,000 Google Maps reviews from a single place, full text and ratings, exported to CSV in under 60 seconds for $0.25. The real output, the real cost, and three workflows worth wiring it into."
+title: "Google Reviews Scraper — what a Google Maps review actually costs and looks like"
+description: "Walkthrough with real numbers: the JSON one review returns, the realistic per-review cost, and three workflows worth wiring it into. Honest about what this small, new actor has delivered so far."
 date: 2026-05-08
 layout: single
 ---
 
-If you've spent any time pricing reputation-monitoring software, you already know the pattern: $99–$299/month for a dashboard that wraps the same Google Maps reviews you could read for free, with seat-based pricing that climbs the moment a second person logs in. The tools work. They are not cheap.
+## Why I built this
 
-This page is the opposite shape: one tool, pay-per-place, no seats, no dashboard. I built the [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) for my own AI pipelines first — to stop rewriting yet another scraper from scratch — and then put it on the [Apify Store](https://apify.com/godberry) for anyone who needs the same shape of output.
+If you've spent any time pricing reputation-monitoring software, you know the pattern: $99–$299/month for a dashboard that wraps the same Google Maps reviews you could read for free, with seat-based pricing that climbs the moment a second person logs in. The tools work. They are not cheap.
 
-This case study walks through exactly what the actor returns, what 1,000 reviews from one location actually costs, and three workflows worth wiring it into.
+Google's own answer isn't much better. The Places Details API returns at most 5 reviews per request, with truncated previews — useless for anyone who actually wants to read what customers said. I kept hitting that 5-review wall in my own AI pipelines and rewriting a one-off scraper each time.
+
+So I built the [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) to stop rewriting it — one tool, pay-per-place, no seats, no dashboard — and put it on the [Apify Store](https://apify.com/godberry) for anyone who needs the same shape of output.
+
+**Honest status, 2026-05-22.** This is a new, small product. First paid run was 2026-04-28. To date it has served **2 paying users**, delivered roughly **2,988 results**, and earned about **$3.16 gross** (~$1.52 net after Apify's cut). It is not a proven, mature product yet — it is an early one I'm building in the open. What follows is the real output, the real cost math, and three workflows it's designed for. The numbers below are what the actor does; the customer base is still small enough to count on one hand.
 
 ## What it returns — one place, one run
 
-Point the actor at any Google Maps business URL (or paste the business name) and it returns structured JSON for every review on the place's reviews tab. Here's the shape of one row from a real run against a high-volume restaurant in Vilnius:
+Point the actor at any Google Maps business URL (or paste the business name) and it returns structured JSON for every review on the place's reviews tab. Here's the shape of one review — an illustrative example modelled on a real run against a high-volume restaurant in Vilnius:
 
 ```json
 {
@@ -45,14 +49,14 @@ If you'd rather have a spreadsheet than JSON, set `flattenForSpreadsheet: true` 
 
 Flat fee per place, based on the size of the batch:
 
-| Batch size         | Price per place | Per-review cost at the top of the batch |
-| ------------------ | --------------- | --------------------------------------- |
-| Up to 50 reviews   | **$0.10**       | $0.002                                  |
-| 51 or more reviews | **$0.25**       | $0.0005 (at 500 reviews)                |
+| Batch size         | Price per place | What 1,000 reviews works out to              |
+| ------------------ | --------------- | -------------------------------------------- |
+| Up to 50 reviews   | **$0.10**       | a 60-review café ≈ **$1.67 / 1,000**         |
+| 51 or more reviews | **$0.25**       | a 500-review restaurant ≈ **$0.50 / 1,000**  |
 
-The flat-fee model is the part that surprises buyers. **A chain with 5,000 reviews costs $0.25 to scrape — the same as a coffee shop with 60 reviews.** That's $0.05 per 1,000 reviews at chain scale.
+The flat fee per place is the part that surprises buyers: a chain with 5,000 reviews costs the same $0.25 as a 60-review coffee shop. So the per-review price depends entirely on how many reviews the place has. At the realistic middle of the range — a few hundred reviews per place — you're paying somewhere around **$0.50–$1.70 per 1,000 reviews**. Only at the extreme (a 5,000-review giant at $0.25) does it drop near $0.05/1,000, and most places aren't that.
 
-For comparison: Google's official Places Details API charges around $17 per 1,000 review-fetch requests *and* only returns 5 reviews per request, with truncated previews. To get 1,000 full-text reviews via Google's official channel, you'd pay roughly $3.40 *and* still need to handle pagination across 200 API calls. This actor pulls 1,000 reviews for **as little as $0.05** at chain scale — up to **68× cheaper per review** with no API key, no GCP billing account, no quota approvals.
+For comparison: Google's official Places Details API charges around $17 per 1,000 review-fetch requests *and* returns only 5 truncated previews per request. Pulling 1,000 full-text reviews through Google's channel runs roughly $3.40 *and* still needs pagination across 200 API calls. So at typical place sizes this actor lands somewhere around **2–7× cheaper per review** — and at chain scale much more — with no API key, no GCP billing account, and no quota approvals. The honest framing isn't a single headline multiple; it's "cheaper, and the savings grow with the size of the place."
 
 ### Free Apify plan vs paid Apify plan
 
@@ -60,31 +64,31 @@ Free-plan Apify accounts can run the actor for evaluation — capped at **10 rev
 
 ## Three workflows worth wiring it into
 
-The actor is one moving part. The shape of the data — clean, structured, dated — is what makes it composable. Three patterns worth wiring it into:
+The actor is one moving part. The shape of the data — clean, structured, dated — is what makes it composable. Three patterns it's designed for:
 
-### 1. Local-SEO agency client reporting
+### 1. Weekly agency reporting
 
-You manage 50 client locations. Every Monday morning the client's account manager wants a one-pager: this week's average rating, new reviews, sentiment shift, owner-response rate, and any 1- or 2-star reviews that need a same-day response.
+A local-SEO agency reporting on 50 client locations needs the same one-pager every Monday: this week's average rating, new reviews, sentiment shift, owner-response rate, and any 1- or 2-star reviews that need a same-day response.
 
-**The wiring:** schedule the actor against your 50 place URLs every Monday at 7 AM. Pipe the dataset into Make.com or n8n. Compute the weekly delta against last week's snapshot. Render a Google Doc or PDF per client. Attach to email.
+**The wiring:** schedule the actor against the 50 place URLs every Monday at 7 AM. Pipe the dataset into Make.com or n8n, compute the weekly delta against last week's snapshot, render a Google Doc or PDF per client, attach to email.
 
-**The math:** 50 places × $0.25 (chain-tier) = **$12.50 per week, or $54/month** to feed the entire reporting pipeline. Less than the cost of a single Birdeye seat. The client's-side dashboard is a Google Doc you control, not a logo on someone else's product.
+**The math:** 50 places at the 51+ tier = 50 × $0.25 = **$12.50 per week, ~$54/month** to feed the whole pipeline. The deliverable is a Google Doc the agency controls, not a logo on someone else's dashboard.
 
-### 2. Investment due-diligence sentiment scan
+### 2. Acquisition due-diligence sentiment scan
 
-You're evaluating a target acquisition that has 8 retail locations. Part of the diligence package is a sentiment scan of the target's customer reviews — the kind of question that gets asked in week three of an LOI process and needs to be answered in two days.
+In an LOI process, a sentiment read on a target's customer reviews tends to get asked in week three and needs an answer in two days. Say the target has 8 retail locations.
 
-**The wiring:** one-shot run against the 8 location URLs. Pipe the dataset into a Claude or ChatGPT call with a sentiment-rubric prompt. Output a per-location scorecard plus a pulled-quote highlight reel of the strongest praises and complaints across the 5,000+ reviews you just pulled.
+**The wiring:** one-shot run against the 8 location URLs. Pipe the dataset into a Claude or ChatGPT call with a sentiment-rubric prompt. Output a per-location scorecard plus a pulled-quote highlight reel of the strongest praise and sharpest complaints.
 
-**The math:** 8 places × $0.25 = **$2.00 in scrape cost**, plus $5–$15 in LLM tokens depending on review volume. A complete reputation diligence read for under $20.
+**The math:** 8 places × $0.25 = **$2.00 in scrape cost**, plus $5–$15 in LLM tokens depending on review volume. A complete reputation read for under $20.
 
-### 3. Ongoing competitive-intelligence feed
+### 3. Monthly competitive-intelligence feed
 
-You compete with three regional chains. Each has 30–50 locations. You want to know — every month — whether your competitors are getting better or worse on customer satisfaction, and which specific stores are bleeding.
+Tracking three regional competitors — 30–50 locations each — month over month: are they getting better or worse on customer satisfaction, and which specific stores are bleeding?
 
-**The wiring:** schedule the actor against all three competitors' location URLs once a month. Push the dataset into a single warehouse table (Snowflake, BigQuery, Postgres, whatever you already pay for). Build one dashboard query: rolling 90-day average rating per chain per region, change-over-month per location, leading complaint topics surfaced via embedding clustering.
+**The wiring:** schedule the actor against all three competitors' location URLs once a month. Push the dataset into one warehouse table (Snowflake, BigQuery, Postgres — whatever's already paid for). One dashboard query gives rolling 90-day average rating per chain, change-over-month per location, and leading complaint topics via embedding clustering.
 
-**The math:** 3 chains × 40 locations × $0.25 × 12 months = **$144/year** to feed a competitive-intel dashboard you fully own. Cheaper than the corporate card you bought it on.
+**The math:** 3 chains × 40 locations × $0.25 × 12 months = **$144/year** for a competitive-intel feed fully under your control.
 
 ## What this actor is not
 
@@ -100,4 +104,4 @@ If it fits, [the full plan](https://apify.com/godberry/google-reviews-scraper) i
 
 ---
 
-*Tested across 9 countries (USA, UK, Germany, France, Italy, Spain, Japan, Australia, Russia, Czechia, Lithuania) and business types from 50-review cafés to 100K+ review chains. Source available on the [Apify Store listing](https://apify.com/godberry/google-reviews-scraper).*
+*Tested across 11 countries (USA, UK, Germany, France, Italy, Spain, Japan, Australia, Russia, Czechia, Lithuania) and business types from 50-review cafés to 100K+ review chains. Listed on the [Apify Store](https://apify.com/godberry/google-reviews-scraper).*

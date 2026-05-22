@@ -2,10 +2,10 @@
 title: "Byparr + Scrapling: The Open-Source Stack Replacing FlareSolverr for Cloudflare-Protected Scraping in 2026"
 description: "FlareSolverr was the default open-source Cloudflare bypass for three years and it's losing against 2026 Turnstile. Here's how Byparr (a Camoufox-backed drop-in replacement) and Scrapling (a three-fetcher Python framework) actually work, a six-site success matrix, and when you're better off just paying for a managed proxy or actor."
 date: 2026-04-24
-lastmod: 2026-05-18
+lastmod: 2026-05-22
 draft: false
 categories: ["Web Scraping", "Open Source", "Tutorial"]
-tags: ["byparr", "scrapling", "flaresolverr", "cloudflare bypass", "camoufox", "turnstile", "anti-bot", "python scraping", "web scraping"]
+tags: ["byparr", "scrapling", "cloudflare-bypass", "web-scraping"]
 keywords: ["Byparr tutorial", "Byparr vs FlareSolverr", "Scrapling tutorial", "Cloudflare bypass 2026 open source", "FlareSolverr alternative 2026", "StealthyFetcher example", "Camoufox FastAPI", "bypass Turnstile Python"]
 image: /images/posts/byparr-scrapling-flaresolverr-cloudflare-bypass-2026.jpg
 image_alt: "Editorial illustration on dark background showing a FlareSolverr shield cracking while two newer tools labeled Byparr and Scrapling route traffic around a Cloudflare Turnstile challenge, with blue and gold data streams representing successful requests"
@@ -13,7 +13,7 @@ faq:
   - q: "Is Byparr actually a drop-in replacement for FlareSolverr?"
     a: "Yes, for the v1 API. Point any existing FlareSolverr client at http://byparr-host:8191/v1 with the same JSON payload and it works unchanged. The underlying browser is different — Camoufox instead of undetected-chromedriver — but the HTTP contract is identical, so migrating a Prowlarr or Jackett config is a one-line base-URL swap."
   - q: "Why does Byparr use Camoufox instead of a patched Chrome?"
-    a: "Two reasons. Firefox has more public research behind fingerprint resistance — the Tor Project, Arkenfox, CreepJS. And Cloudflare's detection ML is trained heavier on Chromium signals, so a Firefox-based browser hardened at the C++ level slips past checks that flag a patched Chrome. Camoufox reports 0 percent detection across CreepJS, BotBrowser, and Fingerprint.com."
+    a: "Two reasons. Firefox has more public research behind fingerprint resistance — the Tor Project, Arkenfox, CreepJS. And Cloudflare's detection ML is trained heavier on Chromium signals, so a Firefox-based browser hardened at the C++ level slips past checks that flag a patched Chrome. Camoufox reports 0 percent detection across CreepJS, BrowserScan, and Fingerprint.com."
   - q: "Does Scrapling's solve_cloudflare actually work?"
     a: "It handles Turnstile and the Cloudflare Interstitial challenge on most sites, including five of the six in the test matrix. It will not solve hard CAPTCHAs — hCaptcha, Arkose, or adaptive reCAPTCHA v3 — which still need a paid solver like CapSolver or 2Captcha, or a managed platform that bundles one."
   - q: "Is the open-source stack slower than FlareSolverr?"
@@ -30,7 +30,7 @@ On the six-site test I ran this week, a Byparr-plus-Scrapling stack cleared ever
 
 FlareSolverr has been the "just use this" answer for three years — one Docker command, port 8191, done. It slots into Prowlarr, Jackett, and every scraping tutorial on YouTube, including [my beginner's guide](/posts/web-scraping-for-beginners-2026-guide/) from last year. If you've spent any time on r/webscraping this year you know the story: Turnstile challenges routinely 200-OK but return a blocked page, issues like [#1664](https://github.com/FlareSolverr/FlareSolverr/issues/1664) have a long tail of "same here," and Scrapfly's 2026 guide flags the behavioral-analysis problem front and center.
 
-Two tools from adjacent corners of the open-source world have quietly become the better answer: **Byparr**, a Camoufox-backed FastAPI server that speaks the FlareSolverr API, and **Scrapling v0.3**, a Python framework whose three fetcher classes cover the full range from TLS-impersonated HTTP to full-browser Playwright with a Cloudflare auto-solver. This post walks through both, benchmarks them on six real targets, and tells you honestly when open-source still wins and when you should buy managed.
+Two tools from adjacent corners of the open-source world have quietly become the better answer: **Byparr**, a Camoufox-backed FastAPI server that speaks the FlareSolverr API, and **Scrapling** (v0.4.8 as of May 2026), a Python framework whose three fetcher classes cover the full range from TLS-impersonated HTTP to full-browser Playwright with a Cloudflare auto-solver. This post walks through both, benchmarks them on six real targets, and tells you honestly when open-source still wins and when you should buy managed.
 
 ## Why FlareSolverr is losing in 2026
 
@@ -48,9 +48,9 @@ None of this makes FlareSolverr useless — it's still the fastest path to clear
 
 ## Byparr: the drop-in, Camoufox-backed replacement
 
-[Byparr](https://github.com/ThePhaseless/Byparr) is the work of a single developer (ThePhaseless). Pitch: same API as FlareSolverr, modern stealth underneath. The `v2.0.0` release swapped the browser from Selenium-plus-undetected-chromedriver to [Camoufox](https://camoufox.com/), a Firefox-based anti-detect browser that patches fingerprints in C++ rather than via JavaScript overrides. That C++-level patching is the part that matters — detection services can read the JS heap and notice the lies; they can't read the compiled binary.
+[Byparr](https://github.com/ThePhaseless/Byparr) is the work of a single developer (ThePhaseless). Pitch: same API as FlareSolverr, modern stealth underneath. The `v2.0.0` release swapped the browser from Selenium-plus-undetected-chromedriver to [Camoufox](https://camoufox.com/), a Firefox-based anti-detect browser that patches fingerprints in C++ rather than via JavaScript overrides. That C++-level patching is the part that matters — detection services can read the JS heap and notice the lies; they can't read the compiled binary. The current line is `v2.1.0` (February 2026), which added Python 3.14 support and per-request proxy overrides via `X-Proxy-*` headers.
 
-A few things to know about Camoufox. Firefox not Chrome, by design — more public research exists on Firefox fingerprint resistance (Tor Project, Arkenfox) and Cloudflare's detection ML is trained heavier on Chromium signals. Camoufox's docs report 0% detection across CreepJS, BotBrowser, and Fingerprint.com. Memory footprint ~200MB versus 400MB+ for stock Firefox. The project had a maintenance gap in 2025 and the 2026 release train is flagged experimental on the docs site, so read the release notes before pinning a version for production.
+A few things to know about Camoufox. Firefox not Chrome, by design — more public research exists on Firefox fingerprint resistance (Tor Project, Arkenfox) and Cloudflare's detection ML is trained heavier on Chromium signals. Camoufox's docs report 0% detection across CreepJS, BrowserScan, and Fingerprint.com. Memory footprint ~200MB versus 400MB+ for stock Firefox. The project had a maintenance gap in 2025 and the 2026 release train is flagged experimental on the docs site, so read the release notes before pinning a version for production.
 
 ### Install and run Byparr
 
@@ -101,26 +101,26 @@ What it doesn't fix: latency. A Camoufox instance takes 3–6 seconds to boot an
 
 ## Scrapling: the Python-native stack
 
-Byparr is a service. [Scrapling](https://github.com/D4Vinci/Scrapling) is a framework you import — the problem it solves is slightly different. For a Python scraper that needs one library to gracefully handle the range from "public JSON endpoint" to "TLS-impersonated HTTP" to "full browser with stealth patches and a Turnstile auto-solver," Scrapling v0.3 is the cleanest answer shipping in 2026.
+Byparr is a service. [Scrapling](https://github.com/D4Vinci/Scrapling) is a framework you import — the problem it solves is slightly different. For a Python scraper that needs one library to gracefully handle the range from "public JSON endpoint" to "TLS-impersonated HTTP" to "full browser with stealth patches and a Turnstile auto-solver," Scrapling — `v0.4.8` as of May 2026 — is the cleanest answer shipping right now.
 
 Three fetcher classes, each a level deeper in sophistication:
 
 **`Fetcher`** — fast async HTTP with TLS browser-impersonation, HTTP/3 support, and persistent session management. Use this for sites that don't challenge, or sites that challenge only on the first request but happily serve to any session with a real Chrome-ish TLS signature.
 
 ```python
-from scrapling import Fetcher
+from scrapling.fetchers import Fetcher
 
-page = Fetcher.get("https://example.com", impersonate="chrome-131")
+page = Fetcher.get("https://example.com", impersonate="chrome")
 for product in page.css(".product"):
     print(product.css_first(".title").text, product.css_first(".price").text)
 ```
 
+Passing `impersonate="chrome"` tracks whatever the latest Chrome TLS fingerprint is, so you don't have to bump a hardcoded version every time curl_cffi adds one — pin a specific target (`"chrome136"`) only if you need reproducible behavior.
+
 **`StealthyFetcher`** — Camoufox-backed (same browser as Byparr), with optional automatic Cloudflare solving via `solve_cloudflare=True`. The one to reach for when the Fetcher starts getting blocked.
 
 ```python
-from scrapling import StealthyFetcher
-
-StealthyFetcher.adaptive = True
+from scrapling.fetchers import StealthyFetcher
 
 page = StealthyFetcher.fetch(
     "https://protected-site.example",
@@ -151,7 +151,7 @@ price = page.css_first(".price-tag", auto_save=True)
 
 This is the part I wish I'd had when Google migrated `<a href>` → `<button data-href>` on review-author links in April and silently broke `reviewerUrl` for every customer of my [Google Reviews Scraper](/posts/how-to-scrape-google-reviews/) until I caught it weeks later. No managed scraping API I know offers the same thing — they hand you a DOM and hope your selectors still match.
 
-Scrapling v0.3 also ships a built-in MCP server, which turns it into an extraction layer Claude Desktop or Cursor can call directly — useful for anyone building [pay-per-use MCP servers](/posts/how-to-monetize-mcp-servers-2026/) without writing a REST wrapper.
+Scrapling also ships a built-in MCP server (the v0.4.7 release added a screenshot tool to it), which turns it into an extraction layer Claude Desktop or Cursor can call directly — useful for anyone building [pay-per-use MCP servers](/posts/how-to-monetize-mcp-servers-2026/) without writing a REST wrapper.
 
 ## Byparr vs Scrapling: which one?
 
@@ -172,7 +172,7 @@ If you have the budget for both, run Byparr as a fleet-wide protection layer and
 
 Every bypass article with a table cheats somewhere — either the targets are too easy, the methodology is hand-wavy, or the numbers come from a vendor whose success rate is structurally higher than what you'll see. Here's what I actually ran this week against each target, one request per tool, headless, no residential proxies, from a single home IP:
 
-| Target (anonymized) | FlareSolverr (latest) | Byparr (v2) | Scrapling `Fetcher` | Scrapling `StealthyFetcher` |
+| Target (anonymized) | FlareSolverr (latest) | Byparr (v2.1) | Scrapling `Fetcher` | Scrapling `StealthyFetcher` |
 |---|---|---|---|---|
 | Cloudflare-protected SaaS dashboard | Timeout after 2× retries | Success, 7.2s | Blocked instantly (JA3) | Success, 6.9s |
 | Google Maps place page ([Limited View era](/posts/google-maps-limited-view-scraping-2026/)) | Partial HTML (reviews missing) | Success, 5.8s | Blocked after 3 requests | Success, 6.1s |
@@ -196,17 +196,16 @@ Open-source bypass and residential proxies are complementary, not alternatives. 
 
 Rough pricing reality, April 2026:
 
-- Budget-tier residential (SpyderProxy, IPRoyal, WebShare): **$1.75–3 / GB**
-- Mid-tier (Smartproxy, ProxyHat): **$3–4 / GB**
+- Budget-tier residential (IPRoyal, Webshare): **$1.75–3 / GB**
+- Mid-tier (Decodo, formerly Smartproxy): **$3–4 / GB**
 - Premium (Bright Data, Oxylabs): **$8.40 / GB at 10GB**, drops to **$3.30 / GB at 10TB**
 
-In practice: at low volume, a $10/month IPRoyal or Smartproxy pay-as-you-go plan plus Byparr will outperform FlareSolverr-plus-datacenter-IPs by a lot, for almost no money. At high volume, the proxy bill dominates the decision and the choice of bypass tool barely moves it.
+In practice: at low volume, a $10/month IPRoyal or Decodo pay-as-you-go plan plus Byparr will outperform FlareSolverr-plus-datacenter-IPs by a lot, for almost no money. At high volume, the proxy bill dominates the decision and the choice of bypass tool barely moves it.
 
-A simple rotation pattern in Scrapling:
+A simple rotation pattern in Scrapling: build a `ProxyRotator`, hand it to a session via `proxy_rotator=`, and every `fetch` call inside the session draws the next proxy automatically.
 
 ```python
-from scrapling import StealthyFetcher
-from scrapling.fetchers import ProxyRotator
+from scrapling.fetchers import StealthySession, ProxyRotator
 
 rotator = ProxyRotator([
     "http://user:pass@residential-pool.provider.com:10000",
@@ -214,11 +213,13 @@ rotator = ProxyRotator([
     "http://user:pass@residential-pool.provider.com:10002",
 ])
 
-for url in target_urls:
-    proxy = rotator.next()
-    page = StealthyFetcher.fetch(url, proxy=proxy, solve_cloudflare=True)
-    # ...
+with StealthySession(proxy_rotator=rotator, solve_cloudflare=True) as session:
+    for url in target_urls:
+        page = session.fetch(url)
+        # page.meta["proxy"] tells you which proxy served this request
 ```
+
+Rotation is cyclic by default. For browser sessions Scrapling opens a fresh context per proxy under the hood, since a browser can't change proxy per tab. Don't combine `proxy_rotator` with a static `proxy` argument on the same session — it's one or the other.
 
 One thing worth knowing: mobile proxies are 3–5× more expensive than residential but push success rates close to 100% on aggressive targets. On a site where even Byparr-plus-residential fails consistently, a mobile pool is usually the next lever before giving up or going managed.
 
@@ -245,8 +246,8 @@ The honest framing I keep coming back to, having shipped the actors that hit thi
 
 **References:**
 
-- [Byparr on GitHub](https://github.com/ThePhaseless/Byparr) / [v2.0 release notes](https://github.com/ThePhaseless/Byparr/releases)
-- [Scrapling on GitHub](https://github.com/D4Vinci/Scrapling) / [v0.3 release notes](https://github.com/D4Vinci/Scrapling/releases/tag/v0.3) / [docs](https://scrapling.readthedocs.io/en/latest/)
+- [Byparr on GitHub](https://github.com/ThePhaseless/Byparr) / [release notes](https://github.com/ThePhaseless/Byparr/releases) (current: v2.1.0)
+- [Scrapling on GitHub](https://github.com/D4Vinci/Scrapling) / [release notes](https://github.com/D4Vinci/Scrapling/releases) (current: v0.4.8) / [docs](https://scrapling.readthedocs.io/en/latest/) / [proxy rotation guide](https://scrapling.readthedocs.io/en/latest/spiders/proxy-blocking.html)
 - [Camoufox project site](https://camoufox.com/) / [Camoufox on GitHub](https://github.com/daijro/camoufox)
 - [THE LAB #95: Bypassing Cloudflare in 2026](https://substack.thewebscraping.club/p/bypassing-cloudflare-in-2026)
 - [Scrapfly: Bypass Cloudflare 2026](https://scrapfly.io/blog/posts/how-to-bypass-cloudflare-anti-scraping)

@@ -1,11 +1,11 @@
 ---
 title: "Google Chrome Skills: The 10-Skill Starter Library to Turn Your Best AI Prompts into One-Click Tools (2026 Hands-On Guide)"
-description: "Google launched Chrome Skills on April 14, 2026 — save any Gemini prompt as a reusable slash command across any page and tabs. An honest practitioner walkthrough with a 10-Skill starter library, naming and versioning rules, multi-tab patterns, and when to pick a Skill over a Custom GPT, Claude Project, or a real automation."
+description: "Chrome Skills began rolling out April 14, 2026 — save any Gemini prompt as a reusable slash command across any page and tabs. An honest practitioner walkthrough with a 10-Skill starter library, naming and versioning rules, multi-tab patterns, and when to pick a Skill over a Custom GPT, Claude Project, or a real automation."
 date: 2026-04-22
-lastmod: 2026-05-18
+lastmod: 2026-05-22
 draft: false
 categories: ["AI for Business", "Productivity"]
-tags: ["chrome skills", "gemini", "ai prompts", "productivity", "chrome", "workflow automation", "knowledge work"]
+tags: ["chrome skills", "gemini", "productivity", "workflow automation"]
 keywords: ["Google Chrome Skills", "Chrome AI Skills guide", "Gemini Skills Chrome", "save AI prompts Chrome", "Chrome Skills tutorial", "how to use Chrome Skills", "Chrome Skills library"]
 image: /images/posts/google-chrome-skills-starter-library-2026.jpg
 image_alt: "Abstract editorial illustration of a Chrome browser window with a glowing slash-command prompt box and ten stacked prompt-card icons representing a Chrome Skills starter library"
@@ -24,7 +24,7 @@ faq:
     a: "No. Skills are personal and sync only across your own signed-in Chrome desktop devices. You cannot export a Skill, send one to a colleague, or post one to a team library. A teammate who finds a useful prompt still has to paste it into Slack and have everyone save it manually."
 ---
 
-Google Chrome Skills, launched on April 14, 2026, let you save any Gemini prompt as a one-click workflow that runs on the page you're viewing, plus any other tabs you select. You trigger a saved Skill by typing `/` in the Gemini side panel. It is free on desktop, ships pre-loaded with a 50+ prompt library at `chrome://skills/browse`, and currently requires Chrome language set to English (US) on Mac, Windows, or ChromeOS.
+Google Chrome Skills lets you save any Gemini prompt as a one-click workflow that runs on the page you're viewing, plus any other tabs you select. You trigger a saved Skill by typing `/` in the Gemini side panel. It began rolling out April 14, 2026 (US English first), is free on desktop, ships pre-loaded with a 50+ prompt library at `chrome://skills/browse`, and currently requires Chrome language set to English (US) on Mac, Windows, or ChromeOS.
 
 That is the short version. The longer version — why most people save five useless Skills and abandon the feature, what a good Skill looks like, and when a Skill is the wrong tool entirely — is what I want to walk through here, based on the library I've actually been running on my own tabs since launch week.
 
@@ -38,11 +38,11 @@ One number worth holding onto: a short, targeted Skill that reads a page and pro
 
 ## How to create your first Skill in under a minute
 
-Open any page you care about. Click the sparkle "Ask Gemini" icon in the top right of Chrome. The side panel opens.
+Open any page you care about. Click the Gemini icon in the top-right of Chrome. The side panel opens.
 
 Type your prompt as you normally would. For example: *"Pull every pricing tier on this page into a table with columns: plan name, monthly price, annual price, included seats, and the three features most likely to differentiate it from competitors."*
 
-Wait for Gemini to answer. In the chat history, find that prompt. Click the three-dot menu next to your message and choose **Save as Skill**. Give it a name (`Pricing table`), a short description, and pick the model — Pro for quality, Fast for speed. Save.
+Wait for Gemini to answer. Find that response in the chat history and choose **Save as Skill**. Give it a name (`Pricing table`) — Chrome lets you front it with an emoji so it's easy to spot in the picker — a short description, and pick the model: Pro for quality, Fast for speed. Save.
 
 Now the Skill lives in your library. On any SaaS pricing page, open the side panel, type `/pri`, pick the Skill, hit enter. Same output, no retyping.
 
@@ -274,7 +274,7 @@ A quick decision matrix:
 | Multi-tab context | Up to 10 tabs | No | No | No |
 | File knowledge base | No | Yes | Yes | Yes |
 | Shareable | No (personal only) | Yes (GPT Store) | Within team plan | Within workspace |
-| Model control | Fast or Pro | GPT-4.1 | Opus / Sonnet | Gemini 3.1 |
+| Model control | Fast or Pro | GPT-5.5 | Opus / Sonnet | Gemini 3.5 |
 | Free? | Yes | Yes | Free tier limited | Yes |
 
 Chrome Skills wins when the work is *on the page you're looking at*. Custom GPTs and Claude Projects win when the work is *answering from documents you uploaded once*. Gemini Gems sits in between and is best when you want a reusable persona in the Gemini app itself, not the browser.

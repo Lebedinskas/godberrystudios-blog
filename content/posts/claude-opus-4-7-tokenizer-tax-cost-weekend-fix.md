@@ -1,16 +1,16 @@
 ---
-title: "The Claude Opus 4.7 Tokenizer Tax: Why Your AI Bill Just Jumped 35% Overnight — And How to Claw It Back in a Weekend"
-description: "A practitioner's breakdown of the Opus 4.7 tokenizer change that silently raised per-call costs 0-47% at unchanged sticker price, with six reduction tactics ranked by ROI and a weekend audit template you can actually run."
+title: "The Claude Opus 4.7 Tokenizer Tax: Why Your AI Bill Just Jumped — And How to Claw It Back in a Weekend"
+description: "A practitioner's breakdown of the Opus 4.7 tokenizer change that silently raised per-call costs 0-35% at unchanged sticker price, with six reduction tactics ranked by ROI and a weekend audit template you can actually run."
 date: 2026-04-21
-lastmod: 2026-05-18
+lastmod: 2026-05-22
 categories: ["AI for Business", "AI Engineering"]
-tags: ["claude opus 4.7", "claude tokenizer", "anthropic pricing", "llm cost optimization", "prompt caching", "claude sonnet 4.6", "model routing", "ai api costs 2026"]
+tags: ["claude opus 4.7", "anthropic pricing", "llm cost optimization", "prompt caching"]
 keywords: ["Claude Opus 4.7 tokenizer", "Claude 4.7 token inflation", "Claude 4.7 cost increase", "Anthropic API cost jump 2026", "Opus 4.7 vs 4.6 pricing", "Claude prompt caching", "LLM cost optimization 2026"]
 image: /images/posts/claude-opus-4-7-tokenizer-tax-cost-weekend-fix.jpg
 image_alt: "Editorial illustration showing a stack of Claude API invoices growing taller overnight, with a golden token counter hovering above and the Anthropic-style silhouette of Claude in the background, representing the Opus 4.7 tokenizer tax that raised effective costs at unchanged sticker price"
 faq:
   - q: "Why did my Claude bill jump overnight in April 2026?"
-    a: "Anthropic shipped Opus 4.7 on April 16 2026 with a new tokenizer that produces 1.0 to 1.35 times more tokens on the same input text on the official range, with production measurements landing at 1.46 to 1.47 times on technical content. The per-token price did not move. Your per-request token count did, so your bill did too."
+    a: "Anthropic shipped Opus 4.7 on April 16 2026 with a new tokenizer. Anthropic's official range is 1.0 to 1.35 times more tokens on the same input text; single-document measurements on technical content have hit 1.45 to 1.47 times. The per-token price did not move. Your per-request token count did, so your bill did too."
   - q: "Does Claude Sonnet 4.6 use the new tokenizer too?"
     a: "No. The new tokenizer is specific to Opus 4.7. Sonnet 4.6, Haiku 4.5, and the older Opus 4.6 still use the previous tokenizer. Routing non-coding, non-agentic workloads to Sonnet 4.6 is cheaper per token at 3 and 15 dollars per million and skips the token inflation entirely."
   - q: "What is the single fastest cost-cutting move this weekend?"
@@ -18,12 +18,12 @@ faq:
   - q: "Should I downgrade to Opus 4.6 to avoid the tokenizer change?"
     a: "Only if your workload sits in a regressed area — MRCR long-context retrieval is the clearest case, scoring 78.3 percent on 4.6 versus 32.2 percent on 4.7. For coding, tool use, and vision, Opus 4.7 is a real upgrade and the tax is recoverable. Opus 4.6 stays on the API through at least October 2026."
   - q: "How much does prompt caching actually save?"
-    a: "Cache reads cost 0.1 times the base input price — 0.50 dollars per million tokens on Opus 4.7 — saving 90 percent on the cached portion. Cache writes cost 1.25 times base. Break-even for a 5-minute cache is two reads; for a one-hour cache, three. Note Anthropic dropped the default TTL from 60 to 5 minutes in 2026."
+    a: "Cache reads cost 0.1 times the base input price — 0.50 dollars per million tokens on Opus 4.7 — saving 90 percent on the cached portion. A 5-minute cache write costs 1.25 times base and breaks even on the first read. A one-hour cache write costs 2 times base and breaks even on the second read. Note Anthropic dropped the default TTL from 60 to 5 minutes in 2026."
   - q: "How much should a full weekend audit save me?"
     a: "A typical weekend audit on a team spending 10,000 to 20,000 dollars a month on Claude lands the monthly bill 35 to 65 percent below where it started. Most of the saving comes from three tactics stacked: trimming system prompts, turning on prompt caching, and routing predictable tasks to Sonnet 4.6."
 ---
 
-Claude Opus 4.7 shipped on April 16, 2026 with the same sticker price as Opus 4.6 — $5 per million input tokens, $25 per million output tokens — but Anthropic quietly changed the tokenizer, and the same prompt now consumes 1.0× to 1.35× more tokens on the official range, and 1.46× to 1.47× in measured production workloads. One coding agent running 100M tokens a day jumped from $500/day to $675/day overnight with zero change in usage. Claude Pro subscribers started hitting their weekly cap after three questions. The rate card did not move. Your bill did.
+Same prompt, same model family, bigger bill. Claude Opus 4.7 shipped on April 16, 2026 with the sticker price of Opus 4.6 untouched — $5 per million input tokens, $25 per million output tokens — but Anthropic quietly swapped the tokenizer. Anthropic's official range puts the same input text at 1.0× to 1.35× as many tokens; single-document measurements on technical content have landed harder, at 1.45× to 1.47×. One coding agent running 100M tokens a day jumped from $500/day to $675/day overnight with zero change in usage. Claude Pro subscribers started hitting their weekly cap after three questions. The rate card did not move. Your bill did.
 
 I felt this one personally. Claude Opus 4.7 is the heaviest line item on my own stack — I run it daily for Apify actor development, blog drafting, and the planning loops behind Godberry Studios. My [Content-to-Social MCP server](/posts/how-to-monetize-mcp-servers-2026/) also calls the Claude API per transformation at $0.07 a pop, so the tokenizer-tax math feeds straight into the actor's gross margin. This post walks through what actually changed, how bad the damage is on each prompt type, and six reduction tactics — ranked by ROI — you can run through in a weekend to claw back the 35% and then some. If you use Claude in any production workload — [agents running on MCP servers]({{< ref "deploy-mcp-server-production" >}}), scrapers, coding tools, customer support bots, content pipelines — the work here is concrete.
 
@@ -31,14 +31,14 @@ I felt this one personally. Claude Opus 4.7 is the heaviest line item on my own 
 
 Anthropic announced Opus 4.7 as a capability upgrade — better coding, stronger agentic behavior, improved instruction following. The migration notes mention a new tokenizer in passing and note that it "may use roughly 1.0× to 1.35× as many tokens when processing text compared to previous models." That sentence is the whole story. Opus 4.7 is the first Claude model to ship a new tokenizer since Opus 3, and the new one is smaller on some common subwords but larger on code patterns, structured data, and technical prose. Every cost you pay is a function of token count, so a tokenizer swap is a direct cost event.
 
-Simon Willison ran the Opus 4.7 system prompt through his Claude Token Counter the day after launch and got 1.46× the token count of Opus 4.6 on the same text. The independent Claude Code Camp teardown measured 1.47× on technical documentation and 1.45× on a real CLAUDE.md file. For images, the new tokenizer uses up to 3× the tokens of Opus 4.6. Finout's analysis of production telemetry put the typical range at 0-35% cost increase per call, with coding and JSON-heavy workloads at the top end. In words: 1M Opus 4.7 tokens now covers roughly 555,000 words of text, where 1M Opus 4.6 tokens covered 750,000 — about 26% of your effective context window gone on the same prompt.
+Anthropic's official range is 1.0× to 1.35× — up to about 35% more tokens, depending on content. That is the number to plan against. A few independent single-document measurements have run hotter: Simon Willison ran the Opus 4.7 system prompt through his Claude Token Counter the day after launch and got 1.46× the token count of Opus 4.6 on the same text; the independent Claude Code Camp teardown measured 1.47× on technical documentation and 1.45× on a real CLAUDE.md file. Those are worst-end single-document readings on dense technical content, not a production average — treat them as the ceiling, not the expectation. For images, the new tokenizer uses up to 3× the tokens of Opus 4.6. In words: at the official top end, 1M Opus 4.7 tokens covers roughly 555,000 words of text where 1M Opus 4.6 tokens covered 750,000 — about a quarter of your effective context window gone on the same prompt.
 
 ## The Real-World Cost Impact, by Prompt Type
 
-The 0-35% official range is deceptive because it averages across prompt types. In practice the damage clusters sharply. Five representative prompt types and what the tokenizer change does to each:
+The 0-35% official range is an average across prompt types, and the damage clusters sharply once you split it. Five representative prompt types and what the tokenizer change does to each:
 
 - **Standard English prose** — 1.00× to 1.10×. Marketing copy, FAQs, customer support messages. Largely unchanged. If this is 100% of your workload, you can almost ignore the tokenizer change.
-- **Technical documentation and mixed prose + code** — 1.35× to 1.47×. API docs, engineering runbooks, CLAUDE.md files, long agent scratchpads. The most common production workload, and the hardest-hit.
+- **Technical documentation and mixed prose + code** — around 1.35×, with dense single documents measured as high as 1.47×. API docs, engineering runbooks, CLAUDE.md files, long agent scratchpads. The most common production workload, and the hardest-hit.
 - **Pure code** — 1.30× to 1.40×. Function writing, refactoring, codegen. Also the category where Opus 4.7 is most accurate, so the cost pressure shows up in the exact workload where you most want to use it.
 - **JSON, XML, structured data** — 1.25× to 1.35×. Tool call payloads, structured extraction outputs, RAG context with metadata. Bad on anything that passes rich JSON through prompts.
 - **Images** — up to 3.00×. If your pipeline sends screenshots, diagrams, or receipts for vision analysis, this is the single biggest line-item increase in your bill.
@@ -49,7 +49,7 @@ If you run a coding agent, a vision pipeline, or anything that passes JSON or XM
 
 Anthropic's argument is that the new tokenizer contributes to the model's accuracy gains — better instruction following, more literal tool use, fewer silent generalizations. SWE-bench Verified for Opus 4.7 is 87.6%, SWE-bench Pro 64.3%, and Opus 4.7 averages 13% more accurate on coding tasks with 8-12% fewer tool calls. Those numbers are real.
 
-The defense is half-true because the benchmarks that shifted upward are not the only ones that moved. On MRCR long-context retrieval, Opus 4.7 scores 32.2% where Opus 4.6 scored 78.3% — a collapse on a workload a lot of production agents depend on. Adaptive reasoning drew loud complaints that it under-thinks on hard questions even at "high" effort. Coding and tool-use workloads net out positive even with the tokenizer tax; long-context retrieval and certain reasoning workloads net out negative. If you run the latter, the migration decision isn't about cost — it's about whether the model still does your job at all.
+The defense is half-true because the benchmarks that shifted upward are not the only ones that moved. On MRCR v2 8-needle at 1M context — a long-context retrieval test — Opus 4.7 scores 32.2% where Opus 4.6 scored 78.3%, a collapse on a workload a lot of production agents depend on. Adaptive reasoning drew loud complaints that it under-thinks on hard questions even at "high" effort. Coding and tool-use workloads net out positive even with the tokenizer tax; long-context retrieval and certain reasoning workloads net out negative. If you run the latter, the migration decision isn't about cost — it's about whether the model still does your job at all.
 
 The quality debate is its own thread. The cost question is tractable in a weekend. Six tactics, ranked by ROI.
 
@@ -69,7 +69,7 @@ A first-pass trim on a typical 2,000-token prompt lands around 800-1,200 tokens 
 
 Prompt caching is the single highest-ROI lever Anthropic ships, and most teams still don't use it because the rollout was quiet and the math looks confusing at first. It is neither.
 
-Cache writes cost 1.25× the base input price — $6.25 per million tokens on Opus 4.7 for a 5-minute TTL. Cache reads cost 0.1× the base — $0.50 per million tokens. Every cached read saves 90% on the cached portion. Break-even for a 5-minute cache is after two reads; for a one-hour cache (2× base on write), break-even is after three.
+A 5-minute cache write costs 1.25× the base input price — $6.25 per million tokens on Opus 4.7. Cache reads cost 0.1× the base — $0.50 per million tokens. Every cached read saves 90% on the cached portion. The break-even math is more forgiving than most people assume: a 5-minute cache write is 1.25× base and a read is 0.1× base, so write-plus-one-read (1.35×) already beats two uncached reads (2.0×) — the 5-minute cache pays for itself on the very first read. A one-hour cache write costs 2× base, so it breaks even on the second read. In practice, if a prompt is reused at all within the window, caching wins.
 
 Cache first: your system prompt, tool schema definitions, any large document or CLAUDE.md constant across requests, and the few-shot examples you survived the trim step with. If your workload is 500 requests a day hitting the same 10,000-token system prompt, cached reads cut that portion of your bill by 90% for the whole day.
 
@@ -85,16 +85,18 @@ Rule of thumb: if a task has a well-defined output shape, predictable inputs, an
 
 ### 4. Tune effort levels instead of chasing max (1 hour, 20-40% reduction on thinking tokens)
 
-Opus 4.7 removed `budget_tokens` for extended thinking — requests that still use it return a 400. The replacement is `thinking: {type: 'adaptive'}` plus a five-tier effort parameter: low, medium, high (the recommended default), xhigh, and max.
+Opus 4.7 removed `budget_tokens` for extended thinking — requests that still use it return a 400. The replacement is `thinking: {type: 'adaptive'}` plus a five-tier effort parameter that lives in `output_config`: `output_config: {effort: "high"}`, with the levels low, medium, high, xhigh, and max. `high` is the API default; Anthropic recommends `xhigh` as the starting point for coding and agentic work, with `high` as the floor for intelligence-sensitive workloads where quality matters more than speed or cost.
 
 The sensible defaults per task type:
 
-- Simple classification, summarization, structured extraction: high is the sweet spot, often low is enough
-- Coding, code review, refactoring: xhigh is the recommended floor; max is rarely worth it
+- Simple classification, summarization, structured extraction: medium is usually the sweet spot, often low is enough
+- Coding, code review, refactoring: xhigh is the recommended starting point; max is rarely worth it
 - Agentic loops with repeated tool calling, deep research, knowledge-base search: xhigh — the exploration budget pays off
 - Frontier problems where the model genuinely needs to reason: max, but cap the run with a task budget (see next section)
 
-Most teams running Opus at max on every request are spending 2-3× what they need to. The new default should be high, with an explicit upgrade to xhigh per endpoint where you can measure a quality lift. Max is a surgical tool, not a toggle.
+Most teams running Opus at max on every request are spending 2-3× what they need to. For coding and agentic endpoints, `xhigh` is the recommended starting point; for intelligence-sensitive work hold the floor at `high`; downgrade further per endpoint only where you can measure no quality drop. Max is a surgical tool, not a toggle.
+
+Three Opus 4.7 changes silently break naive migrations — verify them before you trust a side-by-side test. First, `temperature`, `top_p`, and `top_k` return a 400 error if set to any non-default value; strip them from request bodies that carried them on 4.6. Second, thinking content is omitted from responses by default — if your product reads or streams reasoning, set `display: "summarized"` to get it back. Third, adaptive thinking is off by default; enable it explicitly with `thinking: {type: 'adaptive'}` or the model does not think at all.
 
 ### 5. Use task budgets to cap runaway agent loops (30 min, 10-30% reduction on agent workloads)
 
@@ -132,4 +134,4 @@ The argument for migration away applies in two cases. One, you run a long-contex
 
 The bigger pattern: every frontier vendor is now raising effective prices without moving sticker prices. OpenAI raised GPT-5 output token prices last October. Google adjusted Gemini 2.5 Pro thinking-level pricing in February. Anthropic changed the tokenizer at unchanged sticker price in April. Expect at least two more effective price increases disguised as capability upgrades across vendors in 2026 — tokenizer swaps, thinking budget changes, cache TTL changes, per-tier access restrictions. Apify's October 2026 [migration to pay-per-event pricing]({{< ref "apify-pay-per-event-migration-playbook-2026" >}}) is a non-LLM version of the same pattern: the unit of billing changes, and operators who didn't pre-audit eat the difference. Kimi K2.6, Qwen 3.2, and DeepSeek R2 are meaningfully competitive with Opus 4.7 on a subset of workloads at 5-15% of the effective cost — worth scoping as a secondary route if your bill has a budget-alert threshold attached. For agents that also need to browse the open web, the [ChatGPT Atlas-vs-scraping-stack piece]({{< ref "chatgpt-atlas-vs-scraping-stack-2026" >}}) covers what that layer looks like in practice.
 
-I'm running Opus 4.7 daily across actor development, blog work, and the Content-to-Social MCP transformations that ship paid output. The tokenizer tax is real on every one of those surfaces. The single highest-leverage thing I did the weekend after launch was trim the system prompt on the MCP server and route the simpler transformations to Sonnet 4.6 — that one change moved the actor's gross margin out of the danger zone faster than any other lever Anthropic offered. The audit is four hours of work. The economics it protects are the economics of every solo operator who built a margin around the pre-4.7 token count and would otherwise watch it quietly evaporate.
+Opus 4.7 runs daily across my actor development, blog work, and the Content-to-Social MCP transformations that ship paid output — and the tokenizer tax is real on every one of those surfaces. The single highest-leverage move the weekend after launch was trimming the MCP server's system prompt and routing the simpler transformations to Sonnet 4.6; that one change pulled the actor's gross margin out of the danger zone faster than any other lever Anthropic offered. Four hours of audit work protects the economics of every solo operator who built a margin around the pre-4.7 token count and would otherwise watch it quietly evaporate.

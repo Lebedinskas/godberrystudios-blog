@@ -1,13 +1,17 @@
 ---
 title: "Yelp Scraper — what one business profile costs, what 60 seconds returns, and the anti-bot reality"
-description: "Walkthrough: a full Yelp business profile + 20 reviews + 34 menu items + 76 photos in 60 seconds for about $0.04. The real output, the real cost, the 15-language date parsing, and the anti-bot wall I hit publishing it on the Apify Store."
+description: "Walkthrough: a full Yelp business profile + 20 reviews + 34 menu items + 76 photos in about 60 seconds for roughly $0.04. The real output, the real cost, the multi-language date parsing, and the anti-bot wall I hit publishing it on the Apify Store. Honest that this is a freshly published actor."
 date: 2026-05-18
 layout: single
 ---
 
-Yelp's official API stopped returning full review text in 2018. Their Fusion API now returns 140-180 character excerpts — useful for nobody serious about reputation analysis. Every workaround I tried as a buyer was a SaaS dashboard at $99-$299/month that wrapped scraped Yelp data, marked it up 20×, and charged me per seat.
+## Why I built this
+
+Yelp's official API stopped returning full review text in 2018. Their Fusion API now returns 140-180 character excerpts — useful for nobody serious about reputation analysis. Every workaround I tried as a buyer was a SaaS dashboard at $99-$299/month that wrapped scraped Yelp data, marked it up heavily, and charged me per seat.
 
 So I built [Yelp Scraper](https://apify.com/godberry/yelp-scraper) for myself first — published it to the [Apify Store](https://apify.com/godberry) on **2026-05-12** under categories LEAD_GENERATION and TRAVEL. Pay-per-event pricing, no Yelp API key, worldwide (any `yelp.<tld>`), full review text, menu extraction, full-resolution photo gallery — in a single call.
+
+**Honest status, 2026-05-22.** This actor is brand new — it went live on the Apify Store just 10 days ago and so far has **no paying users and no confirmed revenue**. The output and cost math below are real and platform-verified; the three workflows are designed-for, not yet customer-proven. I'm publishing this case study early, while the product is still small, because that's the honest stage it's at.
 
 This page walks through what one run actually returns, what one business profile actually costs, the languages it parses, and the anti-bot reality I hit shipping it to the platform.
 
@@ -62,22 +66,22 @@ Pay-per-event, not per-run. Each event has a fixed USD price and fires when the 
 
 | Event | Price (USD) | Fires when |
 |---|---|---|
-| `actor-start` | **$0.001** | Once per run (cost-recovery for empty bails) |
+| `actor-start` | **$0.001** | Once per run — a single flat charge, regardless of how many businesses the run processes |
 | `business-returned` | **$0.004** | Primary value event — full business profile parsed |
 | `review-returned` | **$0.0008** | Each review scraped |
 | `menu-item-returned` | **$0.0005** | Each menu item scraped |
 
-For the Dishoom test — 1 business + 20 reviews + 34 menu items — that's `$0.001 + $0.004 + (20 × $0.0008) + (34 × $0.0005) = $0.038` per business with full data. **About four cents.**
+For the Dishoom test — one run, 1 business + 20 reviews + 34 menu items — that's `$0.001 + $0.004 + (20 × $0.0008) + (34 × $0.0005) = $0.038`. **About four cents.**
 
-At 1,000 business profiles (without menus or full review pagination): `1000 × $0.005 = $5`. At 1,000 profiles with 20 reviews each: `$25`. The flat per-event design means costs track value — a quick-lookup user pays cents, a deep-extraction user pays proportionally more.
+`actor-start` fires exactly once per run, so at any real scale it's negligible — $0.001 spread across a 1,000-business job rounds to nothing. The math that matters is the per-business and per-review events. A 1,000-business run with profiles only: `1000 × $0.004 = $4` (plus the one $0.001 start = ~$4). The same 1,000 businesses with 20 reviews each: `$4 + (1000 × 20 × $0.0008) = $4 + $16 = $20`. The flat per-event design means costs track value — a quick-lookup user pays cents, a deep-extraction user pays proportionally more.
 
 The official Yelp Fusion API, by comparison, returns 140-180 character review excerpts (no full text) and caps at 5,000 calls/day per app. For full-text analysis the API is not the answer. There's no public-cost equivalent to compare against — you scrape, license a vendor feed, or do without.
 
-## The 15-language parser, and why it matters
+## The ~15-language date parser, and why it matters
 
 Yelp doesn't use one global domain — it has ~31 country-specific TLDs (`yelp.com`, `yelp.co.uk`, `yelp.de`, `yelp.fr`, `yelp.it`, `yelp.com.au`, etc.). Each renders dates in the local locale. A reviewer who posted three days ago shows up as `"vor 3 Tagen"` on yelp.de, `"il y a 3 jours"` on yelp.fr, `"hace 3 días"` on yelp.es, `"3 giorni fa"` on yelp.it.
 
-The actor parses relative dates across DE/FR/ES/PT/IT/NL and absolute month names across English + Nordic, Polish, Czech, Turkish, Finnish, and Spanish-with-prepositions ("1 de octubre de 2024"). Every review enters the dataset with an ISO 8601 timestamp — never a relative string. A multi-country competitive scan stays comparable across the dataset; downstream aggregations work without locale-aware post-processing.
+The actor parses relative dates across six languages — German, French, Spanish, Portuguese, Italian, Dutch — and absolute month names across English, the Nordic languages, Polish, Czech, Turkish, Finnish, and Spanish-with-prepositions ("1 de octubre de 2024"). That's roughly 15 locales in total. Every review enters the dataset with an ISO 8601 timestamp — never a relative string. A multi-country competitive scan stays comparable across the dataset; downstream aggregations work without locale-aware post-processing.
 
 I built the parser because a string-equality date match doesn't survive contact with multi-locale data. Discovered that the first time a customer's German Yelp pages came back with empty `date` fields.
 
@@ -111,7 +115,7 @@ You're evaluating a target acquisition with 25 restaurant locations across the U
 
 Yelp is behind DataDome. Datacenter IPs get blocked instantly. The actor defaults to **Apify Residential** proxy and rotates per session — but even that has limits.
 
-**What works direct from Apify Residential:** yelp.de, yelp.co.uk, yelp.fr, yelp.ie, yelp.it, yelp.com.au — every regional TLD I tested returns full data with no 403s. The EU and AU domains are the reliable path.
+**What works direct from Apify Residential:** yelp.de, yelp.co.uk, and yelp.com.au are platform-verified — I ran them on Apify itself and they returned full, correct records with no 403s. yelp.fr, yelp.ie, and yelp.it parse correctly in local testing and follow the same code path, but I haven't yet re-confirmed them on the platform under residential proxy. The EU and AU domains are the reliable path; the three platform-verified ones are the ones I'd stake a first run on.
 
 **What 403s frequently:** yelp.com and yelp.ca. DataDome flags the entire Apify residential pool on these domains, regardless of `apifyProxyCountry: "US"`. The fix is bringing your own residential proxy via the `proxyUrls` input — the actor supports that out of the box. The store description says so explicitly so nobody arrives expecting yelp.com to work without setup.
 
@@ -131,4 +135,4 @@ If it fits, [the full plan](https://apify.com/godberry/yelp-scraper) is one clic
 
 ---
 
-*Tested across yelp.de, yelp.co.uk, yelp.com.au, yelp.fr, yelp.ie, yelp.it (full data) plus yelp.com / yelp.ca with own proxyUrls. Published to the Apify Store 2026-05-12 under categories LEAD_GENERATION + TRAVEL, currently v0.4.6 with pay-per-event monetization Active.*
+*Platform-verified on yelp.de, yelp.co.uk, and yelp.com.au (full correct records on Apify itself); yelp.fr / yelp.ie / yelp.it verified in local testing; yelp.com / yelp.ca need your own proxyUrls. Published to the Apify Store 2026-05-12 under categories LEAD_GENERATION + TRAVEL, currently v0.4.6 with pay-per-event monetization Active.*

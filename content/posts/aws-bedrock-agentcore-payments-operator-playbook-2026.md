@@ -2,22 +2,22 @@
 title: "AWS Bedrock AgentCore Payments: The 2026 Operator Playbook for MCP, API, and Scraper Sellers Who Want Agents to Actually Pay"
 description: "AWS shipped AgentCore Payments in preview on 2026-05-07, built with Coinbase and Stripe. Operator decision trees, fee math, wallet stack, and the honest read for sellers of MCP tools, APIs, and scraped data."
 date: 2026-05-13
-lastmod: 2026-05-18
+lastmod: 2026-05-22
 categories: ["Web Scraping & Data Extraction", "AI Automation"]
-tags: ["agentcore", "x402", "coinbase", "stripe", "privy", "aws bedrock", "mcp", "apify", "monetization", "stablecoins", "usdc", "base"]
-keywords: ["AWS Bedrock AgentCore Payments", "AgentCore payments tutorial", "x402 production 2026", "monetize MCP server x402", "AI agent payment rails", "Coinbase Bazaar MCP server", "Stripe Privy agent wallet", "x402 vs ACP vs AP2", "agentic monetization 2026", "how to charge AI agents for API", "autonomous agent micropayments 2026", "HTTP 402 production AWS"]
+tags: ["x402", "agentcore", "monetization", "mcp"]
+keywords: ["AWS Bedrock AgentCore Payments", "AgentCore payments tutorial", "x402 production 2026", "monetize MCP server x402", "AI agent payment rails", "Coinbase x402 Bazaar MCP server", "Stripe Privy agent wallet", "x402 vs ACP vs AP2", "agentic monetization 2026", "how to charge AI agents for API", "autonomous agent micropayments 2026", "HTTP 402 production AWS"]
 image: /images/posts/aws-bedrock-agentcore-payments-operator-playbook-2026.jpg
 image_alt: "AWS Bedrock AgentCore Payments operator playbook hero — AWS, Coinbase x402, Stripe Privy, and MCP server brand marks showing the agent payment rails launched 2026-05-07"
 faq:
   - q: "Do I need an AWS account to take x402 payments?"
     a: "No. AgentCore is one path; the Cloudflare Agents SDK is another and is free on the Cloudflare Workers free tier. You can also self-host the Coinbase x402 facilitator reference implementation. AWS is the highest-leverage option if you already use Bedrock; Cloudflare is the lowest-friction option for a new operator."
   - q: "How do I price my x402 endpoint?"
-    a: "Start at 0.005 to 0.05 dollars per call for most MCP tool calls or scraper rows. Premium endpoints like LLM-orchestrated workflows or specialized data can range to 0.50 to 5 dollars. The Coinbase Bazaar's 10,000-plus existing endpoints are a useful comparable — list yours alongside, then iterate based on call volume and customer mix."
+    a: "Start at 0.005 to 0.05 dollars per call for most MCP tool calls or scraper rows. Premium endpoints like LLM-orchestrated workflows or specialized data can range to 0.50 to 5 dollars. The Coinbase x402 Bazaar's 10,000-plus existing endpoints are a useful comparable — list yours alongside, then iterate based on call volume and customer mix."
   - q: "Will x402 work with Apify pay-per-event actors?"
     a: "Yes, in parallel. Apify pay-per-event handles billing for runs through the Apify Store; x402 handles billing for direct-to-agent HTTP calls outside it. Most operators end up running both — Apify for the human storefront, x402 for the agent surface — with the underlying scraper code shared between them."
 ---
 
-If you sell an MCP server, an API, or a scraped-data product and you want autonomous AI agents to pay you for using it, the rails finally shipped at AWS scale. Amazon Bedrock AgentCore Payments launched in preview on 2026-05-07, built with Coinbase and Stripe. When an agent hits a paid endpoint and gets back an HTTP 402, AgentCore handles the x402 negotiation, wallet authentication, USDC settlement on Base, and proof delivery — all without breaking the agent's reasoning loop. This is my operator's playbook: the decision tree for adding x402 to what you already sell, the wallet stack to pick, and the per-endpoint pricing math.
+"Sell an API to a robot" stopped being a joke this month. Amazon Bedrock AgentCore Payments launched in preview on 2026-05-07, built with Coinbase and Stripe — the rails for charging autonomous agents now exist at AWS scale. When an agent hits a paid endpoint and gets back an HTTP 402, AgentCore handles the x402 negotiation, wallet authentication, USDC settlement on Base, and proof delivery — all without breaking the agent's reasoning loop. So if you sell an MCP server, an API, or a scraped-data product, this is my operator's playbook: the decision tree for adding x402 to what you already sell, the wallet stack to pick, and the per-endpoint pricing math.
 
 ## What AgentCore Payments actually shipped on 2026-05-07
 
@@ -31,13 +31,13 @@ Amazon's preview drop ([AWS blog, 2026-05-07](https://aws.amazon.com/blogs/machi
 
 The preview is live in four AWS regions: us-east-1 (N. Virginia), us-west-2 (Oregon), eu-central-1 (Frankfurt), and ap-southeast-2 (Sydney). For EU operators who need data residency inside the bloc, Frankfurt is the only EU option at preview.
 
-Bundled into the same announcement was the **Coinbase Bazaar MCP server**, exposed through AgentCore Gateway. It is a directory of over 10,000 x402 endpoints that any Bedrock agent can discover and pay for without a hard-coded integration. If your endpoint is registered there and your pricing is reasonable, agents can find you and transact without anyone writing a custom connector. This is the part of the announcement most operators have under-read.
+Bundled into the same announcement was the **Coinbase x402 Bazaar MCP server**, exposed through AgentCore Gateway. It is a directory of over 10,000 x402 endpoints that any Bedrock agent can discover and pay for without a hard-coded integration. If your endpoint is registered there and your pricing is reasonable, agents can find you and transact without anyone writing a custom connector. This is the part of the announcement most operators have under-read.
 
 The protocol underneath it all is **x402**, which Coinbase launched in 2025 to operationalize the long-reserved HTTP 402 status code. A server replies with 402 and a small JSON payload describing the price and accepted assets; the client pays programmatically, retries the request, and receives the protected response. There are no accounts, no API keys, no subscription plans on the wire — it's HTTP, all the way down.
 
-The traction numbers, before AWS even shipped: by late April 2026, Coinbase reported **69,000 active agents, 165 million transactions, and roughly $50 million in cumulative volume** on x402. Cloudflare's Chief Strategy Officer Stephanie Cohen has separately said Cloudflare's network sees about a billion HTTP 402 responses per day. Five production deployments anchored the launch — Coinbase Agent.market, Stripe Machine Payments, CoinGecko's paid endpoints, Circle Wallets, and the Cloudflare Agents SDK. AgentCore Payments puts AWS in the middle of that flow.
+The traction numbers, before AWS even shipped: by late April 2026, Coinbase reported **69,000 active agents, 165 million transactions, and roughly $50 million in cumulative volume** on x402. Cloudflare's Chief Strategy Officer Stephanie Cohen has separately said Cloudflare's network sees about a billion HTTP 402 responses per day. Five x402 production deployments — Coinbase Agent.market, Stripe Machine Payments, CoinGecko's paid endpoints, Circle Wallets, and the Cloudflare Agents SDK — anchored the protocol's credibility going into the AWS launch. AgentCore Payments puts AWS in the middle of that flow, with named early adopters of its own: Cox Automotive, Thomson Reuters, the PGA TOUR, Heurist AI, and Warner Bros. Discovery.
 
-Three years ago, "sell an API to a robot" was a Twitter joke. As of this week, AWS has a managed product for it, Stripe and Coinbase are building the wallet layer together, and there are 10,000 published endpoints that bots can already buy from. For anyone running an MCP server, an Apify actor, or a small API product, the practical decisions are where in your pricing stack x402 belongs and what to charge — not whether to pay attention to it.
+As of this week, AWS has a managed product for charging agents, Stripe and Coinbase are building the wallet layer together, and there are 10,000 published endpoints bots can already buy from. For anyone running an MCP server, an Apify actor, or a small API product, the practical decisions are where in your pricing stack x402 belongs and what to charge — not whether to pay attention to it.
 
 ## How the four operator archetypes should decide
 
@@ -75,7 +75,7 @@ You have a SaaS API. Customers buy plans at $49, $199, $999 per month with rate 
 
 **Don't lead with x402.** Your buyers' purchasing pattern is procurement plus a Stripe-billed seat. Adding micropayment pricing on the front of your marketing site will confuse the people you actually convert.
 
-**Do add a 402 "agent" tier as a quiet side door.** Publish a dedicated subdomain (`agents.your-api.com`) with per-call pricing in stablecoins, list it on the Coinbase Bazaar, and treat it as a long-tail acquisition channel for the buyer type you don't have today: autonomous agents inside other people's workflows. If it converts, you have proof to expand it. If it doesn't, you've lost a weekend.
+**Do add a 402 "agent" tier as a quiet side door.** Publish a dedicated subdomain (`agents.your-api.com`) with per-call pricing in stablecoins, list it on the Coinbase x402 Bazaar, and treat it as a long-tail acquisition channel for the buyer type you don't have today: autonomous agents inside other people's workflows. If it converts, you have proof to expand it. If it doesn't, you've lost a weekend.
 
 ### Archetype D: Data marketplace operator
 
@@ -83,7 +83,7 @@ You sell access to scraped or licensed datasets — reviews, business listings, 
 
 **x402 fits here naturally** because the unit of work is small and well-defined. Per-row pricing maps to micropayments cleanly: an agent looking up "the email of the head of marketing at Acme Inc" pays $0.01–$0.05 to your endpoint and walks away with the row. The decision is mostly about whether your data has agent-buyers — and the early adopter list is dominated by exactly your buyers: sales-agent platforms, research agents, due-diligence agents.
 
-If you sell scraped review data of the kind we cover in [the multi-platform restaurant intelligence stack](/posts/multi-platform-restaurant-intelligence-stack-2026/), the right framing is per-location, per-platform pricing exposed through x402, with bulk packages available off-protocol for human buyers.
+If you sell scraped review data of the kind I cover in [the multi-platform restaurant intelligence stack](/posts/multi-platform-restaurant-intelligence-stack-2026/), the right framing is per-location, per-platform pricing exposed through x402, with bulk packages available off-protocol for human buyers.
 
 ## The wallet stack: Coinbase CDP vs Stripe Privy
 
@@ -94,7 +94,7 @@ If you decide to take x402, the next question is whose wallet your customers use
 | **Time to live** | ~1 day; well-documented x402 facilitator, CDP wallet API stable | ~2-3 days; newer, Privy infra rolled into Stripe stack in 2026 |
 | **Funding source** | Stablecoin on-chain (USDC primarily), some fiat ramps via Coinbase Pay | Fiat (debit card, ACH) auto-converted to USDC, or direct stablecoin |
 | **Fee structure** | Sub-cent settlement on Base, ~200ms; Coinbase's facilitator fee is currently zero during preview | Stripe wraps the wallet in their standard fee schedule — expect 2.9% + $0.30 equivalent on the fiat-to-USDC conversion |
-| **Custody posture** | Self-custody-friendly via CDP; agent can hold its own wallet | Custodial-style, similar to a Stripe Customer object |
+| **Custody posture** | Self-custody-friendly via CDP; agent can hold its own wallet | Embedded wallet, self-custody under the hood; surfaces like a Stripe Customer object |
 | **Regulatory exposure (EU)** | MiCA compliance maturing; usable but operators should verify their state | KYC pipeline mature; aligns with EU PSD2 patterns |
 | **Best for** | Operators who want pure agentic flows and minimal fee drag | Operators whose end-users are humans funding agent budgets with cards |
 
@@ -102,14 +102,16 @@ The honest read: **for true machine-to-machine pricing under $0.10 per call, Coi
 
 If you want chain optionality, Coinbase has already added Solana settlement alongside Base, and the x402 spec is chain-agnostic — meaning "USDC on Base vs USDC on Solana" is a fee-and-latency optimization, not a lock-in.
 
+One EU-specific flag before you commit either wallet: if you serve EU end-users and take stablecoins, MiCA compliance is moving and not yet settled. The practical trigger to watch is monthly volume — once it crosses roughly €5,000, talk to a lawyer rather than guessing. Both CDP and Stripe Privy are usable today; the obligation sits with you as the operator, not the wallet vendor.
+
 ## Pricing math at three operator scales
 
-Let's put numbers on this. Assume you ship an x402-priced tool at $0.005 per call (a midrange figure consistent with the Coinbase Bazaar's listed endpoints).
+Let's put numbers on this. Assume you ship an x402-priced tool at $0.005 per call (a midrange figure consistent with the Coinbase x402 Bazaar's listed endpoints).
 
 ### 10,000 agent calls / month
 
 - **Gross revenue:** $50.00
-- **Coinbase CDP settlement fees (sub-cent × 10,000):** ~$5.00 in chain fees (refunded to you in the preview-fee structure, so net to your wallet: ~$50.00)
+- **Settlement cost:** the Coinbase facilitator fee is zero in preview; on-chain gas on Base is sub-cent and negligible at these volumes — call it under $0.50 total
 - **Compute cost on your side:** if your tool runs in a serverless function that costs $0.001/call, $10
 - **Net:** ~$40/month
 
@@ -118,7 +120,7 @@ At this scale, x402 is paying for the coffee budget. The signal is whether traff
 ### 100,000 agent calls / month
 
 - **Gross revenue:** $500
-- **Settlement fees:** ~$50 (refunded to you in preview)
+- **Settlement cost:** facilitator fee zero in preview; Base gas still sub-cent and negligible — a few dollars at most
 - **Compute:** ~$100
 - **Net:** ~$400/month
 
@@ -127,11 +129,11 @@ This is the inflection point where operators decide whether to add the second to
 ### 1,000,000 agent calls / month
 
 - **Gross revenue:** $5,000
-- **Settlement fees:** ~$500 (preview economics may not last forever — model 1-2% blended fee post-GA)
+- **Settlement cost:** still near-zero in preview, but model a 1-2% blended fee post-GA (~$50-$100) because the preview economics will not last
 - **Compute:** ~$1,000
-- **Net:** ~$3,500-$4,000/month
+- **Net:** ~$3,900-$4,000/month
 
-At this scale, the question shifts from "is x402 worth it" to "what's my second product." A million-call/month MCP tool gets to a quiet seven-figure-arr business at the upper edge because agents don't churn the way humans do. They run as long as the workflow is wired up.
+At this scale, the question shifts from "is x402 worth it" to "what's my second product." A million-call/month MCP tool at $0.005 is a five-figure-ARR side business — roughly $48K net a year — and a durable one, because agents don't churn the way humans do. They run as long as the workflow is wired up. Raising the per-call price, or stacking a second priced tool, is what moves the needle from there.
 
 The trap to avoid: **don't price at $0.005 if your tool's compute cost is $0.01 per call.** AgentCore makes it trivial for agents to discover and call your endpoint; if you're losing money per call, agents will optimize for cheapness and bleed you dry. The billing-safety pattern that matters here — fail loud on any charge failure, never deliver data uncharged — matters more under x402 than under traditional billing, because there is no human in the loop to refund a mistake. (This is the same pattern I had to harden into [the Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) in v0.3 — throw on prod charge failures, never let an uncharged result leak.)
 
@@ -139,7 +141,7 @@ The trap to avoid: **don't price at $0.005 if your tool's compute cost is $0.01 
 
 The single most common production incident on agent payments is not fraud — it's a runaway loop. An agent that calls your tool 10,000 times in five minutes because its task definition was sloppy is a real scenario, not a hypothetical. AgentCore exposes three controls every operator should require.
 
-1. **Session-level spending limits.** Every AgentCore session has a configurable max-spend ceiling. Publish your recommended ceiling in your docs (e.g., "we recommend setting a per-session cap of $1.00 for tools at this price point").
+1. **Session-level spending limits.** Every AgentCore session has a configurable max-spend ceiling. Publish your recommended ceiling in your docs (e.g., "set a per-session cap of $1.00 for tools at this price point").
 2. **Per-tool ceilings.** For tools that can be called many times in a row (search, scrape, list), agents should be configured with per-tool budgets, not just per-session.
 3. **Anomaly detection.** AgentCore logs every payment event to a session ledger. Subscribe to those events via the AgentCore Gateway webhook and flag patterns that look like loops (same tool called 50+ times in <2 minutes, same input across 20+ calls) — pause the agent's wallet authorization until reviewed.
 
@@ -169,23 +171,14 @@ Three protocols compete in the agentic payments space as of mid-2026, and each h
 
 For most readers of this post — operators selling tools, APIs, or data — x402 is the right protocol to integrate first. ACP makes sense if you sell a checkout-shaped product. AP2 is a watch-list item.
 
-This is the operator-side sequel to [the x402 protocol explainer we published in April](/posts/x402-protocol-ai-agent-payments-2026/), which covered the why and the wire format. This piece covers the deployment decision; the two together are the full operator picture.
-
-## Pitfalls worth naming
-
-A few things that come up in every operator's first 90 days on x402 and that are worth flagging up front:
-
-- **Don't add x402 just because.** Confirm there is agent traffic in your logs first. If your customer base is humans, you're adding maintenance to chase a channel that doesn't exist for you yet — that's the call I've made on my own actors so far.
-- **Don't lock yourself into one chain.** USDC on Base is the right default in May 2026, but the x402 spec is chain-agnostic for a reason — build your facilitator integration so swapping to Solana or another chain is a config change.
-- **Don't ignore the EU regulatory question.** If you serve EU end-users and you take stablecoins, MiCA compliance is moving. Talk to a lawyer if your monthly volume crosses €5,000.
-- **Don't price below your compute cost.** Agents are infinitely patient and will find your cheapest endpoint. If it's a loss leader, model the loss.
+This is the operator-side sequel to [the x402 protocol explainer I published in April](/posts/x402-protocol-ai-agent-payments-2026/), which covered the why and the wire format. This piece covers the deployment decision; the two together are the full operator picture.
 
 ## What's shipping next
 
 A few things to watch through Q3-Q4 2026 if you've decided to commit:
 
 - **AgentCore GA and pricing announcement.** Preview ends at some point; AWS will publish session-cost and facilitation-fee pricing. The current preview economics (effectively free facilitation) are not the long-term shape.
-- **MCP Apps + x402.** The MCP Apps SEP-1865 that Anthropic launched in January 2026 plus x402 monetization is the architectural pattern most production MCP servers will end up using. On FastMCP 3.0, the integration shrinks to dozens of lines.
+- **MCP Apps + x402.** The MCP Apps spec (SEP-1865), released jointly by Anthropic and OpenAI in January 2026, plus x402 monetization is the architectural pattern most production MCP servers will end up using. On FastMCP 3.0, the integration shrinks to dozens of lines.
 - **AP2 enterprise rollout.** Google will likely ship AP2 to production sometime this year. If your buyers are mid-market enterprises with procurement workflows, AP2 may matter more than x402 to your specific revenue.
 - **Cryptorefills-style ecommerce adoption.** Cryptorefills shipped x402-priced gift cards on 2026-05-11. Expect more retail/utility purchase categories to follow over the summer. Operators with structured data adjacent to commerce (product catalogs, pricing intel, review data) will see new buyer types as a result.
 

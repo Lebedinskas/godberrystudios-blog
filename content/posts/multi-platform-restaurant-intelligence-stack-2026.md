@@ -2,20 +2,20 @@
 title: "The 2026 Multi-Platform Restaurant Intelligence Stack: Google Maps + Yelp + TripAdvisor + OpenTable Combined"
 description: "One platform is one audience. Here's how I'd combine Google Maps, Yelp, TripAdvisor, and OpenTable into a four-platform restaurant intelligence stack — bias map, unified schema, six-stage pipeline, and the cost math at 10, 50, 250, and 1,000 locations."
 date: 2026-05-10
-lastmod: 2026-05-18
+lastmod: 2026-05-22
 draft: false
 categories: ["Web Scraping", "Data", "Restaurants"]
-tags: ["restaurant data", "multi-platform scraping", "google maps", "yelp scraping", "tripadvisor", "opentable", "competitive intelligence", "franchise data", "foodservice due diligence", "review monitoring"]
-keywords: ["restaurant competitor research data 2026", "scrape Yelp restaurant reviews 2026", "TripAdvisor restaurant scraping", "multi-platform restaurant data", "franchise competitive intelligence 2026", "OpenTable scraper", "restaurant market research scraping"]
+tags: ["restaurant data", "multi-platform scraping", "competitive intelligence", "yelp scraping"]
+keywords: ["restaurant competitor research data 2026", "scrape Yelp restaurant reviews 2026", "TripAdvisor restaurant scraping", "multi-platform restaurant data", "franchise competitive intelligence 2026", "OpenTable scraper", "restaurant market research scraping", "google maps", "tripadvisor", "opentable", "franchise data", "foodservice due diligence", "review monitoring"]
 image: /images/posts/multi-platform-restaurant-intelligence-stack-2026.jpg
-image_alt: "Dark navy hero showing Google Maps, Yelp, TripAdvisor, and OpenTable brand marks side by side with a stat strip listing four platforms joined, ten to one thousand locations modeled, roughly forty percent of Yelp reviews filtered, six pipeline stages, and one in three briefs that change verdict — illustrating the 2026 multi-platform restaurant intelligence stack"
+image_alt: "Dark navy hero showing Google Maps, Yelp, TripAdvisor, and OpenTable brand marks side by side with a stat strip listing four platforms joined, ten to one thousand locations modeled, roughly a third of Yelp reviews filtered, six pipeline stages, and one in three briefs that change verdict — illustrating the 2026 multi-platform restaurant intelligence stack"
 faq:
   - q: "Can I just use the Google Place Details API and skip the rest?"
     a: "No, for two reasons. First, the API caps at five reviews per place, which makes any meaningful trend or sentiment analysis impossible. Second, even with unlimited Google reviews you would miss the Yelp foodie audience, the TripAdvisor traveler audience, and the OpenTable verified-diner audience. The four-platform stack exists for that audience dispersion."
-  - q: "How often should we refresh the data?"
+  - q: "How often should I refresh the data?"
     a: "Quarterly for most analytical use cases — acquisition diligence, competitive cluster analysis, expansion planning. Monthly for operators actively managing a turnaround. Daily makes sense only for crisis monitoring, and even then you usually focus the daily pull on Google and Yelp while TripAdvisor and OpenTable run weekly."
   - q: "What's the realistic accuracy of cross-platform reviewer matching?"
-    a: "A text-prefix plus date plus place hash sits at 78 to 86 percent precision on within-day cross-platform matching. That is good enough for de-duplicating sentiment averages but not for identity resolution if a client question depends on it. Make matching a flag column, not the analytical foundation of the brief."
+    a: "A text-prefix plus date plus place hash gets you a rough estimate, in practice somewhere around 75 to 85 percent. That is good enough to de-duplicate sentiment averages but not for identity resolution if a client question depends on it. Make matching a flag column, not the analytical foundation of the brief."
 ---
 
 Short answer: **one platform is one audience.** If you advise restaurants — running a franchise group, scoring an acquisition, expanding into new metros, or just deciding whether to relocate a single shop — you need Google Maps for casual-diner volume, Yelp for foodie sentiment depth, TripAdvisor for the traveler audience, and OpenTable for verified-diner behavior. Each captures a different slice of demand and each lies in distinct ways. Combine them and a real chunk of competitive briefs end up changing verdict once the missing 60% of the picture shows up.
@@ -33,9 +33,9 @@ Single-platform data wasn't wrong. It answered a different question than the ope
 The four platforms each see a different demand population:
 
 - **Google Maps** captures casual diners, walk-ins, locals on lunch breaks, anyone using the default Maps app. The largest review pool. The most generous star distribution. The closest thing to a representative cross-section of paying customers in a metro.
-- **Yelp** captures the foodie segment with all the editorial weight that brings — long reviews, photo-heavy entries, regulars who track every menu change. Yelp also runs the most aggressive review-filtering algorithm on the consumer web. Roughly 24–40% of submitted reviews end up on a "not currently recommended" page that doesn't surface in the displayed average. Half of what people wrote about your competitor is hiding behind a small-print link.
+- **Yelp** captures the foodie segment with all the editorial weight that brings — long reviews, photo-heavy entries, regulars who track every menu change. Yelp also runs the most aggressive review-filtering algorithm on the consumer web. Roughly 25–35% of submitted reviews end up on a "not currently recommended" page that doesn't surface in the displayed average — and for some businesses far more. A big slice of what people wrote about your competitor is hiding behind a small-print link.
 - **TripAdvisor** captures travelers and tourists. Heavy in city centers, near hotels, in tourist zones. Very thin in suburbs. If you're scoring a steakhouse next to a convention hotel, TripAdvisor is half the truth.
-- **OpenTable** is the only platform where every reviewer was a verified diner — the platform processes the reservation, knows the party showed up, and only then sends the review request. Sample bias is real (reservation users skew higher-income) but consistent and known, and the data is unfakeable in a way the others' aren't.
+- **OpenTable** is the only platform where every reviewer was a verified diner — the platform processes the reservation, knows the party showed up, and only then sends the review request. Sample bias is real (reservation users skew higher-income) but consistent and known, and the data is the hardest of the four to astroturf at scale.
 
 If your decision touches a 250-location franchise expansion, a $40M acquisition, a $2–8K/month engagement modeling competitive density, or one operator deciding whether to stay or move — you need all four. The acquisition cost is real. The engineering work is real. An honest cross-platform view is one of the few competitive moats a foodservice analyst can still build in 2026.
 
@@ -46,7 +46,7 @@ Each platform tells you something the others can't, and each lies in distinct wa
 | Platform | Primary signal | Audience skew | Filter / bias to correct | Volume per location |
 |---|---|---|---|---|
 | Google Maps | Casual-diner sentiment + density | Locals, walk-ins, lunch crowd | Generous star distribution; review velocity inflates after Google prompts | Highest — typically 5–30× the next platform |
-| Yelp | Foodie depth + long-form sentiment | Foodies, repeat reviewers, urban + west-coast skew | ~40% of submitted reviews routed to "not recommended"; algorithm penalty for solicited reviews | Medium — concentrated in major US metros |
+| Yelp | Foodie depth + long-form sentiment | Foodies, repeat reviewers, urban + west-coast skew | ~25–35% of submitted reviews routed to "not recommended"; algorithm penalty for solicited reviews | Medium — concentrated in major US metros |
 | TripAdvisor | Traveler / tourist demand signal | Out-of-town diners, hotel guests, business travel | Heavily skewed to tourist zones; thin in suburban areas | Medium-high in tourist zones; near-zero outside |
 | OpenTable | Reservation behavior + verified visits | Reservation users (higher-income, slightly higher-spend) | Reservation-only sample; walk-in and quick-service categories invisible | Low — reservation-eligible restaurants only |
 
@@ -56,7 +56,7 @@ Five things from this map that immediately matter:
 
 **TripAdvisor's location bias is geographic.** A steakhouse in a downtown convention zone may have 800 TripAdvisor reviews; the same chain's location six miles east in a residential neighborhood may have nine. That's not a sentiment difference; it's a demand-population difference. Don't normalize on review count alone.
 
-**OpenTable's sample is small but unfaked.** Every review represents a paying customer the platform tracked. No astroturfing, no Fiverr review farms. If OpenTable's diner-rated average diverges from Google for the same restaurant, the more likely explanation is that Google has more bad-luck walk-ins and OpenTable has the regulars.
+**OpenTable's sample is small but hard to fake.** Every review represents a paying customer the platform tracked through a real reservation — astroturfing and Fiverr review farms have far less purchase here than on Google or Yelp. If OpenTable's diner-rated average diverges from Google for the same restaurant, the more likely explanation is that Google has more bad-luck walk-ins and OpenTable has the regulars.
 
 **Google Maps is the volume anchor.** It will be your largest pool for almost every restaurant. Use it as the denominator: "Yelp captures 8% of Google's review volume here," "TripAdvisor captures 22%." Cross-location comparisons get cleaner when ratios run against Google.
 
@@ -72,7 +72,7 @@ CREATE TABLE reviews (
   review_id           TEXT PRIMARY KEY,         -- platform-prefixed: gm_<id>, yelp_<id>, ta_<id>, ot_<id>
   platform            TEXT NOT NULL,            -- 'google_maps' | 'yelp' | 'tripadvisor' | 'opentable'
   place_id_native     TEXT NOT NULL,            -- Google place_id, Yelp business_id, TA location_id, OT restaurant_id
-  place_id_canonical  TEXT NOT NULL,            -- our internal canonical entity id (resolution layer)
+  place_id_canonical  TEXT NOT NULL,            -- internal canonical entity id (resolution layer)
 
   -- Reviewer
   reviewer_id_native  TEXT,
@@ -215,7 +215,7 @@ For agencies adding multi-platform intelligence as a service line at $2–8K/mon
 
 ## Build vs. buy: three honest paths
 
-**Build the stack yourself.** Best for teams with a full-time data engineer, recurring use across clients, and a reason to control the pipeline (custom analysis, regulatory data residency, IP you want to own). First version: 4–8 weeks. Maintenance: ~10% of an engineer's time after that, mostly platform-selector changes — Yelp and TripAdvisor both broke their review HTML twice in 2025 alone. The [Web Scraping for Beginners guide](/posts/web-scraping-for-beginners-2026-guide/) covers the foundational tooling; the four-platform layer is mostly stitching together what you already build for one.
+**Build the stack yourself.** Best for teams with a full-time data engineer, recurring use across clients, and a reason to control the pipeline (custom analysis, regulatory data residency, IP you want to own). First version: 4–8 weeks. Maintenance: ~10% of an engineer's time after that, mostly platform-selector changes — Yelp and TripAdvisor both reshuffle their review markup periodically, so budget for selector breakage a couple of times a year. The [Web Scraping for Beginners guide](/posts/web-scraping-for-beginners-2026-guide/) covers the foundational tooling; the four-platform layer is mostly stitching together what you already build for one.
 
 **Buy managed actors.** Best for analyst-led teams without a dedicated engineer. Apify-style actors (Compass, memo23, Outscraper, Bright Data, DataForSEO, and a growing set of per-platform actors on the Apify Store) absorb the selector maintenance. You pay per result and get a stable JSON shape. The trade-off is per-actor pricing surprises at high volume — model it carefully at 250+ locations.
 
@@ -227,9 +227,9 @@ A middle path more agencies are landing on in 2026: SaaS for listing management 
 
 The honest version, not the fearmongering one.
 
-**Yelp Fusion API.** Free, capped at 5,000 calls per day per app, but [Yelp's API stopped returning full review text in late 2018](https://docs.developer.yelp.com/docs/fusion-faqs) — only 140–180 character excerpts. For full-review analysis the API is not the answer. Scraping carries the standard ToS-violation posture; U.S. precedent since *hiQ Labs v. LinkedIn* gives publicly-available data scraping reasonable cover, but the platform may rate-limit or block. EU operators apply GDPR rules to reviewer-identity columns.
+**Yelp Fusion API.** Free, but the daily cap depends on when your API client was created: clients made before 16 May 2023 keep the old 5,000 calls/day; anything registered after is capped at 500/day. And the API [returns only three ~160-character review excerpts per business, not full text — and never has](https://docs.developer.yelp.com/docs/places-faq). For full-review analysis the API is not the answer. Scraping carries the standard ToS-violation posture; U.S. precedent since *hiQ Labs v. LinkedIn* gives publicly-available data scraping reasonable cover on the CFAA question — though hiQ itself ultimately lost on a breach-of-contract claim, so the ToS exposure is real even where CFAA exposure isn't. The platform may also rate-limit or block. EU operators apply GDPR rules to reviewer-identity columns.
 
-**Google Place Details API.** Returns up to five reviews per place. Hard ceiling. For more than five — i.e., any analysis that matters — you scrape, use a managed actor, or license a vendor feed. Pricing is $17 per 1,000 calls.
+**Google Place Details API.** Returns up to five reviews per place. Hard ceiling. For more than five — i.e., any analysis that matters — you scrape, use a managed actor, or license a vendor feed. Since the March 2025 pricing overhaul, cost is tiered by which fields you request: roughly $17 per 1,000 at the Pro tier (after a 5,000-call free monthly cap), dropping with volume.
 
 **TripAdvisor Content API.** Free for partners, attribution-required, restricted to explicit partnership agreements. Most analytical use cases don't qualify.
 

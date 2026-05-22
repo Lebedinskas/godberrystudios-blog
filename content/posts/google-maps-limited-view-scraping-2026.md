@@ -2,8 +2,9 @@
 title: "Google Maps Limited View in 2026: What Changed, What Broke, and How to Still Get Review Data"
 description: "In February 2026 Google started hiding reviews and photos from signed-out users on Maps. Here's what the limited view actually blocks, how to tell if your scraper is returning incomplete data, and three ways to keep extracting reviews."
 date: 2026-04-17
+lastmod: 2026-05-22
 categories: ["Web Scraping"]
-tags: ["google maps", "scraping", "reviews", "limited view", "apify"]
+tags: ["google maps", "scraping", "reviews", "limited view"]
 keywords: ["google maps limited view", "google maps reviews scraping 2026", "scrape google maps reviews", "google maps limited view bypass"]
 image: /images/posts/google-maps-limited-view-scraping-2026.jpg
 image_alt: "Illustration of a Google Maps pin split into a visible public side and a locked signed-in side, showing how the limited view hides reviews and photos"
@@ -13,18 +14,18 @@ faq:
   - q: "Will authenticated scraping get my Google account banned?"
     a: "It can. Google's automated systems flag accounts used for heavy programmatic browsing. Operators who scrape at volume typically rotate across multiple warmed-up accounts and accept that some will be disabled over time."
   - q: "What's the cheapest way to get Google Maps reviews in 2026?"
-    a: "For small volumes, Apify's pay-per-event actors at around $0.25 per 1,000 reviews are the cheapest real-time option. For bulk pre-indexed exports, Scrap.io's subscriptions are cheaper per record."
+    a: "For small volumes, Apify's pay-per-event actors — from roughly $0.30 per 1,000 reviews — are the cheapest real-time option. For bulk pre-indexed exports, Scrap.io's subscriptions are cheaper per record."
   - q: "Can I use the official Google Places API instead?"
     a: "Yes, for compliance-sensitive use cases. It's reliable and ToS-clean but costs about $17 per 1,000 requests and limits how many reviews you can fetch per place."
   - q: "How do I detect if my scraper is getting limited view responses?"
     a: "Check for a missing review count field, search the HTML for limited view banner text like 'sign in to see reviews', and maintain canary URLs — known places with reviews you scrape on a schedule to catch silent regressions."
 ---
 
-On February 18, 2026, a lot of scrapers started returning blank review sections from Google Maps. The HTML looked almost normal — place name, address, hours, star rating — but reviews, photos, popular times, and related locations were gone. Developers on r/webscraping thought their selectors had broken. They hadn't. Google had rolled out a feature it called "limited view," which stripped public place pages down to the basics for anyone not signed in.
+Around February 18, 2026, a lot of Google Maps scrapers started returning blank review sections — and nobody got an error. The HTML looked almost normal: place name, address, hours, star rating. But reviews, photos, popular times, and related locations were simply gone. Developers on r/webscraping assumed their selectors had broken. They hadn't. Google had quietly rolled out a feature it called "limited view," stripping public place pages down to the basics for anyone not signed in.
 
-The change lasted about a week on the main web interface before Google [rolled it back](https://9to5google.com/2026/02/23/google-maps-limited-view-signed-out/) for most users. But the infrastructure behind it didn't go away. Limited view still triggers on "unusual traffic," in some regions, and for accounts Google decides look automated. If you run a Google Maps scraper in 2026 — whether you're doing a [lead-generation extract from local listings](/posts/scrape-google-maps-lead-generation/) or pulling [reviews for sentiment analysis](/posts/how-to-scrape-google-reviews/) — you need to understand what this thing is, how to detect when it's happening to you, and which scraping approaches survive it.
+It lasted roughly a week before Google [rolled it back](https://9to5google.com/2026/02/23/google-maps-limited-view-signed-out/) in late February for most signed-out users. But the infrastructure behind it didn't go away. Limited view still triggers on "unusual traffic," in some regions, and for accounts Google decides look automated. If you run a Google Maps scraper in 2026 — whether you're doing a [lead-generation extract from local listings](/posts/scrape-google-maps-lead-generation/) or pulling [reviews for sentiment analysis](/posts/how-to-scrape-google-reviews/) — you need to know what this thing is, how to spot it hitting you, and which scraping approaches survive it.
 
-Below is a practitioner walkthrough — what changed at the HTML level, what your scraper needs to do about it, and how three different approaches perform when you actually run them.
+What follows is a practitioner walkthrough: what changed at the HTML level, what your scraper needs to do about it, and how three different approaches hold up when you actually run them.
 
 ## What "limited view" actually strips out
 
@@ -122,12 +123,14 @@ A quick 2026 pricing snapshot, focused on review extraction specifically:
 | Provider | Pricing | Fresh data? | Good for |
 |---|---|---|---|
 | Google Places API (official) | ~$17 per 1,000 requests | Real-time | Small volume, compliance-heavy use cases |
-| [Apify `compass/google-maps-reviews-scraper`](https://apify.com/compass/google-maps-reviews-scraper) | ~$0.25 per 1,000 reviews | Real-time (on-demand scrape) | Flexible volume, pay-as-you-go |
-| Outscraper | From ~$1.75 per 1,000 reviews | Real-time | No-code marketers |
+| [Apify `compass/google-maps-reviews-scraper`](https://apify.com/compass/google-maps-reviews-scraper) | From ~$0.30 per 1,000 reviews | Real-time (on-demand scrape) | Flexible volume, pay-as-you-go |
+| Outscraper | From ~$3 per 1,000 reviews | Real-time | No-code marketers |
 | Scrap.io | Subscription plans + API | Pre-indexed (200M+ businesses) | Lead generation, bulk exports |
-| Bright Data SERP API | From ~$3 per 1,000 requests | Real-time | Large-scale, infrastructure-grade |
+| Bright Data SERP API | From ~$1.50 per 1,000 requests | Real-time | Large-scale, infrastructure-grade |
 
-Two notes on that table. First, "real-time" and "pre-indexed" are different products. A pre-indexed provider like Scrap.io is faster and cheaper but the reviews you get were scraped days or weeks ago. For a business-listings export, that's fine. For reputation monitoring where last-24-hours reviews matter, it isn't. Second, prices here are the list prices I can verify in April 2026 — anything with usage-based billing depends on your volume tier.
+Two notes on that table. First, "real-time" and "pre-indexed" are different products. A pre-indexed provider like Scrap.io is faster and cheaper but the reviews you get were scraped days or weeks ago. For a business-listings export, that's fine. For reputation monitoring where last-24-hours reviews matter, it isn't. Second, prices here are the list prices I can verify in May 2026 — anything with usage-based billing depends on your volume tier, and Outscraper in particular drops well below its entry rate once you clear 100,000 records.
+
+Full disclosure on where I sit in that table: I run one of these actors myself. My [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) is a pay-per-event Apify actor that pulls full review text, ratings, dates, and reviewer details from a place URL — built first for my own pipelines, then published for anyone who needs the same output shape. The [case study](/case-studies/google-reviews-scraper/) breaks down what 1,000 reviews from a single location actually costs and returns. I mention it here because it's the same Method 3 tradeoff in practice: the actor handles the limited-view workarounds — search-based navigation, header hygiene, the detection logic above — so the caller doesn't have to. That's the whole pitch for going through an API instead of maintaining your own headless stack.
 
 For developers already paying for proxies and maintaining scraping infrastructure, the API route often looks expensive. Run the math on your own hours, though. A week of "why did the scraper break" debugging costs more than most months of API access, and that week happens every time Google changes something. The February limited view rollout cost operators who built on direct URLs more than any incremental API bill would have. (For a broader look at the economics of AI-era tooling and whether paid APIs are worth it vs DIY, the writeup on [free AI tools that replace expensive software](/posts/free-ai-tools-replace-expensive-software-2026/) walks through the same tradeoff.)
 
@@ -190,12 +193,4 @@ Most scrapers in the wild in 2026 were written before the February change. A qui
 
 This is also why the pay-per-event pricing model Apify moved to for its Google Maps actors matters for scraping operators: predictable cost per review extracted, no monthly minimum if traffic drops, and the actor author handles the Google-specific workarounds. For teams that want to focus on their core product instead of fighting Google's anti-automation roadmap, that tradeoff increasingly wins out.
 
-## What to do this week
-
-If you run a Google Maps scraper in production, three concrete things are worth doing in the next few days:
-
-1. **Add limited view detection to your parser.** Even a simple string search for the banner text and a check that `review_count` is not null will catch the bulk of silent failures.
-2. **Set up canary URLs.** Five places, run them every scrape batch, alert on zero reviews. Twenty lines of code that will save you a week at some point.
-3. **Decide your fallback path.** Search-based navigation, authenticated sessions, or a paid API — pick one and integrate it before you need it, not after.
-
-Google isn't done with its limited view infrastructure. The next iteration will probably target a different field, or fire under different conditions, but the downstream effect on your pipeline is predictable. Operators who added detection and a fallback path before the February rollout lost maybe a day fixing things. Everyone else lost a week, and some of them only noticed because a customer asked why their review counts looked wrong.
+Google isn't done with its limited-view infrastructure. The next iteration will probably target a different field, or fire under different conditions — but the downstream effect on your pipeline is predictable, and the defense is cheap relative to the failure. Operators who had detection and a fallback path in place before the February rollout lost maybe a day. Everyone else lost a week, and some of them only noticed because a customer asked why their review counts looked wrong. If you take one thing from this: the silent failure is the dangerous one, so make it loud — a banner string check, a `review_count` null check, and five canary URLs are an afternoon of work that buys you that warning.

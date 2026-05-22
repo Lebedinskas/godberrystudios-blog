@@ -2,10 +2,10 @@
 title: "Meta Ads AI Connectors: Run Your Whole Ad Account From ChatGPT or Claude (Setup Walkthrough + 8 Prompts That Save Agencies 5+ Hours a Week)"
 description: "Meta opened its official MCP server to ChatGPT and Claude on April 29, 2026. Here's the 5-minute setup, the 8 prompts that pay for themselves in week one, and what NOT to ask the connector — including the account-shutdown trap most early adopters are walking into."
 date: 2026-05-04
-lastmod: 2026-05-18
+lastmod: 2026-05-22
 draft: false
 categories: ["AI for Business & Creators", "Marketing"]
-tags: ["meta ads", "facebook ads", "instagram ads", "chatgpt", "claude", "mcp", "ad agency", "media buying", "advertising automation"]
+tags: ["meta ads", "mcp", "media buying", "advertising automation"]
 keywords: ["meta ads ai connectors", "meta ads chatgpt", "meta ads claude mcp", "manage meta ads from ai", "meta mcp server", "meta ads natural language", "meta ads ai agent", "meta ads ai connector setup"]
 image: /images/posts/meta-ads-ai-connectors-chatgpt-claude-2026.jpg
 image_alt: "Meta Ads AI Connectors hero — Meta logo connected to ChatGPT and Claude logos via MCP server, showing campaign management from natural-language AI agents"
@@ -18,9 +18,9 @@ faq:
     a: "Grant only ads_read and business_management for the first two weeks. Those two scopes cover every reporting, diagnostic, and analysis prompt. Add ads_management only after the AI has behaved on your data for 14+ days. Add catalog_management only if you actively need ecommerce feed troubleshooting through chat."
 ---
 
-Meta opened its official MCP server to outside AI tools on April 29, 2026. Any advertiser with a Meta Business account can connect Claude Desktop or ChatGPT, paste one URL, sign in once, and start running their ad account in plain English — no developer app, no token, no app review. About five minutes of setup, and 29 tools come live the moment the OAuth handshake completes.
+Meta opened its official MCP server to outside AI tools on April 29, 2026. Any advertiser with a Meta Business account can connect Claude Desktop or ChatGPT, paste one URL, sign in once, and run their ad account in plain English — no developer app, no token, no app review. Five minutes of setup, and 29 tools come live the moment the OAuth handshake completes.
 
-I run my own ads against the Apify Store actors I ship, so I went through this the day it opened. Below is the setup that worked, the eight prompt templates I'd keep if I could only keep eight, and the account-shutdown trap that's already burning early adopters. If you run Meta ads — solo, agency, in-house — read the safety section before the prompt section.
+I run my own ads against the Apify Store actors I ship, so I went through this the day it opened. Below is the setup that worked, the eight prompts I'd keep if I could only keep eight, and the account-shutdown trap already burning early adopters. If you run Meta ads — solo, agency, in-house — read the safety section before the prompt section.
 
 ## What Meta actually shipped on April 29, 2026
 
@@ -42,14 +42,14 @@ Claude Desktop is the fastest path for non-developers. No terminal needed.
 2. Paste `https://mcp.facebook.com/ads` as the remote URL.
 3. Click Connect. The Facebook OAuth dialog opens.
 4. Sign in with the Facebook account that has Business Manager access to your ad account.
-5. Approve the requested scopes — `ads_read` for read-only, plus `ads_management` and `business_management` if you want write access.
+5. Approve the requested scopes — `ads_read` and `business_management` are the read scopes; add `ads_management` only if you want write access.
 6. The dialog closes and the connector shows as Active. Restart Claude Desktop.
 
-That's it. Type "list my Meta ad accounts" in any conversation and Claude calls the `accounts_list` tool, returns your account IDs, and you're live. Pasquale Pillitteri's [29-tool walkthrough](https://pasqualepillitteri.it/en/news/1707/official-meta-ads-mcp-claude-29-tools-2026) breaks the manifest down family by family if you want the full surface area first.
+That's it. Type "list my Meta ad accounts" in any conversation and Claude calls the `ads_get_ad_accounts` tool, returns your account IDs, and you're live. Pasquale Pillitteri's [29-tool walkthrough](https://pasqualepillitteri.it/en/news/1707/official-meta-ads-mcp-claude-29-tools-2026) breaks the manifest down family by family if you want the full surface area first.
 
-For ChatGPT, the flow is similar but you add the connector under Settings → Beta features → Custom MCP servers (rolling out through May 2026). Pipeboard's [step-by-step ChatGPT guide](https://pipeboard.co/guides/chatgpt) is the cleanest reference until OpenAI adds first-class support. ChatGPT has historically lagged Claude Desktop on MCP feature parity by about two product cycles, so I'd expect Claude to be the smoother host for the first few months. The wider comparison — feature parity, governance, where each one wins — is in the [ChatGPT Workspace Agents vs Claude Managed Agents vs Copilot Studio buyer's guide](/posts/chatgpt-workspace-agents-vs-claude-managed-agents-vs-copilot-studio-2026/).
+For ChatGPT, the flow is similar: enable Developer mode under Settings → Connectors, then add `https://mcp.facebook.com/ads` as a custom MCP connector. Pipeboard's [step-by-step ChatGPT guide](https://pipeboard.co/guides/chatgpt) is the cleanest reference until OpenAI adds first-class support. ChatGPT has historically lagged Claude Desktop on MCP feature parity by about two product cycles, so I'd expect Claude to be the smoother host for the first few months. The wider comparison — feature parity, governance, where each one wins — is in the [ChatGPT Workspace Agents vs Claude Managed Agents vs Copilot Studio buyer's guide](/posts/chatgpt-workspace-agents-vs-claude-managed-agents-vs-copilot-studio-2026/).
 
-For the CLI: `npm install -g @meta/ads-cli`, then `meta auth login` (pops a browser tab for OAuth), then `meta accounts list` to confirm. The CLI is the right home for scheduled jobs — you can call `meta insights run --window 7d` from a cron and pipe the output into a markdown report without ever opening Claude.
+For the CLI: `npm install -g @meta/ads-cli`, then `meta auth login` (pops a browser tab for OAuth), then `meta accounts list` to confirm. The CLI is the right home for scheduled jobs — you can call `meta report weekly --account <ID>` from a cron and pipe the output into a markdown report without ever opening Claude. (`meta doctor` and `meta anomalies` are the other verbs worth wiring into a schedule.)
 
 ### The permission scopes you'll be asked to approve
 
@@ -86,9 +86,9 @@ Audience overlap is the silent ROAS killer for accounts running five or more ad 
 
 ### 4. The CAPI / pixel signal health check (saves 30 minutes per audit, runs weekly)
 
-> "For ad account [ID], pull Event Match Quality (EMQ) scores for every event in the dataset. Flag any event below 6.0 — that's Meta's match-quality floor. List the parameters that are missing or low-coverage (email hash, phone hash, fbp, fbc, external_id, IP, user agent), and tell me which events are losing the most attribution because of it. End with a prioritized 5-step fix list."
+> "For ad account [ID], pull Event Match Quality (EMQ) scores for every event in the dataset. EMQ runs 0–10; flag any event scoring below 6.0, the bottom of Meta's 'Good' band. List the parameters that are missing or low-coverage (email hash, phone hash, fbp, fbc, external_id, IP, user agent), and tell me which events are losing the most attribution because of it. End with a prioritized 5-step fix list."
 
-Per [ALM Corp's Pixel and CAPI guide](https://almcorp.com/blog/meta-simplifies-ad-performance-elements/), an EMQ score of 6.0 or higher means Meta has enough parameters to confidently match the user. Accounts that fix CAPI issues see 25–40% improvement in conversion visibility within 48 hours — a measurable lift most agencies never get to because the diagnostic was too tedious.
+Per [ALM Corp's Pixel and CAPI guide](https://almcorp.com/blog/meta-simplifies-ad-performance-elements/), an event scoring in the "Good" band (6.0 and up on Meta's 0–10 scale) is sending enough parameters for Meta to match the user with confidence. ALM Corp reports that accounts which fix their CAPI issues see a 25–40% improvement in conversion visibility within 48 hours — a lift most agencies never get to because the diagnostic was too tedious to run by hand.
 
 ### 5. The naming convention enforcer (saves 20 minutes/account, runs before every reporting call)
 

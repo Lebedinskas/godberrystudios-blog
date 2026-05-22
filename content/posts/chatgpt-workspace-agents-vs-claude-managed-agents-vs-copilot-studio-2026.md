@@ -2,24 +2,24 @@
 title: "ChatGPT Workspace Agents vs Claude Managed Agents vs Microsoft Copilot Studio: The 2026 Enterprise AI Agent Buyer's Guide (5 Workflows Modeled)"
 description: "A practitioner buyer's guide that models five real ops workflows — weekly status report, sales-call prep, inbox triage, knowledge-base support draft, multi-step lead enrichment — across OpenAI Workspace Agents, Claude Managed Agents, and Microsoft Copilot Studio with cost, integration coverage, governance posture, and a decision tree for picking at 5, 50, and 5,000 seats."
 date: 2026-04-29
-lastmod: 2026-05-18
+lastmod: 2026-05-22
 categories: ["AI for Business", "Enterprise AI"]
-tags: ["chatgpt workspace agents", "claude managed agents", "microsoft copilot studio", "enterprise ai agents", "ai agent platforms", "ai agent comparison", "ai buyer guide 2026", "agent 365"]
+tags: ["enterprise ai agents", "ai agent comparison", "copilot studio", "claude managed agents"]
 keywords: ["ChatGPT workspace agents vs Claude", "Claude managed agents vs Copilot Studio", "best enterprise AI agent platform 2026", "workspace agents review", "AI agent buyer guide", "Codex vs Anthropic agents", "Copilot Studio vs Workspace Agents"]
 image: /images/posts/chatgpt-workspace-agents-vs-claude-managed-agents-vs-copilot-studio-2026.jpg
-image_alt: "Three-way comparison hero showing the OpenAI ChatGPT logo, Anthropic Claude burst logo, and Microsoft Copilot Studio hexagon logo arranged across a dark navy benchmark layout — labeled Workspace Agents free until May 6, Claude Managed Agents $0.08 per session hour plus tokens, and Copilot Studio $200 per 25,000 credits, framed as a 2026 enterprise AI agent buyer's guide"
+image_alt: "Three-way comparison hero with the OpenAI ChatGPT, Anthropic Claude, and Microsoft Copilot Studio logos arranged across a dark navy benchmark layout."
 faq:
   - q: "What is the difference between ChatGPT Workspace Agents and a Custom GPT?"
-    a: "Custom GPTs were single-prompt assistants living inside a chat session. Workspace Agents, launched April 22 2026, run in their own Codex cloud container, can write or run code, call connected apps, persist memory across runs, and trigger on a schedule or Slack message. They are team-shared and governed by workspace admin policies."
+    a: "Custom GPTs were chat-session assistants with instructions, knowledge files, and actions, but no persistent memory, scheduling, or own compute. Workspace Agents, launched April 22 2026, run in their own Codex cloud container, can write or run code, call connected apps, persist memory across runs, and trigger on a schedule or Slack message. They are team-shared and governed by workspace admin policies."
   - q: "How much does Claude Managed Agents cost vs running my own agent loop?"
     a: "Managed Agents charges 0.08 dollars per session-hour plus standard Claude API token rates — a 4-minute Sonnet 4.6 session lands around 0.08 dollars total, of which roughly 0.005 dollars is the runtime fee. Rolling your own loop is cheaper per run, but Anthropic estimates 3 to 6 months of engineering to replicate the harness, sandboxing, and state management."
   - q: "Will Workspace Agents stay free after May 6, 2026?"
     a: "No. Credit-based pricing begins May 6, 2026. The exact per-credit consumption rate for agent runs was not published as of late April 2026, but the structure mirrors Codex credit pricing. Plan on 0.05 to 0.30 dollars per substantive run and scope your pilot accordingly before the meter turns on."
 ---
 
-Three tech giants launched enterprise AI agent platforms inside a three-week window. OpenAI's Workspace Agents shipped April 22, 2026, free until May 6 then credit-priced inside ChatGPT Business and Enterprise. Anthropic's Claude Managed Agents has been in public beta since April 8 at $0.08 per session-hour plus token costs. Microsoft's Copilot Studio sits at 230,000 organizations on tenant-wide credit packs of $200 per 25,000 credits, with the new Agent 365 governance plane shipping May 1 at $15 per user per month. Every ops, RevOps, and IT director with budget left in the quarter is pricing this out right now.
+Three tech giants shipped enterprise AI agent platforms inside a three-week window, and the buying decision lands on someone's desk this quarter. OpenAI's Workspace Agents launched April 22, 2026 — free until May 6, then credit-priced inside ChatGPT Business and Enterprise. Anthropic's Claude Managed Agents entered public beta on April 9 at $0.08 per session-hour plus token costs. Microsoft's Copilot Studio is the incumbent — over 120,000 custom agents deployed across enterprises by Q1 2026 — billed on tenant-wide credit packs of $200 per 25,000 credits, with the new Agent 365 governance plane shipping May 1 at $15 per user per month.
 
-I run godberrystudios.com — a blog about MCP servers, scrapers, and the unglamorous economics of paid AI tooling — and I've watched dozens of buyers ask the same question this month: which of the three is the right line item? The vendor blogs do not run the same five workflows on the same data with cost, integration coverage, and governance side by side. This post does. The wrong choice burns a six-figure rollout and ends up in the [40-plus percent of agentic AI projects Gartner expects to be canceled by end of 2027](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027). The right choice quietly absorbs the work two interns used to do.
+I run godberrystudios.com — a blog about MCP servers, scrapers, and the unglamorous economics of paid AI tooling — and the same question keeps landing in my inbox: which of the three is the right line item? Vendor blogs will not run the same five workflows on the same data with cost, integration coverage, and governance side by side. This post does. Get it wrong and a six-figure rollout joins the [40-plus percent of agentic AI projects Gartner expects to be canceled by end of 2027](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027). Get it right and the platform quietly absorbs the work two interns used to do.
 
 ## The Short Answer Up Front
 
@@ -35,7 +35,7 @@ For narrow, predictable extraction work — pulling Google reviews on a schedule
 
 | Dimension | OpenAI Workspace Agents | Claude Managed Agents | Microsoft Copilot Studio |
 |---|---|---|---|
-| Launched | April 22, 2026 | April 8, 2026 (public beta) | GA, scaled through 2025-2026 |
+| Launched | April 22, 2026 | April 9, 2026 (public beta) | GA, scaled through 2025-2026 |
 | Pricing model | Free until May 6, then ChatGPT credits | $0.08/session-hour + token costs | $200 per 25,000 credits, or pay-as-you-go at $0.01/credit |
 | Plans required | ChatGPT Business / Enterprise / Edu / Teachers | Claude Platform API account | M365 Copilot license or tenant subscription |
 | How you build | No-code chat builder in ChatGPT sidebar | API + Claude Agent SDK (Python/TS/Java/Go/.NET/Ruby/PHP) | Low-code visual designer |
@@ -50,7 +50,7 @@ The three platforms are different shapes, not different flavors of the same shap
 
 **Claude Managed Agents** is the opposite shape: an API. You call it with your task, and Anthropic spins up a Claude session with its own container, file system, and tool set (`bash`, `read`, `write`, `web_search`, `web_fetch`, plus any MCP server or custom `@tool` function you register). The session can run minutes, hours, or days; Anthropic handles sandboxing, state, and credentials. Notion shipped its long-running document agent on it, Asana built AI Teammates against it, Sentry uses it to turn a flagged bug into a reviewable PR in one flow ([launch post](https://claude.com/blog/claude-managed-agents)). $0.08 per session-hour plus standard token costs (Opus 4.7 $5/$25 per M, Sonnet 4.6 $3/$15) — for most workloads the runtime is rounding error.
 
-**Microsoft Copilot Studio** is the oldest of the three (GA since 2023, now 230,000 orgs). Build with a low-code visual designer; pay in Copilot Credits (1 credit = $0.01). On May 1, 2026, Microsoft layers Agent 365 on top — every agent gets its own Entra identity, real-time Defender monitoring, Purview compliance enforcement. Agent 365 is $15/user/month standalone or bundled into the $99/user/month [Microsoft 365 E7 Frontier Suite](https://blogs.microsoft.com/blog/2026/03/09/introducing-the-first-frontier-suite-built-on-intelligence-trust/). For a regulated enterprise, that bundle is the actual product, not Copilot Studio in isolation.
+**Microsoft Copilot Studio** is the oldest of the three (GA since 2023, with over 120,000 custom agents deployed across enterprises by Q1 2026). Build with a low-code visual designer; pay in Copilot Credits (1 credit = $0.01). On May 1, 2026, Microsoft layers Agent 365 on top — every agent gets its own Entra identity, real-time Defender monitoring, Purview compliance enforcement. Agent 365 is $15/user/month standalone or bundled into the $99/user/month [Microsoft 365 E7 Frontier Suite](https://blogs.microsoft.com/blog/2026/03/09/introducing-the-first-frontier-suite-built-on-intelligence-trust/). For a regulated enterprise, that bundle is the actual product, not Copilot Studio in isolation.
 
 ## How the Cost Math Actually Works
 
@@ -62,7 +62,7 @@ Free until May 6 inside the ChatGPT Business / Enterprise / Edu / Teachers seat 
 
 ### Claude Managed Agents
 
-Two-part and clean: wall-clock session-hours × $0.08 + tokens × model rate. A 4-minute Sonnet 4.6 agent that reads 12,000 input tokens (Notion page + Salesforce record + Slack thread) and writes 2,500 output tokens (a status report) costs `$0.0053 + $0.036 + $0.0375 = $0.079` per run. Same workload on Opus 4.7 jumps to `$0.128` — and that is before the [Opus 4.7 tokenizer change that pushed the same prompt to 1.0×–1.47× more billed tokens](/posts/claude-opus-4-7-tokenizer-tax-cost-weekend-fix/). Most teams do not need Opus for ops — Sonnet handles 80% of the load at 60% of the cost.
+Two-part and clean: wall-clock session-hours × $0.08 + tokens × model rate. A 4-minute Sonnet 4.6 agent that reads 12,000 input tokens (Notion page + Salesforce record + Slack thread) and writes 2,500 output tokens (a status report) costs `$0.0053 + $0.036 + $0.0375 = $0.079` per run. Same workload on Opus 4.7 jumps to `$0.128` — and that is before the [Opus 4.7 tokenizer change that pushes the same prompt to 1.0×–1.35× more billed tokens](/posts/claude-opus-4-7-tokenizer-tax-cost-weekend-fix/). Most teams do not need Opus for ops — Sonnet handles 80% of the load at 60% of the cost.
 
 ### Microsoft Copilot Studio
 
@@ -73,9 +73,9 @@ Priced by what the agent does, not how long it takes. Each interaction type cost
 - Agent action (tool / connector call): 5 credits
 - Tenant Graph grounding (M365 context lookup): 10 credits
 
-A typical sales-call prep agent that does one Graph grounding call (10 credits), one generative summary (2), and three connector calls to Salesforce + Outlook + Notion (15) costs `28 credits = $0.28` per run. A multi-step lead enrichment agent that hits the Graph twice and runs 6 connector calls plus 4 generative steps costs `58 credits = $0.58`. Power-of-the-platform comes with bring-your-Microsoft-365-pricing complexity — each user invoking the agent generally also needs an M365 Copilot license at $30/user/month on top of the agent-side credit consumption.
+A typical sales-call prep agent that does one Graph grounding call (10 credits), one generative summary (2), and three connector calls to Salesforce + Outlook + Notion (15) costs `28 credits = $0.28` per run. A multi-step lead enrichment agent that hits the Graph twice and runs 6 connector calls plus 4 generative steps costs `58 credits = $0.58`. One meter the action count hides: if the agent uses a reasoning model, the premium AI-tools meter (100 credits per 10 tokens) stacks on top, so reasoning-heavy agents cost far more than the connector tally suggests. Power-of-the-platform comes with bring-your-Microsoft-365-pricing complexity — each user invoking the agent generally also needs an M365 Copilot license at $30/user/month on top of the agent-side credit consumption.
 
-Microsoft's [Copilot Credit Estimator](https://microsoft.github.io/copilot-studio-estimator/) is the official forecasting tool, but the back-of-envelope rule is: count the actions, multiply by 2-10 credits each, and add 30% headroom because grounded answers blow past the conservative estimate.
+Microsoft's [Copilot Credit Estimator](https://microsoft.github.io/copilot-studio-estimator/) is the official forecasting tool, but the back-of-envelope rule is: count the actions, multiply by 2-10 credits each, and add 30% headroom because grounded answers blow past the conservative estimate. One pricing detail worth pinning: the $200 / 25,000-credit capacity pack works out to $0.008 per credit — roughly 20% cheaper than the $0.01/credit pay-as-you-go rate, so any agent running at steady volume should be on a pack, not metered.
 
 ## The Five Workflows, Modeled
 
@@ -98,7 +98,7 @@ Workspace Agents on the free trial wins on cost; Copilot Studio wins on Teams-na
 
 ### Workflow 2: Sales-Call Prep
 
-At 6 a.m. local time before any call ≥30 minutes on the calendar, the agent reads the contact's LinkedIn, the related Salesforce account, the last 5 emails, and the last 90 days of relevant Slack mentions, and produces a one-page brief: who they are, what we last talked about, three live opportunities, three smart questions to ask.
+At 6 a.m. local time before any call ≥30 minutes on the calendar, the agent reads the contact's LinkedIn, the related Salesforce account, the last 5 emails, and the last 90 days of relevant Slack mentions, and produces a one-page brief: who they are, the last thing the account discussed, three live opportunities, three smart questions to ask.
 
 | Metric | Workspace Agents | Claude Managed (Sonnet 4.6) | Copilot Studio |
 |---|---|---|---|

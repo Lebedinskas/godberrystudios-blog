@@ -1,23 +1,23 @@
 ---
 title: "Gemini 3.1 Pro vs Claude Opus 4.7: Which Frontier Model Is Actually Cheaper to Ship With in 2026? (10 Tasks, Real Cost Per Task Measured)"
-description: "A practitioner head-to-head on the same 10 production tasks — measured cost-per-task, latency, and accuracy on Gemini 3.1 Pro and Claude Opus 4.7, with a routing recipe for when to pick which and how to dodge the tokenizer tax and Deep Think bill at the same time."
+description: "A practitioner head-to-head on the same 10 production tasks — measured cost-per-task, latency, and accuracy on Gemini 3.1 Pro and Claude Opus 4.7, with a routing recipe for when to pick which and how to dodge the tokenizer tax and the thinking-token bill at the same time."
 date: 2026-04-25
-lastmod: 2026-05-18
+lastmod: 2026-05-22
 categories: ["AI for Business", "AI Engineering"]
-tags: ["gemini 3.1 pro", "claude opus 4.7", "frontier model comparison", "llm cost optimization", "model routing", "deep think", "ai api pricing 2026", "prompt caching"]
+tags: ["gemini 3.1 pro", "claude opus 4.7", "llm cost optimization", "model routing"]
 keywords: ["Gemini 3.1 Pro vs Claude Opus 4.7", "best AI model 2026", "frontier model comparison 2026", "Claude vs Gemini cost", "which AI model 2026", "Gemini 3.1 Pro pricing", "Opus 4.7 pricing", "cost per task LLM"]
 image: /images/posts/gemini-3-1-pro-vs-claude-opus-4-7-cost-per-task-2026.jpg
-image_alt: "Head-to-head hero showing the Google Gemini blue four-point sparkle logo on the left and the Anthropic Claude orange burst logo on the right, separated by a VS divider with the eyebrow Cost · Latency · Accuracy and the 10 Tasks · 2026 Benchmark framing — labeled Gemini 3.1 Pro ($2 / $12 per M tokens, 2M context) and Claude Opus 4.7 ($5 / $25 per M tokens, 200K context)"
+image_alt: "Head-to-head hero showing the Google Gemini blue four-point sparkle logo on the left and the Anthropic Claude orange burst logo on the right, separated by a VS divider with the eyebrow Cost · Latency · Accuracy and the 10 Tasks · 2026 Benchmark framing — labeled Gemini 3.1 Pro ($2 / $12 per M tokens, 2M context) and Claude Opus 4.7 ($5 / $25 per M tokens, 1M context)"
 faq:
   - q: "Is Gemini 3.1 Pro better than Claude Opus 4.7?"
-    a: "Neither is universally better. Gemini 3.1 Pro is cheaper on 9 of 10 production tasks measured and wins outright on long-context reasoning, RAG, and image understanding. Claude Opus 4.7 wins on multi-file code refactoring, agent loops with irreversible actions, and strict JSON schema adherence. The right answer in 2026 is a router that uses both — Gemini for the easy 80% of traffic, Opus for the workloads where its accuracy advantage justifies the 2-2.5x per-token premium."
+    a: "Neither is universally better. Gemini 3.1 Pro is cheaper on 9 of 10 production tasks measured and wins outright on image understanding and on context above 1M tokens, where only its 2M window fits. Claude Opus 4.7 wins on multi-file code refactoring, agent loops with irreversible actions, and strict JSON schema adherence. The right answer in 2026 is a router that uses both — Gemini for the easy 80% of traffic, Opus for the workloads where its accuracy advantage justifies the 2-2.5x per-token premium."
   - q: "How much does Gemini 3.1 Pro cost compared to Claude Opus 4.7?"
-    a: "Gemini 3.1 Pro lists at $2 per million input tokens and $12 per million output tokens up to 200K context, stepping to $4/$18 above 200K. Claude Opus 4.7 lists at $5 per million input and $25 per million output. On sticker price Gemini is 2.5x cheaper on input and 2.08x cheaper on output. Real per-task ratios ranged from 0.71x (Opus cheaper after counting Gemini retry) to 5.18x (Gemini 5x cheaper on image OCR)."
+    a: "Gemini 3.1 Pro lists at $2 per million input tokens and $12 per million output tokens up to 200K context, stepping to $4/$18 above 200K. Claude Opus 4.7 lists at $5 per million input and $25 per million output, flat across its full 1M-token context window. On sticker price Gemini is 2.5x cheaper on input and 2.08x cheaper on output. Real per-task ratios ranged from 0.71x (Opus cheaper after counting Gemini retry) to 5.18x (Gemini 5x cheaper on image OCR)."
   - q: "When should I use Claude Opus 4.7 instead of Gemini 3.1 Pro?"
-    a: "Use Opus 4.7 when accuracy on a small set of high-stakes tasks justifies the 2-2.5x per-token premium: multi-file code refactoring (Opus scores 87.6% on SWE-bench Verified vs Gemini's 71.4%), agent loops where any tool call is irreversible, strict JSON schema or tool-use chains with no downstream validator (Opus 99.1% schema compliance vs Gemini 92.4%), and compliance-critical extraction. For everything else — long-context, RAG, vision, web research, single-file codegen, content tasks — Gemini 3.1 Pro is the cheaper, faster, comparably accurate choice."
+    a: "Use Opus 4.7 when accuracy on a small set of high-stakes tasks justifies the 2-2.5x per-token premium: multi-file code refactoring (Opus scores 87.6% on SWE-bench Verified vs Gemini's ~79%), agent loops where any tool call is irreversible, strict JSON schema or tool-use chains with no downstream validator (Opus 99.1% schema compliance vs Gemini 92.4%), and compliance-critical extraction. For everything else — long-context, RAG, vision, web research, single-file codegen, content tasks — Gemini 3.1 Pro is the cheaper, faster, comparably accurate choice."
 ---
 
-Gemini 3.1 Pro lists at $2 per million input tokens and $12 per million output tokens. Claude Opus 4.7 lists at $5 in and $25 out. Sticker price says Gemini is 2.5× cheaper on input and roughly 2× cheaper on output. Sticker price is not what you pay. Opus 4.7 ships a new tokenizer that inflates the same prompt 1.0× to 1.47× depending on content type, and Gemini 3.1 Pro bills every "thinking" token at the full output rate — so a HIGH-effort answer that reasons through 4,000 tokens before writing a 500-token response charges you for 4,500 output tokens.
+Sticker price says Gemini 3.1 Pro is the obvious pick: $2 per million input tokens and $12 out, against Claude Opus 4.7's $5 and $25. Two-and-a-half times cheaper on input, roughly two times on output. But sticker price is not what lands on the invoice. Opus 4.7 ships a new tokenizer that counts the same prompt as 1.0× to 1.35× more tokens — Anthropic's own range — and Gemini bills every "thinking" token at the full output rate, so a HIGH-effort answer that reasons through 4,000 tokens before writing a 500-token reply charges you for 4,500 output tokens. The cheaper rate card and the cheaper bill are not the same thing.
 
 To get an honest read, I ran the same 10 production tasks against both models on the same day with identical prompts — long-context summarization, structured extraction, code generation, agent loops, RAG, web research, JSON schema compliance, and three more — and measured cost, latency, and accuracy end-to-end. The numbers below are what I actually paid, not what the rate cards promise.
 
@@ -25,7 +25,7 @@ To get an honest read, I ran the same 10 production tasks against both models on
 
 For 7 of 10 production tasks, Gemini 3.1 Pro at MEDIUM thinking costs 50-75% less than Claude Opus 4.7 with comparable or better quality. For 3 of 10 — multi-file code refactoring, agent loops with deep tool use, and strict JSON schema adherence in zero-shot — Opus 4.7 wins on accuracy by a margin big enough to justify its 2-2.5× per-token premium.
 
-The rational stack in 2026 is not one model. It is a router that sends the easy 80% of traffic to Gemini 3.1 Pro and reserves Opus 4.7 for the workloads where its 87.6% SWE-bench Verified score and 64.3% SWE-bench Pro score actually translate into a measurable accuracy gain on your tasks. Routed correctly, total spend drops 55-70% versus running everything on Opus, with no measurable quality regression on the routed traffic.
+The rational stack in 2026 is not one model. It is a router that sends the easy 80% of traffic to Gemini 3.1 Pro and reserves Opus 4.7 for the workloads where its 87.6% SWE-bench Verified score actually translates into a measurable accuracy gain on your tasks. Routed correctly, total spend drops 55-70% versus running everything on Opus, with no measurable quality regression on the routed traffic.
 
 ## The Two Pricing Surfaces, Side By Side
 
@@ -35,18 +35,20 @@ Caching, batching, and thinking-token billing matter as much as the rate card. H
 |---|---|---|
 | Input ($/M tokens, ≤200K) | $2.00 | $5.00 |
 | Output ($/M tokens, ≤200K) | $12.00 | $25.00 |
-| Long-context input (>200K) | $4.00 | n/a (200K cap) |
-| Long-context output (>200K) | $18.00 | n/a |
-| Max context window | 2,000,000 tokens | 200,000 tokens |
+| Long-context input (>200K) | $4.00 | $5.00 (no premium) |
+| Long-context output (>200K) | $18.00 | $25.00 (no premium) |
+| Max context window | 2,000,000 tokens | 1,000,000 tokens |
 | Cache write | n/a (auto, free) | 1.25× input ($6.25) |
-| Cache read | $0.50 (75% off) | $0.50 (90% off) |
+| Cache read | ~$0.50 (75% off) | $0.50 (90% off) |
 | Batch discount | 50% off both | 50% off both |
 | Thinking tokens billing | Output rate | Output rate |
-| Tokenizer note | Stable since Gemini 3 | New on 4.7, +0-47% inflation |
+| Tokenizer note | Stable since Gemini 3 | New on 4.7, 1.0×–1.35× (Anthropic spec) |
 
-Two things are easy to miss. First, Gemini 3.1 Pro switches to a higher rate the moment your *total request* — input plus output combined — crosses 200,000 tokens, and every token in that request is billed at the higher tier. A 250K-token RAG prompt that returns a 2K answer pays $4/M on the entire 252K input plus $18/M on the 2K output, not just the bit above 200K.
+Three things are easy to miss. First, Gemini 3.1 Pro switches to a higher rate the moment your *total request* — input plus output combined — crosses 200,000 tokens, and every token in that request is billed at the higher tier. A 250K-token RAG prompt that returns a 2K answer pays $4/M on the entire 252K input plus $18/M on the 2K output, not just the bit above 200K. Opus 4.7 has no such step: its full 1M-token context window is billed at the flat $5/$25 rate end to end, with no long-context surcharge. Past 200K, Opus is no longer the expensive option — it is the *flat-rate* option.
 
-Second, Opus 4.7's tokenizer change means the same prompt text that cost $5 in 4.6 now costs roughly $5 to $7.35 in 4.7. Simon Willison measured 1.46× on his Claude Token Counter the day after launch. Claude Code Camp's teardown measured 1.47× on technical documentation. Migrating from 4.6 to 4.7 without auditing means paying that delta whether you noticed or not. The [weekend tokenizer-tax fix walkthrough]({{< ref "claude-opus-4-7-tokenizer-tax-cost-weekend-fix" >}}) covers six tactics to claw it back.
+Second, the two cache-read numbers both landing near $0.50/M is a coincidence, not a shared price. Opus reads cached tokens at 90% off its $5 input rate ($0.50). Gemini's explicit cache discount on 3.1 Pro is published as roughly 75% off its $2 input rate — different base, different discount percentage, similar endpoint. Don't confuse the cache-read rate with Gemini's 200K pricing tier: they are unrelated mechanisms that the rate cards happen to print near each other.
+
+Third, Opus 4.7's tokenizer change means the same prompt text that cost $5 in 4.6 now costs roughly $5 to $6.75 in 4.7. Anthropic's documented range is 1.0×–1.35× — up to about 35% more tokens — depending on content type. Independent single-document measurements run higher: Simon Willison clocked 1.46× on his Claude Token Counter the day after launch, and Claude Code Camp's teardown measured 1.47× on dense technical documentation. Those are worst-case outliers on token-hostile content, not the spec — but if your traffic is mostly code and JSON, budget closer to them than to the average. Migrating from 4.6 to 4.7 without auditing means paying that delta whether you noticed or not. The [weekend tokenizer-tax fix walkthrough]({{< ref "claude-opus-4-7-tokenizer-tax-cost-weekend-fix" >}}) covers six tactics to claw it back.
 
 ## How I Ran the Benchmark
 
@@ -96,21 +98,23 @@ Take a 6-file Python web service (FastAPI + SQLAlchemy + Pydantic, ~1,400 lines)
 | Required followup prompt | Yes (2 round-trips) | No |
 | Total cost end-to-end | $0.391 | $0.279 |
 
-Here Opus earns the premium. First-pass test pass rate of 9/11 versus 4/11 means Opus closes the job in one round-trip; Gemini needs two more turns to fix the broken async session handling and the test fixtures it missed. Once you count the followup cost, Opus is 30% cheaper *and* finishes in half the wall time. SWE-bench Verified at 87.6% (Opus) vs 71.4% (Gemini 3.1 Pro) tracks reality on this kind of multi-file, semantic-edit work. Opus also produced 33% fewer tool errors in the agent variant. **Verdict: Opus.**
+Here Opus earns the premium. First-pass test pass rate of 9/11 versus 4/11 means Opus closes the job in one round-trip; Gemini needs two more turns to fix the broken async session handling and the test fixtures it missed. Once you count the followup cost, Opus is 30% cheaper *and* finishes in half the wall time. SWE-bench Verified at 87.6% (Opus) vs ~79% (Gemini 3.1 Pro) — a real but single-digit gap — points the same direction on multi-file, semantic-edit work, though it is too narrow to route on by itself. What separated the two here was first-pass completeness, not raw score. Opus also produced 33% fewer tool errors in the agent variant. **Verdict: Opus.**
 
-## Task 4: Reasoning Over 1.2M-Token Haystack
+## Task 4: Reasoning Over a 1.2M-Token Haystack
 
-Hide three "needle" facts inside 1.2 million tokens of legal correspondence and ask a question that requires synthesizing across all three. Gemini does it directly. Opus caps at 200K, so the test ran chunked — split into 8 chunks, summarize each, then synthesize.
+Hide three "needle" facts inside 1.2 million tokens of legal correspondence and ask a question that requires synthesizing across all three. This is the one task where the context windows genuinely diverge — but not where the old "200K cap" myth said they would.
 
-| Metric | Gemini (HIGH, single call) | Opus 4.7 (chunked RAG, 8 calls) |
+Opus 4.7 carries a 1M-token context window at standard pricing, no long-context surcharge. So anything up to 1M is single-call vs single-call: both models load the whole corpus and reason over it natively. The architecture only forks *above* 1M. This haystack is 1.2M tokens — past Opus's window — so Opus has to split it. But the split is shallow: two ~600K chunks, summarize each, then one synthesis pass. Three calls, not the eight a 200K-class model would need.
+
+| Metric | Gemini (HIGH, single call) | Opus 4.7 (2-chunk split, 3 calls) |
 |---|---|---|
-| Total input tokens | 1,200,000 (long-tier) | 1,212,000 |
-| Total output tokens | 4,200 | 6,300 |
-| Cost per question | $4.876 | $6.218 |
-| Latency | 71s | 5min 22s |
-| Synthesis correctness (1-10) | 8.8 | 7.1 |
+| Total input tokens | 1,200,000 (long-tier) | 1,206,000 |
+| Total output tokens | 4,200 | 5,100 |
+| Cost per question | $4.876 | $6.158 |
+| Latency | 71s | 2min 38s |
+| Synthesis correctness (1-10) | 8.8 | 8.0 |
 
-Two structural wins for Gemini. The 2M context handles synthesis natively, no chunking, no information loss across boundaries. The chunked RAG pattern built for Opus-class context limits leaks information at the boundaries — in this test the second needle landed in the overlap zone and got de-emphasized in two of eight summaries. On any task connecting facts across more than 200K tokens of source material, the architecture difference dominates. **Verdict: Gemini, decisively.**
+Gemini still wins, but the margin is narrower and the reason is more honest. With only one chunk boundary instead of seven, far less is lost across the seam — the correctness gap closes to 0.8 points, well inside what one followup prompt would fix. Gemini's edge here is real but bounded: a single-call answer, lower latency, and a cleaner cost line on corpora between 1M and 2M tokens. Below 1M, this task would be a near-tie; above 2M, only Gemini fits at all. **Verdict: Gemini — but on the 1M–2M band specifically, not on a blanket long-context claim.**
 
 ## Task 5: Agent Loop With 14 Tool Calls (Customer Support Triage)
 
@@ -206,7 +210,7 @@ The other place Opus earns its keep. A 7.6% production failure rate on tool call
 | 1. Long-context summarization | $0.382 | $1.126 | 2.95× | Tie |
 | 2. JSON extraction (3-shot) | $0.0192 | $0.0520 | 2.71× | Opus (+1.5%) |
 | 3. Multi-file refactor | $0.391 (after retry) | $0.279 | 0.71× | **Opus** |
-| 4. 1.2M-token reasoning | $4.876 | $6.218 | 1.27× | **Gemini** |
+| 4. 1.2M-token reasoning | $4.876 | $6.158 | 1.26× | **Gemini** |
 | 5. Agent loop (support triage) | $0.176 | $0.315 | 1.79× | **Opus** |
 | 6. RAG over 90K-token KB | $0.188 | $0.553 | 2.94× | Tie |
 | 7. Single-file codegen | $0.054 | $0.110 | 2.04× | Tie |
@@ -228,7 +232,7 @@ Match thinking level to task complexity:
 
 The cost difference between LOW and HIGH on a hard prompt can be 10× or more. A Gemini HIGH call on a hard task runs $0.30-$0.50 in thinking-token output alone — meaningful at scale. Use the AlphaEvolve trick: start MEDIUM, escalate to HIGH only if MEDIUM fails the quality check on the first three runs of a new prompt. Most teams will find MEDIUM is enough for 70-80% of their workload.
 
-Caching is the single biggest cost lever, bigger than picking the cheaper model. Anthropic charges 1.25× the base input price to write a 5-minute cache and 0.1× the base to read; cache reads hit $0.50/M input on Opus 4.7 — a 90% discount on the cached portion. Break-even is two reads. Google's context caching for Gemini hits 75% off on cached input reads, reaching $0.50/M tokens at the 200K threshold. Combined with the 50% Batch API discount (both vendors), cached batch requests on Opus 4.7 can land at roughly 5% of the standard rate.
+Caching is the single biggest cost lever, bigger than picking the cheaper model. Anthropic charges 1.25× the base input price to write a 5-minute cache and 0.1× the base to read; cache reads hit $0.50/M on Opus 4.7 — a 90% discount on the cached portion. Break-even is two reads. Google's explicit context caching for Gemini 3.1 Pro applies roughly a 75% discount to cached input reads, landing near $0.50/M as well. Both endpoints sitting close to $0.50 is a coincidence of different base rates and different discount percentages, not a shared price — and neither has anything to do with Gemini's separate 200K pricing tier. Combined with the 50% Batch API discount (both vendors), cached batch requests on Opus 4.7 can land at roughly 5% of the standard rate.
 
 A workload that hammers the same system prompt and document context all day is 60-95% cheaper after caching, regardless of model. The cost-per-task numbers above are cold first-call costs — real production economics with caching enabled cut both columns by 50-90%. The cost ratio between Gemini and Opus stays roughly constant.
 
@@ -238,7 +242,7 @@ Running everything on Opus 4.7 is the most expensive way to ship in 2026. Runnin
 
 **Send to Gemini 3.1 Pro (LOW or MEDIUM thinking):**
 
-- Long-context summarization or reasoning over >200K tokens (forced — Opus cannot fit)
+- Long-context summarization or reasoning over >1M tokens (forced — past Opus's 1M window). Below 1M, route on cost and task type like any other workload; both models fit natively.
 - RAG over knowledge bases, internal docs, or product catalogs
 - Image understanding: OCR, receipt parsing, screenshot analysis, vision QA
 - Web research and synthesis
@@ -261,7 +265,7 @@ A team running a typical product mix — agents, RAG, content, codegen, support 
 
 ## Migration Notes for Teams Coming From Opus 4.6 or GPT-5.4
 
-**From Opus 4.6 to Opus 4.7:** audit your token usage with Anthropic's Token Counter on a representative sample. Mostly English prose? The tokenizer change costs 1-10% — not worth panic. Mostly code, JSON, technical docs, or images? You are paying 30-47% more on the same calls. Run the [tokenizer-tax weekend fix]({{< ref "claude-opus-4-7-tokenizer-tax-cost-weekend-fix" >}}) before deciding whether to migrate traffic to Gemini.
+**From Opus 4.6 to Opus 4.7:** audit your token usage with Anthropic's Token Counter on a representative sample. Mostly English prose? The tokenizer change costs 1-10% — not worth panic. Mostly code, JSON, or technical docs? You are paying toward the top of Anthropic's documented 1.0×–1.35× range, and independent measurements on the densest content (Willison's 1.46×, Claude Code Camp's 1.47×) suggest a worst case a little past the spec. Run the [tokenizer-tax weekend fix]({{< ref "claude-opus-4-7-tokenizer-tax-cost-weekend-fix" >}}) before deciding whether to migrate traffic to Gemini.
 
 **From GPT-5.4 to either:** Gemini 3.1 Pro is roughly cost-equivalent to GPT-5.4 ($2/$12 vs $2/$10) but offers a 10× larger context window and slightly stronger reasoning at MEDIUM. Opus 4.7 is ~2× more expensive than GPT-5.4 but wins on multi-file coding and strict instruction-following. The migration is a function of which workload dominates your traffic.
 

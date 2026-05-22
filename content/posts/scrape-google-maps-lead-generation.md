@@ -2,8 +2,9 @@
 title: "How to Scrape Google Maps for Lead Generation in 2026"
 description: "Build targeted B2B lead lists from Google Maps in minutes. Step-by-step methods, Python code, no-code tools, CRM workflows, and the legal lines you shouldn't cross."
 date: 2026-05-08
+lastmod: 2026-05-22
 categories: ["Tutorials"]
-tags: ["google maps", "lead generation", "web scraping", "b2b leads", "data extraction", "apify"]
+tags: ["google maps", "lead generation", "web scraping", "apify"]
 image: /images/posts/google-maps-lead-generation.jpg
 image_alt: "Digital city map with business pins lighting up and data streams flowing into a lead generation dashboard"
 affiliate_links: true
@@ -23,15 +24,15 @@ faq:
 # Quality scores (Phase 4): Value: 8/10, Originality: 7/10, Readability: 8/10, Voice: 8/10, SEO: 8/10 → PUBLISH
 ---
 
-You need 500 plumbers in Dallas. Or 200 coffee shops in Berlin. Or every yoga studio in Melbourne with fewer than 50 Google reviews.
+Say you need 500 plumbers in Dallas. Or 200 coffee shops in Berlin. Or every yoga studio in Melbourne with fewer than 50 Google reviews. Where does that list come from?
 
-You could spend $300/month on ZoomInfo. You could hand an intern a spreadsheet and three days of their life. Or you could scrape Google Maps and have a clean lead list in 15 minutes.
+Three options: pay $300 a month for ZoomInfo, hand someone a spreadsheet and three days of their life, or scrape Google Maps and have a clean list in 15 minutes. This guide is about the third one.
 
-This guide covers the full pipeline: how to extract business data from Google Maps, which tools actually work in 2026, how to turn raw data into CRM-ready leads, and where the legal boundaries are — especially if you're operating in the EU.
+It covers the full pipeline — how to extract business data from Google Maps, which tools actually work in 2026, how to turn a raw CSV into CRM-ready leads, and where the legal boundaries sit, especially if you're operating in the EU.
 
 ## What You Actually Get From Google Maps
 
-Forget the methods for a second — what data are we actually talking about? Google Maps is the biggest public business directory that exists. For every listing, you can pull:
+Forget the methods for a second — what data is actually on the table? Google Maps is the biggest public business directory that exists. For every listing, you can pull:
 
 - **Business name and category** (e.g., "Joe's Plumbing" → Plumber)
 - **Full address** with city, state/region, postal code
@@ -140,7 +141,7 @@ def extract_field(page, selector, attr=None):
         if attr:
             return el.get_attribute(attr)
         return el.inner_text()
-    except:
+    except Exception:
         return None
 ```
 
@@ -151,11 +152,11 @@ def extract_field(page, selector, attr=None):
 3. **Headless detection.** Google actively detects headless browsers. Libraries like `playwright-stealth` help, but it's a cat-and-mouse game.
 4. **Scale limits.** A single Playwright instance tops out at maybe 500-1000 listings per session before things get unreliable. For bigger jobs, use a managed platform.
 
-Hot take: if you're doing this for real, you'll spend more time babysitting selectors than actually using the data. We built two production scrapers at Godberry, and the maintenance tax is real. Most teams graduate to managed tools after the prototype phase — and that's the right call.
+If you're doing this for real, you'll spend more time babysitting selectors than actually using the data. I built two production scrapers — Google Reviews Scraper and Yelp Scraper — and the maintenance tax is real: a Google UI change can quietly empty a field overnight. Most projects graduate to managed tools after the prototype phase, and that's usually the right call.
 
 ## Method 3: Google Maps Platform API (Official Route)
 
-Google offers an official [Places API](https://developers.google.com/maps/documentation/places/web-service) that returns structured business data. It's rate-limited and costs $17 per 1,000 requests for Place Details, but you get:
+Google offers an official [Places API](https://developers.google.com/maps/documentation/places/web-service) that returns structured business data. It's rate-limited, and since 2026 the Places API (New) tiers Place Details by which fields you request — Essentials, Pro, or Enterprise — so the cost runs roughly $5-20 per 1,000 requests depending on which fields you pull. In return you get:
 
 - Reliable, structured data
 - No risk of IP bans
@@ -164,26 +165,30 @@ Google offers an official [Places API](https://developers.google.com/maps/docume
 
 The catch: the API caps text search results at 60 per query and only returns 5 reviews per place. For lead generation at scale, you'll burn through your budget fast and still miss most of the review data. It's best for enrichment (looking up specific businesses), not discovery (finding all businesses in a category). Another consideration since February 2026: direct place-page scraping without a session can trigger Google's [limited view response](/posts/google-maps-limited-view-scraping-2026/), which silently strips reviews and photos — if you're rolling your own scraper, add detection for it before your data looks thinner than it should.
 
+The example below uses the legacy Text Search endpoint, which still works but is deprecated. New projects should use [Text Search (New)](https://developers.google.com/maps/documentation/places/web-service/text-search) — a `POST` to `https://places.googleapis.com/v1/places:searchText` with a required `X-Goog-FieldMask` header that names exactly which fields you want back (the field mask is also what decides your pricing tier).
+
 ```python
 import requests
 
 API_KEY = "your-api-key"
 
-def search_places(query, location="30.2672,-97.7431", radius=10000):
-    url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
-    params = {
-        "query": query,
-        "location": location,
-        "radius": radius,
-        "key": API_KEY,
+def search_places(query):
+    # Text Search (New): POST + field mask. The field mask is required —
+    # omit it and the API returns an error.
+    url = "https://places.googleapis.com/v1/places:searchText"
+    headers = {
+        "Content-Type": "application/json",
+        "X-Goog-Api-Key": API_KEY,
+        "X-Goog-FieldMask": "places.displayName,places.formattedAddress,places.rating",
     }
-    response = requests.get(url, params=params)
-    return response.json().get("results", [])
+    response = requests.post(url, headers=headers, json={"textQuery": query})
+    return response.json().get("places", [])
 
 # Example: find HVAC companies in Austin
 places = search_places("HVAC company in Austin TX")
 for place in places:
-    print(f"{place['name']} — {place.get('formatted_address')} — Rating: {place.get('rating')}")
+    name = place.get("displayName", {}).get("text")
+    print(f"{name} — {place.get('formattedAddress')} — Rating: {place.get('rating')}")
 ```
 
 ## Choosing Your Method: A Quick Decision Framework
@@ -191,7 +196,7 @@ for place in places:
 | Factor | No-Code Tool | Python Scraper | Google API |
 |--------|-------------|---------------|------------|
 | **Setup time** | 5 minutes | 2-4 hours | 30 minutes |
-| **Cost per 1K leads** | $4-10 | ~$0 (+ proxy costs) | $17+ |
+| **Cost per 1K leads** | $4-10 | ~$0 (+ proxy costs) | $5-20+ |
 | **Maintenance** | None (tool handles it) | High (selectors break) | Low |
 | **Scale** | 10K+ easy | ~1K per session | 60 per query |
 | **Data freshness** | Real-time | Real-time | Real-time |
@@ -241,7 +246,7 @@ Export your scored, enriched leads as CSV and import into whatever you use — H
 
 Lead lists are more powerful when you also have the reviews. If you're pitching a restaurant on marketing services, and you can open with "I noticed your last 10 reviews mention slow service on weekends" — that's a personalized email that gets opened.
 
-The [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) on Apify pulls full review text, ratings, dates, and owner responses for any Google Maps listing. At $0.10 per place for up to 50 reviews, it's cheap enough to enrich your entire lead list. Feed those reviews into a sentiment analysis tool or just scan them manually for patterns — either way, you now know more about the business than their own marketing team does. If your prospect is a local business owner themselves, our [2026 Google Reviews playbook for local businesses](/posts/google-reviews-playbook-2026/) gives you the language and data points to build a consultative opener.
+The [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) on Apify pulls full review text, ratings, dates, and owner responses for any Google Maps listing. At $0.10 per place for up to 50 reviews, it's cheap enough to enrich your entire lead list. Feed those reviews into a sentiment analysis tool or just scan them manually for patterns — either way, you now know more about the business than their own marketing team does. If your prospect is a local business owner themselves, my [2026 Google Reviews playbook for local businesses](/posts/google-reviews-playbook-2026/) gives you the language and data points to build a consultative opener.
 
 {{< cta title="Extract Google Reviews in Seconds" url="https://apify.com/godberry/google-reviews-scraper" >}}
 Get structured review data for any Google Maps business — ratings, full text, dates, owner responses. No code needed. Starting at $0.10 per place.
@@ -253,13 +258,13 @@ You probably want to skip this. Don't. The answer to "is this legal?" depends on
 
 ### United States
 
-U.S. courts have consistently ruled that scraping publicly available data doesn't violate the Computer Fraud and Abuse Act (CFAA). The landmark *hiQ Labs v. LinkedIn* case (2022) established that accessing public data isn't "unauthorized access." Google Maps business listings — names, addresses, phone numbers, ratings — are public information visible to anyone with a browser.
+U.S. courts have consistently ruled that scraping publicly available data doesn't violate the Computer Fraud and Abuse Act (CFAA). The landmark *hiQ Labs v. LinkedIn* case (2022) established that accessing public data isn't "unauthorized access." Worth noting: hiQ ultimately lost the case — not on the CFAA question, but on a breach-of-contract claim for violating LinkedIn's terms of use. So public-data scraping survived CFAA scrutiny, but breaking a site's terms still carries civil risk. Google Maps business listings — names, addresses, phone numbers, ratings — are public information visible to anyone with a browser.
 
 That said, it violates Google's Terms of Service. Google can't put you in jail for it, but they can block your IP, suspend your account, or send a cease-and-desist. The realistic worst case for a marketing team scraping 10,000-20,000 listings? A temporary IP block.
 
 ### European Union (GDPR)
 
-Here's where we pay closer attention, since Godberry Studios operates from the EU. GDPR applies when you're collecting data that can identify a living individual. Business names and addresses? Usually fine — those are commercial entities. But reviewer names, personal phone numbers, or sole-proprietor businesses where the business name IS the person's name? That's personal data under GDPR.
+Here's where I pay closer attention, since Godberry Studios operates from the EU. GDPR applies when you're collecting data that can identify a living individual. Business names and addresses? Usually fine — those are commercial entities. But reviewer names, personal phone numbers, or sole-proprietor businesses where the business name IS the person's name? That's personal data under GDPR.
 
 To stay compliant:
 
@@ -275,11 +280,11 @@ To stay compliant:
 3. **Rate-limit your scraping.** Don't hammer Google's servers. Use delays, respect robots.txt, be a good internet citizen.
 4. **Keep records.** Document what you scraped, when, and why. If anyone asks, you want a clear paper trail.
 
-*We're not lawyers. If you're operating at scale or in a regulated industry, get proper legal counsel. This section is a starting point, not legal advice.*
+*I'm not a lawyer. If you're operating at scale or in a regulated industry, get proper legal counsel. This section is a starting point, not legal advice.*
 
 ## Putting It All Together: A Complete Lead Gen Workflow
 
-Here's what we'd actually do starting from scratch today:
+Here's what I'd do starting from scratch today:
 
 **Week 1: Validate**
 1. Pick one niche and one city (e.g., "dentists in Portland, OR")
@@ -299,7 +304,7 @@ Here's what we'd actually do starting from scratch today:
 3. Set up scheduled scrapes (weekly or monthly) to keep your lead list fresh
 4. Build email templates that reference specific details from the scraped data (category, rating, review themes)
 
-We've watched people spend entire weekends building slick automation pipelines for niches with 0% reply rates. Don't be that person. Validate first, automate second.
+It's easy to spend an entire weekend building a slick automation pipeline for a niche with a 0% reply rate. Don't be that person. Validate first, automate second.
 
 ## Common Mistakes That Waste Your Time
 
@@ -319,6 +324,6 @@ Pick one niche. Run one scrape. Review the data. Send 20 emails. That's your hom
 
 If you want to add review intelligence to your lead lists, the [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) is the fastest way to get structured review data for any listing. Pair it with a Google Maps scraper, and you've got the two things every cold email needs: a reason to reach out, and something specific to say.
 
-For more scraping fundamentals, check out our [Web Scraping for Beginners guide](/posts/web-scraping-for-beginners-2026-guide/) — it covers proxies, rate limiting, and other concepts that'll help you scale. If you want a detailed walkthrough of extracting reviews specifically, our [Google Reviews scraping tutorial](/posts/how-to-scrape-google-reviews/) covers API cost comparisons, no-code and Python methods, and real output examples.
+For more scraping fundamentals, check out my [Web Scraping for Beginners guide](/posts/web-scraping-for-beginners-2026-guide/) — it covers proxies, rate limiting, and other concepts that'll help you scale. If you want a detailed walkthrough of extracting reviews specifically, my [Google Reviews scraping tutorial](/posts/how-to-scrape-google-reviews/) covers API cost comparisons, no-code and Python methods, and real output examples.
 
 Got great reviews from your leads? Turn them into social proof with the [Content to Social MCP Server](/posts/automate-social-media-content-with-mcp/) — it transforms review text into ready-to-post content for LinkedIn, Twitter, and Facebook.

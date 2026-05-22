@@ -4,7 +4,7 @@ description: "Apify is sunsetting rental pricing on October 1, 2026. Here's the 
 date: 2026-05-18
 lastmod: 2026-05-18
 categories: ["Web Scraping"]
-tags: ["apify", "actor monetization", "pay per event", "migration", "indie developer", "apify store"]
+tags: ["apify", "pay-per-event", "actor-monetization", "apify-store"]
 keywords: ["apify pay per event", "apify rental sunset", "apify monetization 2026", "apify actor migration", "pay per event pricing"]
 image: /images/posts/apify-pay-per-event-migration-playbook-2026.jpg
 image_alt: "Illustration of an hourglass with coins flowing through, representing the October 2026 deadline for Apify actor developers to migrate from rental to pay-per-event pricing"
@@ -17,7 +17,9 @@ faq:
     a: "Your actor is automatically moved to pay-per-usage, where Apify bills users for compute costs and gives you a fixed share. PPU take rates are typically lower than well-designed PPE pricing. You can switch from PPU to PPE later, but you lose store positioning and revenue during the gap."
 ---
 
-If you sell an actor on the Apify Store under the rental model, you have until **October 1, 2026** to migrate to pay-per-event (PPE) — or Apify will auto-migrate you to pay-per-usage, which almost always earns less. New rental actors have been blocked since April 1, 2026, and pricing changes on existing rentals are frozen. I've shipped two PPE actors this year — [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) and [Yelp Scraper](https://apify.com/godberry/yelp-scraper) — so this isn't theory: timeline, event taxonomy, code snippets, pricing math, and the quiet bugs that eat revenue after you switch, written by someone who ate a few of them already.
+If you rent out an actor on the Apify Store, a clock is running. On **October 1, 2026** every remaining rental actor gets auto-migrated to pay-per-usage — a model that, on most scraping workloads, rounds your payout down to a few cents per run. New rental actors have been blocked since April 1, 2026, and pricing on existing rentals is frozen. The way out is to migrate to pay-per-event (PPE) yourself, on your own schedule, before Apify does it for you on worse terms.
+
+I've shipped two PPE actors this year — [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) and [Yelp Scraper](https://apify.com/godberry/yelp-scraper) — so this isn't theory. Here's the migration as I actually ran it: the timeline, the event taxonomy, the code, the pricing math, and the quiet bugs that eat revenue after you switch — including the ones I shipped and had to fix.
 
 ---
 
@@ -42,7 +44,7 @@ Miss the deadline and your actor still works. You just make less money from it.
 Three things people keep mixing up:
 
 - **Pay-per-event (PPE):** You define named events in code. Each event has a fixed USD price. Your actor calls `Actor.charge({ eventName: 'result-item' })` at the moment of value delivery, and Apify debits the user's account. You get 80% of each charge.
-- **Pay-per-result (PPR):** Legacy shortcut. Apify auto-charges for every dataset push. Still works, but PPE is a strict superset and the thing new actors should use.
+- **Pay-per-result (PPR):** An older model where Apify auto-charges a flat price for every dataset item. Still supported, but PPE is the more flexible choice — it lets you price different events differently instead of charging one rate per row.
 - **Pay-per-usage (PPU):** The auto-migration fallback. Apify bills the user for platform compute (CPU, memory, proxy, storage) and hands you a fixed share. No pricing control for the developer.
 
 PPE is not "per dataset row." A charge is any event you programmatically emit from your actor code — a run starting, a specific API call, an item pushed, a page rendered, an enrichment succeeding. You design the taxonomy.
@@ -53,9 +55,9 @@ When I migrated Google Reviews Scraper to PPE in May 2026, my instinct was the s
 
 **Layer 1 — the entry event.** Charge a small flat fee for starting a run. On Yelp Scraper this is `actor-start` at $0.001 — pure dead-weight cost recovery for the empty-bail user. Tiny, but it covers compute on runs that return nothing.
 
-**Layer 2 — the per-resource event.** The main revenue driver. On Google Reviews Scraper this is `place-returned` at $0.10 base. On Yelp Scraper it's `business-returned` at $0.004 — the primary event Apify uses to anchor the store-page price. Price it at 50–150% of what it cost the user's next best alternative. Typical range: $0.001–$0.25.
+**Layer 2 — the per-resource event.** The main revenue driver. On Google Reviews Scraper this is `place-retrieved` at $0.10 base. On Yelp Scraper it's `business-returned` at $0.004 — the primary event Apify uses to anchor the store-page price. Price it at 50–150% of what the user's next best alternative would cost. Typical range: $0.001–$0.25.
 
-**Layer 3 — the per-unit event.** For actors that return variable-depth data. On Google Reviews Scraper, a place with reviews charges an extra $0.15 on top of the base $0.10 — that's the decoupling between a cheap shallow run and an expensive deep one. On Yelp Scraper, `review-returned` at $0.0008 plays the same role. Users pay for what they actually take.
+**Layer 3 — the per-unit event.** For actors that return variable-depth data. On Google Reviews Scraper, a place with reviews charges an extra $0.15 on top of the base $0.10 — that's the decoupling between a cheap shallow run and an expensive deep one. On Yelp Scraper, `review-retrieved` at $0.0008 plays the same role. Users pay for what they actually take.
 
 **Layer 4 — the premium-operation event.** Anything that calls an external paid API, runs an LLM prompt, uses a captcha solver, or returns a high-cost sub-resource. On Yelp, `menu-item-returned` at $0.0005 covers the navigation to `/menu/<slug>` and the structured parse — separate from review work, separate from base business extraction.
 
@@ -97,7 +99,7 @@ From the actor's page in the Apify console:
 
 Two practical rules the docs are quiet about:
 
-- Significant pricing changes require 14 days notice *and* can only happen once per month. Plan your event catalog before you publish. Adding a new event later is fine; changing a price repeatedly is not.
+- Significant pricing changes require 14 days notice *and* can only happen once per month — and adding a new *paid* event counts as one. A new *free* event ($0) can go in immediately; a new priced event has to wait its turn in that once-a-month window. Plan your event catalog before you publish, because reshuffling it afterward is slow.
 - You can't delete an event mid-flight. If an active run holds a charge against an event and you delete it, billing breaks. Deprecate by pricing it at $0 first, then remove later.
 
 One thing I missed on Yelp Scraper's first platform test run: until you complete the Monetization wizard and click Save, every `Actor.charge` call in your code logs a warning (`Ignored attempt to charge for an event — the Actor does not use the pay-per-event pricing`) and silently does nothing. The code can be perfect and the actor can be returning data and the charges can still no-op because the console-side config isn't live yet. Run the wizard before you run the actor publicly.
@@ -114,14 +116,14 @@ await Actor.init();
 // Charge once at startup
 await Actor.charge({ eventName: 'actor-start' });
 
-// Check the budget before doing expensive work
-const info = await Actor.getChargingManager().getPricingInfo();
-const budgetLeft = info.chargeableWithinLimit['place-retrieved'] ?? Infinity;
+// Preflight: how many more 'place-retrieved' events fit under the user's cap?
+const charging = Actor.getChargingManager();
+const budgetLeft = charging.calculateMaxEventChargeCountWithinLimit('place-retrieved');
 
 for (const url of input.startUrls.slice(0, budgetLeft)) {
   const place = await scrapePlace(url);
 
-  // Push the item and charge in one call
+  // Push the item and charge in one call — returns a ChargeResult
   const result = await Actor.pushData(place, 'place-retrieved');
 
   if (result.eventChargeLimitReached) {
@@ -145,7 +147,7 @@ Three things to notice:
 
 - `Actor.pushData(item, 'eventName')` atomically pushes to the dataset *and* charges. Use it whenever a dataset push and a charge are 1:1.
 - Events not tied to a dataset push (`actor-start`, `ai-summary`, `captcha-solved`) call `Actor.charge` directly.
-- `chargeableWithinLimit` tells you how many more events you can fire before hitting the user's `ACTOR_MAX_TOTAL_CHARGE_USD` cap. Use it to decide whether to skip expensive steps rather than running, charging, and bailing.
+- `ChargingManager.calculateMaxEventChargeCountWithinLimit(eventName)` is your preflight check — it returns how many more of that event you can fire before hitting the user's `ACTOR_MAX_TOTAL_CHARGE_USD` cap (`Infinity` if the event is free or unregistered). Use it to skip expensive work up front rather than running, charging, and bailing. After a charge, the `ChargeResult` from `Actor.charge()`/`Actor.pushData()` also carries `eventChargeLimitReached` and a `chargeableWithinLimit` map for the same purpose mid-loop.
 
 On Yelp Scraper v0.4.2 I had to fix a real bug here: `actor-start` was being charged once per business instead of once per run. The fix was moving the call outside the request loop. Trivial to fix, easy to miss — if your loop reuses an `init`-like helper, double-check the charge sits above it, not inside.
 
@@ -160,8 +162,11 @@ async def main():
     async with Actor:
         await Actor.charge(event_name='actor-start')
 
-        info = await Actor.get_charging_manager().get_pricing_info()
-        remaining = info.chargeable_within_limit.get('place-retrieved', 10_000)
+        # Preflight: remaining 'place-retrieved' charges under the user's cap
+        charging = Actor.get_charging_manager()
+        remaining = charging.calculate_max_event_charge_count_within_limit(
+            'place-retrieved',
+        )
 
         for url in input_data['startUrls'][:remaining]:
             place = await scrape_place(url)
@@ -175,7 +180,7 @@ async def main():
                 )
 ```
 
-Test locally first. Set `ACTOR_TEST_PAY_PER_EVENT=1` and Apify treats the run as a PPE simulation — charges log but nobody gets billed.
+Test locally first. Set `ACTOR_TEST_PAY_PER_EVENT=true` and Apify treats the run as a PPE simulation — charges log but nobody gets billed.
 
 ## Pricing math: the worksheet every migrator needs
 
@@ -208,13 +213,13 @@ If October 1 arrives with rental pricing still active, Apify moves you to pay-pe
 - **Ignoring `eventChargeLimitReached`.** Cap hits, SDK stops charging, your code keeps burning compute on work nobody pays for. Break the loop.
 - **Pricing too close to cost.** A $0.001 event that costs $0.0009 looks profitable until a 1% bad-run rate wipes margin. Floor at 100% post-platform-cut margin.
 - **Swallowing PPE errors in production.** Early versions of both my actors silently swallowed `Actor.charge` exceptions and delivered data without billing. Fix: in production (`isAtHome`), let the charge throw and fail the run loudly. Noisy failure beats silent gift.
-- **Testing only with your developer token.** Use `ACTOR_TEST_PAY_PER_EVENT=1` and verify `chargeable_within_limit` against a test user's spend cap, not yours.
+- **Testing only with your developer token.** Set `ACTOR_TEST_PAY_PER_EVENT=true` and verify your `calculateMaxEventChargeCountWithinLimit` preflight against a test user's spend cap, not your own.
 
 ## Portfolio migrations + MCP agent traffic
 
-For more than two or three actors, scripting beats clicking. The `PUT /v2/acts/{actorId}/pricing` endpoint accepts a pricing payload — draft in parallel from a local `pricing-catalog.json`, publish on a staggered schedule so the 14-day notice windows don't overlap, and you've turned a week of manual work into an afternoon. Also avoids the typo-in-event-ID failure mode, where the console says `place-returned` and the code says `place_returned` and every charge silently no-ops in production.
+For more than two or three actors, scripting beats clicking. The `PUT /v2/acts/{actorId}/pricing` endpoint accepts a pricing payload — draft in parallel from a local `pricing-catalog.json`, publish on a staggered schedule so the 14-day notice windows don't overlap, and you've turned a week of manual work into an afternoon. Also avoids the typo-in-event-ID failure mode, where the console registers `place-retrieved` and the code charges `place_retrieved` and every charge silently no-ops in production.
 
-The non-obvious tailwind: AI agents *prefer* PPE actors. Claude, GPT, and agent frameworks can meter PPE calls the same way they meter OpenAI tokens — predictable unit cost, much like [the x402 protocol is doing for HTTP-level agent payments](/posts/x402-protocol-ai-agent-payments-2026/). A subscription actor doesn't fit that accounting model. If you're building MCP servers or [paid MCP tools for AI agents](/posts/automate-social-media-content-with-mcp/), PPE on the underlying actor is table stakes — the full [MCP server monetization playbook](/posts/how-to-monetize-mcp-servers-2026/) compares Apify PPE to MCPize and self-hosted with real revenue numbers. `ACTOR_MAX_TOTAL_CHARGE_USD` maps cleanly to an agent's per-task budget; `chargeable_within_limit` is what the agent reads to decide whether to keep working or bail.
+The non-obvious tailwind: AI agents *prefer* PPE actors. Claude, GPT, and agent frameworks can meter PPE calls the same way they meter OpenAI tokens — predictable unit cost, much like [the x402 protocol is doing for HTTP-level agent payments](/posts/x402-protocol-ai-agent-payments-2026/). A subscription actor doesn't fit that accounting model. If you're building MCP servers or [paid MCP tools for AI agents](/posts/automate-social-media-content-with-mcp/), PPE on the underlying actor is table stakes — the full [MCP server monetization playbook](/posts/how-to-monetize-mcp-servers-2026/) compares Apify PPE to MCPize and self-hosted with real revenue numbers. `ACTOR_MAX_TOTAL_CHARGE_USD` maps cleanly to an agent's per-task budget, and the `eventChargeLimitReached` flag on every charge is the signal the agent reads to decide whether to keep working or bail.
 
 ## Your migration checklist
 
@@ -225,15 +230,15 @@ If you're migrating an actor this week, work through this in order:
 3. Price each event against your cost floor plus 100% margin.
 4. Set up pricing in the Apify console as a draft. **Then run the wizard fully** — until Monetization is Active, code-side charges no-op.
 5. Add a free-plan gate in code if you sell anything cumulatively valuable.
-6. Add `Actor.charge` calls including `chargeable_within_limit` and the `event_charge_limit_reached` exit path.
-7. Test with `ACTOR_TEST_PAY_PER_EVENT=1`.
+6. Add `Actor.charge` calls, a `calculateMaxEventChargeCountWithinLimit` preflight check, and the `eventChargeLimitReached` exit path.
+7. Test with `ACTOR_TEST_PAY_PER_EVENT=true`.
 8. Publish pricing → 14-day notice begins.
 9. Monitor the first 7 days of real runs for pricing anomalies.
 
 Migrate the most-run actor first. If something breaks, you want to catch it on the actor that surfaces bugs fastest, not the one that runs twice a week.
 
-October 1 is not a distant deadline. Counting the 14-day notice plus a safe 14 days of live observation, the real *ship-by* date is mid-September 2026. Build from there backward.
+October 1 reads like a distant deadline, but it isn't. Count backward: 14 days of mandatory user notice, plus a safe 14 days of watching live runs for pricing anomalies, and the real *ship-by* date lands in mid-September 2026. Anyone telling you to start in late August is betting their notice clock never slips.
 
-The two things I'd carry into any PPE migration in 2026: design the event taxonomy before you touch code, and build a free-plan gate before you publish. The taxonomy decision compounds — once you publish, you get one significant price change per month, so the first one needs to be roughly right. The free-plan gate is what stops the structural revenue leak that nobody at Apify will warn you about, where your charges fire correctly and your dashboard fills up and the payout column stays at zero because the only people running your actor are on the plan that doesn't pay developers.
+Two things I'd carry into any PPE migration: design the event taxonomy before you touch code, and build a free-plan gate before you publish. The taxonomy compounds — once you publish, you get one significant price change per month, so the first one has to be roughly right. The free-plan gate stops the revenue leak nobody at Apify warns you about: charges firing correctly, the dashboard filling up, and the payout column sitting at zero because everyone running your actor is on the plan that doesn't pay developers.
 
-The deadline is real. The auto-migration penalty is real. But the migration itself, done deliberately, is a one-week project that protects the asset for the next several years. Mid-September 2026 is the real ship-by date. Anyone telling you to wait until late August is hoping their 14-day notice clock doesn't slip.
+Done deliberately, the migration is a one-week project that protects an asset for years. Done by Apify's auto-migration on October 1, it's a quiet pay cut. Start from mid-September and work back.

@@ -4,7 +4,7 @@ description: "Most MCP servers die in production. Here's the deployment architec
 date: 2026-04-14
 lastmod: 2026-05-18
 categories: ["MCP"]
-tags: ["mcp", "deployment", "docker", "production", "devops", "ai agents", "monitoring"]
+tags: ["mcp", "deployment", "docker", "devops"]
 image: /images/posts/deploy-mcp-server.jpg
 image_alt: "Rocket launching from a laptop into cloud infrastructure representing MCP server deployment to production"
 # Quality scores (Phase 4): Value: 8/10, Originality: 8/10, Readability: 8/10, Voice: 8/10, SEO: 8/10 → Weighted: 8.0/10 — PUBLISH
@@ -17,15 +17,15 @@ faq:
     a: "Use the MCP Inspector (npx @modelcontextprotocol/inspector) to call tools interactively and inspect responses. Write automated integration tests that call each tool with known inputs and verify output structure. Test with the Streamable HTTP transport, not STDIO — transport bugs only surface in the transport you actually use."
 ---
 
-You built an MCP server. It works on your laptop. Claude connects, tools fire, results come back. Ship it, right?
+Your MCP server works on your laptop. Claude connects, tools fire, results come back. Ship it, right?
 
-An April 2026 scan of 2,181 remote MCP server endpoints found **52% completely dead** and only 9% fully healthy. The rest were degraded — slow, stale, or failing silently with 200 OK responses full of parsing errors. The gap between "works locally" and "works in production" is where MCP servers go to die. The patterns below keep yours in the 9% — drawn from shipping **Content-to-Social MCP** to the Apify Store on 2026-04-12 and running it (plus a second scraper) on real customer traffic ever since.
+An early-2026 audit of 1,847 MCP servers found **52% abandoned** and only **17%** meeting a production bar — the rest lightly maintained, stale, or failing silently with 200 OK responses full of parsing errors. The gap between "works locally" and "works in production" is where MCP servers go to die. The patterns below keep yours in the 17% — drawn from shipping **Content-to-Social MCP** to the Apify Store on 2026-04-12 and running it on real customer traffic ever since.
 
 ## The STDIO trap
 
 The default transport doesn't work for production. Scaffold with the official SDK and you get STDIO — fine for Claude Desktop or Cursor spawning your server as a subprocess, useless for anything remote. No load balancer, no sharing without a repo clone.
 
-Switch to **Streamable HTTP** before you deploy. Introduced in the March 2025 spec revision, it replaces HTTP+SSE and turns your server into a standard HTTP API accepting POST at a `/mcp` endpoint. Single endpoint, works with load balancers, works with any HTTP client. The code change is small — in Python with FastMCP:
+Switch to **Streamable HTTP** before you deploy. Added in the spec's 2025-03-26 revision, it deprecated the older HTTP+SSE transport (still supported for backward compatibility) and turns your server into a standard HTTP API accepting POST at a `/mcp` endpoint. Single endpoint, works with load balancers, works with any HTTP client. The code change is small — in Python with FastMCP:
 
 ```python
 # Local development (STDIO)
@@ -35,18 +35,31 @@ mcp.run()
 mcp.run(transport="streamable-http", host="0.0.0.0", port=8000)
 ```
 
-In TypeScript:
+In TypeScript the transport itself takes no port — it's an HTTP handler you mount on a route, and the web framework owns the port. Wire it into Express:
 
 ```typescript
-// Local development
-const transport = new StdioServerTransport();
+import express, { Request, Response } from "express";
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
+import { randomUUID } from "node:crypto";
 
-// Production
-const transport = new StreamableHTTPServerTransport({ port: 8000 });
-await server.connect(transport);
+const app = express();
+app.use(express.json());
+
+app.post("/mcp", async (req: Request, res: Response) => {
+  const server = getServer(); // your configured McpServer instance
+  const transport = new StreamableHTTPServerTransport({
+    sessionIdGenerator: () => randomUUID(),
+  });
+  await server.connect(transport);
+  await transport.handleRequest(req, res, req.body);
+  res.on("close", () => { transport.close(); server.close(); });
+});
+
+app.listen(8000);
 ```
 
-That's step one. The real work is everything that comes after.
+Set `sessionIdGenerator: undefined` for stateless mode (simpler, no resumability). That's step one. The real work is everything that comes after.
 
 ## Production architecture
 
@@ -77,7 +90,7 @@ The shape that survives real traffic:
 └─────────────────────────────────────┘
 ```
 
-Three layers, each with its own failure modes. Running 3+ MCP servers? Add a **gateway layer** between the proxy and the individual servers. Gateways like Docker's MCP Gateway (GA late 2025) aggregate multiple servers behind a single endpoint, centralize auth, prevent tool-name collisions, and give you unified logging. Without one you end up with separate auth flows, monitoring, and secrets management per server — and operational complexity grows faster than you expect.
+Three layers, each with its own failure modes. Running 3+ MCP servers? Add a **gateway layer** between the proxy and the individual servers. Gateways like Docker's MCP Gateway (open-sourced by Docker in mid-2025) aggregate multiple servers behind a single endpoint, centralize auth, prevent tool-name collisions, and give you unified logging. Without one you end up with separate auth flows, monitoring, and secrets management per server — and operational complexity grows faster than you expect.
 
 ## Dockerizing your MCP server
 
@@ -109,12 +122,11 @@ HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
 CMD ["python", "-m", "server", "--transport", "streamable-http"]
 ```
 
-Decisions: **slim, not Alpine** — musl breaks Python packages touching async I/O; slim is 40MB larger and saves hours of debugging. **Non-root** — compromise shouldn't equal root, and a shocking number of public MCP Dockerfiles skip it. **HEALTHCHECK in the Dockerfile** so Docker and any orchestrator above it know whether the server is actually working. **Pin dependencies** to exact versions (`mcp==1.7.1`, not `mcp>=1.7`) — the SDK is still evolving fast.
+Decisions: **slim, not Alpine** — musl breaks Python packages touching async I/O; slim is 40MB larger and saves hours of debugging. **Non-root** — compromise shouldn't equal root, and a shocking number of public MCP Dockerfiles skip it. **HEALTHCHECK in the Dockerfile** so Docker and any orchestrator above it know whether the server is actually working. **Pin dependencies** to an exact current version (`mcp==1.27.1`, not `mcp>=1.27`) — the SDK is still evolving fast, so pin whatever is current the day you build.
 
 `docker-compose.yml` for local production testing:
 
 ```yaml
-version: "3.8"
 services:
   mcp-server:
     build: .
@@ -210,11 +222,11 @@ async def get_place_details(place_id: str) -> str:
 
 Pydantic (or Zod in TypeScript) catches format changes immediately instead of silently passing bad data through. Pin the upstream API version when supported, and alert on validation-error spikes.
 
-Not theoretical — Google migrated reviewer anchors from `<a href>` to `<button data-href>` and silently emptied `reviewerUrl` for every customer of my scraper until I caught the validation gap. The v0.3.1 remake added a daily `npm run smoke` that hits three known-good targets and asserts field-population thresholds. That single smoke test is the highest-leverage thing running on the deployment.
+Not theoretical — Google migrated reviewer anchors from `<a href>` to `<button data-href>` and silently emptied `reviewerUrl` for every customer of my scraper until I caught the validation gap. The v0.3.1 remake added a `npm run smoke` script (run before deploys, and on a daily schedule) that hits three known-good targets and asserts field-population thresholds. That single smoke test is the highest-leverage check running on the deployment.
 
 ## Security: treat each server like a microservice
 
-The MCP spec mandates **OAuth 2.1 with PKCE**. If your server faces the internet, implement it; internal-only servers still need auth, just less. Minimum checklist:
+The MCP authorization layer requires **OAuth 2.1** (with PKCE) for HTTP-facing servers — STDIO servers are exempt, since they inherit the host process's environment. If your server faces the internet, implement it; internal-only servers still need auth, just less. Minimum checklist:
 
 - **TLS everywhere.** Proxy terminates TLS, but client-to-proxy must be HTTPS. Let's Encrypt is free for anything public.
 - **Scope your API keys.** Dedicated key with only the permissions you need — compromise means the attacker looks up restaurants, not reads your Gmail.
@@ -286,7 +298,7 @@ Two rules: **fail open** (lookup throws → treat as paid; throttling a paying c
 Not everyone needs their own infrastructure. Platforms like [Apify](https://apify.com/store) handle deployment, scaling, monitoring, and billing — you write tool logic. Fits solo developers, usage-based pricing, and spiky traffic.
 
 {{< cta title="See It in Action" url="https://apify.com/store" >}}
-Godberry Studios runs two production MCP servers on the Apify Store — Content-to-Social and Google Reviews Scraper. Both handle real customer traffic with zero infrastructure management on our end.
+I run a production MCP server (Content-to-Social) plus scrapers on the Apify Store, all handling real customer traffic with zero infrastructure management on my end.
 {{< /cta >}}
 
 Trade-off: less infrastructure control, a platform fee. For revenue-generating servers the math usually works out; for internal tools, a $5 VPS is cheaper. The [MCP server monetization playbook](/posts/how-to-monetize-mcp-servers-2026/) breaks down Apify vs MCPize vs self-hosted economics, and the [Apify pay-per-event migration playbook](/posts/apify-pay-per-event-migration-playbook-2026/) covers the billing-model migration step-by-step.
@@ -309,4 +321,4 @@ Trade-off: less infrastructure control, a platform fee. For revenue-generating s
 
 End-to-end sequence: tool logic working locally on STDIO → Streamable HTTP verified with the MCP Inspector → Dockerize (or skip to [mcp-server-apify-starter](https://github.com/godberrystudios/mcp-server-apify-starter) if Apify is your target) → real health checks → reverse proxy with TLS + rate limiting → metrics, logs, three alerts. No Kubernetes, no service mesh, no over-engineering.
 
-The MCP SDK crossed 164 million monthly downloads in April 2026 and the ecosystem is growing faster than production quality is. The developers who get deployment and reliability right now will own this space. Build something that stays alive, and bill the people calling it.
+The MCP SDKs crossed ~97 million monthly downloads as of March 2026 — the ecosystem is growing faster than production quality is. The developers who get deployment and reliability right now will own this space. Build something that stays alive, and bill the people calling it.
