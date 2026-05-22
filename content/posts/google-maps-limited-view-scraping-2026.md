@@ -3,7 +3,7 @@ title: "Google Maps Limited View in 2026: What Changed, What Broke, and How to S
 description: "In February 2026 Google started hiding reviews and photos from signed-out users on Maps. Here's what the limited view actually blocks, how to tell if your scraper is returning incomplete data, and three ways to keep extracting reviews."
 date: 2026-04-17
 lastmod: 2026-05-22
-categories: ["Web Scraping"]
+categories: ["web-scraping"]
 tags: ["google maps", "scraping", "reviews", "limited view"]
 keywords: ["google maps limited view", "google maps reviews scraping 2026", "scrape google maps reviews", "google maps limited view bypass"]
 image: /images/posts/google-maps-limited-view-scraping-2026.jpg

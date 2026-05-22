@@ -3,7 +3,7 @@ title: "The Claude Opus 4.7 Tokenizer Tax: Why Your AI Bill Just Jumped — And 
 description: "A practitioner's breakdown of the Opus 4.7 tokenizer change that silently raised per-call costs 0-35% at unchanged sticker price, with six reduction tactics ranked by ROI and a weekend audit template you can actually run."
 date: 2026-04-21
 lastmod: 2026-05-22
-categories: ["AI for Business", "AI Engineering"]
+categories: ["ai-automation"]
 tags: ["claude opus 4.7", "anthropic pricing", "llm cost optimization", "prompt caching"]
 keywords: ["Claude Opus 4.7 tokenizer", "Claude 4.7 token inflation", "Claude 4.7 cost increase", "Anthropic API cost jump 2026", "Opus 4.7 vs 4.6 pricing", "Claude prompt caching", "LLM cost optimization 2026"]
 image: /images/posts/claude-opus-4-7-tokenizer-tax-cost-weekend-fix.jpg

@@ -3,7 +3,7 @@ title: "llms.txt vs robots.txt: The New AI Web Standards Every Site Owner Needs 
 description: "An honest practitioner breakdown of /llms.txt, /llms-full.txt, /ai.txt, and robots.txt for AI crawlers in 2026 — what each file actually does, real adoption data (hint: 10% of sites, 0% of the effect), Google's official position, and the three things that actually move the needle for AI visibility."
 date: 2026-04-23
 draft: false
-categories: ["AI for Business", "Web Standards", "SEO"]
+categories: ["web-scraping"]
 tags: ["llms.txt", "robots.txt", "ai crawlers", "aeo"]
 keywords: ["llms.txt vs robots.txt", "llms.txt explained", "ai.txt web standard 2026", "does llms.txt work", "should I add llms.txt", "AI crawler robots.txt 2026", "GPTBot ClaudeBot block"]
 image: /images/posts/llms-txt-vs-robots-txt-ai-web-standards-2026.jpg

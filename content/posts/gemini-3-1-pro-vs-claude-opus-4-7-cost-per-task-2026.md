@@ -3,7 +3,7 @@ title: "Gemini 3.1 Pro vs Claude Opus 4.7: Which Frontier Model Is Actually Chea
 description: "A practitioner head-to-head on the same 10 production tasks — measured cost-per-task, latency, and accuracy on Gemini 3.1 Pro and Claude Opus 4.7, with a routing recipe for when to pick which and how to dodge the tokenizer tax and the thinking-token bill at the same time."
 date: 2026-04-25
 lastmod: 2026-05-22
-categories: ["AI for Business", "AI Engineering"]
+categories: ["ai-automation"]
 tags: ["gemini 3.1 pro", "claude opus 4.7", "llm cost optimization", "model routing"]
 keywords: ["Gemini 3.1 Pro vs Claude Opus 4.7", "best AI model 2026", "frontier model comparison 2026", "Claude vs Gemini cost", "which AI model 2026", "Gemini 3.1 Pro pricing", "Opus 4.7 pricing", "cost per task LLM"]
 image: /images/posts/gemini-3-1-pro-vs-claude-opus-4-7-cost-per-task-2026.jpg

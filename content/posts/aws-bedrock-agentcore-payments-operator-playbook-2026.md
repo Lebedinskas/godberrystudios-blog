@@ -3,7 +3,7 @@ title: "AWS Bedrock AgentCore Payments: The 2026 Operator Playbook for MCP, API,
 description: "AWS shipped AgentCore Payments in preview on 2026-05-07, built with Coinbase and Stripe. Operator decision trees, fee math, wallet stack, and the honest read for sellers of MCP tools, APIs, and scraped data."
 date: 2026-05-13
 lastmod: 2026-05-22
-categories: ["Web Scraping & Data Extraction", "AI Automation"]
+categories: ["mcp"]
 tags: ["x402", "agentcore", "monetization", "mcp"]
 keywords: ["AWS Bedrock AgentCore Payments", "AgentCore payments tutorial", "x402 production 2026", "monetize MCP server x402", "AI agent payment rails", "Coinbase x402 Bazaar MCP server", "Stripe Privy agent wallet", "x402 vs ACP vs AP2", "agentic monetization 2026", "how to charge AI agents for API", "autonomous agent micropayments 2026", "HTTP 402 production AWS"]
 image: /images/posts/aws-bedrock-agentcore-payments-operator-playbook-2026.jpg

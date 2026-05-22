@@ -3,7 +3,7 @@ title: "How to Make Money with AI in 2026: 12 Ways People Actually Do It"
 description: "An honest look at 12 ways people earn money with AI in 2026 — what each one really pays, what it costs to start, and how long it takes. Written by someone still early in the journey himself."
 date: 2026-05-22
 lastmod: 2026-05-22
-categories: ["AI Automation"]
+categories: ["ai-automation"]
 tags: ["ai", "automation", "side-hustle"]
 image: /images/posts/make-money-ai-2026.jpg
 image_alt: "AI neural network connections transforming into golden coins and revenue charts representing AI income streams"

@@ -4,7 +4,15 @@
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else if .Title }}{{ .Title }} | {{ .Site.Title }}{{ else }}Page not found | {{ .Site.Title }}{{ end }}</title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <meta name="author" content="{{ .Site.Params.author }}">
+  {{- $isTagPage := false -}}
+  {{- if in (slice "taxonomy" "term") .Kind -}}
+    {{- if eq .Data.Plural "tags" -}}{{- $isTagPage = true -}}{{- end -}}
+  {{- end -}}
+  {{- if $isTagPage -}}
+  <meta name="robots" content="noindex, follow">
+  {{- else -}}
   <meta name="robots" content="max-image-preview:large">
+  {{- end -}}
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="{{ .Site.Title }}">

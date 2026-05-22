@@ -4,7 +4,7 @@ description: "One platform is one audience. Here's how I'd combine Google Maps, 
 date: 2026-05-10
 lastmod: 2026-05-22
 draft: false
-categories: ["Web Scraping", "Data", "Restaurants"]
+categories: ["web-scraping"]
 tags: ["restaurant data", "multi-platform scraping", "competitive intelligence", "yelp scraping"]
 keywords: ["restaurant competitor research data 2026", "scrape Yelp restaurant reviews 2026", "TripAdvisor restaurant scraping", "multi-platform restaurant data", "franchise competitive intelligence 2026", "OpenTable scraper", "restaurant market research scraping", "google maps", "tripadvisor", "opentable", "franchise data", "foodservice due diligence", "review monitoring"]
 image: /images/posts/multi-platform-restaurant-intelligence-stack-2026.jpg

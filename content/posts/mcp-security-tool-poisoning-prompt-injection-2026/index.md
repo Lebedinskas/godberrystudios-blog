@@ -3,7 +3,7 @@ title: "MCP Security in 2026: Tool Poisoning, Prompt Injection, and How to Prote
 date: 2026-04-16
 lastmod: 2026-05-22
 description: "30 CVEs in 60 days exposed serious flaws in MCP servers. This guide covers tool poisoning, prompt injection via sampling, the OWASP MCP Top 10, and practical hardening steps with real code examples."
-categories: ["mcp", "ai automation"]
+categories: ["mcp"]
 tags: ["mcp", "security", "prompt injection", "tool poisoning"]
 keywords: ["MCP security", "MCP tool poisoning", "MCP prompt injection", "secure MCP server", "OWASP MCP Top 10"]
 image: /images/posts/mcp-security-tool-poisoning.jpg

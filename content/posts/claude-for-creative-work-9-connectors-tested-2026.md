@@ -3,7 +3,7 @@ title: "Claude Now Lives Inside Photoshop, Blender, Fusion, Ableton, Splice, Aff
 description: "On April 28, 2026 Anthropic shipped nine official Claude connectors covering Adobe Creative Cloud, Blender, Autodesk Fusion, Ableton Live, Splice, Affinity by Canva, SketchUp, Resolume Arena, and Resolume Wire. A practitioner's read on what each connector actually does, what it can't, install friction, and which to reach for first by role."
 date: 2026-04-30
 lastmod: 2026-05-22
-categories: ["AI for Business", "Creator Tools"]
+categories: ["ai-automation"]
 tags: ["claude connectors", "claude for creative work", "mcp", "ai for creative work"]
 keywords: ["Claude for creative work", "Claude Adobe connector", "Claude Photoshop integration", "Claude Blender connector", "Claude Autodesk Fusion", "Claude Ableton", "Anthropic creative connectors 2026", "AI for designers 2026", "AI for 3D artists 2026", "Claude SketchUp tutorial", "Claude Resolume VJ"]
 image: /images/posts/claude-for-creative-work-9-connectors-tested-2026.jpg

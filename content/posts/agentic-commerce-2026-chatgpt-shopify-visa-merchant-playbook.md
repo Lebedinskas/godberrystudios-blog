@@ -3,7 +3,7 @@ title: "Agentic Commerce in 2026: How ChatGPT, Shopify, and Visa Just Rewrote th
 description: "A practitioner's field guide to the four protocols rewiring ecommerce in 2026 — ACP, UCP, MPP, and Trusted Agent Protocol — plus the merchant-readiness checklist and the specific data signals that decide which products AI agents actually surface."
 date: 2026-04-21
 lastmod: 2026-05-22
-categories: ["AI for Business", "Ecommerce"]
+categories: ["ai-automation"]
 tags: ["agentic commerce", "agentic commerce protocol", "ecommerce 2026", "merchant readiness"]
 keywords: ["agentic commerce 2026", "ChatGPT shopping", "AI shopping agents", "Agentic Commerce Protocol", "Shopify agentic storefronts", "Visa Intelligent Commerce Connect", "Universal Commerce Protocol", "AI retail spend 2026"]
 image: /images/posts/agentic-commerce-2026-chatgpt-shopify-visa-merchant-playbook.jpg

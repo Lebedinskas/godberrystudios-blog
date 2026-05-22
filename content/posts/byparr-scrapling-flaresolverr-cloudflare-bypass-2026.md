@@ -4,7 +4,7 @@ description: "FlareSolverr was the default open-source Cloudflare bypass for thr
 date: 2026-04-24
 lastmod: 2026-05-22
 draft: false
-categories: ["Web Scraping", "Open Source", "Tutorial"]
+categories: ["web-scraping"]
 tags: ["byparr", "scrapling", "cloudflare-bypass", "web-scraping"]
 keywords: ["Byparr tutorial", "Byparr vs FlareSolverr", "Scrapling tutorial", "Cloudflare bypass 2026 open source", "FlareSolverr alternative 2026", "StealthyFetcher example", "Camoufox FastAPI", "bypass Turnstile Python"]
 image: /images/posts/byparr-scrapling-flaresolverr-cloudflare-bypass-2026.jpg

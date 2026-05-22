@@ -3,7 +3,7 @@ title: "WebMCP Explained: What Chrome's New Web Standard Means for Scraping and 
 description: "Chrome 146 added a flag-gated WebMCP preview, letting websites expose structured tools to AI agents. Here's how it works, what it means for scrapers, and how to try it today."
 date: 2026-04-15
 lastmod: 2026-05-22
-categories: ["mcp", "tutorials"]
+categories: ["mcp"]
 tags: ["webmcp", "mcp", "ai agents", "web standards"]
 image: /images/posts/webmcp-chrome-ai-agents.jpg
 image_alt: "Chrome browser with an AI brain inside extending robotic arms to interact with multiple websites simultaneously"

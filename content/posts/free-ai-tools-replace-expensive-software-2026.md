@@ -3,7 +3,7 @@ title: "47 Free Tools That Replace Expensive Software in 2026"
 description: "Why pay $500/month for software when free tools do the same job? Here are 47 free tools across 12 categories that replace paid software — pricing verified May 2026."
 date: 2026-04-22
 lastmod: 2026-05-22
-categories: ["AI Automation"]
+categories: ["ai-automation"]
 tags: ["ai tools", "free tools", "saas"]
 image: /images/posts/free-ai-tools-replace-software.jpg
 image_alt: "Premium software boxes being replaced by a wave of glowing free AI tool alternatives"

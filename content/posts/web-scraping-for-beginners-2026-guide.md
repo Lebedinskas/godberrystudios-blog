@@ -3,7 +3,7 @@ title: "Web Scraping for Beginners: The Complete 2026 Guide"
 description: "Everything you need to know about web scraping in 2026 — how it works, the best tools compared (Apify, Scrapy, Playwright, BeautifulSoup), anti-bot challenges, legal rules, and practical examples with code."
 date: 2026-04-11
 lastmod: 2026-05-22
-categories: ["Guides"]
+categories: ["web-scraping"]
 tags: ["web scraping", "apify", "playwright", "python"]
 image: /images/posts/web-scraping-beginners.jpg
 image_alt: "Friendly robot spider crawling a webpage and collecting data points into organized columns"

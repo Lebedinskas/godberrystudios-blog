@@ -4,7 +4,7 @@ description: "Chrome Skills began rolling out April 14, 2026 — save any Gemini
 date: 2026-04-22
 lastmod: 2026-05-22
 draft: false
-categories: ["AI for Business", "Productivity"]
+categories: ["ai-automation"]
 tags: ["chrome skills", "gemini", "productivity", "workflow automation"]
 keywords: ["Google Chrome Skills", "Chrome AI Skills guide", "Gemini Skills Chrome", "save AI prompts Chrome", "Chrome Skills tutorial", "how to use Chrome Skills", "Chrome Skills library"]
 image: /images/posts/google-chrome-skills-starter-library-2026.jpg

@@ -3,7 +3,7 @@ title: "The 2026 Google Reviews Playbook for Local Businesses"
 description: "A practical 2026 guide to earning Google reviews without breaking the rules: data-backed statistics, an asking system that runs on autopilot, response templates for restaurants, dentists, and contractors, and how to adapt to Google's new Ask Maps AI."
 date: 2026-04-19
 lastmod: 2026-05-22
-categories: ["Local SEO", "AI for Business"]
+categories: ["web-scraping"]
 tags: ["google reviews", "local seo", "google business profile", "ask maps"]
 keywords: ["google reviews 2026", "google reviews for local business", "how to get more google reviews", "google reviews statistics", "google ask maps restaurant"]
 image: /images/posts/google-reviews-playbook-2026.jpg

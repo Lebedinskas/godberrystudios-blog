@@ -3,7 +3,7 @@ title: "Surviving Google's March 2026 Core Update: What Every AI Content Creator
 description: "The March 2026 core update cut AI content traffic by 60–80% on some sites. Here's the diagnostic, the recovery playbook, and the anti-slop checklist I run on every article — with the specific signals Google now penalizes."
 date: 2026-04-19
 lastmod: 2026-05-22
-categories: ["SEO"]
+categories: ["ai-automation"]
 tags: ["seo", "google core update", "ai content", "e-e-a-t"]
 keywords: ["Google March 2026 core update", "AI content penalty 2026", "programmatic SEO recovery", "scaled content Google update", "E-E-A-T 2026"]
 image: /images/posts/surviving-google-march-2026-core-update.jpg

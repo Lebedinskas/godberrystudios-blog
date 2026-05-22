@@ -4,7 +4,7 @@ description: "Meta opened its official MCP server to ChatGPT and Claude on April
 date: 2026-05-04
 lastmod: 2026-05-22
 draft: false
-categories: ["AI for Business & Creators", "Marketing"]
+categories: ["ai-automation"]
 tags: ["meta ads", "mcp", "media buying", "advertising automation"]
 keywords: ["meta ads ai connectors", "meta ads chatgpt", "meta ads claude mcp", "manage meta ads from ai", "meta mcp server", "meta ads natural language", "meta ads ai agent", "meta ads ai connector setup"]
 image: /images/posts/meta-ads-ai-connectors-chatgpt-claude-2026.jpg

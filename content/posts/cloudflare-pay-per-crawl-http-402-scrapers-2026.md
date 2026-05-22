@@ -3,7 +3,7 @@ title: "Cloudflare Pay Per Crawl: What the HTTP 402 Web Means for Scrapers and A
 description: "A practitioner's guide to Cloudflare's Pay Per Crawl — how HTTP 402 actually works, what it costs per request, who's adopting it (Stack Overflow, GoDaddy), and what changes for indie scraper operators and AI developers in 2026."
 date: 2026-04-20
 lastmod: 2026-05-22
-categories: ["Web Scraping", "AI for Business"]
+categories: ["web-scraping"]
 tags: ["cloudflare pay per crawl", "http 402", "web scraping", "ai crawlers"]
 keywords: ["Cloudflare pay per crawl", "HTTP 402 scraping", "pay per crawl explained", "crawler-price header", "ai crawl control", "cloudflare 402 payment required", "scraping costs 2026", "ai bot paywall"]
 image: /images/posts/cloudflare-pay-per-crawl-http-402-scrapers-2026.jpg

@@ -3,7 +3,7 @@ title: "n8n vs Make vs Zapier: Which Automation Platform for AI Agents in 2026?"
 description: "An honest, hands-on comparison of n8n, Make, and Zapier for building AI agents in 2026 — real pricing, agent capabilities, workflow examples, and a verdict for each use case."
 date: 2026-04-19
 lastmod: 2026-05-22
-categories: ["AI Automation"]
+categories: ["ai-automation"]
 tags: ["ai-agents", "automation", "n8n", "no-code"]
 keywords: ["n8n vs Make vs Zapier", "best automation tool AI agents 2026", "AI agent automation platform", "n8n AI Agent node", "Zapier Agents pricing", "Make Maia AI"]
 image: /images/posts/n8n-vs-make-vs-zapier-ai-agents-2026.jpg

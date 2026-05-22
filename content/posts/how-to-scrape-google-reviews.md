@@ -3,7 +3,7 @@ title: "How to Scrape Google Reviews in 2026 (No Code Required)"
 description: "Extract Google Maps reviews for any business in minutes. I compare the Google Places API against scraping costs, walk through no-code and Python methods, and show real output."
 date: 2026-05-02
 lastmod: 2026-05-22
-categories: ["Tutorials"]
+categories: ["web-scraping"]
 tags: ["google reviews", "web scraping", "apify", "data extraction"]
 image: /images/posts/scrape-google-reviews.jpg
 image_alt: "Google Maps pin with star ratings flowing out as structured data cards for review extraction"

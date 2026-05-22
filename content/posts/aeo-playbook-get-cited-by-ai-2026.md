@@ -3,7 +3,7 @@ title: "AEO in 2026: What Actually Gets You Cited by ChatGPT, Perplexity, and Go
 description: "Most AEO posts cite studies from firms that don't exist. Here's the verifiable citation data, what I changed on my own blog, and the four moves worth a sprint."
 date: 2026-04-20
 lastmod: 2026-05-22
-categories: ["AI for Business", "SEO"]
+categories: ["ai-automation"]
 tags: ["aeo", "answer engine optimization", "generative search", "geo"]
 keywords: ["answer engine optimization 2026", "get cited by ChatGPT", "AEO playbook 2026", "how to rank in AI search", "Perplexity SEO", "Google AI Overviews citations", "AEO strategy"]
 image: /images/posts/aeo-playbook-get-cited-by-ai-2026.jpg

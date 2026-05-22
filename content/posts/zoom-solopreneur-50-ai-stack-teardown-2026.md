@@ -4,7 +4,7 @@ description: "Zoom published its inaugural Solopreneur 50 list on May 4, 2026 â€
 date: 2026-05-06
 lastmod: 2026-05-22
 draft: false
-categories: ["AI for Business & Creators"]
+categories: ["ai-automation"]
 tags: ["solopreneur", "ai stack", "automation", "data layer"]
 keywords: ["Zoom Solopreneur 50", "AI tools for solopreneurs 2026", "best solopreneur AI stack 2026", "AI tools for self-employed", "AI stack for businesses of one", "solopreneur AI workflow 2026", "AI replace team solopreneur", "33 million self-employed AI"]
 image: /images/posts/zoom-solopreneur-50-ai-stack-teardown-2026.jpg

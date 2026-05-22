@@ -3,7 +3,7 @@ title: "ChatGPT Atlas Agent Mode vs. Your Scraping Stack: Can the AI Browser Act
 description: "A practitioner's benchmark of ChatGPT Atlas Agent Mode on real data-extraction tasks — 6-9 minute sessions, $0.005-$0.10 per row, and the specific volume threshold where a dedicated scraper still wins."
 date: 2026-05-08
 lastmod: 2026-05-22
-categories: ["AI for Business", "Web Scraping"]
+categories: ["web-scraping"]
 tags: ["chatgpt atlas", "ai browser", "web scraping", "agentic browser"]
 keywords: ["ChatGPT Atlas scraping", "ChatGPT Atlas Agent Mode", "AI browser vs scraper", "Atlas automation", "Atlas Agent Mode benchmark", "Atlas vs Apify", "replace scraper with AI browser"]
 image: /images/posts/chatgpt-atlas-vs-scraping-stack-2026.jpg

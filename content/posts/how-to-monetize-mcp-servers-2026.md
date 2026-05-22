@@ -3,7 +3,7 @@ title: "How to Monetize MCP Servers in 2026: The Developer's Revenue Playbook"
 description: "A practitioner guide to charging for MCP servers in 2026 — pricing models, platform economics (Apify, MCPize, self-hosted), real revenue data, code patterns, and the pitfalls that quietly kill margins."
 date: 2026-05-18
 lastmod: 2026-05-22
-categories: ["MCP"]
+categories: ["mcp"]
 tags: ["mcp", "monetization", "apify", "x402"]
 keywords: ["monetize MCP server", "MCP server income", "paid MCP server", "MCP server revenue", "how to monetize MCP", "MCP pricing models", "Apify MCP monetization", "MCPize revenue share"]
 image: /images/posts/how-to-monetize-mcp-servers-2026.jpg

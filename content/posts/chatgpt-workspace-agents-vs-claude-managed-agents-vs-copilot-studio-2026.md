@@ -3,7 +3,7 @@ title: "ChatGPT Workspace Agents vs Claude Managed Agents vs Microsoft Copilot S
 description: "A practitioner buyer's guide that models five real ops workflows — weekly status report, sales-call prep, inbox triage, knowledge-base support draft, multi-step lead enrichment — across OpenAI Workspace Agents, Claude Managed Agents, and Microsoft Copilot Studio with cost, integration coverage, governance posture, and a decision tree for picking at 5, 50, and 5,000 seats."
 date: 2026-04-29
 lastmod: 2026-05-22
-categories: ["AI for Business", "Enterprise AI"]
+categories: ["ai-automation"]
 tags: ["enterprise ai agents", "ai agent comparison", "copilot studio", "claude managed agents"]
 keywords: ["ChatGPT workspace agents vs Claude", "Claude managed agents vs Copilot Studio", "best enterprise AI agent platform 2026", "workspace agents review", "AI agent buyer guide", "Codex vs Anthropic agents", "Copilot Studio vs Workspace Agents"]
 image: /images/posts/chatgpt-workspace-agents-vs-claude-managed-agents-vs-copilot-studio-2026.jpg

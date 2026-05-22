@@ -4,7 +4,7 @@ description: "An honest comparison of the five major AI local SEO platforms on p
 date: 2026-05-02
 lastmod: 2026-05-22
 draft: false
-categories: ["AI for Business", "Local SEO", "Google Reviews"]
+categories: ["ai-automation"]
 tags: ["local seo", "google reviews", "review automation", "ai agents"]
 keywords: ["AI local SEO tool 2026", "Merchynt vs Birdeye", "best Google reviews automation tool 2026", "AI Google Business Profile manager", "automate review responses AI", "Podium vs Birdeye AI review", "review extortion crackdown 2026", "GBP AI Overview optimization"]
 image: /images/posts/ai-local-seo-stack-2026.jpg

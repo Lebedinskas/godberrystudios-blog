@@ -4,7 +4,7 @@ description: "Q1+Q2 2026 saw 21 disclosed agency deals, up 162% YoY per Digital 
 date: 2026-05-08
 lastmod: 2026-05-22
 draft: false
-categories: ["AI for Business & Creators"]
+categories: ["ai-automation"]
 tags: ["agency m&a", "agency roll-up", "exit planning", "agentic ai"]
 keywords: ["AI agency M&A 2026", "agency roll-up 2026", "sell AI agency", "agentic agency acquisition", "agency exit multiples 2026", "AI agency consolidation", "agentic delivery agency", "agency buyer market 2026", "boutique agency exit playbook", "small agency survive AI"]
 image: /images/posts/ai-agency-rollup-2026-survival-exit-playbook.jpg

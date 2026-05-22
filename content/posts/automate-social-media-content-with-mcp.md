@@ -3,7 +3,7 @@ title: "How to Automate Social Media Content Creation With MCP in 2026"
 description: "Transform any URL, article, or text into ready-to-post social media content for LinkedIn, Twitter/X, Facebook, and Instagram using the Model Context Protocol. Includes real output examples and cost comparison."
 date: 2026-04-12
 lastmod: 2026-04-15
-categories: ["mcp", "tutorials"]
+categories: ["mcp"]
 tags: ["mcp", "content-repurposing", "apify", "social-media-automation"]
 image: /images/posts/automate-social-media-mcp.jpg
 image_alt: "Blog post transforming into multiple social media posts through an automated content pipeline"
