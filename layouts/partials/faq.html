@@ -25,6 +25,6 @@
   {{- $items = $items | append (dict "@type" "Question" "name" .q "acceptedAnswer" (dict "@type" "Answer" "text" .a)) -}}
 {{- end -}}
 <script type="application/ld+json">
-{{ dict "@context" "https://schema.org" "@type" "FAQPage" "mainEntity" $items | jsonify (dict "indent" "  ") }}
+{{ dict "@context" "https://schema.org" "@type" "FAQPage" "mainEntity" $items | jsonify (dict "indent" "  ") | safeJS }}
 </script>
 {{- end -}}
