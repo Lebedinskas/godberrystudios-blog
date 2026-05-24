@@ -12,7 +12,8 @@
   <meta name="robots" content="noindex, follow">
   {{- else -}}
   <meta name="robots" content="max-image-preview:large">
-  {{- end -}}
+  {{- end }}
+  <meta name="theme-color" content="#4F46E5">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="{{ .Site.Title }}">
@@ -22,9 +23,11 @@
   <meta property="og:url" content="{{ .Permalink }}">
   {{ with .Params.image }}
   <meta property="og:image" content="{{ . | absURL }}">
+  <meta property="og:image:alt" content="{{ $.Params.image_alt | default $.Title }}">
   {{ else }}
   {{ with .Site.Params.ogImage }}<meta property="og:image" content="{{ . }}">{{ end }}
   {{ end }}
+  <meta property="og:locale" content="en_US">
   {{ with .Site.Params.social.facebook }}<meta property="article:publisher" content="{{ . }}">{{ end }}
   {{ with .Site.Params.social.facebookPageId }}<meta property="fb:pages" content="{{ . }}">{{ end }}
 
@@ -52,10 +55,44 @@
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "{{ .Site.Title }}",
+    "name": "Godberry Studios",
     "url": "{{ .Site.BaseURL }}",
-    "description": "{{ .Site.Params.description }}"{{ with .Site.Params.social.facebook }},
-    "sameAs": ["{{ . }}"]{{ end }}
+    "description": "{{ .Site.Params.description }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ .Site.BaseURL }}images/logo.svg"
+    },
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61570965581596",
+      "https://www.linkedin.com/in/tomas-lebedinskas-446103196/",
+      "https://github.com/godberrystudios",
+      "https://apify.com/godberry"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "hello@godberrystudios.com",
+      "availableLanguage": ["English"]
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Tomas Lebedinskas",
+      "url": "{{ .Site.BaseURL }}author/tomas/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ .Site.Title }}",
+    "alternateName": "Godberry Studios",
+    "url": "{{ .Site.BaseURL }}",
+    "inLanguage": "{{ .Site.LanguageCode }}",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Godberry Studios"
+    }
   }
   </script>
   {{ else if .IsPage }}
@@ -92,7 +129,10 @@
       "@type": "WebPage",
       "@id": "{{ .Permalink }}"
     },
-    "wordCount": {{ .WordCount }}
+    "inLanguage": "{{ .Site.LanguageCode }}",
+    {{ with .Params.categories }}{{ with index . 0 }}"articleSection": "{{ . | humanize | title }}",
+    {{ end }}{{ end }}{{ with .Params.tags }}"keywords": "{{ delimit . ", " }}",
+    {{ end }}"wordCount": {{ .WordCount }}
   }
   </script>
   {{ end }}
