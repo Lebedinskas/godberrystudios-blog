@@ -1,6 +1,6 @@
 ---
-title: "How to Automate Social Media Content Creation With MCP in 2026"
-description: "Transform any URL, article, or text into ready-to-post social media content for LinkedIn, Twitter/X, Facebook, and Instagram using the Model Context Protocol. Includes real output examples and cost comparison."
+title: "One Blog Post → 4 Social Drafts in One Call"
+description: "Every post I publish needs four versions for LinkedIn, X, Facebook, Instagram. A small MCP server collapses that to one call at $0.07. Real outputs + cost."
 date: 2026-04-12
 lastmod: 2026-04-15
 categories: ["mcp"]

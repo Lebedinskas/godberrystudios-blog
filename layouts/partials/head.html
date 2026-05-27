@@ -1,7 +1,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else if .Title }}{{ .Title }} | {{ .Site.Title }}{{ else }}Page not found | {{ .Site.Title }}{{ end }}</title>
+  {{- /* SERP title: post pages drop the Site.Title suffix entirely — Google
+     truncates around 60 chars and the suffix " | Godberry Studios | Web
+     Scraping & Automation Tools" (50 chars) was leaving zero room for the
+     actual title in the result snippet. Brand still appears on social cards
+     via og:site_name + on the homepage title. See BLOG-EDITORIAL-GUIDE §9. */ -}}
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else if .Title }}{{ .Title }}{{ else }}Page not found · Godberry Studios{{ end }}</title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <meta name="author" content="{{ .Site.Params.author }}">
   {{- $isTagPage := false -}}

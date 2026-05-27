@@ -1,6 +1,6 @@
 ---
-title: "Google Chrome Skills: The 10-Skill Starter Library to Turn Your Best AI Prompts into One-Click Tools (2026 Hands-On Guide)"
-description: "Chrome Skills began rolling out April 14, 2026 — save any Gemini prompt as a reusable slash command across any page and tabs. An honest practitioner walkthrough with a 10-Skill starter library, naming and versioning rules, multi-tab patterns, and when to pick a Skill over a Custom GPT, Claude Project, or a real automation."
+title: "Chrome Skills: My 10-Skill Starter Library You Can Steal"
+description: "Save any Gemini prompt as a Chrome slash command. A 10-skill starter library, naming rules, and when to pick Skills vs Custom GPT or Claude Projects."
 date: 2026-04-22
 lastmod: 2026-05-22
 draft: false
