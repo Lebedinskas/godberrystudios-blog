@@ -58,7 +58,7 @@ One, **the billing rail is already there.** No Stripe account, no SCA handling, 
 
 Two, **the Actor model maps cleanly to MCP tools.** An Actor is a function you invoke with input and get output from. So is an MCP tool. Standby mode bridges the two — one warm process, many tool calls, per-call billing. You're not fighting the platform.
 
-Three, **the Store is a distribution channel.** People browse apify.com/store looking for actors to solve a problem. If your MCP server solves one, you get organic traffic without running ads. A self-hosted MCP server has zero discovery surface until you build one.
+Three, **the Store is a distribution channel.** People browse {{< affiliate url="https://apify.com/store?fpr=ewv9tm" label="apify.com/store" >}} looking for actors to solve a problem. If your MCP server solves one, you get organic traffic without running ads. A self-hosted MCP server has zero discovery surface until you build one.
 
 The tradeoff: you're on Apify. If they change the economics or the product direction drifts away from you, you migrate — and because the tools are plain SDK handlers, that migration is the host and the billing call, not the logic. For me, time-to-first-paying-user beat the lock-in risk. Your math may be different.
 

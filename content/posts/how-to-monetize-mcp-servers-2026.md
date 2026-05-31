@@ -106,7 +106,7 @@ Three deployment paths dominate today. They trade ease of setup against economic
 | **MCPize** | 85% | Managed | Yes (sub, usage, one-time) | Listed in MCPize marketplace | Broad AI tool category, solo builders who want zero infra |
 | **Self-hosted + gateway** | ~97% (after Stripe/gateway fees) | You | No — bring your own (Moesif, mcp-billing-gateway, x402) | You drive it | High-volume, custom pricing, enterprise buyers |
 
-### Apify MCP — fastest path if you're already scraping
+### {{< affiliate url="https://mcp.apify.com/?fpr=ewv9tm" label="Apify MCP" >}} — fastest path if you're already scraping
 
 Apify became a serious MCP platform in late 2025 when it added first-class MCP server hosting alongside its actor marketplace. Same pay-per-event model as actors: define events in code, Apify charges the user, keep 80% minus platform compute costs.
 

@@ -130,9 +130,9 @@ I discovered this on the actor's first platform test run (v0.4.4, 2026-05-12). T
 
 ## Try it on your own data
 
-Pick a regional Yelp domain you actually use (yelp.co.uk, yelp.de, yelp.com.au) and one business URL. Paste it, click Start. Free-plan Apify accounts can run a capped evaluation; full extraction unlocks on any [paid Apify subscription](https://apify.com/pricing).
+Pick a regional Yelp domain you actually use (yelp.co.uk, yelp.de, yelp.com.au) and one business URL. Paste it, click Start. Free-plan Apify accounts can run a capped evaluation; full extraction unlocks on any {{< affiliate url="https://apify.com/pricing?fpr=ewv9tm" label="paid Apify subscription" >}}.
 
-If it fits, [the full plan](https://apify.com/godberry/yelp-scraper) is one click away. If it doesn't, [email me](mailto:hello@godberrystudios.com) — I read every reply, and "it didn't work on yelp.com" is the most useful kind of feedback I can get.
+If it fits, {{< affiliate url="https://apify.com/godberry/yelp-scraper?fpr=ewv9tm" label="the full plan" >}} is one click away. If it doesn't, [email me](mailto:hello@godberrystudios.com) — I read every reply, and "it didn't work on yelp.com" is the most useful kind of feedback I can get.
 
 ---
 
