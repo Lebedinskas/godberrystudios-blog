@@ -17,7 +17,7 @@ faq:
     a: "Your actor is automatically moved to pay-per-usage, where Apify bills users for compute costs and gives you a fixed share. PPU take rates are typically lower than well-designed PPE pricing. You can switch from PPU to PPE later, but you lose store positioning and revenue during the gap."
 ---
 
-If you rent out an actor on the Apify Store, a clock is running. On **October 1, 2026** every remaining rental actor gets auto-migrated to pay-per-usage — a model that, on most scraping workloads, rounds your payout down to a few cents per run. New rental actors have been blocked since April 1, 2026, and pricing on existing rentals is frozen. The way out is to migrate to pay-per-event (PPE) yourself, on your own schedule, before Apify does it for you on worse terms.
+If you rent out an actor on the {{< affiliate slug="apify" label="Apify" >}} Store, a clock is running. On **October 1, 2026** every remaining rental actor gets auto-migrated to pay-per-usage — a model that, on most scraping workloads, rounds your payout down to a few cents per run. New rental actors have been blocked since April 1, 2026, and pricing on existing rentals is frozen. The way out is to migrate to pay-per-event (PPE) yourself, on your own schedule, before Apify does it for you on worse terms.
 
 I've shipped two PPE actors this year — [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) and [Yelp Scraper](https://apify.com/godberry/yelp-scraper) — so this isn't theory. Here's the migration as I actually ran it: the timeline, the event taxonomy, the code, the pricing math, and the quiet bugs that eat revenue after you switch — including the ones I shipped and had to fix.
 

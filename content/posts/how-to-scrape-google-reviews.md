@@ -198,10 +198,10 @@ Scraping public web data sits in a legal grey area, and *hiQ Labs v. LinkedIn* i
 - **Don't republish verbatim** — Extracting data for analysis is fine. Copying and republishing entire review sets on a competing platform is not
 - **Google's ToS** — Google's terms restrict automated access; enforcement is mostly technical (CAPTCHAs, rate limiting) rather than lawsuits against individual users, but the ToS angle is exactly what tripped hiQ up
 
-When in doubt, use established platforms like Apify that handle rate limiting and ethical scraping practices for you. Developers thinking about publishing their own scrapers on the store should also read my [Apify pay-per-event migration playbook](/posts/apify-pay-per-event-migration-playbook-2026/) — the pricing model changed in 2026 and every actor needs to migrate before October 1.
+When in doubt, use established platforms like {{< affiliate slug="apify" label="Apify" >}} that handle rate limiting and ethical scraping practices for you. Developers thinking about publishing their own scrapers on the store should also read my [Apify pay-per-event migration playbook](/posts/apify-pay-per-event-migration-playbook-2026/) — the pricing model changed in 2026 and every actor needs to migrate before October 1.
 
 ## Get Started
 
-Ready to extract Google review data? Head to the [Google Reviews Scraper on Apify](https://apify.com/godberry/google-reviews-scraper) and run your first extraction in under a minute.
+Ready to extract Google review data? Head to the {{< affiliate url="https://apify.com/godberry/google-reviews-scraper?fpr=ewv9tm" label="Google Reviews Scraper on Apify" >}} and run your first extraction in under a minute.
 
 For a broader introduction to data extraction, read my [Web Scraping for Beginners guide](/posts/web-scraping-for-beginners-2026-guide/). To turn extracted reviews into social media content, see the [Content to Social MCP tutorial](/posts/automate-social-media-content-with-mcp/).

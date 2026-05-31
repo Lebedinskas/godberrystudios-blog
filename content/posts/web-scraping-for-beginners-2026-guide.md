@@ -251,6 +251,6 @@ with sync_playwright() as p:
     browser.close()
 ```
 
-**When you're ready: build something real.** Combine what you've learned into a scraper that solves an actual problem for you or your business. Or build an Apify Actor with Crawlee and publish it on the store.
+**When you're ready: build something real.** Combine what you've learned into a scraper that solves an actual problem for you or your business. Or build an Actor with Crawlee and publish it on {{< affiliate slug="apify" label="Apify" >}} — the managed platform handles proxies, scheduling, and storage so you can focus on the scraping logic.
 
 If you're curious how AI is reshaping scraping and automation — particularly the Model Context Protocol that wires AI assistants directly into tools like scrapers — see my [guide to deploying MCP servers in production](/posts/deploy-mcp-server-production/).
