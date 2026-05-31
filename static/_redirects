@@ -19,3 +19,5 @@
 #   4. Use {{< affiliate slug="<slug>" label="..." >}} in posts.
 
 /go/make  https://www.make.com/en/register?pc=godberry  302
+/go/apify  https://apify.com?fpr=ewv9tm  302
+/go/apify-signup  https://console.apify.com/sign-up?fpr=ewv9tm  302
