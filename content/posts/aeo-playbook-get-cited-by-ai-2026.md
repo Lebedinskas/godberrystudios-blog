@@ -17,6 +17,7 @@ faq:
     a: "Roughly 6–12 weeks for the first new citations after a serious rewrite of on-page structure — about 8 weeks in my own test. Off-page Reddit and Quora work can show up faster, 3–4 weeks, because those platforms get re-indexed often. Brand search volume effects lag further, 6–12 months."
   - q: "Which engine should I optimize for first?"
     a: "Optimize on-page once for all three. Then split off-page by audience. For B2B: Perplexity and LinkedIn. For consumer or developer topics: Reddit and Wikipedia-adjacent sources, which feeds ChatGPT and Google AI Overviews together."
+affiliate_links: true
 ---
 
 Getting cited by ChatGPT, Perplexity, and Google AI in 2026 comes down to four moves: answer-first opening paragraphs of 40–60 words, FAQ and Article schema, unlinked brand mentions on Reddit and Quora, and a real author byline that links to a verifiable profile. Each engine weights those differently. Everything below is something I can point a source at — no exceptions.
@@ -79,7 +80,7 @@ Two off-page things people spend on that I'd skip. `llms.txt` is the first: Otte
 
 ## What I'm doing on my own blog
 
-I run [godberrystudios.com](https://godberrystudios.com) — a blog about MCP servers and scrapers that funnels to two Apify Store products ([Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper), [Yelp Scraper](https://apify.com/godberry/yelp-scraper)). About 35 posts, three months in. I'm an honest small-blog test case for the playbook above.
+I run [godberrystudios.com](https://godberrystudios.com) — a blog about MCP servers and scrapers that funnels to two Apify Store products ({{< affiliate url="https://apify.com/godberry/google-reviews-scraper?fpr=ewv9tm" label="Google Reviews Scraper" >}}, {{< affiliate url="https://apify.com/godberry/yelp-scraper?fpr=ewv9tm" label="Yelp Scraper" >}}). About 35 posts, three months in. I'm an honest small-blog test case for the playbook above.
 
 What I've shipped:
 

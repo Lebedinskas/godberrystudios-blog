@@ -21,11 +21,12 @@ faq:
     a: "x402 uses stablecoins (USDC) on EVM chains and Solana, avoiding crypto price volatility. L402 uses the Bitcoin Lightning Network with near-instant settlement and no facilitator needed. x402 has broader enterprise adoption — tens of thousands of sellers and a Linux Foundation home — while L402 (100+ live services) is more decentralized."
   - q: "How much does x402 cost to integrate?"
     a: "The protocol itself charges no fee. Coinbase's hosted facilitator is free for the first 1,000 settled payments per month, then $0.001 per settled payment (since January 2026). On top of that you pay standard blockchain transaction fees — on Base, typically a fraction of a cent. All middleware libraries are open-source under Apache 2.0."
+affiliate_links: true
 ---
 
 HTTP 402 "Payment Required" sat in the spec for 28 years marked "reserved for future use." Nobody had a good way to make the web charge a machine for a single request. x402 is that way. An AI agent hits your API, gets a 402 with a price tag, pays in USDC, and retries — all in one HTTP exchange, no human in the loop. Coinbase built and open-sourced the protocol in May 2025, with Cloudflare and Stripe as early collaborators; by late April 2026 it had carried roughly 165 million transactions and about $50 million in cumulative settled volume. On April 2, 2026, it moved to a neutral home: the x402 Foundation, a Linux Foundation project backed by Google, AWS, Microsoft, Stripe, Visa, Mastercard, and a dozen-plus other founding members.
 
-I sell two Apify Store actors that already charge at the call boundary — [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) at $0.10 per place returned and [Yelp Scraper](https://apify.com/godberry/yelp-scraper) at $0.004 per business — so x402's "pay-per-call" framing isn't abstract for me. It's the same pricing model, minus the centralized platform. This guide explains how x402 works, where Cloudflare Pay Per Crawl and Google AP2 fit, and how to add x402 payments to your own API or MCP server.
+I sell two Apify Store actors that already charge at the call boundary — {{< affiliate url="https://apify.com/godberry/google-reviews-scraper?fpr=ewv9tm" label="Google Reviews Scraper" >}} at $0.10 per place returned and {{< affiliate url="https://apify.com/godberry/yelp-scraper?fpr=ewv9tm" label="Yelp Scraper" >}} at $0.004 per business — so x402's "pay-per-call" framing isn't abstract for me. It's the same pricing model, minus the centralized platform. This guide explains how x402 works, where Cloudflare Pay Per Crawl and Google AP2 fit, and how to add x402 payments to your own API or MCP server.
 
 ## Why HTTP 402 Matters Now
 

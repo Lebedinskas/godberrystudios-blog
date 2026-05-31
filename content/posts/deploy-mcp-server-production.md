@@ -15,6 +15,7 @@ faq:
     a: "Streamable HTTP. The older HTTP+SSE transport still works, but Streamable HTTP is the current spec recommendation and has better client support. Simpler to deploy and works better behind load balancers."
   - q: "How do I test MCP servers before deploying?"
     a: "Use the MCP Inspector (npx @modelcontextprotocol/inspector) to call tools interactively and inspect responses. Write automated integration tests that call each tool with known inputs and verify output structure. Test with the Streamable HTTP transport, not STDIO — transport bugs only surface in the transport you actually use."
+affiliate_links: true
 ---
 
 Your MCP server works on your laptop. Claude connects, tools fire, results come back. Ship it, right?
@@ -295,7 +296,7 @@ Two rules: **fail open** (lookup throws → treat as paid; throttling a paying c
 
 ## When to use a managed platform
 
-Not everyone needs their own infrastructure. Platforms like [Apify](https://apify.com/store) handle deployment, scaling, monitoring, and billing — you write tool logic. Fits solo developers, usage-based pricing, and spiky traffic.
+Not everyone needs their own infrastructure. Platforms like {{< affiliate url="https://apify.com/store?fpr=ewv9tm" label="Apify" >}} handle deployment, scaling, monitoring, and billing — you write tool logic. Fits solo developers, usage-based pricing, and spiky traffic.
 
 {{< cta title="See It in Action" url="https://apify.com/store" >}}
 I run a production MCP server (Content-to-Social) plus scrapers on the Apify Store, all handling real customer traffic with zero infrastructure management on my end.

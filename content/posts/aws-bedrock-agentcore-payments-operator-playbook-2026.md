@@ -15,6 +15,7 @@ faq:
     a: "Start at 0.005 to 0.05 dollars per call for most MCP tool calls or scraper rows. Premium endpoints like LLM-orchestrated workflows or specialized data can range to 0.50 to 5 dollars. The Coinbase x402 Bazaar's 10,000-plus existing endpoints are a useful comparable — list yours alongside, then iterate based on call volume and customer mix."
   - q: "Will x402 work with Apify pay-per-event actors?"
     a: "Yes, in parallel. Apify pay-per-event handles billing for runs through the Apify Store; x402 handles billing for direct-to-agent HTTP calls outside it. Most operators end up running both — Apify for the human storefront, x402 for the agent surface — with the underlying scraper code shared between them."
+affiliate_links: true
 ---
 
 "Sell an API to a robot" stopped being a joke this month. Amazon Bedrock AgentCore Payments launched in preview on 2026-05-07, built with Coinbase and Stripe — the rails for charging autonomous agents now exist at AWS scale. When an agent hits a paid endpoint and gets back an HTTP 402, AgentCore handles the x402 negotiation, wallet authentication, USDC settlement on Base, and proof delivery — all without breaking the agent's reasoning loop. So if you sell an MCP server, an API, or a scraped-data product, this is my operator's playbook: the decision tree for adding x402 to what you already sell, the wallet stack to pick, and the per-endpoint pricing math.
@@ -49,7 +50,7 @@ You already charge per place, per record, per page-rendered. You have a Stripe-m
 
 **Add x402 if:** you can identify agent traffic in your usage logs (Bedrock user-agents, Claude tool-call patterns, Cursor or Cline calls), the agent traffic is non-trivial (more than 5% of runs), and your existing pricing has a per-event component that maps cleanly to a per-call price an agent could pre-authorize.
 
-**Stay on PPE-only if:** all your buyers are humans on the Apify free or paid plan running interactive scrapes. This is exactly where I sit today with the [Yelp Scraper](https://apify.com/godberry/yelp-scraper) and [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) — the first paying users are humans on paid plans, not autonomous agents, so x402 would buy me nothing right now and add maintenance overhead. If your customer mix looks like that, wait.
+**Stay on PPE-only if:** all your buyers are humans on the Apify free or paid plan running interactive scrapes. This is exactly where I sit today with the {{< affiliate url="https://apify.com/godberry/yelp-scraper?fpr=ewv9tm" label="Yelp Scraper" >}} and {{< affiliate url="https://apify.com/godberry/google-reviews-scraper?fpr=ewv9tm" label="Google Reviews Scraper" >}} — the first paying users are humans on paid plans, not autonomous agents, so x402 would buy me nothing right now and add maintenance overhead. If your customer mix looks like that, wait.
 
 **Interleave pattern, if you do add x402:** keep Apify pay-per-event as the canonical pricing for the storefront and human-driven runs, and expose an x402-priced HTTP endpoint at a separate route (`/agent/v1/...`) for the Bazaar-discoverable surface. The two pricing models share nothing except the underlying scraper; you can A/B them without untangling billing.
 

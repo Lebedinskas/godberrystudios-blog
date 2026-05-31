@@ -17,11 +17,12 @@ faq:
     a: "Pay Per Crawl is the Cloudflare product — dashboard configuration, billing reconciliation, and an authenticated Discovery API. It currently settles through a crawler's Cloudflare account funded via Stripe. x402 is an open protocol announced with Coinbase in September 2025 and formalized under the Linux Foundation in April 2026; it uses the same HTTP 402 status code but settles payments on-chain via stablecoins. The two are complementary — Pay Per Crawl is the product, x402 is a payment rail the product is moving toward supporting."
   - q: "Will Pay Per Crawl kill web scraping?"
     a: "No. It changes the economics at the margin, especially for broad uncurated crawling behind Cloudflare. Targeted scraping with known URLs, narrow schemas, and deterministic parsing stays viable. LLM-heavy patterns get materially more expensive when the page fetch itself costs a cent. Indie operators who lean into schema-first design and budget-aware crawl planning keep their margins."
+affiliate_links: true
 ---
 
 For nearly three decades the HTTP `402 Payment Required` status code sat in the spec marked "reserved for future use" — the web's most famous never-used feature, a placeholder for micropayments that never arrived. Cloudflare Pay Per Crawl is finally cashing the cheque. It turns `402` into a live toll booth: a site owner sets a per-request price (minimum $0.01), Cloudflare returns a `402` with a `crawler-price` header when an AI bot asks for a page, and the crawler either retries with a signed payment header or walks away.
 
-I ship paid scrapers on the Apify Store — the [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) and the [Yelp Scraper](https://apify.com/godberry/yelp-scraper) — so the question of who pays whom when a bot hits a Cloudflare-fronted page is not academic for me. This post walks through how the protocol works on the wire, what it actually costs to operate under it, where it breaks down, and what an indie scraper operator should be doing about it.
+I ship paid scrapers on the Apify Store — the {{< affiliate url="https://apify.com/godberry/google-reviews-scraper?fpr=ewv9tm" label="Google Reviews Scraper" >}} and the {{< affiliate url="https://apify.com/godberry/yelp-scraper?fpr=ewv9tm" label="Yelp Scraper" >}} — so the question of who pays whom when a bot hits a Cloudflare-fronted page is not academic for me. This post walks through how the protocol works on the wire, what it actually costs to operate under it, where it breaks down, and what an indie scraper operator should be doing about it.
 
 ## How HTTP 402 Actually Works on the Wire
 

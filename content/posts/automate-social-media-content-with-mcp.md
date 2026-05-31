@@ -18,6 +18,7 @@ faq:
     a: "Currently text only, at about 0.07 dollars per transformation. For visual content, pair it with image generation tools or use your existing brand assets. A clear, well-written text post can still earn strong reach on its own, so missing imagery is not a dealbreaker for a first draft."
   - q: "How does this handle brand voice consistency?"
     a: "The MCP server maintains consistent tone within a single transformation, and you can specify tone parameters. For strict brand guidelines, use the output as a first draft and apply your brand voice manually — still much faster than writing four platform-specific posts from scratch."
+affiliate_links: true
 ---
 
 Every blog post I publish needs to show up on four social platforms, each with its own tone, length, and hashtag habits. Done by hand, that is 15 to 30 minutes of rewriting the same idea four ways — the dullest part of shipping anything.
@@ -169,6 +170,6 @@ If you want to understand MCP more deeply — including how to build and deploy 
 
 ## Get Started
 
-The [Content to Social MCP Server](https://apify.com/godberry/content-to-social-mcp) is live on Apify at $0.07 per transformation across all platforms. I built it to kill my own least favorite chore — rewriting one idea four ways — and that is the honest pitch: if drafting social posts is a recurring tax on your week, this hands you a first draft in seconds. It is a young tool, not a polished suite; treat the output as a starting point you still edit. Whether it earns a place in your workflow depends entirely on how much that repetitive rewriting is costing you now.
+The {{< affiliate url="https://apify.com/godberry/content-to-social-mcp?fpr=ewv9tm" label="Content to Social MCP Server" >}} is live on Apify at $0.07 per transformation across all platforms. I built it to kill my own least favorite chore — rewriting one idea four ways — and that is the honest pitch: if drafting social posts is a recurring tax on your week, this hands you a first draft in seconds. It is a young tool, not a polished suite; treat the output as a starting point you still edit. Whether it earns a place in your workflow depends entirely on how much that repetitive rewriting is costing you now.
 
 For the wider picture of how web scraping and AI content tools fit together, see the [web scraping beginner's guide](/posts/web-scraping-for-beginners-2026-guide/) and the [Google Maps lead generation tutorial](/posts/scrape-google-maps-lead-generation/).

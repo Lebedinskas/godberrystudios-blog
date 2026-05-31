@@ -16,11 +16,12 @@ faq:
     a: "Quarterly for most analytical use cases — acquisition diligence, competitive cluster analysis, expansion planning. Monthly for operators actively managing a turnaround. Daily makes sense only for crisis monitoring, and even then you usually focus the daily pull on Google and Yelp while TripAdvisor and OpenTable run weekly."
   - q: "What's the realistic accuracy of cross-platform reviewer matching?"
     a: "A text-prefix plus date plus place hash gets you a rough estimate, in practice somewhere around 75 to 85 percent. That is good enough to de-duplicate sentiment averages but not for identity resolution if a client question depends on it. Make matching a flag column, not the analytical foundation of the brief."
+affiliate_links: true
 ---
 
 Short answer: **one platform is one audience.** If you advise restaurants — running a franchise group, scoring an acquisition, expanding into new metros, or just deciding whether to relocate a single shop — you need Google Maps for casual-diner volume, Yelp for foodie sentiment depth, TripAdvisor for the traveler audience, and OpenTable for verified-diner behavior. Each captures a different slice of demand and each lies in distinct ways. Combine them and a real chunk of competitive briefs end up changing verdict once the missing 60% of the picture shows up.
 
-This is the playbook PE diligence teams and multi-location operators are quietly assembling in 2026. It doesn't show up in vendor blogs because vendor blogs sell single-platform tools. Below is the bias map, the unified schema, the six-stage pipeline, the cost math, and the legal reality — anchored to the scrapers I've shipped, [Google Reviews](https://apify.com/godberry/google-reviews-scraper) and [Yelp](https://apify.com/godberry/yelp-scraper), with the issues I actually hit building them.
+This is the playbook PE diligence teams and multi-location operators are quietly assembling in 2026. It doesn't show up in vendor blogs because vendor blogs sell single-platform tools. Below is the bias map, the unified schema, the six-stage pipeline, the cost math, and the legal reality — anchored to the scrapers I've shipped, {{< affiliate url="https://apify.com/godberry/google-reviews-scraper?fpr=ewv9tm" label="Google Reviews" >}} and {{< affiliate url="https://apify.com/godberry/yelp-scraper?fpr=ewv9tm" label="Yelp" >}}, with the issues I actually hit building them.
 
 ## Why one platform is one audience
 

@@ -15,13 +15,14 @@ faq:
     a: "Comet is faster and built to retrieve data with visible citations. Atlas is slower but can act — clicking, typing, submitting forms. If your task is finding data and showing the source, Comet usually wins. If the task is finding data and doing something with it, Atlas is the right tool."
   - q: "What is the cheapest way to automate web scraping in 2026?"
     a: "It depends on volume. Under 500 rows a month of ad-hoc work, ChatGPT Plus at $20 often wins on cost. Between 500 and 5,000 rows, a small Apify actor or a custom script on a $5 VPS is cheaper. Above 5,000 rows, a metered scraping platform like Apify's $199 Scale plan at roughly $0.001 to $0.002 per page is the most economical path."
+affiliate_links: true
 ---
 
 A scraper that thinks before every click sounds like an upgrade. In practice, it's a 6-to-9-minute errand runner — and that single fact decides whether ChatGPT Atlas belongs anywhere near your scraping stack.
 
 Here's the honest version. Atlas Agent Mode can replace a traditional scraper for ad-hoc, low-volume work under roughly 50 rows per session — one-off competitor price checks, travel research, cart-filling for a weekly grocery order. For production scraping on a schedule, or anything that needs thousands of rows a day, Atlas is too slow, too subscription-locked, and too easy to stall. A purpose-built scraper still wins.
 
-I ship paid scrapers on the Apify Store ([Google Reviews](https://apify.com/godberry/google-reviews-scraper), [Yelp](https://apify.com/godberry/yelp-scraper)), so I have a direct stake in this question. The scrapers I run clear hundreds of pages per run, on schedule, with billing tied to result counts. Atlas Agent Mode does something different — and the difference is the whole post.
+I ship paid scrapers on the Apify Store ({{< affiliate url="https://apify.com/godberry/google-reviews-scraper?fpr=ewv9tm" label="Google Reviews" >}}, {{< affiliate url="https://apify.com/godberry/yelp-scraper?fpr=ewv9tm" label="Yelp" >}}), so I have a direct stake in this question. The scrapers I run clear hundreds of pages per run, on schedule, with billing tied to result counts. Atlas Agent Mode does something different — and the difference is the whole post.
 
 OpenAI launched ChatGPT Atlas for macOS on October 21, 2025 and made Agent Mode available in preview for anyone on Plus ($20/month), Pro ($200/month), or Business plans. It looks like Chrome because it is Chrome — Atlas is a Chromium fork with ChatGPT stitched into the chrome itself. The sidebar summarizes what you're reading. Agent Mode goes further: you type an instruction, and the browser clicks, scrolls, types, and submits on your behalf while you watch.
 

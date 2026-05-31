@@ -21,6 +21,7 @@ faq:
   - q: "Can a connector scrape competitor catalogs or reference images for me?"
     a: "No. Connectors drive creative software — Claude can build a Blender scene or retouch a portrait, but it cannot pull a competitor's product photography, extract a brand palette from a landing page, or build a reference dataset. That data layer needs a deterministic scraper; it sits entirely outside any connector's reach."
 image_alt: "Editorial illustration on dark navy background with electric blue and gold accents showing nine glowing creative-tool connector nodes — pen-tip, donut, gear, waveform, vinyl, brush, ruler, and twin video monitors — connected by gold light-trails to a central radiant Claude burst, representing the April 28 2026 launch of nine Anthropic Claude connectors for Photoshop Blender Fusion Ableton Splice Affinity SketchUp and Resolume"
+affiliate_links: true
 ---
 
 On April 28, 2026 Anthropic [shipped nine official Claude connectors](https://www.anthropic.com/news/claude-for-creative-work) for Adobe Creative Cloud, Blender, Autodesk Fusion, Ableton Live, Splice, Affinity by Canva, SketchUp, Resolume Arena, and Resolume Wire. Overnight, Claude moved from a chat window you paste into to something that sits inside the software a working creative already opens every day. Adobe alone reports around 41 million Creative Cloud subscribers; the other eight tools cover millions more 3D artists, architects, producers, and VJs.
@@ -41,7 +42,7 @@ If you only have time to install one, match the connector to the bottleneck in y
 - **VJ or live-show designer.** **Resolume Arena** for compositions and **Resolume Wire** for node patches. Both are the most surprising connectors of the nine.
 - **Agency creative lead.** **Adobe for Creativity** and **Affinity by Canva**. Affinity's automation handles the production-prep work that eats a junior designer's afternoon — and Affinity itself costs nothing.
 
-For predictable extraction tasks — pulling a competitor's product photography catalog, building a brand-color reference from a competitor's site, sourcing structured product data to feed into any of these connectors — none of these tools is the right answer. I run two Apify scrapers ([Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) and the recently-shipped [Yelp Scraper](https://apify.com/godberry/yelp-scraper)), and the deterministic-pipeline vs creative-orchestration split is the same here as it is there. Connectors do the creative work. The data layer that feeds it sits outside Claude's reach.
+For predictable extraction tasks — pulling a competitor's product photography catalog, building a brand-color reference from a competitor's site, sourcing structured product data to feed into any of these connectors — none of these tools is the right answer. I run two Apify scrapers ({{< affiliate url="https://apify.com/godberry/google-reviews-scraper?fpr=ewv9tm" label="Google Reviews Scraper" >}} and the recently-shipped {{< affiliate url="https://apify.com/godberry/yelp-scraper?fpr=ewv9tm" label="Yelp Scraper" >}}), and the deterministic-pipeline vs creative-orchestration split is the same here as it is there. Connectors do the creative work. The data layer that feeds it sits outside Claude's reach.
 
 ## What "Connector" Actually Means
 

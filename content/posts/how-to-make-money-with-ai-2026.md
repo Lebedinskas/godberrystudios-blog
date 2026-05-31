@@ -18,6 +18,7 @@ faq:
     a: "Very little. Most of these tools have free tiers, and a Claude or ChatGPT subscription at $20/month covers writing and analysis. The real cost is time — building your first deliverable and finding someone willing to pay for it. That second part is harder than it sounds."
   - q: "Will the EU AI Act affect what I build in 2026?"
     a: "It might. After the May 2026 omnibus amendments, obligations for standalone high-risk AI systems were pushed to December 2027, and transparency rules apply from August 2026. Most content, scraping, and automation work sits outside the high-risk tier — but if you touch recruitment, credit scoring, or biometrics, read the rules carefully."
+affiliate_links: true
 ---
 
 In Q1 2026, Gallup found that half of US employees use AI at work in some form — a landmark first. But the headline hides the real split: only about 13% use it daily, and most of those people use AI to do their existing job a little faster. A much smaller group uses it to build income that didn't exist before.
@@ -65,7 +66,7 @@ Nobody hires you for "AI content." They hire you because you know their niche an
 
 Automation tools sold on marketplaces are a genuine path to recurring revenue. You build once, list on a platform, and earn each time someone runs your tool. But be realistic about the distribution: most actors on any marketplace earn very little. A small number do well. The honest framing is that the ceiling is high and the median is low.
 
-The model: find a repetitive task businesses do manually, build an AI-powered tool that automates it, list it on a marketplace, earn when people run it. The [Apify Store](https://apify.com/store) — with over 50,000 monthly active users — handles hosting, billing, and a chunk of customer acquisition for you.
+The model: find a repetitive task businesses do manually, build an AI-powered tool that automates it, list it on a marketplace, earn when people run it. The {{< affiliate url="https://apify.com/store?fpr=ewv9tm" label="Apify Store" >}} — with over 50,000 monthly active users — handles hosting, billing, and a chunk of customer acquisition for you.
 
 Tools that tend to find buyers:
 
