@@ -17,6 +17,7 @@ faq:
     a: "Yes. Two protocols now support it. x402 from Coinbase uses HTTP 402 with USDC settlement for per-call granularity and no accounts. Stripe's Machine Payments Protocol launched March 2026 uses fiat rails, session-based aggregation, and the full Stripe compliance stack. x402 fits per-call pricing on bounded work; MPP fits long sessions with hundreds of calls."
   - q: "What's the biggest mistake developers make when pricing their MCP server?"
     a: "Pricing for humans instead of agents. A free tier built around 100 free calls per month gets demolished by a single automated workflow. The fix is pricing in a credit unit that scales with your actual cost rather than a flat call count, and naming distinct events so expensive operations carry their own price."
+affiliate_links: true
 ---
 
 PulseMCP indexes thousands of public MCP servers. The overwhelming majority of them are free. That gap — a protocol everyone builds on, almost nobody charges for — is the opportunity. It is also the trap I walked into when I shipped my own.

@@ -20,6 +20,7 @@ faq:
     a: "Roughly 70 percent of scraping targets in 2026 require JavaScript rendering, up from about a third five years ago. Social feeds, Google Maps, and React or Vue single-page apps load content after JavaScript runs, so HTTP-only tools see an empty shell. Browser-based tools like Playwright execute the JavaScript first."
   - q: "When should I use an API instead of scraping?"
     a: "Always prefer an official API when one exists — APIs return structured data in a documented format and are sanctioned. Scraping fills the gap when no API exists or the API is crippled, like Google's 5-review cap. Start with the API and fall back to scraping only when it does not provide what you need."
+affiliate_links: true
 ---
 
 Copying data off a website by hand stops being an option somewhere around the fiftieth row. Web scraping automates that job: you point a tool at a page, tell it what you want, and it hands back structured results — JSON, CSV, or rows in a database — instead of you alt-tabbing for an afternoon. In 2026, that powers pricing intelligence, lead generation, market research, competitive analysis, and the data that trains AI models.

@@ -3,6 +3,7 @@ title: "Yelp Scraper — what one business profile costs, what 60 seconds return
 description: "Walkthrough: a full Yelp business profile + 20 reviews + 34 menu items + 76 photos in about 60 seconds for roughly $0.04. The real output, the real cost, the multi-language date parsing, and the anti-bot wall I hit publishing it on the Apify Store. Honest that this is a freshly published actor."
 date: 2026-05-18
 layout: single
+affiliate_links: true
 ---
 
 ## Why I built this

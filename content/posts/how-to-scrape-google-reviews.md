@@ -20,6 +20,7 @@ faq:
     a: "It depends on the use case. Weekly is usually enough for reputation monitoring; monthly works well for competitive intelligence. Daily runs are possible for real-time alerts, but most businesses do not generate reviews fast enough to justify the cost. Monitoring 5 competitors weekly costs about $2.00 a month."
   - q: "Can I scrape reviews for my own business?"
     a: "Yes, and it is the most legally defensible use case — you are extracting your own customer feedback for analysis. Scraping public data sits in a legal grey area that depends more on a site's terms of service than on the CFAA, so your own data is the one case with no ambiguity at all."
+affiliate_links: true
 ---
 
 A business with 500 Google reviews holds 500 data points about what its customers actually think — and Google's own API hands you exactly 5 of them. That gap is the whole reason this post exists.

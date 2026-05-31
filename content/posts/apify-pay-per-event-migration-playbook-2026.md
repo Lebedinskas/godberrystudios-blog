@@ -15,6 +15,7 @@ faq:
     a: "Apify takes 20% of pay-per-event revenue. Developers keep 80% minus platform compute costs. One catch: charges fired by free-plan users do not pay out to developers — only paid-plan subscriber events count toward revenue."
   - q: "What happens if I don't migrate by October 1, 2026?"
     a: "Your actor is automatically moved to pay-per-usage, where Apify bills users for compute costs and gives you a fixed share. PPU take rates are typically lower than well-designed PPE pricing. You can switch from PPU to PPE later, but you lose store positioning and revenue during the gap."
+affiliate_links: true
 ---
 
 If you rent out an actor on the {{< affiliate slug="apify" label="Apify" >}} Store, a clock is running. On **October 1, 2026** every remaining rental actor gets auto-migrated to pay-per-usage — a model that, on most scraping workloads, rounds your payout down to a few cents per run. New rental actors have been blocked since April 1, 2026, and pricing on existing rentals is frozen. The way out is to migrate to pay-per-event (PPE) yourself, on your own schedule, before Apify does it for you on worse terms.

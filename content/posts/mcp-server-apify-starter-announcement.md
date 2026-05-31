@@ -18,6 +18,7 @@ faq:
     a: "Yes. Publishing is what gives you the Store as a discovery channel, but a private Actor still runs on Standby and still bills via chargeEvent. You can fork, deploy privately, and share the endpoint directly with callers who have your Actor's URL and their own API token."
   - q: "How hard is it to migrate off Apify later?"
     a: "Your MCP tools are plain @modelcontextprotocol/sdk handlers — they move unchanged. What you replace is the host and the billing call: swap the Apify Actor wrapper for your own HTTP server and the chargeEvent calls for Stripe or x402. The tool logic, the part you actually wrote, stays put."
+affiliate_links: true
 ---
 
 Every Model Context Protocol tutorial ends at the same green light: a `stdio` server running on localhost, the Inspector showing all checks passed, and the author waving you off toward "production." Then the tutorial stops — right where the actual work begins. The gap between that demo and a server you can charge money for is the whole job: transport, hosting, billing, distribution. Crossing that gap twice — once per product — surfaced something: the second time, I was copying the same scaffolding rather than rethinking it. That's the signal a pattern is stable enough to extract. Today it's open source as **[mcp-server-apify-starter](https://github.com/godberrystudios/mcp-server-apify-starter)** — MIT licensed, on the Godberry Studios GitHub org.

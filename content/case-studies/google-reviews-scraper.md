@@ -3,6 +3,7 @@ title: "Google Reviews Scraper — what a Google Maps review actually costs and 
 description: "Walkthrough with real numbers: the JSON one review returns, the realistic per-review cost, and three workflows worth wiring it into. Honest about what this small, new actor has delivered so far."
 date: 2026-05-08
 layout: single
+affiliate_links: true
 ---
 
 ## Why I built this
