@@ -61,7 +61,7 @@ For comparison: Google's official Places Details API charges around $17 per 1,00
 
 ### Free Apify plan vs paid Apify plan
 
-Free-plan Apify accounts can run the actor for evaluation — capped at **10 reviews per place and 1 place per run** so you can verify the output shape before subscribing. Full extraction (up to 5,000 reviews per place, unlimited places per run) unlocks on **any paid Apify subscription** — Personal ($49/mo), Team, or Enterprise. The flat-fee per-place pricing above applies on every paid plan. See [apify.com/pricing](https://apify.com/pricing) for plan details.
+Free-plan Apify accounts can run the actor for evaluation — capped at **10 reviews per place and 1 place per run** so you can verify the output shape before subscribing. Full extraction (up to 5,000 reviews per place, unlimited places per run) unlocks on **any paid Apify subscription** — Personal ($49/mo), Team, or Enterprise. The flat-fee per-place pricing above applies on every paid plan. See {{< affiliate url="https://apify.com/pricing?fpr=ewv9tm" label="apify.com/pricing" >}} for plan details.
 
 ## Three workflows worth wiring it into
 
@@ -101,7 +101,7 @@ Tracking three regional competitors — 30–50 locations each — month over mo
 
 The fastest way to see the actor's fit is to run it against a place you already know — a competitor, a target, a client. Pick one location, paste the Google Maps URL, click Start. The free-plan-capped run returns enough output to validate shape and quality in under a minute.
 
-If it fits, [the full plan](https://apify.com/godberry/google-reviews-scraper) is one click away on Apify. If it doesn't, [email me](mailto:hello@godberrystudios.com) — I read every reply.
+If it fits, {{< affiliate url="https://apify.com/godberry/google-reviews-scraper?fpr=ewv9tm" label="the full plan" >}} is one click away on Apify. If it doesn't, [email me](mailto:hello@godberrystudios.com) — I read every reply.
 
 ---
 
