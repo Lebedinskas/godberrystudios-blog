@@ -21,3 +21,10 @@
 /go/make  https://www.make.com/en/register?pc=godberry  302
 /go/apify  https://apify.com/?fpr=ewv9tm  302
 /go/apify-signup  https://console.apify.com/sign-up?fpr=ewv9tm  302
+
+# Removed taxonomy page — the May 2026 category consolidation moved this post to the
+# `ai-automation` category, so Hugo stopped emitting /categories/local-seo/ (now 404 in
+# GSC). "local seo" survives as a tag, so 301 the old indexed category URL to the
+# equivalent live tag listing instead of leaving a dead end.
+/categories/local-seo/  /tags/local-seo/  301
+/categories/local-seo   /tags/local-seo/  301
