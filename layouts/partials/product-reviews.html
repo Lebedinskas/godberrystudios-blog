@@ -1,0 +1,159 @@
+{{ $pid := .Params.product_id }}
+{{ if $pid }}
+<section class="rev" data-reviews-for="{{ $pid }}" aria-labelledby="rev-h">
+  <h2 id="rev-h">Reviews</h2>
+
+  <div class="rev-summary" data-rev-summary hidden></div>
+  <div class="rev-list" data-rev-list>
+    <p class="rev-empty" data-rev-loading>Loading reviews…</p>
+  </div>
+
+  <details class="rev-write">
+    <summary>Write a review</summary>
+    <form class="rev-form" data-rev-form>
+      <input type="hidden" name="product" value="{{ $pid }}">
+
+      <div class="rev-hp" aria-hidden="true"><label>Leave empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+      <span class="rev-label">Your rating</span>
+      <div class="rev-stars-input">
+        <input type="radio" id="rv-5" name="rating" value="5" required><label for="rv-5" title="5 stars">★</label>
+        <input type="radio" id="rv-4" name="rating" value="4"><label for="rv-4" title="4 stars">★</label>
+        <input type="radio" id="rv-3" name="rating" value="3"><label for="rv-3" title="3 stars">★</label>
+        <input type="radio" id="rv-2" name="rating" value="2"><label for="rv-2" title="2 stars">★</label>
+        <input type="radio" id="rv-1" name="rating" value="1"><label for="rv-1" title="1 star">★</label>
+      </div>
+
+      <label class="rev-label" for="rv-name">Your name <span class="rev-optional">— optional</span></label>
+      <input class="rev-input" id="rv-name" type="text" name="name" maxlength="60" placeholder="Anonymous" autocomplete="name">
+
+      <label class="rev-label" for="rv-comment">Your review</label>
+      <textarea class="rev-input rev-textarea" id="rv-comment" name="comment" required minlength="3" maxlength="2000" placeholder="What did you build with it? What worked, what didn't?"></textarea>
+
+      <button class="btn btn-primary rev-submit" type="submit">Submit review</button>
+      <p class="rev-note" data-rev-note hidden></p>
+      <p class="rev-fineprint">Reviews are checked before they appear. Be kind and specific.</p>
+    </form>
+  </details>
+</section>
+
+<style>
+  .rev { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+  .rev h2 { margin: 0 0 1rem; }
+  .rev-summary { display: flex; align-items: baseline; gap: .6rem; margin-bottom: 1.25rem; }
+  .rev-avg { font-size: 1.9rem; font-weight: 700; color: var(--text); line-height: 1; }
+  .rev-stars { color: #F59E0B; letter-spacing: 1px; }
+  .rev-stars .off { color: var(--border-hover); }
+  .rev-count { color: var(--text-muted); font-size: .92rem; }
+  .rev-list { display: flex; flex-direction: column; gap: 1rem; }
+  .rev-item { background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem 1.1rem; }
+  .rev-item-head { display: flex; align-items: center; justify-content: space-between; gap: .5rem; margin-bottom: .35rem; }
+  .rev-item-name { font-weight: 600; color: var(--text); }
+  .rev-item p { margin: .25rem 0 .4rem; color: var(--text-body); line-height: 1.55; white-space: pre-wrap; }
+  .rev-item time { font-size: .8rem; color: var(--text-muted); }
+  .rev-empty { color: var(--text-muted); }
+
+  .rev-write { margin-top: 1.5rem; }
+  .rev-write > summary { cursor: pointer; font-weight: 600; color: var(--accent); padding: .5rem 0; }
+  .rev-form { margin-top: 1rem; display: flex; flex-direction: column; }
+  .rev-label { font-weight: 600; color: var(--text); margin: 1rem 0 .4rem; }
+  .rev-optional { font-weight: 400; color: var(--text-muted); }
+  .rev-input { width: 100%; box-sizing: border-box; font-family: var(--font); font-size: 1rem; color: var(--text);
+    background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: .65rem .8rem; transition: border-color var(--transition), box-shadow var(--transition); }
+  .rev-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-light); }
+  .rev-textarea { min-height: 120px; resize: vertical; line-height: 1.55; }
+  .rev-submit { margin-top: 1.2rem; align-self: flex-start; cursor: pointer; }
+  .rev-note { margin-top: .8rem; padding: .6rem .9rem; border-radius: var(--radius-sm); font-size: .92rem; }
+  .rev-note.ok { background: #ECFDF5; color: #047857; border: 1px solid #A7F3D0; }
+  .rev-note.err { background: #FEF2F2; color: #B91C1C; border: 1px solid #FECACA; }
+  .rev-fineprint { margin-top: .8rem; font-size: .82rem; color: var(--text-muted); }
+  .rev-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+  /* Star rating input: row-reverse so CSS sibling selectors light up left-to-right. */
+  .rev-stars-input { display: inline-flex; flex-direction: row-reverse; justify-content: flex-end; font-size: 1.8rem; line-height: 1; }
+  .rev-stars-input input { position: absolute; left: -9999px; }
+  .rev-stars-input label { color: var(--border-hover); cursor: pointer; padding: 0 .05em; transition: color 120ms ease; }
+  .rev-stars-input label:hover, .rev-stars-input label:hover ~ label,
+  .rev-stars-input input:checked ~ label { color: #F59E0B; }
+  .rev-stars-input input:focus-visible ~ label { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+
+<script>
+(function () {
+  var root = document.querySelector('[data-reviews-for]');
+  if (!root) return;
+  var pid = root.getAttribute('data-reviews-for');
+  var listEl = root.querySelector('[data-rev-list]');
+  var summaryEl = root.querySelector('[data-rev-summary]');
+  var form = root.querySelector('[data-rev-form]');
+  var noteEl = root.querySelector('[data-rev-note]');
+
+  function stars(n) {
+    var full = Math.round(n);
+    var s = '';
+    for (var i = 1; i <= 5; i++) s += i <= full ? '★' : '<span class="off">★</span>';
+    return s;
+  }
+  function esc(t) { var d = document.createElement('div'); d.textContent = t == null ? '' : String(t); return d.innerHTML; }
+  function fmtDate(iso) { try { return new Date(iso).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }); } catch (e) { return ''; } }
+
+  function render(data) {
+    if (!data || !data.count) {
+      listEl.innerHTML = '<p class="rev-empty">No reviews yet — be the first to review this.</p>';
+      return;
+    }
+    summaryEl.hidden = false;
+    summaryEl.innerHTML = '<span class="rev-avg">' + data.average + '</span>'
+      + '<span class="rev-stars" aria-label="' + data.average + ' out of 5">' + stars(data.average) + '</span>'
+      + '<span class="rev-count">' + data.count + (data.count === 1 ? ' review' : ' reviews') + '</span>';
+    listEl.innerHTML = data.reviews.map(function (r) {
+      return '<div class="rev-item"><div class="rev-item-head">'
+        + '<span class="rev-item-name">' + esc(r.name) + '</span>'
+        + '<span class="rev-stars" aria-label="' + r.rating + ' out of 5">' + stars(r.rating) + '</span></div>'
+        + '<p>' + esc(r.comment) + '</p>'
+        + '<time>' + esc(fmtDate(r.createdAt)) + '</time></div>';
+    }).join('');
+  }
+
+  function load() {
+    fetch('/api/reviews?product=' + encodeURIComponent(pid), { headers: { 'Accept': 'application/json' } })
+      .then(function (r) { return r.json(); })
+      .then(render)
+      .catch(function () { listEl.innerHTML = '<p class="rev-empty">Couldn’t load reviews right now.</p>'; });
+  }
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type=submit]');
+      if (btn) btn.disabled = true;
+      noteEl.hidden = true;
+      fetch('/api/review', { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) })
+        .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+        .then(function (res) {
+          if (res.d && res.d.status === 'ok') {
+            noteEl.className = 'rev-note ok';
+            noteEl.textContent = 'Thanks! Your review will appear once we’ve had a quick look.';
+            form.reset();
+          } else {
+            noteEl.className = 'rev-note err';
+            noteEl.textContent = (res.d && res.d.status === 'blocked')
+              ? 'That’s a few too many submissions — please try again later.'
+              : 'Please add a rating and a short comment, then try again.';
+            if (btn) btn.disabled = false;
+          }
+          noteEl.hidden = false;
+        })
+        .catch(function () {
+          noteEl.className = 'rev-note err';
+          noteEl.textContent = 'Something went wrong — please try again.';
+          noteEl.hidden = false;
+          if (btn) btn.disabled = false;
+        });
+    });
+  }
+
+  load();
+})();
+</script>
+{{ end }}

@@ -1,0 +1,28 @@
+{{ define "main" }}
+<section class="page-header">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.tagline }}<p>{{ . }}</p>{{ end }}
+  </div>
+</section>
+<section class="page-intro">
+  <div class="container container-narrow">
+    <div class="product-actions">
+      {{ with .Params.price }}<span class="tool-price">{{ . }}</span>{{ end }}
+      {{ with .Params.platform }}<span class="product-platform">{{ . }}</span>{{ end }}
+      {{ with .Params.store_url }}<a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-primary">Get it on the Store &rarr;</a>{{ end }}
+    </div>
+
+    <div class="post-content">{{ .Content }}</div>
+
+    {{ partial "product-reviews.html" . }}
+
+    <p class="product-feedback">Found a bug or have an idea? <a href="/feedback/?plugin={{ .Title | urlquery }}">Send feedback &rarr;</a></p>
+  </div>
+</section>
+<style>
+  .product-actions { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; margin-bottom:1.5rem; padding-bottom:1.25rem; border-bottom:1px solid var(--border); }
+  .product-platform { color: var(--text-muted); font-size:.92rem; }
+  .product-feedback { margin-top:1.75rem; color: var(--text-muted); }
+</style>
+{{ end }}

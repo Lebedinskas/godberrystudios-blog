@@ -1,0 +1,11 @@
+{{/* Product card — used by the /tools/ hub and each category list. Context: a product page. */}}
+<div class="tool-card">
+  {{ with .Params.badge }}<div class="tool-badge">{{ . }}</div>{{ end }}
+  <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  {{ with .Params.tagline }}<p>{{ . }}</p>{{ end }}
+  {{ with .Params.price }}<div class="tool-price">{{ . }}</div>{{ end }}
+  <div class="tool-card-actions">
+    <a href="{{ .RelPermalink }}" class="btn btn-secondary">Details &amp; reviews</a>
+    {{ with .Params.store_url }}<a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-primary">Get it &rarr;</a>{{ end }}
+  </div>
+</div>

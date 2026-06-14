@@ -1,0 +1,100 @@
+{{ define "main" }}
+<section class="legal-content">
+  <div class="container container-narrow">
+    <h1>{{ .Title }}</h1>
+    <div class="post-content">
+      {{ .Content }}
+
+      <p class="fb-context" data-fb-context hidden></p>
+
+      <div class="fb-alert" data-fb-error hidden></div>
+
+      <form class="fb-form" action="/api/feedback" method="POST">
+        <input type="hidden" name="plugin" data-fb-plugin value="">
+        <input type="hidden" name="version" data-fb-version value="">
+
+        <!-- Honeypot: hidden from humans; bots that fill it get a silent no-op. -->
+        <div class="fb-hp" aria-hidden="true">
+          <label>Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <label class="fb-label" for="fb-type">What kind of feedback?</label>
+        <select class="fb-input" id="fb-type" name="type">
+          <option value="bug">Bug report</option>
+          <option value="idea">Feature idea</option>
+          <option value="other">Something else</option>
+        </select>
+
+        <label class="fb-label" for="fb-message">Your feedback</label>
+        <textarea class="fb-input fb-textarea" id="fb-message" name="message" required minlength="3" maxlength="5000"
+          placeholder="What happened, or what would make this better? The more detail, the faster we can act on it."></textarea>
+
+        <label class="fb-label" for="fb-email">Email <span class="fb-optional">— optional, only if you'd like a reply</span></label>
+        <input class="fb-input" id="fb-email" type="email" name="email" placeholder="you@example.com" autocomplete="email">
+
+        <button class="btn btn-primary fb-submit" type="submit">Send feedback</button>
+
+        <p class="fb-privacy">Your message is stored to improve the plugins. Email is optional and used only to reply.
+          See our <a href="/privacy/">privacy policy</a>.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .fb-form { margin-top: 1.5rem; display: flex; flex-direction: column; }
+  .fb-label { font-weight: 600; color: var(--text); margin: 1.1rem 0 .4rem; }
+  .fb-optional { font-weight: 400; color: var(--text-muted); }
+  .fb-input {
+    width: 100%; font-family: var(--font); font-size: 1rem; color: var(--text);
+    background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: .7rem .8rem; transition: border-color var(--transition), box-shadow var(--transition);
+    box-sizing: border-box;
+  }
+  .fb-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-light); }
+  .fb-textarea { min-height: 160px; resize: vertical; line-height: 1.55; }
+  .fb-submit { margin-top: 1.4rem; align-self: flex-start; cursor: pointer; }
+  .fb-privacy { margin-top: 1rem; font-size: .85rem; color: var(--text-muted); }
+  .fb-context {
+    margin-top: 1rem; padding: .6rem .9rem; border-radius: var(--radius-sm);
+    background: var(--accent-light); color: var(--accent-text); font-size: .92rem; font-weight: 500;
+  }
+  .fb-alert {
+    margin-top: 1rem; padding: .7rem .9rem; border-radius: var(--radius-sm);
+    background: #FEF2F2; color: #B91C1C; border: 1px solid #FECACA; font-size: .92rem;
+  }
+  /* Honeypot — visually and from-AT hidden, but still in the DOM for bots. */
+  .fb-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+</style>
+
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  var plugin = (params.get('plugin') || '').slice(0, 80);
+  var version = (params.get('v') || params.get('version') || '').slice(0, 80);
+
+  var pluginEl = document.querySelector('[data-fb-plugin]');
+  var versionEl = document.querySelector('[data-fb-version]');
+  var contextEl = document.querySelector('[data-fb-context]');
+  if (pluginEl) pluginEl.value = plugin;
+  if (versionEl) versionEl.value = version;
+
+  if (plugin && contextEl) {
+    contextEl.textContent = 'You’re reporting on ' + plugin + (version ? ' v' + version : '') + '.';
+    contextEl.hidden = false;
+  }
+
+  var status = params.get('status');
+  var errs = {
+    'invalid': 'Please add a short message (at least a few words) so we know what to look at.',
+    'blocked': 'That’s a few too many submissions in a short time. Please try again in a little while.',
+    'error':   'Something went wrong on our end. Please try again, or email hello@godberrystudios.com.'
+  };
+  var errEl = document.querySelector('[data-fb-error]');
+  if (status && errs[status] && errEl) {
+    errEl.textContent = errs[status];
+    errEl.hidden = false;
+  }
+})();
+</script>
+{{ end }}

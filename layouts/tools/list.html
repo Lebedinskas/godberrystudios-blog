@@ -1,0 +1,45 @@
+{{ define "main" }}
+<section class="page-header">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+  </div>
+</section>
+{{ with .Content }}
+<section class="page-intro">
+  <div class="container container-narrow">
+    <div class="post-content">{{ . }}</div>
+  </div>
+</section>
+{{ end }}
+
+{{ if .Sections }}
+  {{/* Hub page: render each category as its own section of product cards. */}}
+  {{ range .Sections.ByWeight }}
+  <section class="studio-tools-block">
+    <div class="container">
+      <h2>{{ .Title }}</h2>
+      {{ with .Params.dek }}<p class="section-dek">{{ . }}</p>{{ end }}
+      <div class="tools-grid">
+        {{ range .Pages.ByWeight }}{{ partial "product-card.html" . }}{{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+{{ else }}
+  {{/* Single category page: just this category's products. */}}
+  <section class="studio-tools-block">
+    <div class="container">
+      <div class="tools-grid">
+        {{ range .Pages.ByWeight }}{{ partial "product-card.html" . }}{{ end }}
+      </div>
+    </div>
+  </section>
+{{ end }}
+
+<style>
+  .section-dek { color: var(--text-muted); margin: -.25rem 0 1.25rem; max-width: 60ch; }
+  .tool-card-actions { display:flex; gap:.5rem; flex-wrap:wrap; margin-top:1rem; }
+  .tool-card-actions .btn { font-size:.9rem; }
+</style>
+{{ end }}

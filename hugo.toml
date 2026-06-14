@@ -71,7 +71,7 @@ googleAnalytics = "G-C98MN3XRGK"
   weight = 5
 
 [[menu.main]]
-  name = "Tools"
+  name = "Tools & Plugins"
   url = "/tools/"
   weight = 6
 
