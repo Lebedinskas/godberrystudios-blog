@@ -2,7 +2,7 @@
 title: "How to Monetize MCP Servers in 2026: The Developer's Revenue Playbook"
 description: "A practitioner guide to charging for MCP servers in 2026 — pricing models, platform economics (Apify, MCPize, self-hosted), real revenue data, code patterns, and the pitfalls that quietly kill margins."
 date: 2026-05-18
-lastmod: 2026-05-22
+lastmod: 2026-07-26
 categories: ["mcp"]
 tags: ["mcp", "monetization", "apify", "x402"]
 keywords: ["monetize MCP server", "MCP server income", "paid MCP server", "MCP server revenue", "how to monetize MCP", "MCP pricing models", "Apify MCP monetization", "MCPize revenue share"]
@@ -265,6 +265,26 @@ MCP is the first mainstream API surface where the majority of buyers will be aut
 **Dispute surfaces.** Humans email you when overcharged. Agents don't. Build a `/usage` endpoint that returns the last N calls with timestamps, costs, and results — the agent's human operator will use it for end-of-month reconciliation. Servers without it get disputed more often.
 
 The [WebMCP standard going into Chrome](/posts/webmcp-chrome-ai-agents-explained/) only accelerates this. AWS Bedrock AgentCore Payments shipped in preview on 2026-05-07; the seller-side decision tree lives in the [AgentCore Payments operator playbook](/posts/aws-bedrock-agentcore-payments-operator-playbook-2026/).
+
+---
+
+## An agent that opens its own merchant account
+
+Everything above assumes a human sets up billing once, and the agents just call the tool afterwards. In July 2026 someone showed up and questioned that assumption.
+
+It started with a cold email. Oded Kovach, co-founder and CTO of UniPaaS — a UK FCA-authorised payment institution — wrote to say this guide was missing a layer: whoever charges money needs a merchant account, and getting one is still the slowest step for an indie developer. He's right about that being the slow step. I was more sceptical about his fix, so before writing a word I pointed an MCP client at [paas.build](https://paas.build) and ran their sandbox myself.
+
+It worked, and I didn't expect it to work this well. From a cold start — no signup, no dashboard, no API key — the agent read my business off its own website, opened a payment vendor, and handed back a working branded checkout. Three calls, no human anywhere in the loop. If you've ever watched a launch sit still for a week while a merchant application crawled through someone's queue, you'll understand why that made me sit up.
+
+Then the regulated world reasserts itself, which is fair enough — this is money, and money has rules. The instant account is provisional: capped at 1,500 GBP/EUR until full verification clears, after which the cap lifts. Oded's framing is that the cap is the thing that makes same-day onboarding legal, rather than a limitation they're hiding. Having watched how it behaves, I think that's an honest description.
+
+The part I couldn't settle on my own was Europe. In my sandbox test a vendor declared as Lithuanian came back provisioned as UK, and the bank step asked for a UK account — which matters to me, because I'm a Lithuanian sole trader, and it'll matter to a lot of you. So I asked him straight out, and he answered the same way: EU support is live rather than roadmap, running on J.P. Morgan Ireland. Because that rail is newer than the UK one, EU merchants go through extra verification, so an account goes live in about 24 hours instead of the same session — and EUR payouts to a local IBAN are supported. I haven't run that path end to end yet. When I do, this section gets a dated update, whichever way it goes.
+
+Two more things worth knowing before you try it. They're not a merchant of record, so VAT stays with you — same as Stripe, unlike Paddle or Lemon Squeezy. Oded volunteered that limitation before I asked, which is not the usual reflex when you ask a payments company about tax. And the product is genuinely young: it launched in early July, and as of 2026-07-26 the pricing page still carries `[pending]` placeholders where the dispute-fee and payout-timing policies belong. That's the honest state of it right now.
+
+If you'd like to form your own view, it costs nothing: the sandbox is free and needs no account at all. Install the server (`claude plugin install unipaas@unipaas`, or point any MCP client at `@paasbuild/mcp`) and ask your agent to go live. One friendly heads-up from reading their source — `go_live` provisions a production account alongside the sandbox one by default, so pass `env: "sandbox"` if you're only curious.
+
+The takeaway isn't "switch to paas.build." It's that the claim I opened this post with — the plumbing is the easy part — keeps getting truer, and the frontier has now reached account opening rather than just per-call billing. Pick the rail that already serves your country and your buyers, and let this mature around you. I'll be watching it, partly to see whether the EU path lives up to the answer I got, and partly because I have a soft spot for anyone who builds the boring, hard, regulated thing instead of shipping another wrapper.
 
 ---
 
