@@ -17,11 +17,12 @@ The work is small, sharp tools that let AI agents actually *do* things — extra
 
 **Products — pay-per-use on the Apify Store:**
 
-- **[Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper)** — pull Google Maps reviews for any business in under 60 seconds. Validated across 9 countries. From $0.10 per place.
-- **[Yelp Scraper](https://apify.com/godberry/yelp-scraper)** — full Yelp business profile + every review + menu + photo gallery in a single call. Worldwide (any `yelp.<tld>`), multilingual dates, no Yelp Fusion API key, no 3-review cap. Pay-per-event from $4.00 / 1,000 business profiles.
-- **[Content-to-Social MCP Server](https://apify.com/godberry/content-to-social-mcp)** — turn any URL, article, or text into ready-to-post social content. Callable directly from Claude, ChatGPT, and any MCP client. $0.07 per transformation.
+- **[Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper)** — pull Google Maps reviews for any business in under 60 seconds. Validated across 9 countries, 97.8% success rate in July 2026. From $0.05 per batch of up to 50 reviews.
+- **[Google Maps Leads Scraper](https://apify.com/godberry/google-maps-leads-scraper)** — turn a Maps search into a structured B2B lead list: name, category, rating, review count, address, coordinates, hours. $1.50 per 1,000 leads.
+- **[Yelp Scraper](https://apify.com/godberry/yelp-scraper)** — full Yelp business profile + every review + menu + photo gallery in a single call. Worldwide (any `yelp.<tld>`), multilingual dates, no Yelp Fusion API key, no 3-review cap. From $1.00 / 1,000 business profiles.
+- **[Google Play Reviews Scraper](https://apify.com/godberry/google-play-reviews-scraper)** — Google Play app reviews at scale, with rating, text, date and app version. $0.10 per 1,000 reviews.
 
-More tools are in the pipeline — subscribe on the homepage for early access.
+Not everything worked. [Content-to-Social MCP](/tools/apify/content-to-social-mcp/) shipped in April 2026, found no paying users, and I stopped marketing it two weeks later — it's still listed but unmaintained. I write up the failures as well as the wins; that's the point of the blog.
 
 **Open source on GitHub:**
 

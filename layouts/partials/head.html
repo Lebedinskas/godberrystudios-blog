@@ -13,7 +13,7 @@
   {{- if in (slice "taxonomy" "term") .Kind -}}
     {{- if eq .Data.Plural "tags" -}}{{- $isTagPage = true -}}{{- end -}}
   {{- end -}}
-  {{- if $isTagPage -}}
+  {{- if or $isTagPage .Params.noindex -}}
   <meta name="robots" content="noindex, follow">
   {{- else -}}
   <meta name="robots" content="max-image-preview:large">
@@ -49,9 +49,17 @@
   <!-- Canonical -->
   <link rel="canonical" href="{{ .Permalink }}">
 
-  <!-- RSS -->
+  <!-- RSS: page-level feed if this page has one, otherwise the site feed -->
   {{ with .OutputFormats.Get "RSS" }}
     <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .Permalink }}">
+  {{ else }}
+    <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ "index.xml" | absURL }}">
+  {{ end }}
+
+  <!-- Clean Markdown of this page, for AI agents and LLM crawlers.
+       Every regular page is also published as text/markdown at <url>index.md -->
+  {{ if .IsPage }}
+    <link rel="alternate" type="text/markdown" title="Markdown source" href="{{ printf "%sindex.md" .RelPermalink }}">
   {{ end }}
 
   <!-- JSON-LD Structured Data -->

@@ -113,7 +113,7 @@ A minimal example for a documentation site:
 ## Docs
 
 - [Content-to-Social MCP](https://godberrystudios.com/products/content-to-social-mcp/): Transform one article into six social posts
-- [Google Reviews Scraper](https://godberrystudios.com/products/google-reviews-scraper/): Extract review data at $0.10 per place
+- [Google Reviews Scraper](https://godberrystudios.com/tools/apify/google-reviews-scraper/): Extract review data from $0.05 per batch
 
 ## Posts
 

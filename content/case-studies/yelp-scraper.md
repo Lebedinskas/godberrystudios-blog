@@ -67,14 +67,17 @@ Pay-per-event, not per-run. Each event has a fixed USD price and fires when the 
 
 | Event | Price (USD) | Fires when |
 |---|---|---|
-| `actor-start` | **$0.001** | Once per run — a single flat charge, regardless of how many businesses the run processes |
-| `business-returned` | **$0.004** | Primary value event — full business profile parsed |
-| `review-returned` | **$0.0008** | Each review scraped |
-| `menu-item-returned` | **$0.0005** | Each menu item scraped |
+| `business-returned` | **$0.001** | Primary value event — full business profile parsed |
+| `review-returned` | **$0.0002** | Each review scraped |
+| `menu-item-returned` | **$0.0001** | Each menu item scraped |
 
-For the Dishoom test — one run, 1 business + 20 reviews + 34 menu items — that's `$0.001 + $0.004 + (20 × $0.0008) + (34 × $0.0005) = $0.038`. **About four cents.**
+There is no start fee. I removed it on 2026-06-30 — a flat charge for starting a run bills people before they've received anything, and it made the actor ineligible for agent-driven x402 payments. You pay only for data that actually arrives.
 
-`actor-start` fires exactly once per run, so at any real scale it's negligible — $0.001 spread across a 1,000-business job rounds to nothing. The math that matters is the per-business and per-review events. A 1,000-business run with profiles only: `1000 × $0.004 = $4` (plus the one $0.001 start = ~$4). The same 1,000 businesses with 20 reviews each: `$4 + (1000 × 20 × $0.0008) = $4 + $16 = $20`. The flat per-event design means costs track value — a quick-lookup user pays cents, a deep-extraction user pays proportionally more.
+For the Dishoom test — one run, 1 business + 20 reviews + 34 menu items — that's `$0.001 + (20 × $0.0002) + (34 × $0.0001) = $0.0084`. **Under one cent.**
+
+The math that matters is the per-business and per-review events. A 1,000-business run with profiles only: `1000 × $0.001 = $1`. The same 1,000 businesses with 20 reviews each: `$1 + (1000 × 20 × $0.0002) = $1 + $4 = $5`. The flat per-event design means costs track value — a quick-lookup user pays a fraction of a cent, a deep-extraction user pays proportionally more.
+
+*Prices last verified against the live listing on 2026-07-26. They came down roughly 4× on 2026-06-10; if you read an older version of this page, the figures were higher.*
 
 The official Yelp Fusion API, by comparison, returns 140-180 character review excerpts (no full text) and caps at 5,000 calls/day per app. For full-text analysis the API is not the answer. There's no public-cost equivalent to compare against — you scrape, license a vendor feed, or do without.
 
@@ -94,7 +97,7 @@ You sell B2B software to restaurants and need a list of every Indian restaurant 
 
 **The wiring:** point the actor at a Yelp search URL (`yelp.co.uk/search?find_desc=Indian&find_loc=London`) — it walks the result set, follows each business URL, and returns the full profile + 20 most recent reviews per location. Pipe the dataset into Google Sheets or a CRM via Apify's CSV/Excel export.
 
-**The math:** 200 businesses × $0.004 + 200 × 20 reviews × $0.0008 = **$4.00** for the entire metro's lead list, including review recency to filter out closed/dormant ones.
+**The math:** 200 businesses × $0.001 + 200 × 20 reviews × $0.0002 = **$1.00** for the entire metro's lead list, including review recency to filter out closed/dormant ones.
 
 ### 2. Travel-content review aggregation
 
@@ -102,7 +105,7 @@ You publish a travel blog with city guides. Each guide needs 8-12 restaurants pe
 
 **The wiring:** one-shot run against your shortlist of business URLs across destinations (e.g., 100 restaurants across 10 cities). Pipe the dataset into a Claude or GPT call with a content-templating prompt. Output: drafted city-guide entries with extracted highlights, ready for editorial pass.
 
-**The math:** 100 businesses × ($0.004 + 5 reviews × $0.0008) = **$0.80**. Plus $3-8 in LLM tokens. The whole city-guide content layer for under $10.
+**The math:** 100 businesses × ($0.001 + 5 reviews × $0.0002) = **$0.20**. Plus $3-8 in LLM tokens. The whole city-guide content layer for well under $10, and the scraping is the rounding error.
 
 ### 3. PE due diligence on a multi-location target
 
@@ -110,7 +113,7 @@ You're evaluating a target acquisition with 25 restaurant locations across the U
 
 **The wiring:** schedule the actor against the 25 location URLs once a month. Push the dataset into a warehouse table (Snowflake, BigQuery, Postgres). Build dashboard queries: rolling 90-day average rating, monthly delta per location, percentage of reviews that received an owner response inside 7 days.
 
-**The math:** 25 locations × 20 reviews × $0.0008 + 25 × $0.004 = **$0.50/month**, or $6/year for the full competitive-intel feed. The pattern doubles as the cross-platform play covered in [the 4-platform restaurant intelligence stack](/posts/multi-platform-restaurant-intelligence-stack-2026/).
+**The math:** 25 locations × 20 reviews × $0.0002 + 25 × $0.001 = **$0.13/month**, or about $1.50/year for the full competitive-intel feed. The pattern doubles as the cross-platform play covered in [the 4-platform restaurant intelligence stack](/posts/multi-platform-restaurant-intelligence-stack-2026/).
 
 ## The anti-bot reality, told honestly
 

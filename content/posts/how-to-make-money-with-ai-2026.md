@@ -1,5 +1,6 @@
 ---
 title: "How to Make Money with AI in 2026: 12 Ways People Actually Do It"
+noindex: true
 description: "An honest look at 12 ways people earn money with AI in 2026 — what each one really pays, what it costs to start, and how long it takes. Written by someone still early in the journey himself."
 date: 2026-05-22
 lastmod: 2026-05-22

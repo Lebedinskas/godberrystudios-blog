@@ -9,7 +9,7 @@ author: Tomas Lebedinskas
 {{ with .Params.tags }}tags: {{ . | jsonify }}{{ end }}
 ---
 
-{{ .RawContent | safeHTML }}
+{{ .RenderShortcodes }}
 {{- with .Params.faq }}
 
 ## Frequently asked questions

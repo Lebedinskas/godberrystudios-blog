@@ -246,10 +246,16 @@ Export your scored, enriched leads as CSV and import into whatever you use — H
 
 Lead lists are more powerful when you also have the reviews. If you're pitching a restaurant on marketing services, and you can open with "I noticed your last 10 reviews mention slow service on weekends" — that's a personalized email that gets opened.
 
-The [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) on Apify pulls full review text, ratings, dates, and owner responses for any Google Maps listing. At $0.10 per place for up to 50 reviews, it's cheap enough to enrich your entire lead list. Feed those reviews into a sentiment analysis tool or just scan them manually for patterns — either way, you now know more about the business than their own marketing team does. If your prospect is a local business owner themselves, my [2026 Google Reviews playbook for local businesses](/posts/google-reviews-playbook-2026/) gives you the language and data points to build a consultative opener.
+The [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) on Apify pulls full review text, ratings, dates, and owner responses for any Google Maps listing. At $0.05 per batch of up to 50 reviews, it's cheap enough to enrich your entire lead list. Feed those reviews into a sentiment analysis tool or just scan them manually for patterns — either way, you now know more about the business than their own marketing team does. If your prospect is a local business owner themselves, my [2026 Google Reviews playbook for local businesses](/posts/google-reviews-playbook-2026/) gives you the language and data points to build a consultative opener.
 
-{{< cta title="Extract Google Reviews in Seconds" url="https://apify.com/godberry/google-reviews-scraper" >}}
-Get structured review data for any Google Maps business — ratings, full text, dates, owner responses. No code needed. Starting at $0.10 per place.
+### If you'd rather not build the scraper yourself
+
+I got tired enough of rebuilding this pipeline that I shipped it as an actor. The [Google Maps Leads Scraper](https://apify.com/godberry/google-maps-leads-scraper) takes a search — "dentists in Vilnius", "plumbers near Manchester" — and returns the structured lead list this whole post describes: name, category, rating, review count, address, coordinates, opening hours. It reads the result cards only, never opening each business page, which is exactly why it costs **$0.0015 per lead** ($1.50 per 1,000) instead of the per-page pricing most Maps actors charge. You pay per lead returned, not per run.
+
+Pair the two and a full enriched territory — a thousand businesses with reviews attached — lands under $10.
+
+{{< cta title="Turn a Maps search into a lead list" url="https://apify.com/godberry/google-maps-leads-scraper" >}}
+Search in, structured B2B leads out — name, category, rating, reviews, address, coordinates, hours. $1.50 per 1,000 leads, charged only for leads actually returned.
 {{< /cta >}}
 
 ## The Legal Section You Shouldn't Skip

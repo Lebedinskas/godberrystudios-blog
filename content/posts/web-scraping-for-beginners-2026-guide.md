@@ -165,7 +165,7 @@ Let's walk through a real use case that combines multiple scraping concepts into
 
 ### Step 1: Extract the Reviews
 
-Use the [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) to pull reviews for 5 businesses. At $0.10 per place (up to 50 reviews), one monitoring run costs $0.50.
+Use the [Google Reviews Scraper](https://apify.com/godberry/google-reviews-scraper) to pull reviews for 5 businesses. At $0.05 per batch of up to 50 reviews, one monitoring run costs $0.25.
 
 For a detailed walkthrough of this tool, see my [guide to scraping Google reviews](/posts/how-to-scrape-google-reviews/).
 
